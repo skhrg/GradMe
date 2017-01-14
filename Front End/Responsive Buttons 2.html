@@ -4,14 +4,10 @@
 <head>
 
 	<meta charset="utf-8">
-	<!-- Always force latest IE rendering engine & Chrome Frame -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>GradMe</title>
-	<meta name="description" content="We're trying to make nice buttons : )">
 	<meta name="keywords" content="graduate, major requirements, easy, web design">
-
-
 	<meta http-equiv="cleartype" content="on">
 
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -19,26 +15,8 @@
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-<style type="text/css">
-	<!-- HTML5 Reset -->
 
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-	display: inline-block;
-}
-
-input, select {
-    vertical-align: middle;
-}
-
-	body { padding:2em; font : 100%/1.4 'Helvetica Neue', arial, helvetica, helve, sans-serif; 	
-	}
-
-	.header { padding:1em 0; }
-	.col { background: #9bddff; padding:1em 0; text-align:center;}
-
-<!--for fonts-->
+<style> 
 	@font-face {font-family: "Quadon";
     src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot");
     src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot?#iefix") format("embedded-opentype"),
@@ -52,69 +30,50 @@ input, select {
     url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.ttf") format("truetype"),
     url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.svg#GentonaW00-SemiBold") format("svg");
 	}
+</style>
 
-.section {clear: both; padding: 1%; margin: 0 0 2.5% 1%;}
 
-.col {display: block; float:left; margin: 1% 0 1% 1.4%;}
+<style type="text/css">
+	body { padding:1%; font : 100%/1.4 'Helvetica Neue', arial, helvetica, helve, sans-serif; 	
+	}
+	.header { padding:1em 0; }
+	.col { background: #9bddff; padding:1em 0; text-align:center;}
+
+.section {clear: both; padding-left: 2.5vw; margin: 0px;}
+.col {display: block; float:left; margin: 1% 0 1% 1%;}
 .col:first-child { margin-left: 0%; }
-
 .group:before,
-.group:after {content:""; display:table;}
+.group:after {
+	content:"";
+	display:table;
+}
 .group:after {clear:both;}
-.group {zoom:1; /* For IE 6/7 */}
-.span_1_of_3 {
-	width: 31.2%; 
-}
+.group {zoom:1;}
 
-.border {
-	border: 3%;   
-    border-color: #000;
-    border-style: solid;
-}
-.border:hover {
-	background-color: #F60;
-	border-color: #fff; 
-	transition-delay: 0.2s;
-}
+.span_1_of_3 {width: 31.2%;}
 
-/*  GO FULL WIDTH AT LESS THAN 648 PIXELS */
+.border {border: 3%; border-color: #000; border-style: solid;}
+.border:hover {background-color: #FF6600;border-color: #000; transition-delay: 0.2s;}
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 648px) {
 	.col { margin: 1% 0 1% 0%;}
-	.span_1_of_3 { width: 99%; }
+	.span_1_of_3 { width: 100%; }
 	.header-text {font-size: 200% !important;}
-	/*.section{margin-left: -1%; padding-top: 5%;}*/
+	.section {padding-left: 0vw; padding-right: 1vw;}
 }
+.header-text {font-size: 3vw;color: #000000;font-family: Gentona-SemiBold;}   
+.header-text:hover {display: inline-block; color: #fff; transition: color .3s;}
 
-.header-text {
-        font-size: 3vw;
-        color: #000000;
-        font-family: Gentona-SemiBold;
-    }
-    
-.header-text:hover {
-    display: inline-block;
-    color: #fff;
-    transition: color .3s;
-}
-
-.underline {
-    margin-bottom: 5%;
-}
-
-.link {
-    display: inline-block; color: #000; text-decoration: none;}
-
-.link::after {
-    content: ''; display: block; width: 0; height: 4px; background: #000; transition: width .3s;}
-
+.underline {margin-bottom: 3%;}
+.link {display: inline-block;color: #000;text-decoration: none;}
+.link::after {content: ''; display: block; width: 0; height: 4px; background: #000;transition: width .3s;}
 .link:hover::after {width: 100%; transition: width .3s;}
 
 </style>
 
 <body >
 
-<section id="info-form" style="background-color: #F60">
+<section id="info-form">
 	<form><div class="section group">
 	
 		<div class="col border span_1_of_3">
