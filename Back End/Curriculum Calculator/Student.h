@@ -4,11 +4,11 @@ using namespace std;
 class Student
 {
   int university;
-  Major* majors;
-  int* taken;
+  std::vector<Major> majors;
+  std::vector<int> taken;
   public:
     Student(int);
     int getUniversity();
-    Major* getMajors();
-    int* getTaken();
+    std::vector<Major> getMajors();
+    std::vector<int> getTaken();
 };

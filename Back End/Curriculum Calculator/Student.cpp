@@ -10,12 +10,12 @@ int Student::getUniversity()
   return university
 }
 
-Major* Student::getMajors()
+std::vector<Major> Student::getMajors()
 {
   return majors;
 }
 
-int* Student::getTaken()
+std::vector<int> Student::getTaken()
 {
   return taken;
 }

@@ -1,18 +1,19 @@
+#include <vector>
 using namespace std;
 
 class Major
 {
   int department, university;
-  int* reqCourses;
-  int** choiceCourses;
-  int* shiz;
-  int* distReq;
+  std::vector<int> reqCourses;
+  std::vector<std::vector<int>> choiceCourses;
+  std::vector<int> shiz;
+  std::vector<int> distReq;
   public:
-    Major(int, int, int*, int**, int*, int*);
+    Major(int, int, std::vector<int>, std::vector<std::vector<int>>, std::vector<int>, std::vector<int>);
     int getDepartment();
     int getUniversity();
-    int* getReqCourses();
-    int** getChoiceCourses();
-    int* getShiz();
-    int* getDistReq();
+    std::vector<int> getReqCourses();
+    std::vector<std::vector<int>> getChoiceCourses();
+    std::vector<int> getShiz();
+    std::vector<int> getDistReq();
 };
