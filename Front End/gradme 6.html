@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<link href="http://db.onlinewebfonts.com/c/3df69735a1d2eed66c960a5536487362?family=QuadonW00-Regular" rel="stylesheet" type="text/css"/>
-  	<link href="https://db.onlinewebfonts.com/c/a28854e1db150c80e69c915280190573?family=GentonaW00-SemiBold" rel="stylesheet" type="text/css"/>
 	<meta charset="utf-8">
 	<!-- Always force latest IE rendering engine & Chrome Frame -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>GradMe</title>
-	<meta name="description" content="We're trying to make nice buttons : )">
 	<meta name="keywords" content="graduate, major requirements, easy, web design">
 
 
@@ -89,85 +86,41 @@
 	.col { background: #9bddff; padding:1em 0; text-align:center;}
 </style>
 	
-<style>
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
-}
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
+<style type="text/css">
+    body { padding:1%; font : 100%/1.4 'Helvetica Neue', arial, helvetica, helve, sans-serif;   
+    }
+    .header { padding:1em 0; }
+    .col { background: #9bddff; padding:1em 0; text-align:center;}
+
+.section-menu {clear: both; padding-left: 2.5vw; margin: 0px;}
+.col {display: block; float:left; margin: 1% 0 1% 1%;}
 .col:first-child { margin-left: 0%; }
 .group:before,
 .group:after {
-	content:"";
-	display:table;
+    content:"";
+    display:table;
 }
-.group:after {
-	clear:both;
-}
-.group {
-    zoom:1; /* For IE 6/7 */
-}
-.span_3_of_3 {
-	width: 99%;
-}
-.span_2_of_3 {
-	width: 65.1%;
-}
-.span_1_of_3 {
-	width: 30.2%; <!--33.2% original value, without border -->
-}
-.border {
-	border: 3%;   
-    border-color: #000;
-    border-style: solid;
-}
-.border:hover {
-	background-color: #FF6600;
-	border-color: #000; 
-	transition-delay: 0.2s;
-}
-/*  GO FULL WIDTH AT LESS THAN 648 PIXELS */
+.group:after {clear:both;}
+.group {zoom:1;}
+
+.span_1_of_3 {width: 31.2%;}
+
+.border {border: 3%; border-color: #000; border-style: solid;}
+.border:hover {background-color: #FF6600;border-color: #000; transition-delay: 0.2s;}
+
 @media only screen and (max-width: 648px) {
-	.col { margin: 1% 0 1% 0%;}
-	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
-	.header-text {font-size: 200% !important;}
+    .col { margin: 1% 0 1% 0%;}
+    .span_1_of_3 { width: 100%; }
+    .header-text {font-size: 200% !important;}
+    .section-menu {padding-left: 0vw; padding-right: 1vw;}
 }
-.header-text {
-        font-size: 3vw;
-        color: #000000;
-        font-family: Gentona-SemiBold;
-    }
-    
-.header-text:hover {
-    display: inline-block;
-    color: #fff;
-    transition: color .3s;
-}
-.underline {
-    margin-bottom: 5%;
-}
-.link {
-    display: inline-block;
-    color: #000;
-    text-decoration: none;
-}
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 4px;
-    background: #000;
-    transition: width .3s;
-}
-.link:hover::after {
-    width: 100%;
-    //transition: width .3s;
-}
+.header-text {font-size: 3vw;color: #000000;font-family: Gentona-SemiBold;}   
+.header-text:hover {display: inline-block; color: #fff; transition: color .3s;}
+
+.underline {margin-bottom: 3%;}
+.link {display: inline-block;color: #000;text-decoration: none;}
+.link::after {content: ''; display: block; width: 0; height: 4px; background: #000;transition:width .3s;}
+.link:hover::after {width: 100%; transition: width .3s;}
 </style>
 	
 <body>
@@ -233,24 +186,24 @@
     </a>
 </section>
     <!-- end of carousel-->
-		
+    <!-- buttons -->
 <section id="info-form">
-	<form><div class="section group">
-	
-		<div class="col border span_1_of_3">
-			<h class="header-text text-center link underline">SELECT<br>YOUR<br>MAJOR</h3>
-		</div>
-		
-		<div class="col border span_1_of_3">
-			<h class="header-text text-center link underline">SELECT<br>YOUR<br>MINOR</h3>
-		</div>
-		
-		<div class="col border span_1_of_3">
-			<h class="header-text text-center link underline">FIND YOUR<br>PROFESSIONAL<br>TRACK</h3>
-		</div>
-		
-	</div></form>
-	    </section>
+    <form><div class="section-menu group">
+    
+        <div class="col border span_1_of_3">
+            <h class="header-text text-center link underline">SELECT<br>YOUR<br>MAJOR</h3>
+        </div>
+        
+        <div class="col border span_1_of_3">
+            <h class="header-text text-center link underline">SELECT<br>YOUR<br>MINOR</h3>
+        </div>
+        
+        <div class="col border span_1_of_3">
+            <h class="header-text text-center link underline">FIND YOUR<br>PROFESSIONAL<br>TRACK</h3>
+        </div>
+        
+    </div></form>
+</section>
 	
 </body>
 </html>
