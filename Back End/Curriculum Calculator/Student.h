@@ -10,5 +10,7 @@ class Student
     Student(int);
     int getUniversity();
     std::vector<Major> getMajors();
+    void addMajor(Major);
     std::vector<int> getTaken();
+    void addTaken(int);
 };
