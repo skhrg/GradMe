@@ -8,4 +8,7 @@ class Student
   int* taken;
   public:
     Student(int);
+    int getUniversity();
+    Major* getMajors();
+    int* getTaken();
 };
