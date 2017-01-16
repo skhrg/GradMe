@@ -1,13 +1,21 @@
 class Major
 {
   int department, university;
-  int[] reqCourses, shiz, distReq;
-  int[][] choiceCourses;
+  int* reqCourses;
+  int** choiceCourses;
+  int* shiz;
+  int* distReq;
   public:
-    Major(int, int, int[], int[][], int[], int[]);
+    Major(int, int, int*, int**, int*, int*);
+    int getDepartment();
+    int getUniversity();
+    int* getReqCourses();
+    int** getChoiceCourses();
+    int* getShiz();
+    int* getDistReq();
 };
 
-Major::Major(int dep, int uni, int[] req, int[][] choice, int[] shit, int[] dist)
+Major::Major(int dep, int uni, int* req, int** choice, int* shit, int* dist)
 {
   department = dep;
   university = uni;
@@ -32,7 +40,7 @@ int* Major::getReqCourses()
   return reqCourses;
 }
 
-int* Major::getChoiceCourses()
+int** Major::getChoiceCourses()
 {
   return choiceCourses;
 }
