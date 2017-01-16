@@ -1,11 +1,4 @@
-class Student
-{
-  int university;
-  Major* majors;
-  int* taken;
-  public:
-    Student(int);
-};
+#include "Student.h"
 
 Student::Student(int uni)
 {
