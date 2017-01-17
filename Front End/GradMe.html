@@ -45,8 +45,18 @@ html,body {
     height: 100%;
 }
 .header { padding:1em 0; }
+.header-text{font-family: Quadon; color: #fff; font-size: 350%; text-align:center;word-wrap: normal}
 
-.section-menu {clear: both; padding-left: 2vw; margin: 0px;}
+.center {
+        background: red;
+        width:100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) }
+
+.section-menu {clear: both; padding-left: 2vw; margin: 0px; border}
 .menuCol {background: #9bddff; padding: 1em; text-align:center; display: block; float:left; margin: 1.5% 0 5% 2%; border-radius: 3px;}
 .menuCol:first-child { margin-left: 0%; }
 .group:before,
@@ -67,6 +77,7 @@ html,body {
     .span_1_of_3 { width: 100%; }
     .icon-text {font-size: 200% !important;}
     .section-menu {padding-left: 1vw; padding-right: 1vw;}}
+    .center{width: 90%;height: 40%;}
 
 .icon-text {font-size: 3vw;color: #000000;font-family: Gentona-SemiBold;}   
 .icon-text:hover {display: inline-block; color: #fff; transition: color .3s;}
@@ -84,13 +95,19 @@ html,body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.nav-position {
+    background-attachment: fixed
+}
+.panel{height:100%;background-color:red; border-radius: 0;}
 
 </style>
 
 <body>
-    <div class="parallax"></div>
-    <div style="height:100%;background-color:#f60" class="header-text">
-    <form><div class="section-menu group" style="background-color: transparent;">
+    <div class="parallax">
+    <div class="header-text center">Welcome to GradMe.</div>
+    </div>
+    <div class="panel">
+    <form><div class="section-menu group">
     
         <div class="menuCol border span_1_of_3">
             <h class="icon-text text-center link underline">SELECT<br>YOUR<br>MAJOR</h>
