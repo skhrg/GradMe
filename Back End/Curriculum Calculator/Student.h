@@ -11,6 +11,8 @@ class Student
     int getUniversity();
     std::vector<Major> getMajors();
     void addMajor(Major);
+    void removeMajor(int);
     std::vector<int> getTaken();
     void addTaken(int);
+    void removeTaken(int);
 };
