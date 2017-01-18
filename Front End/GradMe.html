@@ -47,6 +47,7 @@ html,body {
 .header { padding:1em 0; }
 .header-text{font-family: Quadon; color: #fff; font-size: 350%; text-align:center;word-wrap: normal}
 
+<<<<<<< HEAD
 .center {background: transparent; width:100%; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%) }
 .circle-center{
     border-radius: 50%; background:none; position:relative; top:-45px; left:50%; margin-left:-50px; height:90px; width:90px; z-index: 999; font-size: 20px;}
@@ -67,11 +68,36 @@ html,body {
 
 .group:before,
 .group:after {content:""; display:table;}
+=======
+.center {
+        background: transparent;
+        width:100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) }
+
+.section-menu {clear: both; padding-left: 2vw; margin: 0px; border}
+.menuCol {background: #9bddff; padding: 1em; text-align:center; display: block; float:left; margin: 1.5% 0 5% 2%; border-radius: 3px;}
+.menuCol:first-child { margin-left: 0%; }
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+>>>>>>> origin/master
 .group:after {clear:both;}
 .group {zoom:1;}
 
 .span_1_of_3 {width: 31.2%;}
 
+<<<<<<< HEAD
+=======
+.border {border: 3%; border-color: #000; border-style: solid;}
+.border:hover {background-color: #FF6600;border-color: #000; transition-delay: 0.2s;}
+
+>>>>>>> origin/master
 @media only screen and (max-width: 648px) {
     .menuCol { margin: 1% 0 1% 0%;}
     .span_1_of_3 { width: 100%; }
@@ -79,11 +105,19 @@ html,body {
     .section-menu {padding-left: 1vw; padding-right: 1vw;}}
     .center{width: 90%;height: 40%;}
 
+<<<<<<< HEAD
 .icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold;}   
 .icon-text:hover {display: inline-block; color: #000; transition: color .3s;}
 /*--responsive effect--*/
 .underline {margin-bottom: 3%;}
 .link {display: inline-block;}
+=======
+.icon-text {font-size: 3vw;color: #000000;font-family: Gentona-SemiBold;}   
+.icon-text:hover {display: inline-block; color: #fff; transition: color .3s;}
+/*--responsive effect--*/
+.underline {margin-bottom: 3%;}
+.link {display: inline-block;color: #000;text-decoration: none;}
+>>>>>>> origin/master
 .link::after {content: ''; display: block; width: 0; height: 4px; background: #000;transition: width .3s;}
 .link:hover::after {width: 100%; transition: width .3s;}
 
@@ -98,7 +132,11 @@ html,body {
 .nav-position {
     background-attachment: fixed
 }
+<<<<<<< HEAD
 .panel{height:100%;background-color:#049372; border-radius: 0;}
+=======
+.panel{height:100%;background-color:#F60; border-radius: 0;}
+>>>>>>> origin/master
 
 </style>
 
@@ -107,6 +145,7 @@ html,body {
     <div class="header-text center">Welcome to GradMe.</div>
     </div>
     <div class="panel">
+<<<<<<< HEAD
     <div class="circle-center circle poo">
         <span id="arrow-high" class="glyphicon glyphicon-menu-down"></span>
         <span id="arrow-low" class="glyphicon glyphicon-menu-down"></span>
@@ -126,6 +165,23 @@ html,body {
             </div>
         
         </div></form>
+=======
+    <form><div class="section-menu group">
+    
+        <div class="menuCol border span_1_of_3">
+            <h class="icon-text text-center link underline">SELECT<br>YOUR<br>MAJOR</h>
+        </div>
+        
+        <div class="menuCol border span_1_of_3">
+            <h class="icon-text text-center link underline">SELECT<br>YOUR<br>MINOR</h>
+        </div>
+        
+        <div class="menuCol border span_1_of_3">
+            <h class="icon-text text-center link underline">FIND YOUR<br>PROFESSIONAL<br>TRACK</h>
+        </div>
+        
+    </div></form>
+>>>>>>> origin/master
 </body>
 
 </html>
