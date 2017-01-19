@@ -14,4 +14,5 @@ void main()
   std::vector<int> shit {2, 122000010, 318000010, 112001000};
   std::vector<int> dist;
   Major* AMSBSOOR = new Major::Major(550, 0, req, opt, shit, dist, true, 3);
+  jhuMajors[55013] = AMSBSOOR;
 }
