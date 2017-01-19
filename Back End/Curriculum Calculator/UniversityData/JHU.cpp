@@ -12,5 +12,5 @@ void main()
   std::vector<std::vector<int>> opt {opt1, opt2, opt3, opt4, opt5};
   std::vector<int> shit {122000010, 318000010, 112001000};
   std::vector<int> dist;
-  Major* AMSBS = new Major::Major(550, 0, req, opt, shit, dist, true);
+  Major* AMSBS = new Major::Major(550, 0, req, opt, shit, dist, true, 0);
 }
