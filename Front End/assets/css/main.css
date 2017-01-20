@@ -51,7 +51,7 @@ html,body {
 .icon-text:hover {display: inline-block; color: #000; transition: color .3s;}
 /*--responsive effect--*/
 .link {display: inline-block;}
-.link2{display: inline-block;}
+.link2{}
 .link::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 100%; left: auto; margin: auto; transform: translate(-100%,0)}
 .link:hover::after {width: 100%; transition: width .3s;}
 .link2::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 0%; left: auto; margin: auto; transform: translate(-100%,0)}
