@@ -1,5 +1,4 @@
 #include "Major.h"
-using namespace std;
 
 class Student
 {
