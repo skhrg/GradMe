@@ -1,4 +1,5 @@
 #import "../Major.cpp"
+using namespace std;
 
 void main()
 {
