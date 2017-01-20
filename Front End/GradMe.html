@@ -66,6 +66,11 @@ html,body {
 .link {display: inline-block;}
 .link::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 100%; left: auto; margin: auto; transform: translate(-100%,0)}
 .link:hover::after {width: 100%; transition: width .3s;}
+
+.link2{display: inline-block;}
+.link2::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 0%; left: auto; margin: auto; transform: translate(-100%,0)}
+.link2:hover::after {width: 100%; transition: width .3s;}
+
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
     height: 100vh;
@@ -98,7 +103,7 @@ html,body {
 
           <div id="iconA" class="menuCol span_1_of_3 icon-text text-center underline cpl">
             <!-- Option group -->
-            <div class="form-group beneath link">
+            <div class="form-group beneath link link2">
                 <select name="skills[]" id="skills" multiple class="skills " placeholder="Select Your Majors">
                     <option value=""></option> <!-- If the check is not required, submit a default value empty -->
                     <option value="Physics">Physics</option>
