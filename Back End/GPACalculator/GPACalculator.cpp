@@ -36,7 +36,7 @@ int main()
 	#include <fstream>
 	std::string collegeName;
 	std::cin >> collegeName;
-	ifstream input(collegeNameSetting + ".txt");		//assuming the only info in the txt file is that specific settings
+	ifstream input(collegeName + "GPASetting.txt");		//assuming the only info in the txt file is that specific settings
 	input >> choice;
 	*/
 	while (check == 0)
