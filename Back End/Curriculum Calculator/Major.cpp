@@ -2,52 +2,52 @@
 
 Major::Major(int dep, int uni, std::vector<int> req, std::vector<std::vector<int>> choice, std::vector<int> shit, int deg, int foc, int reqC)
 {
-   department = dep;
-   university = uni;
-   reqCourses = req;
-   choiceCourses = choice;
-   shiz = shit;
-   degree = deg;
-   focusArea = foc;
-   reqCredits = reqc;
+  department = dep;
+  university = uni;
+  reqCourses = req;
+  choiceCourses = choice;
+  shiz = shit;
+  degree = deg;
+  focusArea = foc;
+  reqCredits = reqc;
 }
 
 int Major::getDepartment()
 {
-   return department;
+  return department;
 }
 
 int Major::getUniversity()
 {
-   return university;
+  return university;
 }
 
 std::vector<int> Major::getReqCourses()
 {
-   return reqCourses;
+  return reqCourses;
 }
 
 std::vector<std::vector<int>> Major::getChoiceCourses()
 {
-   return choiceCourses;
+  return choiceCourses;
 }
 
 std::vector<int> Major::getShiz()
 {
-   return shiz;
+  return shiz;
 }
 
 int Major::getDegree()
 {
-   return degree;
+  return degree;
 }
 
 int Major::getFocusArea()
 {
-   return focusArea;
+  return focusArea;
 }
 
 int Major::getReqCredits()
 {
-   return reqCredits;
+  return reqCredits;
 }
