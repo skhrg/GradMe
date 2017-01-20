@@ -7,7 +7,7 @@ class Major
   std::vector<std::vector<int>> choiceCourses;
   std::vector<int> shiz;
   std::vector<int> distReq;
-  int degree;
+  int degree;                   //Distinguishes between type of degree i.e. B.S., B.A., B.F.A, Associate, etc
   public:
     Major(int, int, std::vector<int>, std::vector<std::vector<int>>, std::vector<int>, std::vector<int>, int, int);
     int getDepartment();
