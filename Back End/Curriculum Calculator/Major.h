@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 class Major
 {
@@ -8,15 +7,17 @@ class Major
   std::vector<std::vector<int>> choiceCourses;
   std::vector<int> shiz;
   std::vector<int> distReq;
-  bool degree; //False for BA and True for BS
+  int degree;                   //Distinguishes between type of degree: 0 for B.A, 1 for B.S., more to add later
+  int reqCredits;
   public:
-    Major(int, int, std::vector<int>, std::vector<std::vector<int>>, std::vector<int>, std::vector<int>, bool, int);
+    Major(int, int, std::vector<int>, std::vector<std::vector<int>>, std::vector<int>, std::vector<int>, int, int, int);
     int getDepartment();
     int getUniversity();
     std::vector<int> getReqCourses();
     std::vector<std::vector<int>> getChoiceCourses();
     std::vector<int> getShiz();
     std::vector<int> getDistReq();
-    bool getDegree();
+    int getDegree();
     int getFocusArea();
+    int getReqCredits();
 };

@@ -1,6 +1,6 @@
 #include "Major.h"
 
-Major::Major(int dep, int uni, std::vector<int> req, std::vector<std::vector<int>> choice, std::vector<int> shit, std::vector<int> dist, bool deg, int foc)
+Major::Major(int dep, int uni, std::vector<int> req, std::vector<std::vector<int>> choice, std::vector<int> shit, std::vector<int> dist, int deg, int foc, int reqC)
 {
    department = dep;
    university = uni;
@@ -10,6 +10,7 @@ Major::Major(int dep, int uni, std::vector<int> req, std::vector<std::vector<int
    distReq = dist;
    degree = deg;
    focusArea = foc;
+   reqCredits = reqc;
 }
 
 int Major::getDepartment()
@@ -42,7 +43,7 @@ std::vector<int> Major::getDistReq()
    return distReq;
 }
 
-bool Major::getDegree()
+int Major::getDegree()
 {
    return degree;
 }
@@ -50,4 +51,9 @@ bool Major::getDegree()
 int Major::getFocusArea()
 {
    return focusArea;
+}
+
+int Major::getReqCredits()
+{
+   return reqCredits;
 }

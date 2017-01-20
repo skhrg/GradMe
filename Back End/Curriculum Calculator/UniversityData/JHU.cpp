@@ -1,5 +1,4 @@
 #import "../Major.cpp"
-using namespace std;
 
 void main()
 {
@@ -13,6 +12,6 @@ void main()
       std::vector<std::vector<int>> opt {opt1, opt2, opt3, opt4, opt5, opt6};
    std::vector<int> shit {2, 122000010, 318000010, 112001000};
    std::vector<int> dist;
-   Major* AMSBSOOR = new Major::Major(550, 0, req, opt, shit, dist, true, 3);
+   Major* AMSBSOOR = new Major::Major(550, 0, req, opt, shit, dist, 1, 3);
    jhuMajors[55013] = AMSBSOOR;
 }
