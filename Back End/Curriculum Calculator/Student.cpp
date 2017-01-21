@@ -114,13 +114,14 @@ void calculateRequired()
          }
          else if (required[k][0] == 2)
 		 {
-			for (int l = 2 ; l < required[k].size() ;)
+			for (int l = 2 ; l < required[k].size() ; l++)
 			{
-				if((required[k][l] / ))
-				else
-				{
-					l++;
-				}
+				if((required[k][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 && 
+				(required[k][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) && 
+				((((required[k][l][j] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
+				((((majors[i].getReqCourses()[j] / 100000000000000)%10)*100) + (((majors[i].getReqCourses()[j] / 10000000000000)%10)*10) + (majors[i].getReqCourses()[j] / 1000000000000)%10))
+				|| )
+				)
 			}
 			if (required[k][1] == 0)
 			{
