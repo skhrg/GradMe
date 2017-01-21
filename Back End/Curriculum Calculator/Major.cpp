@@ -1,6 +1,6 @@
 #include "Major.h"
 
-Major::Major(int dep, int uni, std::vector<int> req, std::vector<std::vector<int>> choice, std::vector<std::vector<int>> shit, int deg, int foc, int reqC)
+Major::Major(int dep, int uni, std::vector<long> req, std::vector<std::vector<long>> choice, std::vector<std::vector<long>> shit, int deg, int foc, int reqC)
 {
   department = dep;
   university = uni;
@@ -22,17 +22,17 @@ int Major::getUniversity()
   return university;
 }
 
-std::vector<int> Major::getReqCourses()
+std::vector<long> Major::getReqCourses()
 {
   return reqCourses;
 }
 
-std::vector<std::vector<int>> Major::getChoiceCourses()
+std::vector<std::vector<long>> Major::getChoiceCourses()
 {
   return choiceCourses;
 }
 
-std::vector<std::vector<int>> Major::getShiz()
+std::vector<std::vector<long>> Major::getShiz()
 {
   return shiz;
 }
