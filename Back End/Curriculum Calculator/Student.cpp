@@ -40,7 +40,7 @@ void Student::removeMajor(int dep)
   }
 }
 
-std::vector<int> Student::getTaken()
+std::vector<long> Student::getTaken()
 {
   return taken;
 }
@@ -52,7 +52,7 @@ void Student::addTaken(int course)
 
 void Student::removeTaken(int course)
 {
-  for(std::vector<int>::iterator i = taken.begin(); i < taken.end(); i++)
+  for(std::vector<long>::iterator i = taken.begin(); i < taken.end(); i++)
   {
     if(taken[i] == course)
     {
@@ -66,8 +66,8 @@ void calculateRequired()
   required.clear();
   requiredCredits = 0;
   bool tempValue = false;
-  int seventhDigit;
-  int eigthDigit;
+  std::vector<long> FML;
+  vector
   for(int i = 0 ; i < majors.size() ; i++)
   {
     if (majors[i].getReqCredits > requiredCredits)
@@ -97,10 +97,8 @@ void calculateRequired()
 			{
 				if (majors[i].getReqCourses()[j] == required[k][l])
 				{
-					seventhDigit = (required[k][l] / 100000000)% 10; //must change if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
-					eigthDigit = (required[k][l] / 10000000)% 10;
-					required[k][1] -= ((seventhDigit * 10) + eigthDigit);
-					required[k].erase(l);
+					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10)); 
+					required[k].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
 				}
 				else
 				{
@@ -119,9 +117,14 @@ void calculateRequired()
 				if((required[k][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 && 
 				(required[k][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) && 
 				((((required[k][l][j] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
-				((((majors[i].getReqCourses()[j] / 100000000000000)%10)*100) + (((majors[i].getReqCourses()[j] / 10000000000000)%10)*10) + (majors[i].getReqCourses()[j] / 1000000000000)%10))
-				|| )
-				)
+				((((majors[i].getReqCourses()[j] / 100000000000000)%10)*100) + (((majors[i].getReqCourses()[j] / 10000000000000)%10)*10)
+				+ (majors[i].getReqCourses()[j] / 1000000000000)%10)) || ((required[k][l]/100000)%10 == (majors[i].getReqCourses()[j]/100000)%10)
+				|| ((required[k][l]/10000)%10 == (majors[i].getReqCourses()[j]/10000)%10) || ((required[k][l]/1000)%10 == (majors[i].getReqCourses()[j]/1000)%10)
+				|| ((required[k][l]/100)%10 == (majors[i].getReqCourses()[j]/100)%10) || ((required[k][l]/10)%10 == (majors[i].getReqCourses()[j]/10)%10)
+				|| (required[k][l]%10 == majors[i].getReqCourses()[j]%10))
+				{
+					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10));
+				}
 			}
 			if (required[k][1] == 0)
 			{
@@ -134,8 +137,10 @@ void calculateRequired()
 		 }
        }
     }
-	
-	
+	for (int j = 0 ; j < majors[i].getReqCourses().size() ; j++)
+	{
+		
+	}
 	
   }
 }
@@ -150,17 +155,17 @@ void calculateRecommended()
 {
 }
 
-std::vector<std::vector<int>> Student::getRequired()
+std::vector<std::vector<long>> Student::getRequired()
 {
   return required;
 }
 
-std::vector<std::vector<int>> Student::getRemaining()
+std::vector<std::vector<long>> Student::getRemaining()
 {
   return remaining;
 }
 
-std::vector<std::vector<int>> Student::getRecommended()
+std::vector<std::vector<long>> Student::getRecommended()
 {
   return recommended;
 }
