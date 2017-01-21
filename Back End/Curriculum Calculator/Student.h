@@ -7,6 +7,8 @@ class Student
   std::vector<Major> majors;
   std::vector<int> taken;
   std::vector<std::vector<int>> required;
+  std::vector<std::vector<int>> remaining;
+  std::vector<std::vector<int>> recommended;
   public:
     Student(int);
     int getUniversity();
@@ -18,6 +20,11 @@ class Student
     void addTaken(int);
     void removeTaken(int);
     void calculateRequired();
+    void calculateRemaining();
+    void calculateRecommended();
     std::vector<std::vector<int>> getRequired();
+    std::vector<std::vector<int>> getRemaining();
+    std::vector<std::vector<int>> getRecommended();
+    
 
 };
