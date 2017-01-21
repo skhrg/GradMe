@@ -4,11 +4,12 @@ class Student
 {
   int university;
   int requiredCredits;
+  int remainingCredits;
   std::vector<Major> majors;
-  std::vector<int> taken;
-  std::vector<std::vector<int>> required;
-  std::vector<std::vector<int>> remaining;
-  std::vector<std::vector<int>> recommended;
+  std::vector<long> taken;
+  std::vector<std::vector<long>> required;
+  std::vector<std::vector<long>> remaining;
+  std::vector<std::vector<long>> recommended;
   public:
     Student(int);
     int getUniversity();
@@ -16,15 +17,15 @@ class Student
     std::vector<Major> getMajors();
     void addMajor(Major);
     void removeMajor(int);
-    std::vector<int> getTaken();
+    std::vector<long> getTaken();
     void addTaken(int);
     void removeTaken(int);
     void calculateRequired();
     void calculateRemaining();
     void calculateRecommended();
-    std::vector<std::vector<int>> getRequired();
-    std::vector<std::vector<int>> getRemaining();
-    std::vector<std::vector<int>> getRecommended();
+    std::vector<std::vector<long>> getRequired();
+    std::vector<std::vector<long>> getRemaining();
+    std::vector<std::vector<long>> getRecommended();
     
 
 };
