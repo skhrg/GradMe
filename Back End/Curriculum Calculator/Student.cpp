@@ -7,7 +7,12 @@ Student::Student(int uni)
 
 int Student::getUniversity()
 {
-  return university
+  return university;
+}
+
+int Student::getRequiredCredits()
+{
+  return requiredCredits;
 }
 
 std::vector<Major> Student::getMajors()
@@ -29,7 +34,7 @@ void Student::removeMajor(int dep)
   {
     if(majors[i].getDepartment() == dep)
     {
-      majors.remove(i);
+      majors.erase(i);
     }
   }
 }
@@ -50,7 +55,30 @@ void Student::removeTaken(int course)
   {
     if(taken[i] == course)
     {
-      taken.remove(i);
+      taken.erase(i);
     }
   }
+}
+
+void calculateRequired()
+{
+  required.clear();
+  requiredCredits = 0;
+  for(int i = 0 ; i < majors.size() ; i++)
+  {
+    if (majors[i].getReqCredits > requiredCredits)
+    {
+      requiredCredits = majors[i].getReqCredits;
+    }
+    for (int i = 0 ; majors[i].getReqCourses().size() ; i++)
+    {
+      //Decision - store compiled course list in 1 or 3 variables?
+      //Having student stored reqs, parse through comparing values of incoming vector to avoid duplicates
+    }
+  }
+}
+
+std::vector<std::vector<int>> Student::getRequired()
+{
+  return required;
 }
