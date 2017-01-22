@@ -48,5 +48,6 @@ A vector containg all the courses already taken by the student (see the **Course
 3. Copy the values from the counts map to the sortedCounts vector
 4. Sort the sortedCounts vector in descending order
 5. Generate the temp vector for the *nth* vector in the recommended vector
+  * The first element in the temp vector is the index of the vector within the required vector that the recommendations corresponds to
   * The temp vector will have the *k* most common courses (based off the data in sortedCounts) in the *nth* vector in the recommended vector such that the the sum of the crdits for the *k* courses is greater than or equal to the number of credits needed for that particular choice
 6. Replace the *nth* vector in the recommended vector with the temp vector
