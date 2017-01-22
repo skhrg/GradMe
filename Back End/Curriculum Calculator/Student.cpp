@@ -66,7 +66,7 @@ void Student::removeTaken(long course)
   }
 }
 
-void calculateRequired()
+void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
 {
   required.clear();
   requiredCredits = 0;
@@ -74,6 +74,8 @@ void calculateRequired()
   bool tempValue2;
   bool tempValue3;
   bool tempValue4;
+  bool tempValue5;
+  bool tempValue6;
   int tempCredits;
   std::vector<long> reqCourses;
   std::vector<std::vector<long>> choiceCourses;
@@ -93,22 +95,27 @@ void calculateRequired()
 	option = majors[i].getOption();
     for (int j = 0 ; j < reqCourses.size() ; j++)
     {
-		tempValue = false;	
-      for (int k = 0 ; k < required[0].size() ; k++)
-      {
-        if (reqCourses[j] == required[0][k])
-        {
-		  tempValue = true;
-          break;
-        }
-      }
-	  if (tempValue == false)
-	  {
-		required[0].push_back(reqCourses[j];
-	  }
-      for (int k = 1 ; k < required.size() ; k++)
+
+      for (int k = 0 ; k < required.size() ;)
        {
-         if (required[k][0] == 1)
+	   tempValue2 = true;
+		if (required[k][0] == 0)
+		{
+			tempValue = false;	
+			for (int l = 1 ; l < required[0].size() ; l++)
+			{
+				if (reqCourses[j] == required[0][l])
+				{
+					tempValue = true;
+					break;
+				}
+			}
+			if (tempValue == false)
+			{
+				required[0].push_back(reqCourses[j];
+			}
+		}
+         else if (required[k][0] == 1)
          {
 			
 			for (int l = 2 ; l < required[k].size() ;)
@@ -130,6 +137,7 @@ void calculateRequired()
 			if (required[k][1] < 0)
 			{
 				required.erase[k];
+				tempValue 2 = false;
 			}
          }
          else if (required[k][0] == 2)
@@ -155,17 +163,38 @@ void calculateRequired()
 			if (required[k][1] < 0)
 			{
 				required.erase[k];
+				tempValue 2 = false;
 			}
 		 }
-		 else if (required[k][0] == 3) //PARTIALLY COPY PASTED MAY BE BUGGY
+		 else /*if (required[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 		 {
+			tempValue2 = false;
 		    FML.clear();
 			FML = required[k];
-			FML[0] = - 1;
-			k += FML.size();
-			for (int z = FML[1] + k; z < FML.back() + k;z++)
+			FML[0] = 0;
+			//k += FML.back();
+			for (int z = k + 1; z < FML.back() + k;)
 			{
-		if (required[z][0] == 1)
+					if (required[z][0] == 0)
+		{
+			for (int l = 1 ; l < required[z].size() ;)
+			{
+				if (required[z][l] == reqCourses[j])
+				{
+					required[z].erase(l);
+					if (required[z].size() == 1)
+					{
+						required.push_back(0);
+						break;
+					}
+				}
+				else
+				{
+				l++;
+				}
+			}
+		}
+		else if (required[z][0] == 1)
          {
 			
 			for (int l = 2 ; l < required[z].size() ;)
@@ -185,10 +214,11 @@ void calculateRequired()
 					l++;
 				}
 			}
-			if (required[z][1] < 0)
+			/*if (required[z][1] < 0)
 			{
 				required.erase[z];
-			}
+				tempValue4 = false;
+			}*/
          }
          else if (required[z][0] == 2)
 		 {
@@ -211,55 +241,65 @@ void calculateRequired()
 					}*/
 				}
 			}
-			if (required[z][1] < 0)
+			/*if (required[z][1] < 0)
 			{
 				required.erase[z];
-			}
+				tempValue4 = false;
+			}*/
 		 }
+		 		 /*if (tempValue4 == true)
+		 {
+		 z++;
+		 }*/
 			}
-			for (int z = k; z < FML.size() + k - 1; z++)
+			for (int z = 0; z < FML.size() - 1; z++)
 			{
-				tempValue2 = false;
+				tempValue3 = false;
 				for (int y = FML[z] + 1 + k ; y <= FML[z+1] + k ; y++)
 				{
 					if(required[y][1] != 0)
 					{
-						tempValue2 = true;
+						tempValue3 = true;
 					}
-					if(tempValue2 == false)
+					if(tempValue3 == false)
 					{
 					break;
 					}
 				}
-				if(tempValue2 == false)
+				if(tempValue3 == false)
 				{
 				break;
 				}
 			}
-			if(tempValue2 == false)
+			if(tempValue3 == false)
 			{
-				for(int z = FML.back() + k ;z > FML[0] + k;z--)
+				for(int y = FML.back() + k ;y > FML[0] + k;y--)
 				{
-					required.erase(z);
+					required.erase(y);
 				}
 			}
 			else
 			{
-				for(int z = FML.back() + k ;z > FML[0] + k + 1;z--)
+				for(int y = FML.back() + k ;y > FML[0] + k + 1;y--)
 				{
-					if (required[z][1] == 0)
+					if (required[y][1] <= 0)
 					{
-						required.erase(z);
-						for (int y = 1 ; y < FML.size() ; y++)
+						required.erase(y);
+						for (int x = 1 ; x < required[k].size() ; x++)
 						{
-							if(FML[y] > z)
+							if(required[k][x] >= y)
 							{
-								required[k][y]--;
-							}
+								required[k][x]--;
+							} //adjust k value
 						}
 					}
-				}		
+				}
+				k += required[k].back();
 			}
+		 }
+		 if (tempValue2 == true)
+		 {
+		 k++;
 		 }
        }
     }
@@ -273,14 +313,18 @@ void calculateRequired()
 		tempValue2 = true;
 		for (int k = 2 ; k < choiceCourses[j].size() ;)
 		{
-
-			for (int l = 0 ; l < required[0].size() ; l++)
+			for (int l = 0 ; l < required.size() ; )
+			{
+				tempValue3 = true;
+				if(required[l][0] == 0)
+				{
+			for (int m = 1 ; m < required[0].size() ; m++)
 			{
 				tempValue = true;
-				if (required[0][l] == choiceCourses[j][k])
+				if (required[0][m] == choiceCourses[j][k])
 				{
 					tempValue = false;
-					choiceCourses[j][1] -= ((((choiceCourses[j][l] / 100000000)% 10) * 10) + ((choiceCourses[j][l] / 10000000)% 10));
+					choiceCourses[j][1] -= ((((choiceCourses[j][m] / 100000000)% 10) * 10) + ((choiceCourses[j][m] / 10000000)% 10));
 					if (choiceCourses[j][1] < 0)
 					{
 					choiceCourses.erase(j);
@@ -293,10 +337,8 @@ void calculateRequired()
 					break;
 				}
 			}
-			for (int l = 1 ; l < required.size() && tempValue == true; )
-			{
-				tempValue3 = true;
-				if (required[l][0] == 1)
+			}
+				else if (required[l][0] == 1)
 				{
 					if (std::includes(choiceCourses[j].begin(), choiceCourses[j].end(), required[l].begin(), required[l].end()))
 					{
@@ -386,57 +428,33 @@ void calculateRequired()
 				}
 			}
 			}
-				else if (required[l][0] == 3) //PARTIALLY COPY PASTED MAY BE BUGGY
+		 else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 		 {
+			tempValue6 = false;
 		    FML.clear();
 			FML = required[l];
-			FML[0] = - 1;
-			l += FML.size();
-			for (int z = FML[1] + l; z < FML.back() + l;z++)
+			FML[0] = 0;
+			for (int z = l + 1; z < FML.back() + l;)
 			{
+				tempValue3 = true;
 				if (required[z][0] == 1)
 				{
-					if (std::includes(choiceCourses[j].begin(), choiceCourses[j].end(), required[z].begin(), required[z].end()))
-					{
-						choiceCourses.erase(j);
-						tempValue2 = false;
-						break;
-					}
 					if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 					{
-						required[z]=choiceCourses[j];
-						choiceCourses.erase(j);
-						tempValue2 = false;
-						break;
-						/*
+
 						required.erase(z);
 						tempValue3 = false;
-						*/
 					}
-					//if required is completely contained within choicecourses, delete the incoming
-					//if choicecourses is completely contained within include, delete include and leave choicecourses
 					temp1 = choiceCourses[j];
 					temp2 = required[z];
 					temp1.erase(1);
 					temp2.erase(1);
 					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 					{
-						if (required[z][1] >= choiceCourses[j][z])
+						if (required[z][1] < choiceCourses[j][z])
 						{
-							choiceCourses.erase(j);
-							tempValue2 = false;
-							break;
-						}
-						else
-						{
-							required[z]=choiceCourses[j];
-							choiceCourses.erase(j);
-							tempValue2 = false;
-							break;
-						/*
 							required.erase(z);
 							tempValue3 = false;
-							*/
 						}
 					}
 				}
@@ -484,49 +502,55 @@ void calculateRequired()
 				}
 			}
 			}
+
+				if(tempValue3 == true)
+				{
+					z++;
+				}
 			}
-			for (int z = l; z < FML.size() + l - 1; z++)
+			for (int z = 0; z < FML.size() - 1; z++)
 			{
-				tempValue2 = false;
+				tempValue6 = false;
 				for (int y = FML[z] + 1 + l ; y <= FML[z+1] + l ; y++)
 				{
 					if(required[y][1] != 0)
 					{
-						tempValue2 = true;
+						tempValue6 = true;
 					}
-					if(tempValue2 == false)
+					if(tempValue6 == false)
 					{
 					break;
 					}
 				}
-				if(tempValue2 == false)
+				if(tempValue6 == false)
 				{
 				break;
 				}
 			}
-			if(tempValue2 == false)
+			if(tempValue6 == false)
 			{
-				for(int z = FML.back() + l ;z > FML[0] + l;z--)
+				for(int y = FML.back() + l ;y > FML[0] + l;y--)
 				{
-					required.erase(z);
+					required.erase(y);
 				}
 			}
 			else
 			{
-				for(int z = FML.back() + l ;z > FML[0] + l + 1;z--)
+				for(int y = FML.back() + l ;y > FML[0] + l + 1;y--)
 				{
-					if (required[z][1] == 0)
+					if (required[y][1] <= 0)
 					{
-						required.erase(z);
-						for (int y = 1 ; y < FML.size() ; y++)
+						required.erase(y);
+						for (int x = 1 ; x < required[l].size() ; x++)
 						{
-							if(FML[y] > z)
+							if(required[l][x] >= y)
 							{
-								required[l][y]--;
-							}
+								required[l][x]--;
+							} //adjust l value
 						}
 					}
-				}		
+				}
+				l += required[l].back();
 			}
 		 }
 				if(tempValue3 == true)
@@ -553,19 +577,22 @@ void calculateRequired()
 		tempValue2 = true;
 		for (int k = 2 ; k < shiz[j].size() ;)
 		{
-
-			for (int l = 0 ; l < required[0].size() ; l++)
+			for (int l = 0 ; l < required.size() ; )
 			{
-				if (((shiz[j][k]/10000000000 <= (required[0][l]/100000000000)%10 && 
-				(shiz[j][k]/1000000000)%10 <= (((required[0][l]/100000000)%10) * 10 ) && 
-				((((shiz[j][k] / 100000000)%10)*100) + (((shiz[j][k] / 10000000)%10)*10) + (shiz[j][k] / 1000000)%10) ==
-				((((required[0][l] / 100000000000000)%10)*100) + (((required[0][l] / 10000000000000)%10)*10)
-				+ (required[0][l] / 1000000000000)%10)) || ((shiz[j][k]/100000)%10 == (required[0][l]/100000)%10)
-				|| ((shiz[j][k]/10000)%10 == (required[0][l]/10000)%10) || ((shiz[j][k]/1000)%10 == (required[0][l]/1000)%10)
-				|| ((shiz[j][k]/100)%10 == (required[0][l]/100)%10) || ((shiz[j][k]/10)%10 == (required[0][l]/10)%10)
-				|| (shiz[j][k]%10 == required[0][l]%10)))
+				if (required[l][0] == 0)
 				{
-					shiz[j][1] -= ((((required[0][l] / 100000000)% 10) * 10) + ((required[0][l] / 10000000)% 10));
+				for (int m = 1 ; m < required[l].size() ; m++)
+			{
+				if (((shiz[j][k]/10000000000 <= (required[l][m]/100000000000)%10 && 
+				(shiz[j][k]/1000000000)%10 <= (((required[l][m]/100000000)%10) * 10 ) && 
+				((((shiz[j][k] / 100000000)%10)*100) + (((shiz[j][k] / 10000000)%10)*10) + (shiz[j][k] / 1000000)%10) ==
+				((((required[l][m] / 100000000000000)%10)*100) + (((required[l][m] / 10000000000000)%10)*10)
+				+ (required[l][m] / 1000000000000)%10)) || ((shiz[j][k]/100000)%10 == (required[l][m]/100000)%10)
+				|| ((shiz[j][k]/10000)%10 == (required[l][m]/10000)%10) || ((shiz[j][k]/1000)%10 == (required[l][m]/1000)%10)
+				|| ((shiz[j][k]/100)%10 == (required[l][m]/100)%10) || ((shiz[j][k]/10)%10 == (required[l][m]/10)%10)
+				|| (shiz[j][k]%10 == required[l][m]%10)))
+				{
+					shiz[j][1] -= ((((required[l][m] / 100000000)% 10) * 10) + ((required[l][m] / 10000000)% 10));
 					if (shiz[j][1] < 0)
 					{
 					shiz.erase(j);
@@ -574,10 +601,9 @@ void calculateRequired()
 					}
 				}
 			}
-			for (int l = 1 ; l < required.size() && tempValue2 == true; )
-			{
+				}
 				//tempValue3 = true;
-				if (required[l][0] == 1 && k == 2)
+				else if (required[l][0] == 1 && k == 2)
 				{
 				tempValue4 = true;
 					//TODO Erase shiz if all members share the same thing
@@ -665,74 +691,21 @@ void calculateRequired()
 						}
 					}
 				}
-			else if (required[l][0] == 3) //PARTIALLY COPY PASTED MAY BE BUGGY
+		 else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 		 {
+			tempValue6 = false;
 		    FML.clear();
 			FML = required[l];
-			FML[0] = - 1;
-			l += FML.size();
-			for (int z = FML[1] + l; z < FML.back() + l;z++)
+			FML[0] = 0;
+			for (int z = l + 1; z < FML.back() + l;)
 			{
-			if (required[z][0] == 1 && k == 2)
+				if (required[z][0] == 2)
 				{
-				tempValue4 = true;
-					//TODO Erase shiz if all members share the same thing
-					//for members that do not share the same thing, add up in a variable "tempcredits"
-					//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
-					int tempCredits = 0;
-				
-		for (int m = 2 ; m < shiz[j].size() && tempValue4 == true; m++)
-			{
-			for (int n = 2 ; n < required[z].size() ; n++)
-			{
-				if((shiz[j][n]/10000000000 <= (required[z][m]/100000000000)%10 && 
-				(shiz[j][n]/1000000000)%10 <= (((required[z][m]/100000000)%10) * 10 ) && 
-				((((shiz[j][n] / 100000000)%10)*100) + (((shiz[j][n] / 10000000)%10)*10) + (shiz[j][n] / 1000000)%10) ==
-				((((required[z][m] / 100000000000000)%10)*100) + (((required[z][m] / 10000000000000)%10)*10)
-				+ (required[z][m] / 1000000000000)%10)) || ((shiz[j][n]/100000)%10 == (required[z][m]/100000)%10)
-				|| ((shiz[j][n]/10000)%10 == (required[z][m]/10000)%10) || ((shiz[j][n]/1000)%10 == (required[z][m]/1000)%10)
-				|| ((shiz[j][n]/100)%10 == (required[z][m]/100)%10) || ((shiz[j][n]/10)%10 == (required[z][m]/10)%10)
-				|| (shiz[j][n]%10 == required[z][m]%10))
-				{
-				}
-				else
-				{
-				tempCredits += ((((required[z][m] / 100000000)% 10) * 10) + ((required[z][m] / 10000000)% 10));
-				if (tempCredits > shiz[j][1]) 
-				{
-				tempValue4 = false;
-				break;
-				}
-				}
-				}
-			}
-			if (tempCredits <= shiz[j][1]) 
-			{
-				shiz[j][1] -= tempCredits; 
-				if (shiz[j][1] == 0) 
-				{
-					shiz.erase(j); 
-				}
-			}
-			}
-				else if (required[z][0] == 2)
-				{
-					if (std::includes(shiz[j].begin(), shiz[j].end(), required[z].begin(), required[z].end()))
-					{
-						shiz.erase(j);
-						tempValue2 = false;
-						break;
-					}
+
 					if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
 					{
-						required[z]=shiz[j];
-						shiz.erase(j);
-						tempValue2 = false;
-						break;
-						/*
 						required.erase(z);
 						tempValue3 = false;
-						*/
 					}
 					//if required is completely contained within shiz, delete the incoming
 					//if shiz is completely contained within include, delete include and leave shiz
@@ -742,68 +715,61 @@ void calculateRequired()
 					temp2.erase(1);
 					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 					{
-						if (required[z][1] >= shiz[j][z])
+						if (required[z][1] < shiz[j][z])
 						{
-							shiz.erase(j);
-							tempValue2 = false;
-							break;
-						}
-						else
-						{
-							required[z]=shiz[j];
-							shiz.erase(j);
-							tempValue2 = false;
-							break;
-						/*
 							required.erase(z);
 							tempValue3 = false;
-							*/
 						}
 					}
 				}
+				if(tempValue3 == true)
+				{
+					z++;
+				}
 			}
-			for (int z = l; z < FML.size() + l - 1; z++)
+			for (int z = 0; z < FML.size() - 1; z++)
 			{
-				tempValue2 = false;
+				tempValue6 = false;
 				for (int y = FML[z] + 1 + l ; y <= FML[z+1] + l ; y++)
 				{
 					if(required[y][1] != 0)
 					{
-						tempValue2 = true;
+						tempValue6 = true;
 					}
-					if(tempValue2 == false)
+					if(tempValue6 == false)
 					{
 					break;
 					}
 				}
-				if(tempValue2 == false)
+				if(tempValue6 == false)
 				{
 				break;
 				}
 			}
-			if(tempValue2 == false)
+			if(tempValue6 == false)
 			{
-				for(int z = FML.back() + l ;z > FML[0] + l;z--)
+				for(int y = FML.back() + l ;y > FML[0] + l;y--)
 				{
-					required.erase(z);
+					required.erase(y);
 				}
 			}
 			else
 			{
-				for(int z = FML.back() + l ;z > FML[0] + l + 1;z--)
+				for(int y = FML.back() + l ;y > FML[0] + l + 1;y--)
 				{
-					if (required[z][1] == 0)
+					if (required[y][1] <= 0)
 					{
-						required.erase(z);
-						for (int y = 1 ; y < FML.size() ; y++)
+						required.erase(y);
+						for (int x = 1 ; x < required[l].size() ; x++)
 						{
-							if(FML[y] > z)
+							if(required[l][x] >= y)
 							{
-								required[l][y]--;
-							}
+								required[l][x]--;
+							} //adjust l value
 						}
 					}
-				}		
+				}
+				l += required[l].back();
 			}
 		 }
 				/*
