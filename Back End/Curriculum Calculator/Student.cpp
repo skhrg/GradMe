@@ -50,12 +50,12 @@ std::vector<long> Student::getTaken()
   return taken;
 }
 
-void Student::addTaken(int course)
+void Student::addTaken(long course)
 {
   taken.push_back(course);
 }
 
-void Student::removeTaken(int course)
+void Student::removeTaken(long course)
 {
   for(std::vector<long>::iterator i = taken.begin(); i < taken.end(); i++)
   {
@@ -91,7 +91,7 @@ void calculateRequired()
 	option = majors[i].getOption();
     for (int j = 0 ; j < reqCourses.size() ; j++)
     {
-		tempValue = false;	
+		tempValue = false;
       for (int k = 0 ; k < required[0].size() ; k++)
       {
         if (reqCourses[j] == required[0][k])
@@ -108,12 +108,12 @@ void calculateRequired()
        {
          if (required[k][0] == 1)
          {
-			
+
 			for (int l = 2 ; l < required[k].size() ;)
 			{
 				if (reqCourses[j] == required[k][l])
 				{
-					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10)); 
+					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10));
 					if (required[k][1] < 0)
 					{
 					 required[k][1] = 0;
@@ -134,8 +134,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[k].size() ; l++)
 			{
-				if((required[k][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
-				(required[k][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
+				if((required[k][l]/10000000000 <= (reqCourses[j]/100000000000)%10 &&
+				(required[k][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) &&
 				((((required[k][l][j] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
 				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
 				+ (reqCourses[j] / 1000000000000)%10)) || ((required[k][l]/100000)%10 == (reqCourses[j]/100000)%10)
@@ -165,13 +165,13 @@ void calculateRequired()
 			{
 		if (required[z][0] == 1)
          {
-			
+
 			for (int l = 2 ; l < required[z].size() ;)
 			{
 				if (reqCourses[j] == required[z][l])
 				{
-					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10)); 
-					
+					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
+
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -188,8 +188,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[z].size() ; l++)
 			{
-				if((required[z][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
-				(required[z][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
+				if((required[z][l]/10000000000 <= (reqCourses[j]/100000000000)%10 &&
+				(required[z][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) &&
 				((((required[z][l][j] / 100000000)%10)*100) + (((required[z][l] / 10000000)%10)*10) + (required[z][l] / 1000000)%10) ==
 				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
 				+ (reqCourses[j] / 1000000000000)%10)) || ((required[z][l]/100000)%10 == (reqCourses[j]/100000)%10)
@@ -198,7 +198,7 @@ void calculateRequired()
 				|| (required[z][l]%10 == reqCourses[j]%10))
 				{
 					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
-					
+
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -248,7 +248,7 @@ void calculateRequired()
 							}
 						}
 					}
-				}		
+				}
 			}
 		 }
        }
@@ -334,7 +334,7 @@ void calculateRequired()
 				}
 				else if (required[l][0] == 2)
 				{
-					
+
 				}
 				else if (required[l][0] == 3)
 				{
@@ -360,11 +360,11 @@ void calculateRequired()
 	}
 	for (int j = 0 ; j < shiz.size() ; j++)
 	{
-		
+
 	}
 	for (int j = 0 ; j < option.size() ; j++)
 	{
-		
+
 	}
   }
 }
