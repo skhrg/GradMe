@@ -91,7 +91,7 @@ void calculateRequired()
 	option = majors[i].getOption();
     for (int j = 0 ; j < reqCourses.size() ; j++)
     {
-		tempValue = false;
+		tempValue = false;	
       for (int k = 0 ; k < required[0].size() ; k++)
       {
         if (reqCourses[j] == required[0][k])
@@ -108,12 +108,12 @@ void calculateRequired()
        {
          if (required[k][0] == 1)
          {
-
+			
 			for (int l = 2 ; l < required[k].size() ;)
 			{
 				if (reqCourses[j] == required[k][l])
 				{
-					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10));
+					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10)); 
 					if (required[k][1] < 0)
 					{
 					 required[k][1] = 0;
@@ -134,8 +134,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[k].size() ; l++)
 			{
-				if((required[k][l]/10000000000 <= (reqCourses[j]/100000000000)%10 &&
-				(required[k][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) &&
+				if((required[k][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
+				(required[k][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
 				((((required[k][l][j] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
 				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
 				+ (reqCourses[j] / 1000000000000)%10)) || ((required[k][l]/100000)%10 == (reqCourses[j]/100000)%10)
@@ -165,13 +165,13 @@ void calculateRequired()
 			{
 		if (required[z][0] == 1)
          {
-
+			
 			for (int l = 2 ; l < required[z].size() ;)
 			{
 				if (reqCourses[j] == required[z][l])
 				{
-					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
-
+					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10)); 
+					
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -188,8 +188,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[z].size() ; l++)
 			{
-				if((required[z][l]/10000000000 <= (reqCourses[j]/100000000000)%10 &&
-				(required[z][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) &&
+				if((required[z][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
+				(required[z][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
 				((((required[z][l][j] / 100000000)%10)*100) + (((required[z][l] / 10000000)%10)*10) + (required[z][l] / 1000000)%10) ==
 				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
 				+ (reqCourses[j] / 1000000000000)%10)) || ((required[z][l]/100000)%10 == (reqCourses[j]/100000)%10)
@@ -198,7 +198,7 @@ void calculateRequired()
 				|| (required[z][l]%10 == reqCourses[j]%10))
 				{
 					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
-
+					
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -248,7 +248,7 @@ void calculateRequired()
 							}
 						}
 					}
-				}
+				}		
 			}
 		 }
        }
@@ -300,7 +300,7 @@ void calculateRequired()
 						choiceCourses.erase(j);
 						tempValue2 = false;
 						break;
-					/*
+						/*
 						required.erase(l);
 						tempValue3 = false;
 						*/
@@ -334,15 +334,18 @@ void calculateRequired()
 				}
 				else if (required[l][0] == 2)
 				{
-
+					//TODO
 				}
 				else if (required[l][0] == 3)
 				{
+					//TODO
 				}
+				/*
 				if(tempValue3 == true)
 				{
 					l++;
 				}
+				*/
 			}
 			if (tempValue == true)
 			{
@@ -360,11 +363,111 @@ void calculateRequired()
 	}
 	for (int j = 0 ; j < shiz.size() ; j++)
 	{
+		tempValue2 = true;
+		for (int k = 1 ; k < shiz[j].size() ;)
+		{
 
+			for (int l = 0 ; l < required[0].size() ; l++)
+			{
+				if (((shiz[j][k]/10000000000 <= (required[0][l]/100000000000)%10 && 
+				(shiz[j][k]/1000000000)%10 <= (((required[0][l]/100000000)%10) * 10 ) && 
+				((((shiz[j][k][j] / 100000000)%10)*100) + (((shiz[j][k] / 10000000)%10)*10) + (shiz[j][k] / 1000000)%10) ==
+				((((required[0][l] / 100000000000000)%10)*100) + (((required[0][l] / 10000000000000)%10)*10)
+				+ (required[0][l] / 1000000000000)%10)) || ((shiz[j][k]/100000)%10 == (required[0][l]/100000)%10)
+				|| ((shiz[j][k]/10000)%10 == (required[0][l]/10000)%10) || ((shiz[j][k]/1000)%10 == (required[0][l]/1000)%10)
+				|| ((shiz[j][k]/100)%10 == (required[0][l]/100)%10) || ((shiz[j][k]/10)%10 == (required[0][l]/10)%10)
+				|| (shiz[j][k]%10 == required[0][l]%10)))
+				{
+					shiz[j][1] -= ((((shiz[j][l] / 100000000)% 10) * 10) + ((shiz[j][1] / 10000000)% 10));
+					if (shiz[j][1] < 0)
+					{
+					shiz.erase(j);
+					tempValue2 = false;
+					break;
+					}
+				}
+			}
+			for (int l = 1 ; l < required.size() && tempValue2 == true; )
+			{
+				//tempValue3 = true;
+				if (required[l][0] == 1)
+				{
+				//TODO
+				}
+				else if (required[l][0] == 2)
+				{
+					if (std::includes(shiz[j].begin(), shiz[j].end(), required[l].begin(), required[l].end()))
+					{
+						shiz.erase(j);
+						tempValue2 = false;
+						break;
+					}
+					if (std::includes(required[l].begin(), required[l].end(), shiz[j].begin(), shiz[j].end()))
+					{
+						required[l]=shiz[j];
+						shiz.erase(j);
+						tempValue2 = false;
+						break;
+						/*
+						required.erase(l);
+						tempValue3 = false;
+						*/
+					}
+					//if required is completely contained within shiz, delete the incoming
+					//if shiz is completely contained within include, delete include and leave shiz
+					temp1 = shiz[j];
+					temp2 = required[l];
+					temp1.erase(1);
+					temp2.erase(1);
+					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+					{
+						if (required[l][1] >= shiz[j][l])
+						{
+							shiz.erase(j);
+							tempValue2 = false;
+							break;
+						}
+						else
+						{
+							required[l]=shiz[j];
+							shiz.erase(j);
+							tempValue2 = false;
+							break;
+						/*
+							required.erase(l);
+							tempValue3 = false;
+							*/
+						}
+					}
+				}
+				else if (required[l][0] == 3)
+				{
+				//TODO
+				}
+				/*
+				if(tempValue3 == true)
+				{
+					l++;
+				}
+				*/
+			}
+			if (tempValue == true)
+			{
+				k++;
+			}
+			if (tempValue2 == false)
+			{
+				break;
+			}
+		}
+	if (shiz.size() != 0)
+	{
+		required.push_back(shiz);
+	}
 	}
 	for (int j = 0 ; j < option.size() ; j++)
 	{
-
+		//TODO
 	}
   }
 }
