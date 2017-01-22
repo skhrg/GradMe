@@ -270,6 +270,7 @@ void calculateRecommended()
     if(required[i][0] == 1)
     {
       recommended.push_back(required[i]);
+      recommended[recommended.begin()].insert(recommended[recommended.begin()].begin(),i);
       for(std::vector<long>::iterator j = required[i].begin(); j < required[i].end(); j++)
       {
         counts[required[i][j]]++;
@@ -284,10 +285,11 @@ void calculateRecommended()
   for(std::vector<std::vector<long>>::iterator k = recommended.begin(); k < recommended.end(); k++)
   {
     std::vector<long> temp;
-    int credits = recommended[k][1];
+    temp.push_back(recommended[k][0])
+    int credits = recommended[k][2];
     for(int x = 0, x < sortedCounts.size(), x++)
     {
-      for(std::vector<long>::iterator l = 2; l < recommended[k].end(); l++)
+      for(int l = 3; l < recommended[k].size(); l++)
       {
         if(counts[recommended[k][l]] == sortedCounts[x])
         {
