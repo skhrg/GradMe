@@ -10,7 +10,7 @@ class Major
   int degree;                   //Distinguishes between type of degree: 0 for B.A, 1 for B.S., more to add later
   int reqCredits;
   public:
-    Major(int, int, std::vector<long>, std::vector<std::vector<long>>, std::vector<std::vector<long>>, int, int, int);
+    Major(int, int, std::vector<long>, std::vector<std::vector<long>>, std::vector<std::vector<long>>, std::vector<std::vector<long>>, int, int, int);
     int getDepartment();
     int getUniversity();
     std::vector<long> getReqCourses();
