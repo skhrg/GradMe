@@ -66,7 +66,7 @@ void Student::removeTaken(long course)
   }
 }
 
-void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
+void Student::calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
 {
   required.clear();
   requiredCredits = 0;
@@ -1025,7 +1025,7 @@ void calculateRemaining()
     }
   }
 
-void calculateRecommended()
+void Student::calculateRecommended()
 {
   recommended.clear();
   std::map<long,int> counts;
@@ -1084,4 +1084,10 @@ std::vector<std::vector<long>> Student::getRemaining()
 std::vector<std::vector<long>> Student::getRecommended()
 {
   return recommended;
+}
+
+std::vector<std::vector<long>> Student::removeDuplicates(std::vector<std::vector<long>> input)
+{
+  //TODO
+  return input;
 }
