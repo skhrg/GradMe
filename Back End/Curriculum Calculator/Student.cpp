@@ -78,6 +78,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
   bool tempValue6;
   int tempCredits;
   std::vector<long> reqCourses;
+  std::vector<long> FML;
   std::vector<std::vector<long>> choiceCourses;
   std::vector<std::vector<long>> shiz;
   std::vector<std::vector<long>> option;
@@ -102,9 +103,9 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 		if (required[k][0] == 0)
 		{
 			tempValue = false;	
-			for (int l = 1 ; l < required[0].size() ; l++)
+			for (int l = 1 ; l < required[k].size() ; l++)
 			{
-				if (reqCourses[j] == required[0][l])
+				if (reqCourses[j] == required[k][l])
 				{
 					tempValue = true;
 					break;
@@ -112,7 +113,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 			}
 			if (tempValue == false)
 			{
-				required[0].push_back(reqCourses[j];
+				required[k].push_back(reqCourses[j]);
 			}
 		}
          else if (required[k][0] == 1)
@@ -137,7 +138,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 			if (required[k][1] < 0)
 			{
 				required.erase[k];
-				tempValue 2 = false;
+				tempValue2 = false;
 			}
          }
          else if (required[k][0] == 2)
@@ -163,7 +164,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 			if (required[k][1] < 0)
 			{
 				required.erase[k];
-				tempValue 2 = false;
+				tempValue2 = false;
 			}
 		 }
 		 else /*if (required[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
