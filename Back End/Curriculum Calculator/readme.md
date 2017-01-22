@@ -38,3 +38,15 @@ A vector containg instances of all the majors associated with the Student
 
 ### taken
 A vector containg all the courses already taken by the student (see the **Course Format** section for more information on how course information is encoded)
+
+#Algorithms
+##calculateRequired
+##calculateRemaining
+##calculateRecommended
+1. Clear any data that is in the recommended vector from a previous configuration of majors
+2. Copy all choiceCourses vectors from the required vector to the recommended vector while keeping track of how often each course appears with the counts map
+3. Copy the values from the counts map to the sortedCounts vector
+4. Sort the sortedCounts vector in descending order
+5. Generate the temp vector for the *nth* vector in the recommended vector
+  * The temp vector will have the *k* most common courses (based off the data in sortedCounts) in the *nth* vector in the recommended vector such that the the sum of the crdits for the *k* courses is greater than or equal to the number of credits needed for that particular choice
+6. Replace the *nth* vector in the recommended vector with the temp vector
