@@ -280,7 +280,7 @@ void calculateRecommended()
   {
     sortedCounts.push_back(z->second);
   }
-  std::sort(sortedCounts.begin(), sortedCounts.end());
+  std::sort(sortedCounts.rbegin(), sortedCounts.rend());
   for(std::vector<std::vector<long>>::iterator k = recommended.begin(); k < recommended.end(); k++)
   {
     std::vector<long> temp;
