@@ -5,7 +5,7 @@ Double vector that contains all the courses for a major, the first element in ea
 #### ID Values
   * ID = 0: AKA "reqCourses" - courses that are definitely required for your major
   * ID = 1: AKA "choiceCourses" - courses where you have a choice to pick a certain number of courses from a list, the second element in each array is the number of credits that need to be taken from the rest of the vector
-  * ID = 2: AKA "shiz" -  The second element in each array is the number of credits that need to be taken from the rest of the vector, which are numbers that will encode course requirements in a 10 digit number in the following format:
+  * ID = 2: AKA "shiz" -  The second element in each array is the number of credits that need to be taken from the rest of the vector, which are numbers that will encode course requirements in a 11 digit number in the following format:
    * **JHU: (Minimum Level, 1 digit)*(Minimum Credits, 1 digit)*(Department, 3 digits)*(Writing, 1 digit)*(Humanities, 1 digit)*(Natural Sciences, 1 digit)*(Social Science, 1 digit)*(Quantitative Science, 1 digit)*(Engineering, 1 digit)**
   * ID = 3: AKA "fuqedUpShiz" - ????
 
