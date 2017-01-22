@@ -27,4 +27,5 @@ class Student
     std::vector<std::vector<long>> getRequired();
     std::vector<std::vector<long>> getRemaining();
     std::vector<std::vector<long>> getRecommended();
+    std::vector<std::vector<long>> removeDuplicates();
 };
