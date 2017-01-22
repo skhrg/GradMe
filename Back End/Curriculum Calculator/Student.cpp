@@ -176,7 +176,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 			//k += FML.back();
 			for (int z = k + 1; z < FML.back() + k;)
 			{
-					if (required[z][0] == 0)
+					if (required[z][0] == 30)
 		{
 			for (int l = 1 ; l < required[z].size() ;)
 			{
@@ -195,7 +195,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 				}
 			}
 		}
-		else if (required[z][0] == 1)
+		else if (required[z][0] == 31)
          {
 			
 			for (int l = 2 ; l < required[z].size() ;)
@@ -221,7 +221,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 				tempValue4 = false;
 			}*/
          }
-         else if (required[z][0] == 2)
+         else if (required[z][0] == 32)
 		 {
 			for (int l = 2 ; l < required[z].size() ; l++)
 			{
@@ -438,7 +438,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 			for (int z = l + 1; z < FML.back() + l;)
 			{
 				tempValue3 = true;
-				if (required[z][0] == 1)
+				if (required[z][0] == 31)
 				{
 					if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 					{
@@ -459,7 +459,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 						}
 					}
 				}
-				else if (required[z][0] == 2 && k == 2)
+				else if (required[z][0] == 32 && k == 2)
 				{
 				tempValue4 = true;
 					//TODO Erase shiz if all members share the same thing
@@ -568,9 +568,9 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 				break;
 			}
 		}
-	if (choiceCourses.size() != 0)
+	if (choiceCourses[j].size() != 0)
 	{
-		required.push_back(choiceCourses);
+		required.push_back(choiceCourses[j]);
 	}
 	}
 	for (int j = 0 ; j < shiz.size() ; j++)
@@ -700,7 +700,7 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 			FML[0] = 0;
 			for (int z = l + 1; z < FML.back() + l;)
 			{
-				if (required[z][0] == 2)
+				if (required[z][0] == 32)
 				{
 
 					if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
@@ -789,23 +789,23 @@ void Student::calculateRequired() //TODO - debug, commenting, spacing, creating 
 				break;
 			}
 		}
-	if (shiz.size() != 0)
+	if (shiz.size[j]() != 0)
 	{
-		required.push_back(shiz);
+		required.push_back(shiz[j]);
 	}
 	}
 	for (int j = 0 ; j < option.size() ; j++)
 	{
 		//TODO
-	if (option.size() != 0)
+	if (option.size[j]() != 0)
 	{
-		required.push_back(option);
+		required.push_back(option[j]);
 	}
 	}
   }
 }
 
-void calculateRemaining()
+void Student::calculateRemaining()
 {
   remaining = required;
   remainingCredits = requiredCredits;
