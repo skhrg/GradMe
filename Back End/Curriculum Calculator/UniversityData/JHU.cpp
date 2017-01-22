@@ -2,6 +2,8 @@
 
 void main()
 {
+  //** Don't forget to sort because "includes() assumes that the sequences are sorted using operator<(), or using the predicate comp."
+  //Not sure if std::sort will work
   /*std::vector<int> req {550171, 550420, 550430, 550361};
   std::vector<int> opt1 {110106, 110108};
   std::vector<int> opt2 {110107, 110109};
