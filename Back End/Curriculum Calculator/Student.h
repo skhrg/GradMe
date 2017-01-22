@@ -14,6 +14,7 @@ class Student
     Student(int);
     int getUniversity();
     int getRequiredCredits();
+    int getRemainingCredits();
     std::vector<Major> getMajors();
     void addMajor(Major);
     void removeMajor(int);
