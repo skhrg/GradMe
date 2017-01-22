@@ -284,8 +284,6 @@ void calculateRecommended()
   for(std::vector<std::vector<long>>::iterator k = recommended.begin(); k < recommended.end(); k++)
   {
     std::vector<long> temp;
-    temp.push_back(recommended[k][0]);
-    temp.push_back(recommended[k][1]);
     int credits = recommended[k][1];
     for(int x = 0, x < sortedCounts.size(), x++)
     {
