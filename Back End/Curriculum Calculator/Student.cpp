@@ -16,6 +16,11 @@ int Student::getRequiredCredits()
   return requiredCredits;
 }
 
+int Student::getRemainingCredits()
+{
+  return remainingCredits;
+}
+
 std::vector<Major> Student::getMajors()
 {
   return majors;
