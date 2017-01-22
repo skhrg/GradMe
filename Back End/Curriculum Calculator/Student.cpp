@@ -82,7 +82,7 @@ void calculateRequired()
     }
     for (int j = 0 ; j < majors[i].getReqCourses().size() ; j++)
     {
-		tempValue = false;	
+		tempValue = false;
       for (int k = 0 ; k < required[0].size() ; k++)
       {
         if (majors[i].getReqCourses()[j] == required[0][k])
@@ -99,12 +99,12 @@ void calculateRequired()
        {
          if (required[k][0] == 1)
          {
-			
+
 			for (int l = 2 ; l < required[k].size() ;)
 			{
 				if (majors[i].getReqCourses()[j] == required[k][l])
 				{
-					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10)); 
+					required[k][1] -= ((((required[k][l] / 100000000)% 10) * 10) + ((required[k][l] / 10000000)% 10));
 					if (required[k][1] < 0)
 					{
 					 required[k][1] = 0;
@@ -125,8 +125,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[k].size() ; l++)
 			{
-				if((required[k][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 && 
-				(required[k][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) && 
+				if((required[k][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 &&
+				(required[k][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) &&
 				((((required[k][l][j] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
 				((((majors[i].getReqCourses()[j] / 100000000000000)%10)*100) + (((majors[i].getReqCourses()[j] / 10000000000000)%10)*10)
 				+ (majors[i].getReqCourses()[j] / 1000000000000)%10)) || ((required[k][l]/100000)%10 == (majors[i].getReqCourses()[j]/100000)%10)
@@ -156,13 +156,13 @@ void calculateRequired()
 			{
 		if (required[z][0] == 1)
          {
-			
+
 			for (int l = 2 ; l < required[z].size() ;)
 			{
 				if (majors[i].getReqCourses()[j] == required[z][l])
 				{
-					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10)); 
-					
+					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
+
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -179,8 +179,8 @@ void calculateRequired()
 		 {
 			for (int l = 2 ; l < required[z].size() ; l++)
 			{
-				if((required[z][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 && 
-				(required[z][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) && 
+				if((required[z][l]/10000000000 <= (majors[i].getReqCourses()[j]/100000000000)%10 &&
+				(required[z][l]/1000000000)%10 <= (((majors[i].getReqCourses()[j]/100000000)%10) * 10 ) &&
 				((((required[z][l][j] / 100000000)%10)*100) + (((required[z][l] / 10000000)%10)*10) + (required[z][l] / 1000000)%10) ==
 				((((majors[i].getReqCourses()[j] / 100000000000000)%10)*100) + (((majors[i].getReqCourses()[j] / 10000000000000)%10)*10)
 				+ (majors[i].getReqCourses()[j] / 1000000000000)%10)) || ((required[z][l]/100000)%10 == (majors[i].getReqCourses()[j]/100000)%10)
@@ -189,7 +189,7 @@ void calculateRequired()
 				|| (required[z][l]%10 == majors[i].getReqCourses()[j]%10))
 				{
 					required[z][1] -= ((((required[z][l] / 100000000)% 10) * 10) + ((required[z][l] / 10000000)% 10));
-					
+
 					if (required[z][1] < 0)
 					{
 					 required[z][1] = 0;
@@ -239,18 +239,18 @@ void calculateRequired()
 							}
 						}
 					}
-				}		
+				}
 			}
 		 }
        }
     }
 	for (int j = 0 ; j < majors[i].getReqCourses().size() ; j++)
 	{
-	
+
 	}
 	for (int j = 0 ; j < majors[i].getReqCourses().size() ; j++)
 	{
-		
+
 	}
   }
 }
@@ -260,9 +260,50 @@ void calculateRemaining()
 {
 }
 
-//NEW
 void calculateRecommended()
 {
+  recommended.clear();
+  std::map<long,int> counts;
+  std::vector<int> sortedCounts;
+  for(std::vector<std::vector<long>>::iterator i = required.begin(); i < required.end(); i++)
+  {
+    if(required[i][0] == 1)
+    {
+      recommended.push_back(required[i]);
+      for(std::vector<long>::iterator j = required[i].begin(); j < required[i].end(); j++)
+      {
+        counts[required[i][j]]++;
+      }
+    }
+  }
+  for(std::map<long,int>::interator z = counts.begin(); z < counts.end(); z++)
+  {
+    sortedCounts.push_back(z->second);
+  }
+  std::sort(sortedCounts.begin(), sortedCounts.end());
+  for(std::vector<std::vector<long>>::iterator k = recommended.begin(); k < recommended.end(); k++)
+  {
+    std::vector<long> temp;
+    temp.push_back(recommended[k][0]);
+    temp.push_back(recommended[k][1]);
+    int credits = recommended[k][1];
+    for(int x = 0, x < sortedCounts.size(), x++)
+    {
+      for(std::vector<long>::iterator l = 2; l < recommended[k].end(); l++)
+      {
+        if(counts[recommended[k][l]] == sortedCounts[x])
+        {
+          temp.push_back(recommended[k][l]);
+          credits -= ((((required[k][l]/100000000)%10)*10) + (required[k][l]/10000000)%10);
+        }
+      }
+      if(credits <= 0)
+      {
+        break;
+      }
+    }
+    recommended[k] = temp;
+  }
 }
 
 std::vector<std::vector<long>> Student::getRequired()
