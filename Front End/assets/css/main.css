@@ -30,8 +30,49 @@ html,body {
   color: #fff;
   font-size: 350%;
   text-align: center;
-  word-wrap: normal
+  word-wrap: normal;
 }
+
+.fadeIn {
+  animation: fadein 3.5s;
+  -moz-animation: fadein 3.5s; /* Firefox */
+  -webkit-animation: fadein 3.5s; /* Safari and Chrome */
+  -o-animation: fadein 3.5s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 .center {
   background: transparent;
@@ -253,4 +294,8 @@ html,body {
   #return-to-top:hover i {
       color: #fff;
       top: 5px;
+  }
+
+  .hideme {
+    opacity: 0;
   }
