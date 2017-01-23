@@ -28,7 +28,16 @@ std::vector<Major> Student::getMajors()
 
 void Student::addMajor(Major major)
 {
-	if (major.getUniversity() == university)
+	bool check = true;
+	for (int i = 0; i < majors.size() ; i++)
+	{
+		if (majors[i] == major)
+		{
+			check = false;
+			break;
+		}
+	}
+	if (major.getUniversity() == university && check == true)
 	{
 		majors.push_back(major);
 	}
