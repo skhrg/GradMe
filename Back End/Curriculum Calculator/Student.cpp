@@ -128,7 +128,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							{
 							required[k][1] = 0;
 							}*/
-							required[k].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+							required[k].erase(required[k].begin() + l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
 						}
 						else
 						{
@@ -137,7 +137,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					}
 					if (required[k][1] < 0)
 					{
-						required.erase[k];
+						required.erase[required.begin() + k];
 						tempValue2 = false;
 					}
 				}
@@ -163,7 +163,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					}
 					if (required[k][1] < 0)
 					{
-						required.erase[k];
+						required.erase[required.begin() + k];
 						tempValue2 = false;
 					}
 				}
@@ -182,7 +182,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							{
 								if (required[z][l] == reqCourses[j])
 								{
-									required[z].erase(l);
+									required[z].erase(required[z].begin() + l);
 									if (required[z].size() == 1)
 									{
 										required[z].push_back(0);
@@ -208,7 +208,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 									{
 									required[z][1] = 0;
 									}*/
-									required[z].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+									required[z].erase(required[z].begin() + l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
 								}
 								else
 								{
@@ -217,7 +217,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							}
 							/*if (required[z][1] < 0)
 							{
-							required.erase[z];
+							required.erase[required.begin() + z];
 							tempValue4 = false;
 							}*/
 						}
@@ -244,7 +244,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							}
 							/*if (required[z][1] < 0)
 							{
-							required.erase[z];
+							required.erase[required.begin() + z];
 							tempValue4 = false;
 							}*/
 						}
@@ -276,7 +276,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					{
 						for (int y = FML.back() + k;y > FML[0] + k;y--)
 						{
-							required.erase(y);
+							required.erase(required.begin() + y);
 						}
 					}
 					else
@@ -285,7 +285,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						{
 							if (required[y][1] <= 0)
 							{
-								required.erase(y);
+								required.erase(required.begin() + y);
 								for (int x = 1; x < required[k].size(); x++)
 								{
 									if (required[k][x] >= y)
@@ -328,12 +328,12 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								choiceCourses[j][1] -= ((((choiceCourses[j][m] / 100000000) % 10) * 10) + ((choiceCourses[j][m] / 10000000) % 10));
 								if (choiceCourses[j][1] < 0)
 								{
-									choiceCourses.erase(j);
+									choiceCourses.erase(choiceCourses.begin() + j);
 									tempValue2 = false;
 								}
 								else
 								{
-									choiceCourses[j].erase(k);
+									choiceCourses[j].erase(choiceCourses[j].begin() + k);
 								}
 								break;
 							}
@@ -343,18 +343,18 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					{
 						if (std::includes(choiceCourses[j].begin(), choiceCourses[j].end(), required[l].begin(), required[l].end()))
 						{
-							choiceCourses.erase(j);
+							choiceCourses.erase(choiceCourses.begin() + j);
 							tempValue2 = false;
 							break;
 						}
 						if (std::includes(required[l].begin(), required[l].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 						{
 							required[l] = choiceCourses[j];
-							choiceCourses.erase(j);
+							choiceCourses.erase(choiceCourses.begin() + j);
 							tempValue2 = false;
 							break;
 							/*
-							required.erase(l);
+							required.erase(required.begin() + l);
 							tempValue3 = false;
 							*/
 						}
@@ -362,24 +362,24 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						//if choicecourses is completely contained within include, delete include and leave choicecourses
 						temp1 = choiceCourses[j];
 						temp2 = required[l];
-						temp1.erase(1);
-						temp2.erase(1);
+						temp1.erase(temp1.begin() + 1);
+						temp2.erase(temp2.begin() + 1);
 						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 						{
 							if (required[l][1] >= choiceCourses[j][l])
 							{
-								choiceCourses.erase(j);
+								choiceCourses.erase(choiceCourses.begin() + j);
 								tempValue2 = false;
 								break;
 							}
 							else
 							{
 								required[l] = choiceCourses[j];
-								choiceCourses.erase(j);
+								choiceCourses.erase(choiceCourses.begin() + j);
 								tempValue2 = false;
 								break;
 								/*
-								required.erase(l);
+								required.erase(required.begin() + l);
 								tempValue3 = false;
 								*/
 							}
@@ -422,7 +422,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						required[l][1] -= tempCredits;
 						if (required[l][1] <= 0)
 						{
-							required.erase(l);
+							required.erase(required.begin() + l);
 							tempValue3 = false;
 						}
 					}
@@ -440,18 +440,18 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 								{
 
-									required.erase(z);
+									required.erase(required.begin() + z);
 									tempValue3 = false;
 								}
 								temp1 = choiceCourses[j];
 								temp2 = required[z];
-								temp1.erase(1);
-								temp2.erase(1);
+								temp1.erase(temp1.begin() + 1);
+								temp2.erase(temp2.begin() + 1);
 								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 								{
 									if (required[z][1] < choiceCourses[j][z])
 									{
-										required.erase(z);
+										required.erase(required.begin() + z);
 										tempValue3 = false;
 									}
 								}
@@ -493,7 +493,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								required[z][1] -= tempCredits;
 								if (required[z][1] <= 0)
 								{
-									required.erase(z);
+									required.erase(required.begin() + z);
 									tempValue3 = false;
 								}
 							}
@@ -526,7 +526,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						{
 							for (int y = FML.back() + l;y > FML[0] + l;y--)
 							{
-								required.erase(y);
+								required.erase(required.begin() + y);
 							}
 						}
 						else
@@ -535,7 +535,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							{
 								if (required[y][1] <= 0)
 								{
-									required.erase(y);
+									required.erase(required.begin() + y);
 									for (int x = 1; x < required[l].size(); x++)
 									{
 										if (required[l][x] >= y)
@@ -590,7 +590,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								shiz[j][1] -= ((((required[l][m] / 100000000) % 10) * 10) + ((required[l][m] / 10000000) % 10));
 								if (shiz[j][1] < 0)
 								{
-									shiz.erase(j);
+									shiz.erase(shiz.begin() + j);
 									tempValue2 = false;
 									break;
 								}
@@ -634,25 +634,25 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						shiz[j][1] -= tempCredits;
 						if (shiz[j][1] <= 0)
 						{
-							shiz.erase(j);
+							shiz.erase(shiz.begin() + j);
 						}
 					}
 					else if (required[l][0] == 2)
 					{
 						if (std::includes(shiz[j].begin(), shiz[j].end(), required[l].begin(), required[l].end()))
 						{
-							shiz.erase(j);
+							shiz.erase(shiz.begin() + j);
 							tempValue2 = false;
 							break;
 						}
 						if (std::includes(required[l].begin(), required[l].end(), shiz[j].begin(), shiz[j].end()))
 						{
 							required[l] = shiz[j];
-							shiz.erase(j);
+							shiz.erase(shiz.begin() + j);
 							tempValue2 = false;
 							break;
 							/*
-							required.erase(l);
+							required.erase(required.begin() + l);
 							tempValue3 = false;
 							*/
 						}
@@ -660,24 +660,24 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						//if shiz is completely contained within include, delete include and leave shiz
 						temp1 = shiz[j];
 						temp2 = required[l];
-						temp1.erase(1);
-						temp2.erase(1);
+						temp1.erase(temp1.begin() + 1);
+						temp2.erase(temp2.begin() + 1);
 						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 						{
 							if (required[l][1] >= shiz[j][l])
 							{
-								shiz.erase(j);
+								shiz.erase(shiz.begin() + j);
 								tempValue2 = false;
 								break;
 							}
 							else
 							{
 								required[l] = shiz[j];
-								shiz.erase(j);
+								shiz.erase(shiz.begin() + j);
 								tempValue2 = false;
 								break;
 								/*
-								required.erase(l);
+								required.erase(required.begin() + l);
 								tempValue3 = false;
 								*/
 							}
@@ -696,20 +696,20 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 
 								if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
 								{
-									required.erase(z);
+									required.erase(required.begin() + z);
 									tempValue3 = false;
 								}
 								//if required is completely contained within shiz, delete the incoming
 								//if shiz is completely contained within include, delete include and leave shiz
 								temp1 = shiz[j];
 								temp2 = required[z];
-								temp1.erase(1);
-								temp2.erase(1);
+								temp1.erase(temp1.begin() + 1);
+								temp2.erase(temp2.begin() + 1);
 								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 								{
 									if (required[z][1] < shiz[j][z])
 									{
-										required.erase(z);
+										required.erase(required.begin() + z);
 										tempValue3 = false;
 									}
 								}
@@ -742,7 +742,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						{
 							for (int y = FML.back() + l;y > FML[0] + l;y--)
 							{
-								required.erase(y);
+								required.erase(required.begin() + y);
 							}
 						}
 						else
@@ -751,7 +751,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							{
 								if (required[y][1] <= 0)
 								{
-									required.erase(y);
+									required.erase(required.begin() + y);
 									for (int x = 1; x < required[l].size(); x++)
 									{
 										if (required[l][x] >= y)
