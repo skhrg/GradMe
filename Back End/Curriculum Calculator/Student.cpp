@@ -94,7 +94,7 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 		choiceCourses = majors[i].getChoiceCourses();
 		shiz = majors[i].getShiz();
 		option = majors[i].getOption();
-		for (int j = 0; j < reqCourses.size(); j++)
+		for (int j = 1; j < reqCourses.size(); j++)
 		{
 
 			for (int k = 0; k < required.size();)
