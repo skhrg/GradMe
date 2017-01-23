@@ -813,8 +813,10 @@ void Student::calculateRemaining()
   bool tempValue2;
   bool tempValue3;
   std::vector<long> FML;
+	
   for (int j = 0 ; j < taken.size() ; j++) //starts at j cuz i copy pasted code
   {
+      remainingCredits -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10));
       for (int k = 0 ; k < remaining.size() ;)
        {
 	   tempValue2 = true;
