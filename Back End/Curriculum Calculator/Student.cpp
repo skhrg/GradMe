@@ -1023,6 +1023,7 @@ void Student::calculateRemaining()
 		 }
        }
     }
+	remaining = removeDuplicates(remaining);
   }
 
 void Student::calculateRecommended()
@@ -1088,6 +1089,50 @@ std::vector<std::vector<long>> Student::getRecommended()
 
 std::vector<std::vector<long>> Student::removeDuplicates(std::vector<std::vector<long>> input)
 {
-  //TODO
+bool check;
+  for(int i = 0 ; i < input.size(); i++)
+  {
+	if (input[i][0] == 1)
+	{
+		for(int j = i ; j < input.size(); j++)
+		{
+			if (input[j][0] == 1)
+			{
+				if(input[i] == input[j])
+				{
+				input.erase(j);
+				j--;
+				}
+			}
+		}
+	}
+	else if (input[i][0] == 3)
+	{
+		for(int j = i ; j < input.size(); j++)
+		{
+			if (input[j][0] == 3)
+			{
+				if(input[i] == input[j])
+				{
+					check = false;
+					for(int k = i + 1, int l = j + 1; k <= input[i].back() + i ; k++, l++)
+					{
+						if (input[k] != input[l])
+						{
+						check = true;
+						}
+					}
+					if(check == false)
+					{
+						for (int k = 0 ; k <= input[i].back(); k++)
+						{
+							input.erase(j);
+						}
+					}
+				}
+			}
+		}
+	}
+  }
   return input;
 }
