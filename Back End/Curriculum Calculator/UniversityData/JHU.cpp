@@ -1,9 +1,15 @@
 #import "../Major.cpp"
 
+
+
 void main()
 {
   //** Don't forget to sort because "includes() assumes that the sequences are sorted using operator<(), or using the predicate comp."
-  //Not sure if std::sort will work
+  
+  //Use this line to sort the data entries before you add them into the major:
+  //Note: you MUST sort all vectors before putting them into the 2D vector
+  //std::sort (vectorName.begin()+1, vectorName.end());
+  
   /*std::vector<int> req {550171, 550420, 550430, 550361};
   std::vector<int> opt1 {110106, 110108};
   std::vector<int> opt2 {110107, 110109};
