@@ -66,7 +66,7 @@ void Student::removeTaken(long course)
 	}
 }
 
-void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
+void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize (wayyy later)
 {
 	required.clear();
 	requiredCredits = 0;
@@ -170,7 +170,6 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 				else /*if (required[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 				{
 					tempValue2 = false;
-					FML.clear();
 					FML = required[k];
 					FML[0] = 0;
 					//k += FML.back();
@@ -295,7 +294,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								}
 							}
 						}
-						k += required[k].back();
+						k += required[k].back() + 1;
 					}
 				}
 				if (tempValue2 == true)
@@ -309,7 +308,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 		shiz = majors[i].getShiz();
 		option = majors[i].getOption();
 		*/
-		for (int j = 0; j < choiceCourses.size(); j++)
+		for (int j = 0; j < choiceCourses.size(); )
 		{
 			tempValue2 = true;
 			for (int k = 2; k < choiceCourses[j].size();)
@@ -366,7 +365,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						temp2.erase(temp2.begin() + 1);
 						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 						{
-							if (required[l][1] >= choiceCourses[j][l])
+							if (required[l][1] >= choiceCourses[j][1])
 							{
 								choiceCourses.erase(choiceCourses.begin() + j);
 								tempValue2 = false;
@@ -429,7 +428,6 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 					{
 						tempValue6 = false;
-						FML.clear();
 						FML = required[l];
 						FML[0] = 0;
 						for (int z = l + 1; z < FML.back() + l;)
@@ -439,8 +437,6 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 							{
 								if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 								{
-
-									required.erase(required.begin() + z);
 									tempValue3 = false;
 								}
 								temp1 = choiceCourses[j];
@@ -449,11 +445,14 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								temp2.erase(temp2.begin() + 1);
 								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 								{
-									if (required[z][1] < choiceCourses[j][z])
+									if (required[z][1] < choiceCourses[j][1])
 									{
-										required.erase(required.begin() + z);
 										tempValue3 = false;
 									}
+								}
+								if (tempValue3 == false)
+								{
+									required.erase(required.begin() + z);
 								}
 							}
 							else if (required[z][0] == 32 && k == 2)
@@ -545,7 +544,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 									}
 								}
 							}
-							l += required[l].back();
+							l += required[l].back() + 1;
 						}
 					}
 					if (tempValue3 == true)
@@ -562,12 +561,13 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					break;
 				}
 			}
-			if (choiceCourses[j].size() != 0)
+			if (tempValue2 == true)
 			{
 				required.push_back(choiceCourses[j]);
+				j++;
 			}
 		}
-		for (int j = 0; j < shiz.size(); j++)
+		for (int j = 0; j < shiz.size();)
 		{
 			tempValue2 = true;
 			for (int k = 2; k < shiz[j].size();)
@@ -635,6 +635,8 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						if (shiz[j][1] <= 0)
 						{
 							shiz.erase(shiz.begin() + j);
+							tempValue2 = false;
+							break;
 						}
 					}
 					else if (required[l][0] == 2)
@@ -664,7 +666,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 						temp2.erase(temp2.begin() + 1);
 						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 						{
-							if (required[l][1] >= shiz[j][l])
+							if (required[l][1] >= shiz[j][1])
 							{
 								shiz.erase(shiz.begin() + j);
 								tempValue2 = false;
@@ -686,7 +688,6 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 					{
 						tempValue6 = false;
-						FML.clear();
 						FML = required[l];
 						FML[0] = 0;
 						for (int z = l + 1; z < FML.back() + l;)
@@ -696,7 +697,6 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 
 								if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
 								{
-									required.erase(required.begin() + z);
 									tempValue3 = false;
 								}
 								//if required is completely contained within shiz, delete the incoming
@@ -707,12 +707,16 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 								temp2.erase(temp2.begin() + 1);
 								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 								{
-									if (required[z][1] < shiz[j][z])
+									if (required[z][1] < shiz[j][1])
 									{
-										required.erase(required.begin() + z);
 										tempValue3 = false;
 									}
 								}
+								if (tempValue3 == false)
+								{
+									required.erase(required.begin() + z);
+								}
+
 							}
 							if (tempValue3 == true)
 							{
@@ -761,7 +765,7 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 									}
 								}
 							}
-							l += required[l].back();
+							l += required[l].back() + 1;
 						}
 					}
 					/*
@@ -780,17 +784,379 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 					break;
 				}
 			}
-			if (shiz.size[j]() != 0)
+			if (tempValue2 == true)
 			{
 				required.push_back(shiz[j]);
+				j++;
 			}
 		}
-		for (int j = 0; j < option.size(); j++)
+		for (int j = 0; j < option.size(); )
 		{
-			//TODO
-			if (option.size[j]() != 0)
+			tempValue2 = true;
+			FML = option[j];
+			FML[0] = 0;
+			for (int k = 0; k < required.size(); k++)
 			{
-				required.push_back(option[j]);
+				if (required[k][0] == 0)
+				{
+					for (int u = 1; u < required[k].size(); u++)
+					{
+						{
+							for (int z = j + 1; z < FML.back() + j;)
+							{
+								if (option[z][0] == 30)
+								{
+									for (int l = 1; l < option[z].size();)
+									{
+										if (option[z][l] == required[k][u])
+										{
+											option[z].erase(option[z].begin() + l);
+											if (option[z].size() == 1)
+											{
+												option[z].push_back(0);
+												break;
+											}
+										}
+										else
+										{
+											l++;
+										}
+									}
+								}
+								else if (option[z][0] == 31)
+								{
+
+									for (int l = 2; l < option[z].size();)
+									{
+										if (required[k][u] == option[z][l])
+										{
+											option[z][1] -= ((((required[k][u] / 100000000) % 10) * 10) + ((required[k][u] / 10000000) % 10));
+
+											/*if (option[z][1] < 0)
+											{
+											option[z][1] = 0;
+											}*/
+											option[z].erase(option[z].begin() + l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+										}
+										else
+										{
+											l++;
+										}
+									}
+									/*if (option[z][1] < 0)
+									{
+									option.erase[option.begin() + z];
+									tempValue4 = false;
+									}*/
+								}
+								else if (option[z][0] == 32)
+								{
+									for (int l = 2; l < option[z].size(); l++)
+									{
+										if ((option[z][l] / 10000000000 <= (required[k][u] / 100000000000) % 10 &&
+											(option[z][l] / 1000000000) % 10 <= (((required[k][u] / 100000000) % 10) * 10) &&
+											((((option[z][l] / 100000000) % 10) * 100) + (((option[z][l] / 10000000) % 10) * 10) + (option[z][l] / 1000000) % 10) ==
+											((((required[k][u] / 100000000000000) % 10) * 100) + (((required[k][u] / 10000000000000) % 10) * 10)
+												+ (required[k][u] / 1000000000000) % 10)) || ((option[z][l] / 100000) % 10 == (required[k][u] / 100000) % 10)
+											|| ((option[z][l] / 10000) % 10 == (required[k][u] / 10000) % 10) || ((option[z][l] / 1000) % 10 == (required[k][u] / 1000) % 10)
+											|| ((option[z][l] / 100) % 10 == (required[k][u] / 100) % 10) || ((option[z][l] / 10) % 10 == (required[k][u] / 10) % 10)
+											|| (option[z][l] % 10 == required[k][u] % 10))
+										{
+											option[z][1] -= ((((required[k][u] / 100000000) % 10) * 10) + ((required[k][u] / 10000000) % 10));
+
+											/*if (option[z][1] < 0)
+											{
+											option[z][1] = 0;
+											}*/
+										}
+									}
+									/*if (option[z][1] < 0)
+									{
+									option.erase[option.begin() + z];
+									tempValue4 = false;
+									}*/
+								}
+								/*if (tempValue4 == true)
+								{
+								z++;
+								}*/
+							}
+							for (int z = 0; z < FML.size() - 1; z++)
+							{
+								tempValue3 = false;
+								for (int y = FML[z] + 1 + j; y <= FML[z + 1] + j; y++)
+								{
+									if (option[y][1] != 0)
+									{
+										tempValue3 = true;
+									}
+									if (tempValue3 == false)
+									{
+										break;
+									}
+								}
+								if (tempValue3 == false)
+								{
+									break;
+								}
+							}
+							if (tempValue3 == false)
+							{
+								for (int y = FML.back() + j;y > FML[0] + j;y--)
+								{
+									tempValue2 = false;
+									option.erase(option.begin() + y);
+								}
+							}
+							else
+							{
+								for (int y = FML.back() + j;y > FML[0] + j + 1;y--)
+								{
+									if (option[y][1] <= 0)
+									{
+										option.erase(option.begin() + y);
+										for (int x = 1; x < option[j].size(); x++)
+										{
+											if (option[j][x] >= y)
+											{
+												option[j][x]--;
+											} //adjust j value
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else if (required[k][0] == 1)
+				{
+					tempValue6 = false;
+					for (int z = j + 1; z < FML.back() + j;)
+					{
+						tempValue3 = true;
+						if (option[z][0] == 31)
+						{
+							if (std::includes(option[z].begin(), option[z].end(), required[k].begin(), required[k].end()))
+							{
+								tempValue3 = false;
+							}
+							temp1 = required[k];
+							temp2 = option[z];
+							temp1.erase(temp1.begin() + 1);
+							temp2.erase(temp2.begin() + 1);
+							if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+							{
+								if (option[z][1] < required[k][1])
+								{
+									tempValue3 = false;
+								}
+							}
+							if (tempValue3 == false)
+							{
+								option.erase(option.begin() + z);
+							}
+						}
+						else if (option[z][0] == 32)
+						{
+							tempValue4 = true;
+							int tempCredits = 0;
+
+
+							for (int m = 2; m < option[z].size() && tempValue4 == true; m++)
+							{
+								for (int n = 2; n < required[k].size(); n++)
+								{
+									if ((option[z][m] / 10000000000 <= (required[k][n] / 100000000000) % 10 &&
+										(option[z][m] / 1000000000) % 10 <= (((required[k][n] / 100000000) % 10) * 10) &&
+										((((option[z][m] / 100000000) % 10) * 100) + (((option[z][m] / 10000000) % 10) * 10) + (option[z][m] / 1000000) % 10) ==
+										((((required[k][n] / 100000000000000) % 10) * 100) + (((required[k][n] / 10000000000000) % 10) * 10)
+											+ (required[k][n] / 1000000000000) % 10)) || ((option[z][m] / 100000) % 10 == (required[k][n] / 100000) % 10)
+										|| ((option[z][m] / 10000) % 10 == (required[k][n] / 10000) % 10) || ((option[z][m] / 1000) % 10 == (required[k][n] / 1000) % 10)
+										|| ((option[z][m] / 100) % 10 == (required[k][n] / 100) % 10) || ((option[z][m] / 10) % 10 == (required[k][n] / 10) % 10)
+										|| (option[z][m] % 10 == required[k][n] % 10))
+									{
+									}
+									else
+									{
+										tempCredits += ((((required[k][n] / 100000000) % 10) * 10) + ((required[k][n] / 10000000) % 10));
+										if (tempCredits >= option[z][1])
+										{
+											tempValue4 = false;
+											break;
+										}
+									}
+								}
+							}
+							option[z][1] -= tempCredits;
+							if (option[z][1] <= 0)
+							{
+								option.erase(option.begin() + z);
+								tempValue3 = false;
+							}
+						}
+
+						if (tempValue3 == true)
+						{
+							z++;
+						}
+					}
+					for (int z = 0; z < FML.size() - 1; z++)
+					{
+						tempValue6 = false;
+						for (int y = FML[z] + 1 + j; y <= FML[z + 1] + j; y++)
+						{
+							if (option[y][1] != 0)
+							{
+								tempValue6 = true;
+							}
+							if (tempValue6 == false)
+							{
+								break;
+							}
+						}
+						if (tempValue6 == false)
+						{
+							break;
+						}
+					}
+					if (tempValue6 == false)
+					{
+						for (int y = FML.back() + j;y > FML[0] + j;y--)
+						{
+							tempValue2 = false;
+							option.erase(option.begin() + y);
+						}
+					}
+					else
+					{
+						for (int y = FML.back() + j;y > FML[0] + j + 1;y--)
+						{
+							if (option[y][1] <= 0)
+							{
+								option.erase(option.begin() + y);
+								for (int x = 1; x < option[j].size(); x++)
+								{
+									if (option[j][x] >= y)
+									{
+										option[j][x]--;
+									} //adjust j value
+								}
+							}
+						}
+					}
+				}
+				else if (required[k][0] == 2)
+				{
+					tempValue6 = false;
+					for (int z = j + 1; z < FML.back() + j;)
+					{
+						if (option[z][0] == 32)
+						{
+
+							if (std::includes(option[z].begin(), option[z].end(), required[k].begin(), required[k].end()))
+							{
+								tempValue3 = false;
+							}
+							//if option is completely contained within required, delete the incoming
+							//if required is completely contained within include, delete include and leave required
+							temp1 = required[k];
+							temp2 = option[z];
+							temp1.erase(temp1.begin() + 1);
+							temp2.erase(temp2.begin() + 1);
+							if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+							{
+								if (option[z][1] < required[k][1])
+								{
+									tempValue3 = false;
+								}
+							}
+							if (tempValue3 == false)
+							{
+								option.erase(option.begin() + z);
+							}
+						}
+						if (tempValue3 == true)
+						{
+							z++;
+						}
+					}
+					for (int z = 0; z < FML.size() - 1; z++)
+					{
+						tempValue6 = false;
+						for (int y = FML[z] + 1 + j; y <= FML[z + 1] + j; y++)
+						{
+							if (option[y][1] != 0)
+							{
+								tempValue6 = true;
+							}
+							if (tempValue6 == false)
+							{
+								break;
+							}
+						}
+						if (tempValue6 == false)
+						{
+							break;
+						}
+					}
+					if (tempValue6 == false)
+					{
+						for (int y = FML.back() + j;y > FML[0] + j;y--)
+						{
+							tempValue2 = false;
+							option.erase(option.begin() + y);
+						}
+					}
+					else
+					{
+						for (int y = FML.back() + j;y > FML[0] + j + 1;y--)
+						{
+							if (option[y][1] <= 0)
+							{
+								option.erase(option.begin() + y);
+								for (int x = 1; x < option[j].size(); x++)
+								{
+									if (option[j][x] >= y)
+									{
+										option[j][x]--;
+									} //adjust j value
+								}
+							}
+						}
+					}
+				}
+				else if (required[k][0] == 3)
+				{
+					if (option[j] == required[k])
+					{
+						tempValue = false;
+						for (int k = j + 1, int l = k + 1; k <= option[j].back() + j; k++, l++)
+						{
+							if (option[k] != required[l])
+							{
+								tempValue = true;
+							}
+						}
+						if (tempValue == false)
+						{
+							for (int k = 0; k <= option[j].back(); k++)
+							{
+								tempValue2 = false;
+								option.erase(option.begin() + j);
+							}
+							break;
+						}
+					}
+				}
+			}
+
+			if (tempValue2 == true)
+			{
+				for (int k = j; k <= option[j].back() + j; k++)
+				{
+					required.push_back(option[k]);
+				}
+				j += option[j].back() + 1;
 			}
 		}
 	}
