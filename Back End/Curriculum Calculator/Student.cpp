@@ -800,226 +800,226 @@ void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions,
 
 void Student::calculateRemaining()
 {
-  remaining = required;
-  remainingCredits = requiredCredits;
-  bool tempValue;
-  bool tempValue2;
-  bool tempValue3;
-  std::vector<long> FML;
-	
-  for (int j = 0 ; j < taken.size() ; j++) //starts at j cuz i copy pasted code
-  {
-      remainingCredits -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10));
-      for (int k = 0 ; k < remaining.size() ;)
-       {
-	   tempValue2 = true;
-		if (remaining[k][0] == 0)
+	remaining = required;
+	remainingCredits = requiredCredits;
+	bool tempValue;
+	bool tempValue2;
+	bool tempValue3;
+	std::vector<long> FML;
+
+	for (int j = 0; j < taken.size(); j++) //starts at j cuz i copy pasted code
+	{
+		remainingCredits -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+		for (int k = 0; k < remaining.size();)
 		{
-			tempValue = false;	
-			for (int l = 1 ; l < remaining[k].size() ; l++)
+			tempValue2 = true;
+			if (remaining[k][0] == 0)
 			{
-				if (taken[j] == remaining[k][l])
+				tempValue = false;
+				for (int l = 1; l < remaining[k].size(); l++)
 				{
-					tempValue = true;
-					remaining[k].erase(l);
-					break;
-				}
-			}
-			if (tempValue == true)
-			{
-				break;
-			}
-		}
-         else if (remaining[k][0] == 1)
-         {
-			
-			for (int l = 2 ; l < remaining[k].size() ;)
-			{
-				if (taken[j] == remaining[k][l])
-				{
-					remaining[k][1] -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10)); 
-					/*if (remaining[k][1] < 0)
+					if (taken[j] == remaining[k][l])
 					{
-					 remaining[k][1] = 0;
-					}*/
-					remaining[k].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
-				}
-				else
-				{
-					l++;
-				}
-			}
-			if (remaining[k][1] < 0)
-			{
-				remaining.erase[k];
-				tempValue2 = false;
-			}
-         }
-         else if (remaining[k][0] == 2)
-		 {
-			for (int l = 2 ; l < remaining[k].size() ; l++)
-			{
-				if((remaining[k][l]/10000000000 <= (taken[j]/100000000000)%10 && 
-				(remaining[k][l]/1000000000)%10 <= (((taken[j]/100000000)%10) * 10 ) && 
-				((((remaining[k][l] / 100000000)%10)*100) + (((remaining[k][l] / 10000000)%10)*10) + (remaining[k][l] / 1000000)%10) ==
-				((((taken[j] / 100000000000000)%10)*100) + (((taken[j] / 10000000000000)%10)*10)
-				+ (taken[j] / 1000000000000)%10)) || ((remaining[k][l]/100000)%10 == (taken[j]/100000)%10)
-				|| ((remaining[k][l]/10000)%10 == (taken[j]/10000)%10) || ((remaining[k][l]/1000)%10 == (taken[j]/1000)%10)
-				|| ((remaining[k][l]/100)%10 == (taken[j]/100)%10) || ((remaining[k][l]/10)%10 == (taken[j]/10)%10)
-				|| (remaining[k][l]%10 == taken[j]%10))
-				{
-					remaining[k][1] -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10));
-					/*if (remaining[k][1] < 0)
-					{
-					 remaining[k][1] = 0;
-					}*/
-				}
-			}
-			if (remaining[k][1] < 0)
-			{
-				remaining.erase[k];
-				tempValue2 = false;
-			}
-		 }
-		 else /*if (remaining[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
-		 {
-			tempValue2 = false;
-		    FML.clear();
-			FML = remaining[k];
-			FML[0] = 0;
-			//k += FML.back();
-			for (int z = k + 1; z < FML.back() + k;)
-			{
-					if (remaining[z][0] == 0)
-		{
-			for (int l = 1 ; l < remaining[z].size() ;)
-			{
-				if (remaining[z][l] == taken[j])
-				{
-					remaining[z].erase(l);
-					if (remaining[z].size() == 1)
-					{
-						remaining[z].push_back(0);
+						tempValue = true;
+						remaining[k].erase(remaining[k].begin() + l);
 						break;
 					}
 				}
-				else
+				if (tempValue == true)
 				{
-				l++;
-				}
-			}
-		}
-		else if (remaining[z][0] == 1)
-         {
-			
-			for (int l = 2 ; l < remaining[z].size() ;)
-			{
-				if (taken[j] == remaining[z][l])
-				{
-					remaining[z][1] -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10)); 
-					
-					/*if (remaining[z][1] < 0)
-					{
-					 remaining[z][1] = 0;
-					}*/
-					remaining[z].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
-				}
-				else
-				{
-					l++;
-				}
-			}
-			/*if (remaining[z][1] < 0)
-			{
-				remaining.erase[z];
-				tempValue4 = false;
-			}*/
-         }
-         else if (remaining[z][0] == 2)
-		 {
-			for (int l = 2 ; l < remaining[z].size() ; l++)
-			{
-				if((remaining[z][l]/10000000000 <= (taken[j]/100000000000)%10 && 
-				(remaining[z][l]/1000000000)%10 <= (((taken[j]/100000000)%10) * 10 ) && 
-				((((remaining[z][l] / 100000000)%10)*100) + (((remaining[z][l] / 10000000)%10)*10) + (remaining[z][l] / 1000000)%10) ==
-				((((taken[j] / 100000000000000)%10)*100) + (((taken[j] / 10000000000000)%10)*10)
-				+ (taken[j] / 1000000000000)%10)) || ((remaining[z][l]/100000)%10 == (taken[j]/100000)%10)
-				|| ((remaining[z][l]/10000)%10 == (taken[j]/10000)%10) || ((remaining[z][l]/1000)%10 == (taken[j]/1000)%10)
-				|| ((remaining[z][l]/100)%10 == (taken[j]/100)%10) || ((remaining[z][l]/10)%10 == (taken[j]/10)%10)
-				|| (remaining[z][l]%10 == taken[j]%10))
-				{
-					remaining[z][1] -= ((((taken[j] / 100000000)% 10) * 10) + ((taken[j] / 10000000)% 10));
-					
-					/*if (remaining[z][1] < 0)
-					{
-					 remaining[z][1] = 0;
-					}*/
-				}
-			}
-			/*if (remaining[z][1] < 0)
-			{
-				remaining.erase[z];
-				tempValue4 = false;
-			}*/
-		 }
-		 		 /*if (tempValue4 == true)
-		 {
-		 z++;
-		 }*/
-			}
-			for (int z = 0; z < FML.size() - 1; z++)
-			{
-				tempValue3 = false;
-				for (int y = FML[z] + 1 + k ; y <= FML[z+1] + k ; y++)
-				{
-					if(remaining[y][1] != 0)
-					{
-						tempValue3 = true;
-					}
-					if(tempValue3 == false)
-					{
 					break;
+				}
+			}
+			else if (remaining[k][0] == 1)
+			{
+
+				for (int l = 2; l < remaining[k].size();)
+				{
+					if (taken[j] == remaining[k][l])
+					{
+						remaining[k][1] -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+						/*if (remaining[k][1] < 0)
+						{
+						remaining[k][1] = 0;
+						}*/
+						remaining[k].erase(remaining[k].begin() + l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+					}
+					else
+					{
+						l++;
 					}
 				}
-				if(tempValue3 == false)
+				if (remaining[k][1] < 0)
 				{
-				break;
+					remaining.erase[remaining.begin() + k];
+					tempValue2 = false;
 				}
 			}
-			if(tempValue3 == false)
+			else if (remaining[k][0] == 2)
 			{
-				for(int y = FML.back() + k ;y > FML[0] + k;y--)
+				for (int l = 2; l < remaining[k].size(); l++)
 				{
-					remaining.erase(y);
-				}
-			}
-			else
-			{
-				for(int y = FML.back() + k ;y > FML[0] + k + 1;y--)
-				{
-					if (remaining[y][1] <= 0)
+					if ((remaining[k][l] / 10000000000 <= (taken[j] / 100000000000) % 10 &&
+						(remaining[k][l] / 1000000000) % 10 <= (((taken[j] / 100000000) % 10) * 10) &&
+						((((remaining[k][l] / 100000000) % 10) * 100) + (((remaining[k][l] / 10000000) % 10) * 10) + (remaining[k][l] / 1000000) % 10) ==
+						((((taken[j] / 100000000000000) % 10) * 100) + (((taken[j] / 10000000000000) % 10) * 10)
+							+ (taken[j] / 1000000000000) % 10)) || ((remaining[k][l] / 100000) % 10 == (taken[j] / 100000) % 10)
+						|| ((remaining[k][l] / 10000) % 10 == (taken[j] / 10000) % 10) || ((remaining[k][l] / 1000) % 10 == (taken[j] / 1000) % 10)
+						|| ((remaining[k][l] / 100) % 10 == (taken[j] / 100) % 10) || ((remaining[k][l] / 10) % 10 == (taken[j] / 10) % 10)
+						|| (remaining[k][l] % 10 == taken[j] % 10))
 					{
-						remaining.erase(y);
-						for (int x = 1 ; x < remaining[k].size() ; x++)
+						remaining[k][1] -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+						/*if (remaining[k][1] < 0)
 						{
-							if(remaining[k][x] >= y)
+						remaining[k][1] = 0;
+						}*/
+					}
+				}
+				if (remaining[k][1] < 0)
+				{
+					remaining.erase[remaining.begin() + k];
+					tempValue2 = false;
+				}
+			}
+			else /*if (remaining[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
+			{
+				tempValue2 = false;
+				FML.clear();
+				FML = remaining[k];
+				FML[0] = 0;
+				//k += FML.back();
+				for (int z = k + 1; z < FML.back() + k;)
+				{
+					if (remaining[z][0] == 0)
+					{
+						for (int l = 1; l < remaining[z].size();)
+						{
+							if (remaining[z][l] == taken[j])
 							{
-								remaining[k][x]--;
-							} //adjust k value
+								remaining[z].erase(remaining[z].begin() + l);
+								if (remaining[z].size() == 1)
+								{
+									remaining[z].push_back(0);
+									break;
+								}
+							}
+							else
+							{
+								l++;
+							}
 						}
 					}
+					else if (remaining[z][0] == 1)
+					{
+
+						for (int l = 2; l < remaining[z].size();)
+						{
+							if (taken[j] == remaining[z][l])
+							{
+								remaining[z][1] -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+
+								/*if (remaining[z][1] < 0)
+								{
+								remaining[z][1] = 0;
+								}*/
+								remaining[z].erase(remaining[z].begin() + l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+							}
+							else
+							{
+								l++;
+							}
+						}
+						/*if (remaining[z][1] < 0)
+						{
+						remaining.erase[remaining.begin() + z];
+						tempValue4 = false;
+						}*/
+					}
+					else if (remaining[z][0] == 2)
+					{
+						for (int l = 2; l < remaining[z].size(); l++)
+						{
+							if ((remaining[z][l] / 10000000000 <= (taken[j] / 100000000000) % 10 &&
+								(remaining[z][l] / 1000000000) % 10 <= (((taken[j] / 100000000) % 10) * 10) &&
+								((((remaining[z][l] / 100000000) % 10) * 100) + (((remaining[z][l] / 10000000) % 10) * 10) + (remaining[z][l] / 1000000) % 10) ==
+								((((taken[j] / 100000000000000) % 10) * 100) + (((taken[j] / 10000000000000) % 10) * 10)
+									+ (taken[j] / 1000000000000) % 10)) || ((remaining[z][l] / 100000) % 10 == (taken[j] / 100000) % 10)
+								|| ((remaining[z][l] / 10000) % 10 == (taken[j] / 10000) % 10) || ((remaining[z][l] / 1000) % 10 == (taken[j] / 1000) % 10)
+								|| ((remaining[z][l] / 100) % 10 == (taken[j] / 100) % 10) || ((remaining[z][l] / 10) % 10 == (taken[j] / 10) % 10)
+								|| (remaining[z][l] % 10 == taken[j] % 10))
+							{
+								remaining[z][1] -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+
+								/*if (remaining[z][1] < 0)
+								{
+								remaining[z][1] = 0;
+								}*/
+							}
+						}
+						/*if (remaining[z][1] < 0)
+						{
+						remaining.erase[remaining.begin() + z];
+						tempValue4 = false;
+						}*/
+					}
+					/*if (tempValue4 == true)
+					{
+					z++;
+					}*/
 				}
-				k += remaining[k].back();
+				for (int z = 0; z < FML.size() - 1; z++)
+				{
+					tempValue3 = false;
+					for (int y = FML[z] + 1 + k; y <= FML[z + 1] + k; y++)
+					{
+						if (remaining[y][1] != 0)
+						{
+							tempValue3 = true;
+						}
+						if (tempValue3 == false)
+						{
+							break;
+						}
+					}
+					if (tempValue3 == false)
+					{
+						break;
+					}
+				}
+				if (tempValue3 == false)
+				{
+					for (int y = FML.back() + k;y > FML[0] + k;y--)
+					{
+						remaining.erase(remaining.begin() + y);
+					}
+				}
+				else
+				{
+					for (int y = FML.back() + k;y > FML[0] + k + 1;y--)
+					{
+						if (remaining[y][1] <= 0)
+						{
+							remaining.erase(remaining.begin() + y);
+							for (int x = 1; x < remaining[k].size(); x++)
+							{
+								if (remaining[k][x] >= y)
+								{
+									remaining[k][x]--;
+								} //adjust k value
+							}
+						}
+					}
+					k += remaining[k].back();
+				}
 			}
-		 }
-		 if (tempValue2 == true)
-		 {
-		 k++;
-		 }
-       }
-    }
+			if (tempValue2 == true)
+			{
+				k++;
+			}
+		}
+	}
 	remaining = removeDuplicates(remaining);
-  }
+}
 
 void Student::calculateRecommended()
 {
@@ -1084,50 +1084,50 @@ std::vector<std::vector<long>> Student::getRecommended()
 
 std::vector<std::vector<long>> Student::removeDuplicates(std::vector<std::vector<long>> input)
 {
-bool check;
-  for(int i = 0 ; i < input.size(); i++)
-  {
-	if (input[i][0] == 1)
+	bool check;
+	for (int i = 0; i < input.size(); i++)
 	{
-		for(int j = i ; j < input.size(); j++)
+		if (input[i][0] == 1)
 		{
-			if (input[j][0] == 1)
+			for (int j = i; j < input.size(); j++)
 			{
-				if(input[i] == input[j])
+				if (input[j][0] == 1)
 				{
-				input.erase(j);
-				j--;
-				}
-			}
-		}
-	}
-	else if (input[i][0] == 3)
-	{
-		for(int j = i ; j < input.size(); j++)
-		{
-			if (input[j][0] == 3)
-			{
-				if(input[i] == input[j])
-				{
-					check = false;
-					for(int k = i + 1, int l = j + 1; k <= input[i].back() + i ; k++, l++)
+					if (input[i] == input[j])
 					{
-						if (input[k] != input[l])
-						{
-						check = true;
-						}
-					}
-					if(check == false)
-					{
-						for (int k = 0 ; k <= input[i].back(); k++)
-						{
-							input.erase(j);
-						}
+						input.erase(input.begin() + j);
+						j--;
 					}
 				}
 			}
 		}
+		else if (input[i][0] == 3)
+		{
+			for (int j = i; j < input.size(); j++)
+			{
+				if (input[j][0] == 3)
+				{
+					if (input[i] == input[j])
+					{
+						check = false;
+						for (int k = i + 1, int l = j + 1; k <= input[i].back() + i; k++, l++)
+						{
+							if (input[k] != input[l])
+							{
+								check = true;
+							}
+						}
+						if (check == false)
+						{
+							for (int k = 0; k <= input[i].back(); k++)
+							{
+								input.erase(input.begin() + j);
+							}
+						}
+					}
+				}
+			}
+		}
 	}
-  }
-  return input;
+	return input;
 }
