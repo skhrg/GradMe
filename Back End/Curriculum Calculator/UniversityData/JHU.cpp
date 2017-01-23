@@ -1,14 +1,18 @@
 #import "../Major.cpp"
-
-
-
 void main()
 {
-  //** Don't forget to sort because "includes() assumes that the sequences are sorted using operator<(), or using the predicate comp."
-  
-  //Use this line to sort the data entries before you add them into the major:
-  //Note: you MUST sort all vectors before putting them into the 2D vector
+ //Use this line to sort the data entries before you add them into the major:
   //std::sort (vectorName.begin()+1, vectorName.end());
+  //Note: you MUST sort all vectors before putting them into the 2D vector
+  
+  //Also: Make sure to put the ID (as specified in the readme) of the type of input as the first value of every vector input. 
+  //ID = 0: reqCourses
+  //ID = 1: choiceCourses
+  //ID = 2: shiz
+  //ID = 3: option
+  //ID = 30: Any reqCourses under an option
+  //ID = 31: Any choiceCourses under an option
+  //ID = 32: Any shiz under an option
   
   /*std::vector<int> req {550171, 550420, 550430, 550361};
   std::vector<int> opt1 {110106, 110108};
