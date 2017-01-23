@@ -66,743 +66,736 @@ void Student::removeTaken(long course)
   }
 }
 
-void Student::calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
+void calculateRequired() //TODO - debug, commenting, spacing, creating fuctions, optimize (wayyy later)
 {
-  required.clear();
-  requiredCredits = 0;
-  bool tempValue;
-  bool tempValue2;
-  bool tempValue3;
-  bool tempValue4;
-  bool tempValue5;
-  bool tempValue6;
-  int tempCredits;
-  std::vector<long> reqCourses;
-  std::vector<long> FML;
-  std::vector<std::vector<long>> choiceCourses;
-  std::vector<std::vector<long>> shiz;
-  std::vector<std::vector<long>> option;
-  std::vector<std::vector<long>> temp1;
-  std::vector<std::vector<long>> temp2;
-  for(int i = 0 ; i < majors.size() ; i++)
-  {
-    if (majors[i].getReqCredits > requiredCredits)
-    {
-      requiredCredits = majors[i].getReqCredits;
-    }
-	reqCourses = majors[i].getReqCourses();
-	choiceCourses = majors[i].getChoiceCourses();
-	shiz = majors[i].getShiz();
-	option = majors[i].getOption();
-    for (int j = 0 ; j < reqCourses.size() ; j++)
-    {
-
-      for (int k = 0 ; k < required.size() ;)
-       {
-	   tempValue2 = true;
-		if (required[k][0] == 0)
-		{
-			tempValue = false;	
-			for (int l = 1 ; l < required[k].size() ; l++)
-			{
-				if (reqCourses[j] == required[k][l])
-				{
-					tempValue = true;
-					break;
-				}
-			}
-			if (tempValue == false)
-			{
-				required[k].push_back(reqCourses[j]);
-			}
-		}
-         else if (required[k][0] == 1)
-         {
-			
-			for (int l = 2 ; l < required[k].size() ;)
-			{
-				if (reqCourses[j] == required[k][l])
-				{
-					required[k][1] -= ((((reqCourses[j] / 100000000)% 10) * 10) + ((reqCourses[j] / 10000000)% 10)); 
-					/*if (required[k][1] < 0)
-					{
-					 required[k][1] = 0;
-					}*/
-					required[k].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
-				}
-				else
-				{
-					l++;
-				}
-			}
-			if (required[k][1] < 0)
-			{
-				required.erase[k];
-				tempValue2 = false;
-			}
-         }
-         else if (required[k][0] == 2)
-		 {
-			for (int l = 2 ; l < required[k].size() ; l++)
-			{
-				if((required[k][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
-				(required[k][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
-				((((required[k][l] / 100000000)%10)*100) + (((required[k][l] / 10000000)%10)*10) + (required[k][l] / 1000000)%10) ==
-				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
-				+ (reqCourses[j] / 1000000000000)%10)) || ((required[k][l]/100000)%10 == (reqCourses[j]/100000)%10)
-				|| ((required[k][l]/10000)%10 == (reqCourses[j]/10000)%10) || ((required[k][l]/1000)%10 == (reqCourses[j]/1000)%10)
-				|| ((required[k][l]/100)%10 == (reqCourses[j]/100)%10) || ((required[k][l]/10)%10 == (reqCourses[j]/10)%10)
-				|| (required[k][l]%10 == reqCourses[j]%10))
-				{
-					required[k][1] -= ((((reqCourses[j] / 100000000)% 10) * 10) + ((reqCourses[j] / 10000000)% 10));
-					/*if (required[k][1] < 0)
-					{
-					 required[k][1] = 0;
-					}*/
-				}
-			}
-			if (required[k][1] < 0)
-			{
-				required.erase[k];
-				tempValue2 = false;
-			}
-		 }
-		 else /*if (required[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
-		 {
-			tempValue2 = false;
-		    FML.clear();
-			FML = required[k];
-			FML[0] = 0;
-			//k += FML.back();
-			for (int z = k + 1; z < FML.back() + k;)
-			{
-					if (required[z][0] == 30)
-		{
-			for (int l = 1 ; l < required[z].size() ;)
-			{
-				if (required[z][l] == reqCourses[j])
-				{
-					required[z].erase(l);
-					if (required[z].size() == 1)
-					{
-						required.push_back(0);
-						break;
-					}
-				}
-				else
-				{
-				l++;
-				}
-			}
-		}
-		else if (required[z][0] == 31)
-         {
-			
-			for (int l = 2 ; l < required[z].size() ;)
-			{
-				if (reqCourses[j] == required[z][l])
-				{
-					required[z][1] -= ((((reqCourses[j] / 100000000)% 10) * 10) + ((reqCourses[j] / 10000000)% 10)); 
-					
-					/*if (required[z][1] < 0)
-					{
-					 required[z][1] = 0;
-					}*/
-					required[z].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
-				}
-				else
-				{
-					l++;
-				}
-			}
-			/*if (required[z][1] < 0)
-			{
-				required.erase[z];
-				tempValue4 = false;
-			}*/
-         }
-         else if (required[z][0] == 32)
-		 {
-			for (int l = 2 ; l < required[z].size() ; l++)
-			{
-				if((required[z][l]/10000000000 <= (reqCourses[j]/100000000000)%10 && 
-				(required[z][l]/1000000000)%10 <= (((reqCourses[j]/100000000)%10) * 10 ) && 
-				((((required[z][l] / 100000000)%10)*100) + (((required[z][l] / 10000000)%10)*10) + (required[z][l] / 1000000)%10) ==
-				((((reqCourses[j] / 100000000000000)%10)*100) + (((reqCourses[j] / 10000000000000)%10)*10)
-				+ (reqCourses[j] / 1000000000000)%10)) || ((required[z][l]/100000)%10 == (reqCourses[j]/100000)%10)
-				|| ((required[z][l]/10000)%10 == (reqCourses[j]/10000)%10) || ((required[z][l]/1000)%10 == (reqCourses[j]/1000)%10)
-				|| ((required[z][l]/100)%10 == (reqCourses[j]/100)%10) || ((required[z][l]/10)%10 == (reqCourses[j]/10)%10)
-				|| (required[z][l]%10 == reqCourses[j]%10))
-				{
-					required[z][1] -= ((((reqCourses[j] / 100000000)% 10) * 10) + ((reqCourses[j] / 10000000)% 10));
-					
-					/*if (required[z][1] < 0)
-					{
-					 required[z][1] = 0;
-					}*/
-				}
-			}
-			/*if (required[z][1] < 0)
-			{
-				required.erase[z];
-				tempValue4 = false;
-			}*/
-		 }
-		 		 /*if (tempValue4 == true)
-		 {
-		 z++;
-		 }*/
-			}
-			for (int z = 0; z < FML.size() - 1; z++)
-			{
-				tempValue3 = false;
-				for (int y = FML[z] + 1 + k ; y <= FML[z+1] + k ; y++)
-				{
-					if(required[y][1] != 0)
-					{
-						tempValue3 = true;
-					}
-					if(tempValue3 == false)
-					{
-					break;
-					}
-				}
-				if(tempValue3 == false)
-				{
-				break;
-				}
-			}
-			if(tempValue3 == false)
-			{
-				for(int y = FML.back() + k ;y > FML[0] + k;y--)
-				{
-					required.erase(y);
-				}
-			}
-			else
-			{
-				for(int y = FML.back() + k ;y > FML[0] + k + 1;y--)
-				{
-					if (required[y][1] <= 0)
-					{
-						required.erase(y);
-						for (int x = 1 ; x < required[k].size() ; x++)
-						{
-							if(required[k][x] >= y)
-							{
-								required[k][x]--;
-							} //adjust k value
-						}
-					}
-				}
-				k += required[k].back();
-			}
-		 }
-		 if (tempValue2 == true)
-		 {
-		 k++;
-		 }
-       }
-    }
-	/*
-	choiceCourses = majors[i].getChoiceCourses();
-	shiz = majors[i].getShiz();
-	option = majors[i].getOption();
-	*/
-	for (int j = 0 ; j < choiceCourses.size() ; j++)
+	required.clear();
+	requiredCredits = 0;
+	bool tempValue;
+	bool tempValue2;
+	bool tempValue3;   //im sure i don't need this many tempvalues, but i didn't want to go run into bugs
+	bool tempValue4;   //it may be worthwhile to check if this can be cut down later
+	bool tempValue5;
+	bool tempValue6;
+	int tempCredits;
+	std::vector<long> reqCourses;
+	std::vector<long> FML;
+	std::vector<std::vector<long>> choiceCourses;
+	std::vector<std::vector<long>> shiz;
+	std::vector<std::vector<long>> option;
+	std::vector<long> temp1;
+	std::vector<long> temp2;
+	for (int i = 0; i < majors.size(); i++)
 	{
-		tempValue2 = true;
-		for (int k = 2 ; k < choiceCourses[j].size() ;)
+		if (majors[i].getReqCredits > requiredCredits)
 		{
-			for (int l = 0 ; l < required.size() ; )
+			requiredCredits = majors[i].getReqCredits;
+		}
+		reqCourses = majors[i].getReqCourses();
+		choiceCourses = majors[i].getChoiceCourses();
+		shiz = majors[i].getShiz();
+		option = majors[i].getOption();
+		for (int j = 0; j < reqCourses.size(); j++)
+		{
+
+			for (int k = 0; k < required.size();)
 			{
-				tempValue3 = true;
-				if(required[l][0] == 0)
-				{
-			for (int m = 1 ; m < required[0].size() ; m++)
-			{
-				tempValue = true;
-				if (required[0][m] == choiceCourses[j][k])
+				tempValue2 = true;
+				if (required[k][0] == 0)
 				{
 					tempValue = false;
-					choiceCourses[j][1] -= ((((choiceCourses[j][m] / 100000000)% 10) * 10) + ((choiceCourses[j][m] / 10000000)% 10));
-					if (choiceCourses[j][1] < 0)
+					for (int l = 1; l < required[k].size(); l++)
 					{
-					choiceCourses.erase(j);
+						if (reqCourses[j] == required[k][l])
+						{
+							tempValue = true;
+							break;
+						}
+					}
+					if (tempValue == false)
+					{
+						required[k].push_back(reqCourses[j]);
+					}
+				}
+				else if (required[k][0] == 1)
+				{
+
+					for (int l = 2; l < required[k].size();)
+					{
+						if (reqCourses[j] == required[k][l])
+						{
+							required[k][1] -= ((((reqCourses[j] / 100000000) % 10) * 10) + ((reqCourses[j] / 10000000) % 10));
+							/*if (required[k][1] < 0)
+							{
+							required[k][1] = 0;
+							}*/
+							required[k].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+						}
+						else
+						{
+							l++;
+						}
+					}
+					if (required[k][1] < 0)
+					{
+						required.erase[k];
+						tempValue2 = false;
+					}
+				}
+				else if (required[k][0] == 2)
+				{
+					for (int l = 2; l < required[k].size(); l++)
+					{
+						if ((required[k][l] / 10000000000 <= (reqCourses[j] / 100000000000) % 10 &&
+							(required[k][l] / 1000000000) % 10 <= (((reqCourses[j] / 100000000) % 10) * 10) &&
+							((((required[k][l] / 100000000) % 10) * 100) + (((required[k][l] / 10000000) % 10) * 10) + (required[k][l] / 1000000) % 10) ==
+							((((reqCourses[j] / 100000000000000) % 10) * 100) + (((reqCourses[j] / 10000000000000) % 10) * 10)
+								+ (reqCourses[j] / 1000000000000) % 10)) || ((required[k][l] / 100000) % 10 == (reqCourses[j] / 100000) % 10)
+							|| ((required[k][l] / 10000) % 10 == (reqCourses[j] / 10000) % 10) || ((required[k][l] / 1000) % 10 == (reqCourses[j] / 1000) % 10)
+							|| ((required[k][l] / 100) % 10 == (reqCourses[j] / 100) % 10) || ((required[k][l] / 10) % 10 == (reqCourses[j] / 10) % 10)
+							|| (required[k][l] % 10 == reqCourses[j] % 10))
+						{
+							required[k][1] -= ((((reqCourses[j] / 100000000) % 10) * 10) + ((reqCourses[j] / 10000000) % 10));
+							/*if (required[k][1] < 0)
+							{
+							required[k][1] = 0;
+							}*/
+						}
+					}
+					if (required[k][1] < 0)
+					{
+						required.erase[k];
+						tempValue2 = false;
+					}
+				}
+				else /*if (required[k][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
+				{
 					tempValue2 = false;
+					FML.clear();
+					FML = required[k];
+					FML[0] = 0;
+					//k += FML.back();
+					for (int z = k + 1; z < FML.back() + k;)
+					{
+						if (required[z][0] == 30)
+						{
+							for (int l = 1; l < required[z].size();)
+							{
+								if (required[z][l] == reqCourses[j])
+								{
+									required[z].erase(l);
+									if (required[z].size() == 1)
+									{
+										required[z].push_back(0);
+										break;
+									}
+								}
+								else
+								{
+									l++;
+								}
+							}
+						}
+						else if (required[z][0] == 31)
+						{
+
+							for (int l = 2; l < required[z].size();)
+							{
+								if (reqCourses[j] == required[z][l])
+								{
+									required[z][1] -= ((((reqCourses[j] / 100000000) % 10) * 10) + ((reqCourses[j] / 10000000) % 10));
+
+									/*if (required[z][1] < 0)
+									{
+									required[z][1] = 0;
+									}*/
+									required[z].erase(l); //must change above if course id integer changes from 15: divide by 10 again if add 1 digit, multiple by 10 if subract 1 digit
+								}
+								else
+								{
+									l++;
+								}
+							}
+							/*if (required[z][1] < 0)
+							{
+							required.erase[z];
+							tempValue4 = false;
+							}*/
+						}
+						else if (required[z][0] == 32)
+						{
+							for (int l = 2; l < required[z].size(); l++)
+							{
+								if ((required[z][l] / 10000000000 <= (reqCourses[j] / 100000000000) % 10 &&
+									(required[z][l] / 1000000000) % 10 <= (((reqCourses[j] / 100000000) % 10) * 10) &&
+									((((required[z][l] / 100000000) % 10) * 100) + (((required[z][l] / 10000000) % 10) * 10) + (required[z][l] / 1000000) % 10) ==
+									((((reqCourses[j] / 100000000000000) % 10) * 100) + (((reqCourses[j] / 10000000000000) % 10) * 10)
+										+ (reqCourses[j] / 1000000000000) % 10)) || ((required[z][l] / 100000) % 10 == (reqCourses[j] / 100000) % 10)
+									|| ((required[z][l] / 10000) % 10 == (reqCourses[j] / 10000) % 10) || ((required[z][l] / 1000) % 10 == (reqCourses[j] / 1000) % 10)
+									|| ((required[z][l] / 100) % 10 == (reqCourses[j] / 100) % 10) || ((required[z][l] / 10) % 10 == (reqCourses[j] / 10) % 10)
+									|| (required[z][l] % 10 == reqCourses[j] % 10))
+								{
+									required[z][1] -= ((((reqCourses[j] / 100000000) % 10) * 10) + ((reqCourses[j] / 10000000) % 10));
+
+									/*if (required[z][1] < 0)
+									{
+									required[z][1] = 0;
+									}*/
+								}
+							}
+							/*if (required[z][1] < 0)
+							{
+							required.erase[z];
+							tempValue4 = false;
+							}*/
+						}
+						/*if (tempValue4 == true)
+						{
+						z++;
+						}*/
+					}
+					for (int z = 0; z < FML.size() - 1; z++)
+					{
+						tempValue3 = false;
+						for (int y = FML[z] + 1 + k; y <= FML[z + 1] + k; y++)
+						{
+							if (required[y][1] != 0)
+							{
+								tempValue3 = true;
+							}
+							if (tempValue3 == false)
+							{
+								break;
+							}
+						}
+						if (tempValue3 == false)
+						{
+							break;
+						}
+					}
+					if (tempValue3 == false)
+					{
+						for (int y = FML.back() + k;y > FML[0] + k;y--)
+						{
+							required.erase(y);
+						}
 					}
 					else
 					{
-					choicesCourses[j].erase(k);
-					}
-					break;
-				}
-			}
-			}
-				else if (required[l][0] == 1)
-				{
-					if (std::includes(choiceCourses[j].begin(), choiceCourses[j].end(), required[l].begin(), required[l].end()))
-					{
-						choiceCourses.erase(j);
-						tempValue2 = false;
-						break;
-					}
-					if (std::includes(required[l].begin(), required[l].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
-					{
-						required[l]=choiceCourses[j];
-						choiceCourses.erase(j);
-						tempValue2 = false;
-						break;
-						/*
-						required.erase(l);
-						tempValue3 = false;
-						*/
-					}
-					//if required is completely contained within choicecourses, delete the incoming
-					//if choicecourses is completely contained within include, delete include and leave choicecourses
-					temp1 = choiceCourses[j];
-					temp2 = required[l];
-					temp1.erase(1);
-					temp2.erase(1);
-					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
-					{
-						if (required[l][1] >= choiceCourses[j][l])
+						for (int y = FML.back() + k;y > FML[0] + k + 1;y--)
 						{
-							choiceCourses.erase(j);
-							tempValue2 = false;
-							break;
-						}
-						else
-						{
-							required[l]=choiceCourses[j];
-							choiceCourses.erase(j);
-							tempValue2 = false;
-							break;
-						/*
-							required.erase(l);
-							tempValue3 = false;
-							*/
-						}
-					}
-				}
-				else if (required[l][0] == 2 && k == 2)
-				{
-				tempValue4 = true;
-					//TODO Erase shiz if all members share the same thing
-					//for members that do not share the same thing, add up in a variable "tempcredits"
-					//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
-					int tempCredits = 0;
-					
-				
-		for (int m = 2 ; m < required[l].size() && tempValue4 == true; m++)
-			{
-			for (int n = 2 ; n < choiceCourses[j].size() ; n++)
-			{
-				if((required[l][m]/10000000000 <= (choiceCourses[j][n]/100000000000)%10 && 
-				(required[l][m]/1000000000)%10 <= (((choiceCourses[j][n]/100000000)%10) * 10 ) && 
-				((((required[l][m] / 100000000)%10)*100) + (((required[l][m] / 10000000)%10)*10) + (required[l][m] / 1000000)%10) ==
-				((((choiceCourses[j][n] / 100000000000000)%10)*100) + (((choiceCourses[j][n] / 10000000000000)%10)*10)
-				+ (choiceCourses[j][n] / 1000000000000)%10)) || ((required[l][m]/100000)%10 == (choiceCourses[j][n]/100000)%10)
-				|| ((required[l][m]/10000)%10 == (choiceCourses[j][n]/10000)%10) || ((required[l][m]/1000)%10 == (choiceCourses[j][n]/1000)%10)
-				|| ((required[l][m]/100)%10 == (choiceCourses[j][n]/100)%10) || ((required[l][m]/10)%10 == (choiceCourses[j][n]/10)%10)
-				|| (required[l][m]%10 == choiceCourses[j][n]%10))
-				{
-				}
-				else
-				{
-				tempCredits += ((((choiceCourses[j][n] / 100000000)% 10) * 10) + ((choiceCourses[j][n] / 10000000)% 10));
-				if (tempCredits > required[l][1])
-				{
-				tempValue4 = false;
-				break;
-				}
-				}
-				}
-			}
-			if (tempCredits <= required[l][1])
-			{
-				required[l][1] -= tempCredits;
-				if (required[l][1] == 0)
-				{
-					required.erase(l);
-					tempValue3 = false;
-				}
-			}
-			}
-		 else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
-		 {
-			tempValue6 = false;
-		    FML.clear();
-			FML = required[l];
-			FML[0] = 0;
-			for (int z = l + 1; z < FML.back() + l;)
-			{
-				tempValue3 = true;
-				if (required[z][0] == 31)
-				{
-					if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
-					{
-
-						required.erase(z);
-						tempValue3 = false;
-					}
-					temp1 = choiceCourses[j];
-					temp2 = required[z];
-					temp1.erase(1);
-					temp2.erase(1);
-					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
-					{
-						if (required[z][1] < choiceCourses[j][z])
-						{
-							required.erase(z);
-							tempValue3 = false;
-						}
-					}
-				}
-				else if (required[z][0] == 32 && k == 2)
-				{
-				tempValue4 = true;
-					//TODO Erase shiz if all members share the same thing
-					//for members that do not share the same thing, add up in a variable "tempcredits"
-					//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
-					int tempCredits = 0;
-					
-				
-		for (int m = 2 ; m < required[z].size() && tempValue4 == true; m++)
-			{
-			for (int n = 2 ; n < choiceCourses[j].size() ; n++)
-			{
-				if((required[z][m]/10000000000 <= (choiceCourses[j][n]/100000000000)%10 && 
-				(required[z][m]/1000000000)%10 <= (((choiceCourses[j][n]/100000000)%10) * 10 ) && 
-				((((required[z][m] / 100000000)%10)*100) + (((required[z][m] / 10000000)%10)*10) + (required[z][m] / 1000000)%10) ==
-				((((choiceCourses[j][n] / 100000000000000)%10)*100) + (((choiceCourses[j][n] / 10000000000000)%10)*10)
-				+ (choiceCourses[j][n] / 1000000000000)%10)) || ((required[z][m]/100000)%10 == (choiceCourses[j][n]/100000)%10)
-				|| ((required[z][m]/10000)%10 == (choiceCourses[j][n]/10000)%10) || ((required[z][m]/1000)%10 == (choiceCourses[j][n]/1000)%10)
-				|| ((required[z][m]/100)%10 == (choiceCourses[j][n]/100)%10) || ((required[z][m]/10)%10 == (choiceCourses[j][n]/10)%10)
-				|| (required[z][m]%10 == choiceCourses[j][n]%10))
-				{
-				}
-				else
-				{
-				tempCredits += ((((choiceCourses[j][n] / 100000000)% 10) * 10) + ((choiceCourses[j][n] / 10000000)% 10));
-				if (tempCredits > required[z][1])
-				{
-				tempValue4 = false;
-				break;
-				}
-				}
-				}
-			}
-			if (tempCredits <= required[z][1])
-			{
-				required[z][1] -= tempCredits;
-				if (required[z][1] == 0)
-				{
-					required.erase(z);
-					tempValue3 = false;
-				}
-			}
-			}
-
-				if(tempValue3 == true)
-				{
-					z++;
-				}
-			}
-			for (int z = 0; z < FML.size() - 1; z++)
-			{
-				tempValue6 = false;
-				for (int y = FML[z] + 1 + l ; y <= FML[z+1] + l ; y++)
-				{
-					if(required[y][1] != 0)
-					{
-						tempValue6 = true;
-					}
-					if(tempValue6 == false)
-					{
-					break;
-					}
-				}
-				if(tempValue6 == false)
-				{
-				break;
-				}
-			}
-			if(tempValue6 == false)
-			{
-				for(int y = FML.back() + l ;y > FML[0] + l;y--)
-				{
-					required.erase(y);
-				}
-			}
-			else
-			{
-				for(int y = FML.back() + l ;y > FML[0] + l + 1;y--)
-				{
-					if (required[y][1] <= 0)
-					{
-						required.erase(y);
-						for (int x = 1 ; x < required[l].size() ; x++)
-						{
-							if(required[l][x] >= y)
+							if (required[y][1] <= 0)
 							{
-								required[l][x]--;
-							} //adjust l value
+								required.erase(y);
+								for (int x = 1; x < required[k].size(); x++)
+								{
+									if (required[k][x] >= y)
+									{
+										required[k][x]--;
+									} //adjust k value
+								}
+							}
 						}
+						k += required[k].back();
 					}
 				}
-				l += required[l].back();
-			}
-		 }
-				if(tempValue3 == true)
+				if (tempValue2 == true)
 				{
-					l++;
+					k++;
 				}
-			}
-			if (tempValue == true)
-			{
-				k++;
-			}
-			if (tempValue2 == false)
-			{
-				break;
 			}
 		}
-	if (choiceCourses[j].size() != 0)
-	{
-		required.push_back(choiceCourses[j]);
-	}
-	}
-	for (int j = 0 ; j < shiz.size() ; j++)
-	{
-		tempValue2 = true;
-		for (int k = 2 ; k < shiz[j].size() ;)
+		/*
+		choiceCourses = majors[i].getChoiceCourses();
+		shiz = majors[i].getShiz();
+		option = majors[i].getOption();
+		*/
+		for (int j = 0; j < choiceCourses.size(); j++)
 		{
-			for (int l = 0 ; l < required.size() ; )
+			tempValue2 = true;
+			for (int k = 2; k < choiceCourses[j].size();)
 			{
-				if (required[l][0] == 0)
+				for (int l = 0; l < required.size(); )
 				{
-				for (int m = 1 ; m < required[l].size() ; m++)
-			{
-				if (((shiz[j][k]/10000000000 <= (required[l][m]/100000000000)%10 && 
-				(shiz[j][k]/1000000000)%10 <= (((required[l][m]/100000000)%10) * 10 ) && 
-				((((shiz[j][k] / 100000000)%10)*100) + (((shiz[j][k] / 10000000)%10)*10) + (shiz[j][k] / 1000000)%10) ==
-				((((required[l][m] / 100000000000000)%10)*100) + (((required[l][m] / 10000000000000)%10)*10)
-				+ (required[l][m] / 1000000000000)%10)) || ((shiz[j][k]/100000)%10 == (required[l][m]/100000)%10)
-				|| ((shiz[j][k]/10000)%10 == (required[l][m]/10000)%10) || ((shiz[j][k]/1000)%10 == (required[l][m]/1000)%10)
-				|| ((shiz[j][k]/100)%10 == (required[l][m]/100)%10) || ((shiz[j][k]/10)%10 == (required[l][m]/10)%10)
-				|| (shiz[j][k]%10 == required[l][m]%10)))
-				{
-					shiz[j][1] -= ((((required[l][m] / 100000000)% 10) * 10) + ((required[l][m] / 10000000)% 10));
-					if (shiz[j][1] < 0)
+					tempValue3 = true;
+					if (required[l][0] == 0)
 					{
-					shiz.erase(j);
-					tempValue2 = false;
-					break;
-					}
-				}
-			}
-				}
-				//tempValue3 = true;
-				else if (required[l][0] == 1 && k == 2)
-				{
-				tempValue4 = true;
-					//TODO Erase shiz if all members share the same thing
-					//for members that do not share the same thing, add up in a variable "tempcredits"
-					//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
-					int tempCredits = 0;
-				
-		for (int m = 2 ; m < shiz[j].size() && tempValue4 == true; m++)
-			{
-			for (int n = 2 ; n < required[l].size() ; n++)
-			{
-				if((shiz[j][n]/10000000000 <= (required[l][m]/100000000000)%10 && 
-				(shiz[j][n]/1000000000)%10 <= (((required[l][m]/100000000)%10) * 10 ) && 
-				((((shiz[j][n] / 100000000)%10)*100) + (((shiz[j][n] / 10000000)%10)*10) + (shiz[j][n] / 1000000)%10) ==
-				((((required[l][m] / 100000000000000)%10)*100) + (((required[l][m] / 10000000000000)%10)*10)
-				+ (required[l][m] / 1000000000000)%10)) || ((shiz[j][n]/100000)%10 == (required[l][m]/100000)%10)
-				|| ((shiz[j][n]/10000)%10 == (required[l][m]/10000)%10) || ((shiz[j][n]/1000)%10 == (required[l][m]/1000)%10)
-				|| ((shiz[j][n]/100)%10 == (required[l][m]/100)%10) || ((shiz[j][n]/10)%10 == (required[l][m]/10)%10)
-				|| (shiz[j][n]%10 == required[l][m]%10))
-				{
-				}
-				else
-				{
-				tempCredits += ((((required[l][m] / 100000000)% 10) * 10) + ((required[l][m] / 10000000)% 10));
-				if (tempCredits > shiz[j][1]) 
-				{
-				tempValue4 = false;
-				break;
-				}
-				}
-				}
-			}
-			if (tempCredits <= shiz[j][1]) 
-			{
-				shiz[j][1] -= tempCredits; 
-				if (shiz[j][1] == 0) 
-				{
-					shiz.erase(j); 
-				}
-			}
-			}
-				else if (required[l][0] == 2)
-				{
-					if (std::includes(shiz[j].begin(), shiz[j].end(), required[l].begin(), required[l].end()))
-					{
-						shiz.erase(j);
-						tempValue2 = false;
-						break;
-					}
-					if (std::includes(required[l].begin(), required[l].end(), shiz[j].begin(), shiz[j].end()))
-					{
-						required[l]=shiz[j];
-						shiz.erase(j);
-						tempValue2 = false;
-						break;
-						/*
-						required.erase(l);
-						tempValue3 = false;
-						*/
-					}
-					//if required is completely contained within shiz, delete the incoming
-					//if shiz is completely contained within include, delete include and leave shiz
-					temp1 = shiz[j];
-					temp2 = required[l];
-					temp1.erase(1);
-					temp2.erase(1);
-					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
-					{
-						if (required[l][1] >= shiz[j][l])
+						for (int m = 1; m < required[0].size(); m++)
 						{
-							shiz.erase(j);
+							tempValue = true;
+							if (required[0][m] == choiceCourses[j][k])
+							{
+								tempValue = false;
+								choiceCourses[j][1] -= ((((choiceCourses[j][m] / 100000000) % 10) * 10) + ((choiceCourses[j][m] / 10000000) % 10));
+								if (choiceCourses[j][1] < 0)
+								{
+									choiceCourses.erase(j);
+									tempValue2 = false;
+								}
+								else
+								{
+									choiceCourses[j].erase(k);
+								}
+								break;
+							}
+						}
+					}
+					else if (required[l][0] == 1)
+					{
+						if (std::includes(choiceCourses[j].begin(), choiceCourses[j].end(), required[l].begin(), required[l].end()))
+						{
+							choiceCourses.erase(j);
 							tempValue2 = false;
 							break;
 						}
-						else
+						if (std::includes(required[l].begin(), required[l].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
 						{
-							required[l]=shiz[j];
-							shiz.erase(j);
+							required[l] = choiceCourses[j];
+							choiceCourses.erase(j);
 							tempValue2 = false;
 							break;
-						/*
+							/*
 							required.erase(l);
 							tempValue3 = false;
 							*/
 						}
-					}
-				}
-		 else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
-		 {
-			tempValue6 = false;
-		    FML.clear();
-			FML = required[l];
-			FML[0] = 0;
-			for (int z = l + 1; z < FML.back() + l;)
-			{
-				if (required[z][0] == 32)
-				{
-
-					if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
-					{
-						required.erase(z);
-						tempValue3 = false;
-					}
-					//if required is completely contained within shiz, delete the incoming
-					//if shiz is completely contained within include, delete include and leave shiz
-					temp1 = shiz[j];
-					temp2 = required[z];
-					temp1.erase(1);
-					temp2.erase(1);
-					if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end())&& std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
-					{
-						if (required[z][1] < shiz[j][z])
+						//if required is completely contained within choicecourses, delete the incoming
+						//if choicecourses is completely contained within include, delete include and leave choicecourses
+						temp1 = choiceCourses[j];
+						temp2 = required[l];
+						temp1.erase(1);
+						temp2.erase(1);
+						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
 						{
-							required.erase(z);
+							if (required[l][1] >= choiceCourses[j][l])
+							{
+								choiceCourses.erase(j);
+								tempValue2 = false;
+								break;
+							}
+							else
+							{
+								required[l] = choiceCourses[j];
+								choiceCourses.erase(j);
+								tempValue2 = false;
+								break;
+								/*
+								required.erase(l);
+								tempValue3 = false;
+								*/
+							}
+						}
+					}
+					else if (required[l][0] == 2 && k == 2)
+					{
+						tempValue4 = true;
+						//TODO Erase shiz if all members share the same thing
+						//for members that do not share the same thing, add up in a variable "tempcredits"
+						//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
+						int tempCredits = 0;
+
+
+						for (int m = 2; m < required[l].size() && tempValue4 == true; m++)
+						{
+							for (int n = 2; n < choiceCourses[j].size(); n++)
+							{
+								if ((required[l][m] / 10000000000 <= (choiceCourses[j][n] / 100000000000) % 10 &&
+									(required[l][m] / 1000000000) % 10 <= (((choiceCourses[j][n] / 100000000) % 10) * 10) &&
+									((((required[l][m] / 100000000) % 10) * 100) + (((required[l][m] / 10000000) % 10) * 10) + (required[l][m] / 1000000) % 10) ==
+									((((choiceCourses[j][n] / 100000000000000) % 10) * 100) + (((choiceCourses[j][n] / 10000000000000) % 10) * 10)
+										+ (choiceCourses[j][n] / 1000000000000) % 10)) || ((required[l][m] / 100000) % 10 == (choiceCourses[j][n] / 100000) % 10)
+									|| ((required[l][m] / 10000) % 10 == (choiceCourses[j][n] / 10000) % 10) || ((required[l][m] / 1000) % 10 == (choiceCourses[j][n] / 1000) % 10)
+									|| ((required[l][m] / 100) % 10 == (choiceCourses[j][n] / 100) % 10) || ((required[l][m] / 10) % 10 == (choiceCourses[j][n] / 10) % 10)
+									|| (required[l][m] % 10 == choiceCourses[j][n] % 10))
+								{
+								}
+								else
+								{
+									tempCredits += ((((choiceCourses[j][n] / 100000000) % 10) * 10) + ((choiceCourses[j][n] / 10000000) % 10));
+									if (tempCredits >= required[l][1])
+									{
+										tempValue4 = false;
+										break;
+									}
+								}
+							}
+						}
+						required[l][1] -= tempCredits;
+						if (required[l][1] <= 0)
+						{
+							required.erase(l);
 							tempValue3 = false;
 						}
 					}
-				}
-				if(tempValue3 == true)
-				{
-					z++;
-				}
-			}
-			for (int z = 0; z < FML.size() - 1; z++)
-			{
-				tempValue6 = false;
-				for (int y = FML[z] + 1 + l ; y <= FML[z+1] + l ; y++)
-				{
-					if(required[y][1] != 0)
+					else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
 					{
-						tempValue6 = true;
-					}
-					if(tempValue6 == false)
-					{
-					break;
-					}
-				}
-				if(tempValue6 == false)
-				{
-				break;
-				}
-			}
-			if(tempValue6 == false)
-			{
-				for(int y = FML.back() + l ;y > FML[0] + l;y--)
-				{
-					required.erase(y);
-				}
-			}
-			else
-			{
-				for(int y = FML.back() + l ;y > FML[0] + l + 1;y--)
-				{
-					if (required[y][1] <= 0)
-					{
-						required.erase(y);
-						for (int x = 1 ; x < required[l].size() ; x++)
+						tempValue6 = false;
+						FML.clear();
+						FML = required[l];
+						FML[0] = 0;
+						for (int z = l + 1; z < FML.back() + l;)
 						{
-							if(required[l][x] >= y)
+							tempValue3 = true;
+							if (required[z][0] == 31)
 							{
-								required[l][x]--;
-							} //adjust l value
+								if (std::includes(required[z].begin(), required[z].end(), choiceCourses[j].begin(), choiceCourses[j].end()))
+								{
+
+									required.erase(z);
+									tempValue3 = false;
+								}
+								temp1 = choiceCourses[j];
+								temp2 = required[z];
+								temp1.erase(1);
+								temp2.erase(1);
+								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+								{
+									if (required[z][1] < choiceCourses[j][z])
+									{
+										required.erase(z);
+										tempValue3 = false;
+									}
+								}
+							}
+							else if (required[z][0] == 32 && k == 2)
+							{
+								tempValue4 = true;
+								//TODO Erase shiz if all members share the same thing
+								//for members that do not share the same thing, add up in a variable "tempcredits"
+								//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
+								int tempCredits = 0;
+
+
+								for (int m = 2; m < required[z].size() && tempValue4 == true; m++)
+								{
+									for (int n = 2; n < choiceCourses[j].size(); n++)
+									{
+										if ((required[z][m] / 10000000000 <= (choiceCourses[j][n] / 100000000000) % 10 &&
+											(required[z][m] / 1000000000) % 10 <= (((choiceCourses[j][n] / 100000000) % 10) * 10) &&
+											((((required[z][m] / 100000000) % 10) * 100) + (((required[z][m] / 10000000) % 10) * 10) + (required[z][m] / 1000000) % 10) ==
+											((((choiceCourses[j][n] / 100000000000000) % 10) * 100) + (((choiceCourses[j][n] / 10000000000000) % 10) * 10)
+												+ (choiceCourses[j][n] / 1000000000000) % 10)) || ((required[z][m] / 100000) % 10 == (choiceCourses[j][n] / 100000) % 10)
+											|| ((required[z][m] / 10000) % 10 == (choiceCourses[j][n] / 10000) % 10) || ((required[z][m] / 1000) % 10 == (choiceCourses[j][n] / 1000) % 10)
+											|| ((required[z][m] / 100) % 10 == (choiceCourses[j][n] / 100) % 10) || ((required[z][m] / 10) % 10 == (choiceCourses[j][n] / 10) % 10)
+											|| (required[z][m] % 10 == choiceCourses[j][n] % 10))
+										{
+										}
+										else
+										{
+											tempCredits += ((((choiceCourses[j][n] / 100000000) % 10) * 10) + ((choiceCourses[j][n] / 10000000) % 10));
+											if (tempCredits >= required[z][1])
+											{
+												tempValue4 = false;
+												break;
+											}
+										}
+									}
+								}
+								required[z][1] -= tempCredits;
+								if (required[z][1] <= 0)
+								{
+									required.erase(z);
+									tempValue3 = false;
+								}
+							}
+
+							if (tempValue3 == true)
+							{
+								z++;
+							}
+						}
+						for (int z = 0; z < FML.size() - 1; z++)
+						{
+							tempValue6 = false;
+							for (int y = FML[z] + 1 + l; y <= FML[z + 1] + l; y++)
+							{
+								if (required[y][1] != 0)
+								{
+									tempValue6 = true;
+								}
+								if (tempValue6 == false)
+								{
+									break;
+								}
+							}
+							if (tempValue6 == false)
+							{
+								break;
+							}
+						}
+						if (tempValue6 == false)
+						{
+							for (int y = FML.back() + l;y > FML[0] + l;y--)
+							{
+								required.erase(y);
+							}
+						}
+						else
+						{
+							for (int y = FML.back() + l;y > FML[0] + l + 1;y--)
+							{
+								if (required[y][1] <= 0)
+								{
+									required.erase(y);
+									for (int x = 1; x < required[l].size(); x++)
+									{
+										if (required[l][x] >= y)
+										{
+											required[l][x]--;
+										} //adjust l value
+									}
+								}
+							}
+							l += required[l].back();
 						}
 					}
+					if (tempValue3 == true)
+					{
+						l++;
+					}
 				}
-				l += required[l].back();
-			}
-		 }
-				/*
-				if(tempValue3 == true)
+				if (tempValue == true)
 				{
-					l++;
+					k++;
 				}
-				*/
+				if (tempValue2 == false)
+				{
+					break;
+				}
 			}
-			if (tempValue == true)
+			if (choiceCourses[j].size() != 0)
 			{
-				k++;
-			}
-			if (tempValue2 == false)
-			{
-				break;
+				required.push_back(choiceCourses[j]);
 			}
 		}
-	if (shiz.size[j]() != 0)
-	{
-		required.push_back(shiz[j]);
+		for (int j = 0; j < shiz.size(); j++)
+		{
+			tempValue2 = true;
+			for (int k = 2; k < shiz[j].size();)
+			{
+				for (int l = 0; l < required.size(); )
+				{
+					if (required[l][0] == 0)
+					{
+						for (int m = 1; m < required[l].size(); m++)
+						{
+							if (((shiz[j][k] / 10000000000 <= (required[l][m] / 100000000000) % 10 &&
+								(shiz[j][k] / 1000000000) % 10 <= (((required[l][m] / 100000000) % 10) * 10) &&
+								((((shiz[j][k] / 100000000) % 10) * 100) + (((shiz[j][k] / 10000000) % 10) * 10) + (shiz[j][k] / 1000000) % 10) ==
+								((((required[l][m] / 100000000000000) % 10) * 100) + (((required[l][m] / 10000000000000) % 10) * 10)
+									+ (required[l][m] / 1000000000000) % 10)) || ((shiz[j][k] / 100000) % 10 == (required[l][m] / 100000) % 10)
+								|| ((shiz[j][k] / 10000) % 10 == (required[l][m] / 10000) % 10) || ((shiz[j][k] / 1000) % 10 == (required[l][m] / 1000) % 10)
+								|| ((shiz[j][k] / 100) % 10 == (required[l][m] / 100) % 10) || ((shiz[j][k] / 10) % 10 == (required[l][m] / 10) % 10)
+								|| (shiz[j][k] % 10 == required[l][m] % 10)))
+							{
+								shiz[j][1] -= ((((required[l][m] / 100000000) % 10) * 10) + ((required[l][m] / 10000000) % 10));
+								if (shiz[j][1] < 0)
+								{
+									shiz.erase(j);
+									tempValue2 = false;
+									break;
+								}
+							}
+						}
+					}
+					//tempValue3 = true;
+					else if (required[l][0] == 1 && k == 2)
+					{
+						tempValue4 = true;
+						//TODO Erase shiz if all members share the same thing
+						//for members that do not share the same thing, add up in a variable "tempcredits"
+						//then, take the difference between that variable and the max (make sure it is not negative) and that will be what is subtracted from shiz
+						int tempCredits = 0;
+
+						for (int m = 2; m < shiz[j].size() && tempValue4 == true; m++)
+						{
+							for (int n = 2; n < required[l].size(); n++)
+							{
+								if ((shiz[j][n] / 10000000000 <= (required[l][m] / 100000000000) % 10 &&
+									(shiz[j][n] / 1000000000) % 10 <= (((required[l][m] / 100000000) % 10) * 10) &&
+									((((shiz[j][n] / 100000000) % 10) * 100) + (((shiz[j][n] / 10000000) % 10) * 10) + (shiz[j][n] / 1000000) % 10) ==
+									((((required[l][m] / 100000000000000) % 10) * 100) + (((required[l][m] / 10000000000000) % 10) * 10)
+										+ (required[l][m] / 1000000000000) % 10)) || ((shiz[j][n] / 100000) % 10 == (required[l][m] / 100000) % 10)
+									|| ((shiz[j][n] / 10000) % 10 == (required[l][m] / 10000) % 10) || ((shiz[j][n] / 1000) % 10 == (required[l][m] / 1000) % 10)
+									|| ((shiz[j][n] / 100) % 10 == (required[l][m] / 100) % 10) || ((shiz[j][n] / 10) % 10 == (required[l][m] / 10) % 10)
+									|| (shiz[j][n] % 10 == required[l][m] % 10))
+								{
+								}
+								else
+								{
+									tempCredits += ((((required[l][m] / 100000000) % 10) * 10) + ((required[l][m] / 10000000) % 10));
+									if (tempCredits >= shiz[j][1])
+									{
+										tempValue4 = false;
+										break;
+									}
+								}
+							}
+						}
+						shiz[j][1] -= tempCredits;
+						if (shiz[j][1] <= 0)
+						{
+							shiz.erase(j);
+						}
+					}
+					else if (required[l][0] == 2)
+					{
+						if (std::includes(shiz[j].begin(), shiz[j].end(), required[l].begin(), required[l].end()))
+						{
+							shiz.erase(j);
+							tempValue2 = false;
+							break;
+						}
+						if (std::includes(required[l].begin(), required[l].end(), shiz[j].begin(), shiz[j].end()))
+						{
+							required[l] = shiz[j];
+							shiz.erase(j);
+							tempValue2 = false;
+							break;
+							/*
+							required.erase(l);
+							tempValue3 = false;
+							*/
+						}
+						//if required is completely contained within shiz, delete the incoming
+						//if shiz is completely contained within include, delete include and leave shiz
+						temp1 = shiz[j];
+						temp2 = required[l];
+						temp1.erase(1);
+						temp2.erase(1);
+						if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+						{
+							if (required[l][1] >= shiz[j][l])
+							{
+								shiz.erase(j);
+								tempValue2 = false;
+								break;
+							}
+							else
+							{
+								required[l] = shiz[j];
+								shiz.erase(j);
+								tempValue2 = false;
+								break;
+								/*
+								required.erase(l);
+								tempValue3 = false;
+								*/
+							}
+						}
+					}
+					else /*if (required[l][0] == 3)*/ //PARTIALLY COPY PASTED MAY BE BUGGY
+					{
+						tempValue6 = false;
+						FML.clear();
+						FML = required[l];
+						FML[0] = 0;
+						for (int z = l + 1; z < FML.back() + l;)
+						{
+							if (required[z][0] == 32)
+							{
+
+								if (std::includes(required[z].begin(), required[z].end(), shiz[j].begin(), shiz[j].end()))
+								{
+									required.erase(z);
+									tempValue3 = false;
+								}
+								//if required is completely contained within shiz, delete the incoming
+								//if shiz is completely contained within include, delete include and leave shiz
+								temp1 = shiz[j];
+								temp2 = required[z];
+								temp1.erase(1);
+								temp2.erase(1);
+								if (std::includes(temp1.begin(), temp1.end(), temp2.begin(), temp2.end()) && std::includes(temp2.begin(), temp2.end(), temp1.begin(), temp1.end()))
+								{
+									if (required[z][1] < shiz[j][z])
+									{
+										required.erase(z);
+										tempValue3 = false;
+									}
+								}
+							}
+							if (tempValue3 == true)
+							{
+								z++;
+							}
+						}
+						for (int z = 0; z < FML.size() - 1; z++)
+						{
+							tempValue6 = false;
+							for (int y = FML[z] + 1 + l; y <= FML[z + 1] + l; y++)
+							{
+								if (required[y][1] != 0)
+								{
+									tempValue6 = true;
+								}
+								if (tempValue6 == false)
+								{
+									break;
+								}
+							}
+							if (tempValue6 == false)
+							{
+								break;
+							}
+						}
+						if (tempValue6 == false)
+						{
+							for (int y = FML.back() + l;y > FML[0] + l;y--)
+							{
+								required.erase(y);
+							}
+						}
+						else
+						{
+							for (int y = FML.back() + l;y > FML[0] + l + 1;y--)
+							{
+								if (required[y][1] <= 0)
+								{
+									required.erase(y);
+									for (int x = 1; x < required[l].size(); x++)
+									{
+										if (required[l][x] >= y)
+										{
+											required[l][x]--;
+										} //adjust l value
+									}
+								}
+							}
+							l += required[l].back();
+						}
+					}
+					/*
+					if(tempValue3 == true)
+					{
+					l++;
+					}
+					*/
+				}
+				if (tempValue == true)
+				{
+					k++;
+				}
+				if (tempValue2 == false)
+				{
+					break;
+				}
+			}
+			if (shiz.size[j]() != 0)
+			{
+				required.push_back(shiz[j]);
+			}
+		}
+		for (int j = 0; j < option.size(); j++)
+		{
+			//TODO
+			if (option.size[j]() != 0)
+			{
+				required.push_back(option[j]);
+			}
+		}
 	}
-	}
-	for (int j = 0 ; j < option.size() ; j++)
-	{
-		//TODO
-	if (option.size[j]() != 0)
-	{
-		required.push_back(option[j]);
-	}
-	}
-  }
+
+	required = removeDuplicates(required);
 }
 
 void Student::calculateRemaining()
@@ -906,7 +899,7 @@ void Student::calculateRemaining()
 					remaining[z].erase(l);
 					if (remaining[z].size() == 1)
 					{
-						remaining.push_back(0);
+						remaining[z].push_back(0);
 						break;
 					}
 				}
