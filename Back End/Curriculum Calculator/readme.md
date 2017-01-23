@@ -15,6 +15,7 @@ Double vector that contains all the courses for a major, the first element in ea
 #### Course Format
 Courses are described by a 15 digit identifier long with the following format:
   * **JHU: (Department, 3 digits)*(Course Number, 3 digits)*(Number of Credits, 2 digits)*(Taken at Current University, 1 digit)*(Writing, 1 digit)*(Humanities, 1 digit)*(Natural Sciences, 1 digit)*(Social Science, 1 digit)*(Quantitative Science, 1 digit)*(Engineering, 1 digit)***
+Note: In the event that a school has a credit system with half credits (i.e. 1.5 credit class), multiply all course credits by 2.
 
 ### degree
 The type of degree. 0 for BA, 1 for BS, more to come
