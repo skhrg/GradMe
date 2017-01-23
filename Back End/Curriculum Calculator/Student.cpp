@@ -1103,7 +1103,7 @@ std::vector<std::vector<long>> Student::removeDuplicates(std::vector<std::vector
 		}
 		else if (input[i][0] == 3)
 		{
-			for (int j = i; j < input.size(); j++)
+			for (int j = i + 1; j < input.size() - 1; j++)
 			{
 				if (input[j][0] == 3)
 				{
