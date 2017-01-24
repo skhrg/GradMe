@@ -89,6 +89,7 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 {
 	required.clear();
 	requiredCredits = 0;
+	requiredResident = 0;
 	bool tempValue;
 	bool tempValue2;
 	bool tempValue3;   //im sure i don't need this many tempvalues, but i didn't want to go run into bugs
