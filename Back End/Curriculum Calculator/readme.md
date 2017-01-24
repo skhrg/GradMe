@@ -24,7 +24,10 @@ The type of degree. 0 for BA, 1 for BS, more to come
 A unique ID number that identifies the university that a student or major is associated with
 
 ### reqCredits/requiredCredits
-The number of credits needed to graduate
+The number of credits needed for that specific major
+
+## requiredResident
+Resident requirements of universities (classes you have to take on campus)
 
 ## Major Exclusive Definitions:
 ### department
@@ -45,7 +48,9 @@ A vector containg all the courses already taken by the student (see the **Course
 
 #Algorithms
 ##calculateRequired
+Calculates courses required for whatever majors/minors/pre-pro tracks are loaded into the function.
 ##calculateRemaining
+Calculates courses remaining that are required after taking in required classes and classes already taken by the student.
 ##calculateRecommended
 1. Clear any data that is in the recommended vector from a previous configuration of majors
 2. Copy all choiceCourses vectors from the required vector to the recommended vector while keeping track of how often each course appears with the counts map
