@@ -97,13 +97,14 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 	bool tempValue5;
 	bool tempValue6;
 	int tempCredits;
-	std::vector<long> reqCourses;
+	std::vector<long> reqCourses = {0};
 	std::vector<long> FML;
 	std::vector<std::vector<long>> choiceCourses;
 	std::vector<std::vector<long>> shiz;
 	std::vector<std::vector<long>> option;
 	std::vector<long> temp1;
 	std::vector<long> temp2;
+	required.push_back(reqCourses);
 	for (int i = 0; i < majors.size(); i++)
 	{
 		if (majors[i].getReqCredits > requiredCredits)
@@ -120,29 +121,24 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 		option = majors[i].getOption();
 		for (int j = 1; j < reqCourses.size(); j++)
 		{
-
-			for (int k = 0; k < required.size();)
+			tempValue = false;
+			for (int l = 1; l < required[0].size(); l++)
+			{
+				if (reqCourses[j] == required[0][l])
+				{
+					tempValue = true;
+					break;
+				}
+			}
+			if (tempValue == false)
+			{
+				required[0].push_back(reqCourses[j]);
+			}
+			for (int k = 1; k < required.size();)
 			{
 				tempValue2 = true;
-				if (required[k][0] == 0)
+				if (required[k][0] == 1)
 				{
-					tempValue = false;
-					for (int l = 1; l < required[k].size(); l++)
-					{
-						if (reqCourses[j] == required[k][l])
-						{
-							tempValue = true;
-							break;
-						}
-					}
-					if (tempValue == false)
-					{
-						required[k].push_back(reqCourses[j]);
-					}
-				}
-				else if (required[k][0] == 1)
-				{
-
 					for (int l = 2; l < required[k].size();)
 					{
 						if (reqCourses[j] == required[k][l])
@@ -1184,7 +1180,10 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 			}
 		}
 	}
-
+	if (required[0].size() == 1)
+	{
+		required.erase(required.begin());
+	}
 	required = removeDuplicates(required);
 }
 
@@ -1524,4 +1523,11 @@ std::vector<std::vector<long>> Student::removeDuplicates(std::vector<std::vector
 		}
 	}
 	return input;
+}
+
+void Student::calculate()
+{
+	calculateRequired();
+	calculateRemaining();
+	calculateRecommended();
 }
