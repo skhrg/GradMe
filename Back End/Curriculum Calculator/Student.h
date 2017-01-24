@@ -5,6 +5,7 @@ class Student
   int university;
   int requiredCredits;
   int remainingCredits;
+  int requiredResident;
   int remainingResident;
   std::vector<Major> majors;
   std::vector<long> taken;
@@ -16,6 +17,7 @@ class Student
     int getUniversity();
     int getRequiredCredits();
     int getRemainingCredits();
+    int getRequiredResident();
     int getRemainingResident();
     std::vector<Major> getMajors();
     void addMajor(Major);
