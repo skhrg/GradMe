@@ -28,6 +28,7 @@ class Student
     void calculateRequired();
     void calculateRemaining();
     void calculateRecommended();
+    void calculate();
     std::vector<std::vector<long>> getRequired();
     std::vector<std::vector<long>> getRemaining();
     std::vector<std::vector<long>> getRecommended();
