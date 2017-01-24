@@ -21,6 +21,16 @@ int Student::getRemainingCredits()
 	return remainingCredits;
 }
 
+int Student::getRequiredResident()
+{
+	return requiredResident;
+}
+
+int Student::getRemainingResident()
+{
+	return remainingResident;
+}
+
 std::vector<Major> Student::getMajors()
 {
 	return majors;
@@ -98,6 +108,10 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 		if (majors[i].getReqCredits > requiredCredits)
 		{
 			requiredCredits = majors[i].getReqCredits;
+		}
+		if (majors[i].getResidentCredits > requiredResident)
+		{
+			requiredResident = majors[i].getResidentCredits;
 		}
 		reqCourses = majors[i].getReqCourses();
 		choiceCourses = majors[i].getChoiceCourses();
@@ -1177,14 +1191,18 @@ void Student::calculateRemaining()
 {
 	remaining = required;
 	remainingCredits = requiredCredits;
+	remainingResident = requiredResident;
 	bool tempValue;
 	bool tempValue2;
 	bool tempValue3;
 	std::vector<long> FML;
-
 	for (int j = 0; j < taken.size(); j++) //starts at j cuz i copy pasted code
 	{
 		remainingCredits -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+		if (((taken[j]/1000000)%)10 == 1)
+		{
+			remainingResident -= ((((taken[j] / 100000000) % 10) * 10) + ((taken[j] / 10000000) % 10));
+		}
 		for (int k = 0; k < remaining.size();)
 		{
 			tempValue2 = true;
@@ -1401,15 +1419,15 @@ void Student::calculateRecommended()
 	recommended.clear();
 	std::map<long, int> counts;
 	std::vector<int> sortedCounts;
-	for (std::vector<std::vector<long>>::iterator i = required.begin(); i < required.end(); i++)
+	for (std::vector<std::vector<long>>::iterator i = remaining.begin(); i < remaining.end(); i++)
 	{
-		if (required[i][0] == 1)
+		if (remaining[i][0] == 1)
 		{
-			recommended.push_back(required[i]);
+			recommended.push_back(remaining[i]);
 			recommended[recommended.begin()].insert(recommended[recommended.begin()].begin(), i);
-			for (std::vector<long>::iterator j = required[i].begin(); j < required[i].end(); j++)
+			for (std::vector<long>::iterator j = remaining[i].begin(); j < remaining[i].end(); j++)
 			{
-				counts[required[i][j]]++;
+				counts[remaining[i][j]]++;
 			}
 		}
 	}
@@ -1421,7 +1439,7 @@ void Student::calculateRecommended()
 	for (std::vector<std::vector<long>>::iterator k = recommended.begin(); k < recommended.end(); k++)
 	{
 		std::vector<long> temp;
-		temp.push_back(recommended[k][0])
+		temp.push_back(recommended[k][0]);
 			int credits = recommended[k][2];
 		for (int x = 0, x < sortedCounts.size(), x++)
 		{
@@ -1430,7 +1448,7 @@ void Student::calculateRecommended()
 				if (counts[recommended[k][l]] == sortedCounts[x])
 				{
 					temp.push_back(recommended[k][l]);
-					credits -= ((((required[k][l] / 100000000) % 10) * 10) + (required[k][l] / 10000000) % 10);
+					credits -= ((((remaining[k][l] / 100000000) % 10) * 10) + (remaining[k][l] / 10000000) % 10);
 				}
 			}
 			if (credits <= 0)
