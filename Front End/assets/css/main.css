@@ -91,7 +91,7 @@ html,body {
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -25%)
 }
 
 .circle-center {
@@ -444,7 +444,7 @@ html,body {
     height: 10px;
     border-radius: 50%;
     margin-top: 2px;
-    right: 12px
+    right: 0px
 }
 
 .pk-option.-selected>.pk-circle {
@@ -459,7 +459,7 @@ html,body {
 
 .pk-tag>.txt {
     float: left;
-    padding: 6px 6px 6px;
+    padding: 3px 3px 3px;
     border-radius: 6px;
     position: relative
 }
@@ -475,10 +475,8 @@ html,body {
 
 .pk-tag>.close {
     float: left;
-    margin: 6px 0 5px;
     position: relative;
     top: 1px;
-    left: -9px;
     font: 700 10px;
     padding: 0 5px;
     border-radius: 50%
@@ -486,8 +484,7 @@ html,body {
 
 .pk-field.-clean {
     background: #fff;
-    border: 1px;
-    solid #eee;font-family: Gentona-SemiBold
+    font-family: Gentona-SemiBold;
 }
 
 .pk-arrow.-clean {
@@ -542,7 +539,8 @@ html,body {
 
 .pk-tag>.txt {
     background: #eee;
-    color: #999
+    color: #999;
+
 }
 
 .pk-tag.-clean>.txt:before {
@@ -585,8 +583,8 @@ html,body {
     background: #F60;
     position: relative;
     font-family: Gentona-SemiBold;
-    text-align: center;
-    placeholder="Select a Major";}
+    text-transform: uppercase;
+    text-align: center}
 
 .pk-modal.-cricket> .pk-option-group.-cricket,.pk-option.-cricket {
     border-bottom: 1px solid #414653;
@@ -606,11 +604,12 @@ html,body {
     background: #00BFFF
 }
 
+/* menu footer */
 .pk-multiple.-cricket>.pk-btnMultiply {
     background: #F60;
     color: #fff;
     font-family: Gentona-SemiBold;
-}
+} 
 
 .pk-multiple.-cricket> .pk-btnMultiply:hover {
     background: #f75214
@@ -625,9 +624,16 @@ html,body {
     border: 1% solid #000
 }
 
+/* major tag */
 .pk-tag.-cricket>.txt {
-    background: #F60;
-    color: #fff
+    background: #f60;
+    color: #fff;
+    font-size: 2.2vw;
+}
+@media (max-width: 648px) {
+    .pk-tag.-cricket>.txt {
+        font-size: 4vh;
+    }
 }
 
 .pk-tag.-cricket>.txt:before {
