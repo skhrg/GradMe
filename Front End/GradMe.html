@@ -33,40 +33,6 @@ html,body {
     background:black;
     height: 100%;
 }
-.header { padding:1em 0; }
-.header-text{font-family: Quadon; font-weight: bold; letter-spacing: 2px; color: #fff; font-size: 350%; text-align:center;word-wrap: normal}
-.center {background: transparent; width:100%; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)}
-.circle-center{
-    border-radius: 50%; background:none; position:relative; top:-150px; left:50%; margin-left:-50px; height:90px; width:90px; z-index: 999; font-size: 20px;}
-    @media (max-width: 648px){
-        .circle-center{top:-150px; left:50%; margin-left:-30px; height:60px; width:60px;}}
-.circle:hover {background: #F60;}
-.circle {border-color: #fff; border: 1%; border-style: solid;}
-#arrow-high{color: #fff; position: absolute; top: 45%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)}
-#arrow-low{color: #fff; position: absolute; top: 55%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)}
-.section-menu {clear: both; padding-left: 2vw; padding-top: 0%; margin: 0px;}
-.menuCol {background: #094074; border-color: #BDC3C7; border-style: solid; padding: 1em; text-align:center; display: inline-block; float:left; margin: 1.5% 0 5% 2%;}
-.menuCol:first-child { margin-left: 0%;}
-#iconA:hover {background-color: #fbb917; border-color: #fbb917; border-radius: 0%; transition-delay: 0.2s;}
-#iconB:hover {background-color: #F89406; border-color: #F89406; border-radius: 0%; transition-delay: 0.2s;}
-#iconC:hover {background-color: #FF7F50; border-color: #FF7F50; border-radius: 0%; transition-delay: 0.2s;}
-.group:before,
-.group:after {content:""; display:table;}
-.group:after {clear:both;}
-.group {zoom:1;}
-.span_1_of_3 {width: 31.2%;}
-@media only screen and (max-width: 648px) {
-    .menuCol { margin: 1% 0 1% 0%;}
-    .span_1_of_3 { width: 100%; }
-    .icon-text {font-size: 200% !important;}
-    .section-menu {padding-left: 1vw; padding-right: 1vw;}}
-    .center{width: 100vh;height: 40%;}
-.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold;}
-.icon-text:hover {display: inline-block; color: #000; transition: color .3s;}
-/*--responsive effect--*/
-.link {display: inline-block;}
-.link::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 100%; left: auto; margin: auto; transform: translate(-100%,0)}
-.link:hover::after {width: 100%; transition: width .3s;}
 
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
@@ -76,32 +42,48 @@ html,body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.nav-position {
-    background-attachment: fixed
-}
-<!--#049372-->
-.panel{height:100%;background-color:#049372; border-radius: 0; z-index: -10;}
+
+/*don't move from HTML*/
 .beneath{z-index: 1; background: transparent; width:100%; position:relative; top: 0; transform: translate(-0%, 0%);}
     @media (max-width: 648px){.beneath{top: 0vw}}
+
+.navi {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: #049372;
+    top: 0;
+    z-index: 100 !important;
+}
 
 </style>
 
 <body>
+    <!-- Header -->
+    <nav>
+        <ul class="navi">
+
+        </ul>
+    </nav>
     <!-- Return to Top -->
     <a href="javascript:" id="return-to-top" class="circle">
       <span id="arrow-high" class="glyphicon glyphicon-menu-up"></span>
       <span id="arrow-low" class="glyphicon glyphicon-menu-up"></span>
     </a>
+
     <div class="parallax">
-    <div class="header-text center fadeIn">Welcome to GradMe.</div>
+        <div class="header-text center fadeIn">Welcome to GradMe.</div>
     </div>
+
     <div class="panel">
-    <a href='#iconA'>
-      <div class="circle-center circle fadeIn">
-          <span id="arrow-high" class="glyphicon glyphicon-menu-down"></span>
-          <span id="arrow-low" class="glyphicon glyphicon-menu-down"></span>
-      </div>
-    </a>
+        <a href='#iconA'>
+        <div class="circle-center circle fadeIn">
+            <span id="arrow-high" class="glyphicon glyphicon-menu-down"></span>
+            <span id="arrow-low" class="glyphicon glyphicon-menu-down"></span>
+        </div>
+        </a>
+
         <form><div class="section-menu group hideme">
 
           <div id="iconA" class="menuCol span_1_of_3 icon-text text-center underline cpl">
