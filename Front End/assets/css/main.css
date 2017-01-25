@@ -81,7 +81,7 @@ html,body {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -40%)
 }
 
 .circle-center{
@@ -93,7 +93,7 @@ html,body {
     margin-left:-50px;
     height: 90px;
     width: 90px;
-    z-index: 999;
+    z-index: 99;
     font-size: 20px;
   }
     @media (max-width: 648px){
@@ -193,6 +193,7 @@ html,body {
 
 .span_1_of_3 {
   width: 31.2%;
+  height: 36vh;
 }
 
 @media only screen and (max-width: 648px) {
@@ -212,12 +213,18 @@ html,body {
     }
 
     .center{width: 100vh;height: 40%;}
-.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold;}
+.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold;text-transform: uppercase;}
+
 .icon-text:hover {display: inline-block; color: #000; transition: color .3s;}
 /*--responsive effect--*/
 .link {display: inline-block;}
+
 .link::after {content: ''; position: absolute; display: inline-block; width: 0; height: 4px; background: #000;transition: width .3s; top: 100%; left: auto; margin: auto; transform: translate(-100%,0)}
+
 .link:hover::after {width: 100%; transition: width .3s;}
+
+.beneath{z-index: 1; background: transparent; width:100%; position:relative; top: 0; transform: translate(-0%, 0%);}
+    @media (max-width: 648px){.beneath{top: 0vw}}
 
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
@@ -227,9 +234,7 @@ html,body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.nav-position {
-    background-attachment: fixed
-}
+
 .panel{
   height:100%;
   background-color: #1693A5;
@@ -239,6 +244,18 @@ html,body {
     @media (max-width: 648px){.beneath{top: 0vw}}
 
 
+.panel{height:100%;background-color:#1693A5; border-radius: 0; z-index: -10;}
+
+.huuy{
+  height:10%; width: 100%; top: 0; position: fixed; z-index: 100; background-color:#049372;
+  display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; -webkit-flex-flow: row wrap;
+  display: flex; flex-flow: row nowrap; justify-content: center;
+}
+.item{
+  width: 100px;
+  font-family: Gentona-SemiBold;
+  background-color: tomato;
+}
 
 
 .pk-field{width:calc(110%);float:left;cursor:pointer;padding:8px;border-radius:0px}.pk-field.-multiple{cursor:text}.pk-arrow{position:absolute;cursor:pointer;right:-2px;bottom:0;text-align:center;width:30px;padding-bottom:3px;border-radius:0 5px 5px 0}.pk-arrow:before{-webkit-transform:rotate(90deg);transform:rotate(90deg);font-size:25px;position:relative;content:'›';margin:5px 0 0 13px;float:left}.pk-overlay{width:100%;height:100%;position:fixed;background:#666;background:rgba(0,0,0,.4);top:0;left:0;opacity:0;visibility:hidden;z-index:1110;-webkit-transition:opacity .3s;transition:opacity .3s}.pk-overlay.-show{opacity:1;visibility:visible}
@@ -247,13 +264,14 @@ html,body {
 .pk-modal>.main{list-style: none;max-height:60vh;position:relative;overflow-y:auto;overflow-x:auto;width: 100%;margin-left: 0%;}@media(max-width: 648px){.pk-modal>.main{max-height:70vh; width: auto;margin-left: -4%;}}.pk-modal>.head{width:calc(100%);font-size:18px;padding:20px 10px;border-radius:4px 4px 0 0}.pk-modal.-show{-webkit-transform:translateX(-50%) scale(1,1);transform:translateX(-50%) scale(1,1);visibility:visible;opacity:1;box-shadow:0 30px 10px -20px transparent}.pk-search{display:none}.pk-search.-show{display:block}.pk-search>input{width:calc(100%);padding:8px 4px;margin:6px;}.pk-no_result_search{padding:10px;font-size:14px;}
 .pk-modal>.close{position:absolute;top:18px;right:15px;color:#ccc;font-size:22px;cursor:pointer}
 .pk-option,.pk-option-group{cursor:pointer;padding:14px 10px; margin-left: -3%;width:calc(96%);
-  border-bottom:1px solid #efefef;position:inherit}.pk-option:last-child{border:none}.pk-option.-selected:last-child{border-radius:0 0 4px 4px}.pk-option-group{cursor:auto;font-weight:700;font-size:13px;letter-spacing:1px}.pk-option-group:not(:first-child){margin-top:14px}.pk-option>.icon:not(:empty){width:16px;margin-right:10px;color:#ccc;font-size:20px;float:left;margin-top:-3px;text-align:center}.pk-option>.txt{font-size:14px;font-weight:300;letter-spacing:1px; font-family: Quadon;}.pk-multiple{position:relative;float:left;width:100%;display:none}
-  .pk-multiple.-show{display:inline-flex;}.pk-btnMultiply{background:0 0;border:none;margin-top:10px;width:100%;padding-top:16px;padding-bottom:18px;cursor:pointer;letter-spacing:1px;font-weight:700px;border-radius:0 0 3px 3px}.pk-circle{position:absolute;width:10px;height:10px;border-radius:50%;margin-top:2px;right:12px}.pk-option.-selected>.pk-circle{background:#999}.pk-tag{float:left;cursor:pointer;margin-bottom:6px}.pk-tag>.txt{float:left;padding:6px 6px 6px;border-radius:6px;position:relative}.pk-tag>.txt:before{content:''; transparent;position:absolute;right:-2px;top:-3px;width:15%; height:7%;}.pk-tag>.close{float:left;margin:6px 0 5px;position:relative;top: 1px;left:-9px;font:700 10px;padding:0 5px;border-radius:50%}.pk-field.-clean{background:#fff;border:1px; solid #eee;font:Quadon}.pk-arrow.-clean{background:#eee;color:#aaa}.pk-arrow.-clean:hover,.pk-field.-clean:hover+.pk-arrow{background:#dfdfdf;color:#aaa}.pk-modal.-clean{background:#fff}.pk-modal.-clean>.head{color:#666;background:#efefef}.pk-option.-clean:not(:last-child){border-bottom:1px solid #efefef}.pk-option.-clean.-selected,.pk-option.-clean:hover{border-radius:0 0 4px 4px;background:#f2f2f2}.pk-no_result_search.-clean{color:#666}.pk-btnMultiply.-clean{background:#1abc9c;color:#fff}.pk-btnMultiply.-clean:hover{background:#16a085}.pk-circle.-clean{border:1px solid #ccc}.pk-option.-selected>.pk-circle.-clean{background:#1abc9c;border:2px solid #fff}.pk-tag>.txt{background:#eee;color:#999}.pk-tag.-clean>.txt:before{border-right-color:#fff}.pk-tag.-clean>.close{background:#efefef;color:#bbb}.pk-tag.-clean>.close:hover{background:#ddd;color:#666}
+  border-bottom:1px solid #efefef;position:inherit}.pk-option:last-child{border:none}.pk-option.-selected:last-child{border-radius:0 0 4px 4px}.pk-option-group{cursor:auto;font-weight:700;font-size:13px;letter-spacing:1px}.pk-option-group:not(:first-child){margin-top:14px}.pk-option>.icon:not(:empty){width:16px;margin-right:10px;color:#ccc;font-size:20px;float:left;margin-top:-3px;text-align:center}.pk-option>.txt{font-size:14px;font-weight:300;letter-spacing:1px; font-family: Quadon}.pk-multiple{position:relative;float:left;width:100%;display:none}
+  .pk-multiple.-show{display:inline-flex;}.pk-btnMultiply{background:0 0;border:none;margin-top:10px;width:100%;padding-top:16px;padding-bottom:18px;cursor:pointer;letter-spacing:1px;font-weight:700px;border-radius:0 0 3px 3px}.pk-circle{position:absolute;width:10px;height:10px;border-radius:50%;margin-top:2px;right:12px}.pk-option.-selected>.pk-circle{background:#999}.pk-tag{float:left;cursor:pointer;margin-bottom:6px}.pk-tag>.txt{float:left;padding:6px 6px 6px;border-radius:6px;position:relative}.pk-tag>.txt:before{content:''; transparent;position:absolute;right:-2px;top:-3px;width:15%; height:7%;}.pk-tag>.close{float:left;margin:6px 0 5px;position:relative;top: 1px;left:-9px;font:700 10px;padding:0 5px;border-radius:50%}.pk-field.-clean{background:#fff;border:1px; solid #eee;font-family:Gentona-SemiBold}.pk-arrow.-clean{background:#eee;color:#aaa}.pk-arrow.-clean:hover,.pk-field.-clean:hover+.pk-arrow{background:#dfdfdf;color:#aaa}.pk-modal.-clean{background:#fff}.pk-modal.-clean>.head{color:#666;background:#efefef}.pk-option.-clean:not(:last-child){border-bottom:1px solid #efefef}.pk-option.-clean.-selected,.pk-option.-clean:hover{border-radius:0 0 4px 4px;background:#f2f2f2}.pk-no_result_search.-clean{color:#666}.pk-btnMultiply.-clean{background:#1abc9c;color:#fff}.pk-btnMultiply.-clean:hover{background:#16a085}.pk-circle.-clean{border:1px solid #ccc}.pk-option.-selected>.pk-circle.-clean{background:#1abc9c;border:2px solid #fff}.pk-tag>.txt{background:#eee;color:#999}.pk-tag.-clean>.txt:before{border-right-color:#fff}.pk-tag.-clean>.close{background:#efefef;color:#bbb}.pk-tag.-clean>.close:hover{background:#ddd;color:#666}
 
-  .pk-field.-cricket{background:none;color:#eee;font:Quadon}.pk-modal.-cricket{background:#545965;border-bottom:5vw solid #414653}.pk-modal.-multiple{background:#545965;border:none}.pk-modal.-cricket>.close{color:#fff}
-  .pk-modal.-cricket>.head{color:#fff;font-weight:1vw;background:#F60;position:relative; font-family: Quadon; placeholder="Select a Major";}
+  .pk-field.-cricket{background:none;color:#eee;font:Quadon}.pk-modal.-cricket{background:#545965;border-bottom:5vw solid #414653}.pk-modal.-multiple{background:#9bddff;border:none}.pk-modal.-cricket>.close{color:#fff}
+  .pk-modal.-cricket>.head{color:#fff;font-weight:1vw;background:#F60;position:relative;font-family: Gentona-SemiBold;text-align: center; placeholder="Select a Major";}
   .pk-modal.-cricket>
-  .pk-option-group.-cricket,.pk-option.-cricket{border-bottom:1px solid #414653;color:#fff}.pk-search{margin-top:15px}.pk-no_result_search{color:#fff}.pk-option.-cricket.-selected,.pk-option.-cricket:hover{background:#414653}.pk-multiple.-cricket>.pk-btnMultiply{background:#F60;color:#fff}.pk-multiple.-cricket>.pk-btnMultiply:hover{background:#414653}.pk-circle.-cricket{border:1px solid #ddd}.pk-option.-selected>.pk-circle.-cricket{background:#F60;border:1% solid #000}.pk-tag.-cricket>.txt{background:#F60;color:#fff}.pk-tag.-cricket>.txt:before{border-right-color:#000}.pk-tag.-cricket>.close{background:#414653;color:#F60}.pk-tag.-cricket>.close:hover{background:#F60;color:#414653}
+  .pk-option-group.-cricket,.pk-option.-cricket{border-bottom:1px solid #414653;color:#000;text-align: center}.pk-search{margin-top:15px}.pk-no_result_search{color:#fff}.pk-option.-cricket.-selected,.pk-option.-cricket:hover{background:#00BFFF}.pk-multiple.-cricket>.pk-btnMultiply{background:#F60;color:#fff;font-family: Gentona-SemiBold;}.pk-multiple.-cricket>
+  .pk-btnMultiply:hover{background:#f75214}.pk-circle.-cricket{border:1px solid #ddd}.pk-option.-selected>.pk-circle.-cricket{background:#F60;border:1% solid #000}.pk-tag.-cricket>.txt{background:#F60;color:#fff}.pk-tag.-cricket>.txt:before{border-right-color:#000}.pk-tag.-cricket>.close{background:#414653;color:#F60}.pk-tag.-cricket>.close:hover{background:#F60;color:#414653}
 
   #return-to-top {
       position: fixed;
