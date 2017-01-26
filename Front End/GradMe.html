@@ -55,6 +55,64 @@ html,body {
     background-color: #049372;
     top: 0;
     z-index: 100 !important;
+
+    -webkit-box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.8);
+    -moz-box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.8);
+    box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.8);
+}
+
+.submit {
+    border: none;
+    font-family: Gentona-SemiBold;
+    font-size: 4vw;
+    min-width: 40%;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    margin: 0% 0% 5% 30vw;
+    transform: translateX(0);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.submit:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Button 1 */
+.submit-1 {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/* Button 1c */
+.submit-1c:after {
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+.submit-1c:hover,
+.submit-1c:active {
+    color: #0e83cd;
+}
+
+.submit-1c:hover:after,
+.submit-1c:active:after {
+    width: 100%;
 }
 
 </style>
@@ -151,6 +209,11 @@ html,body {
           </div>
 
         </div></form>
+
+
+        <button class="submit submit-1 submit-1c">
+            Submit
+        </button>
 
 
         <script src="assets/js/main.js"></script>
