@@ -22,7 +22,7 @@ $(function() {
 
 // ===== Scroll to Top ====
 $(window).scroll(function() {
-    if ($(this).scrollTop() >= .75*$(window).height()) {        // If page is scrolled more than 50px
+    if ($(this).scrollTop() >= .5*$(window).height()) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(300);    // Fade in the arrow
     } else {
         $('#return-to-top').fadeOut(700);   // Else fade out the arrow

@@ -20,7 +20,7 @@ public class AverageRatingCalculator {
 /***********************************************************************
  * the number of courses the array will contain.
  ***********************************************************************/
-   private static final int numCourses = 7500;
+   private static final int numCourses = 90000;
    
 /***********************************************************************
  * the number of descriptions each course will have.
