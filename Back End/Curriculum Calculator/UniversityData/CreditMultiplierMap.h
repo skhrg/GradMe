@@ -14,6 +14,6 @@
 map<int, int> creditMultiplier =    //University ID, multiplier
 {
 
-{0000, 2},                          //The Johns Hopkins University    1:Writing Intensive 2:Humanities 3:Natural Sciences 4:Social Sciences 5:Quantitative Sciences 6:Engineering
+{0000, 2},                          //The Johns Hopkins University    1:Writing Intensive 2:Humanities 3:Natural Sciences 4:Social and Behavioral Sciences 5:Quantitative and Mathematical Sciences 6:Engineering
 
 };
