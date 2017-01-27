@@ -29,6 +29,7 @@ html,body {
     font-size: 350%;
     text-align: center;
     word-wrap: normal;
+    text-shadow: 0 5px 0 rgba(0,0,0,0.15);
 }
 
 .fadeIn {
@@ -151,11 +152,12 @@ html,body {
     margin: 0px;
 }
 
+/* positioning of buttons */
 .menuCol {
     background: #094074;
-    border-color: #BDC3C7;
+    /*border-color: #BDC3C7;
     border-style: solid;
-    border-radius: 3px;
+    border-radius: 3px;*/
     padding: 1em;
     text-align: center;
     display: inline-block;
@@ -204,7 +206,7 @@ html,body {
 
 .center {width: 100vh;height: 40%;}
 
-.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold;}
+.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold; text-transform: uppercase}
 .icon-text:hover {display: inline-block;color: #000;transition: color .3s;}
 
 /*--responsive effect--*/
@@ -232,16 +234,18 @@ html,body {
 
 }
 
+/* menu text field */
 .pk-field {
     width: calc(110%);
     float: left;
     cursor: pointer;
-    padding: 8px;
+    padding: 0px;
     border-radius: 0px
 }
 
 .pk-field.-multiple {
-    cursor: text
+    cursor: pointer;
+    cursor: hand;
 }
 
 .pk-arrow {
@@ -275,7 +279,7 @@ html,body {
     left: 0;
     opacity: 0;
     visibility: hidden;
-    z-index: 1110;
+    z-index: 99;
     -webkit-transition: opacity .3s;
     transition: opacity .3s
 }
@@ -293,7 +297,7 @@ html,body {
     border-radius: 6px;
     position: fixed;
     width: 480px;
-    z-index: 1111;
+    z-index: 100;
     -webkit-transition: all .3s;
     transition: all .3s;
     visibility: hidden;
@@ -425,11 +429,12 @@ html,body {
     display: inline-flex;
 }
 
+/* "confirm selected" portion of menu */
 .pk-btnMultiply {
     background: 0 0;
     border: none;
-    margin-top: 10px;
     width: 100%;
+    margin-top: 10px;
     padding-top: 16px;
     padding-bottom: 18px;
     cursor: pointer;

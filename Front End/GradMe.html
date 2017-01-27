@@ -33,6 +33,18 @@ html,body {
     background:black;
     height: 100%;
 }
+/* styling for buttons */
+.cpl {
+    color: white;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+
+    -webkit-box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.4);
+    -moz-box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.4);
+    box-shadow: 0px 10px 29px 7px rgba(21,21,21,0.4);
+}
 
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
@@ -85,9 +97,9 @@ html,body {
     content: '';
     position: absolute;
     z-index: -1;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 /* Button 1 */
@@ -98,9 +110,9 @@ html,body {
 
 /* Button 1c */
 .submit-1c:after {
-    width: 0%;
-    height: 100%;
-    top: 0;
+    width: 100%;
+    height: 0%;
+    bottom: 0;
     left: 0;
     background: #fff;
 }
@@ -112,7 +124,7 @@ html,body {
 
 .submit-1c:hover:after,
 .submit-1c:active:after {
-    width: 100%;
+    height: 100%;
 }
 
 </style>
