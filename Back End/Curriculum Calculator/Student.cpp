@@ -157,7 +157,7 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 					}
 					if (required[k][1] < 0)
 					{
-						required.erase[required.begin() + k];
+						required.erase(required.begin() + k);
 						tempValue2 = false;
 					}
 				}
@@ -183,7 +183,7 @@ void calculateRequired() //TODO - debug, commenting, creating fuctions, optimize
 					}
 					if (required[k][1] < 0)
 					{
-						required.erase[required.begin() + k];
+						required.erase(required.begin() + k);
 						tempValue2 = false;
 					}
 				}
@@ -1244,7 +1244,7 @@ void Student::calculateRemaining()
 				}
 				if (remaining[k][1] < 0)
 				{
-					remaining.erase[remaining.begin() + k];
+					remaining.erase(remaining.begin() + k);
 					tempValue2 = false;
 				}
 			}
@@ -1270,7 +1270,7 @@ void Student::calculateRemaining()
 				}
 				if (remaining[k][1] < 0)
 				{
-					remaining.erase[remaining.begin() + k];
+					remaining.erase(remaining.begin() + k);
 					tempValue2 = false;
 				}
 			}
