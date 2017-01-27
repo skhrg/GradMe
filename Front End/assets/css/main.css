@@ -228,10 +228,17 @@ html,body {
 .panel {
     height: auto;
     background-color: #1693A5;
-    <!--#049372--> 
+    <!-- mint #049372--> 
+    <!-- blue #1693A5-->
     border-radius: 0;
     z-index: -10;
-    background-blend-mode: ;
+}
+
+.panel-blend {
+    background-image: 
+    /* put in '../ignasi.png' i dare you */
+    url('../debut_light.png');
+    background-blend-mode: multiply;
 }
 
 /* menu text field */
