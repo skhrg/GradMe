@@ -9,9 +9,9 @@
 
 #include <map>
 
-map<int, int>     //University ID, multiplier
+map<int, int> creditMultiplier =    //University ID, multiplier
 {
 
-{0000, 2},        //The Johns Hopkins University
+{0000, 2},                          //The Johns Hopkins University
 
 };
