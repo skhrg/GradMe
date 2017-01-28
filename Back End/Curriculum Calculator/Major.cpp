@@ -1,9 +1,9 @@
 #include "Major.h"
 
-Major::Major(int dep, int uni, std::vector<long> req, std::vector<std::vector<long>> choice, std::vector<std::vector<long>> shit, std::vector<std::vector<long>> optionz, int deg, int foc, int reqc, int reqr)
+Major::Major(int uni, int dep, std::vector<long> req, std::vector<std::vector<long>> choice, std::vector<std::vector<long>> shit, std::vector<std::vector<long>> optionz, int deg, int foc, int reqc, int reqr)
 {
-  department = dep;
   university = uni;
+  department = dep;
   reqCourses = req;
   choiceCourses = choice;
   shiz = shit;
