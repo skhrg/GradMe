@@ -10,6 +10,12 @@
     src: url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.svg#GentonaW00-SemiBold") format("svg");
 }
 
+@font-face {
+    font-family: "GentonaLight";
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot");
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.svg#GentonaW00-Light") format("svg");
+}
+
 html,body {
     padding: 0;
     margin: 0;
@@ -43,46 +49,23 @@ html,body {
 }
 
 @keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-
-@-moz-keyframes fadein {
     /* Firefox */
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+@-moz-keyframes fadein {   
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-
-@-webkit-keyframes fadein {
     /* Safari and Chrome */
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-
-@-o-keyframes fadein {
     /* Opera */
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+@-o-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .center {
@@ -165,9 +148,9 @@ html,body {
     margin: 1.5% 0 5% 2%;}
 .menuCol:first-child {margin-left: 0%}
 
-#iconA:hover {background-color: #fbb917;border-color: #fbb917;border-radius: 0%;transition-delay: 0.2s;}
-#iconB:hover {background-color: #F89406;border-color: #F89406;border-radius: 0%;transition-delay: 0.2s;}
-#iconC:hover {background-color: #FF7F50;border-color: #FF7F50;border-radius: 0%;transition-delay: 0.2s;}
+#iconA:hover {background-color: #fbb917;border-color: #fbb917;border-radius:3px;transition-delay: 0.2s;}
+#iconB:hover {background-color: #F89406;border-color: #F89406;border-radius:3px;transition-delay: 0.2s;}
+#iconC:hover {background-color: #FF7F50;border-color: #FF7F50;border-radius:3px;transition-delay: 0.2s;}
 
 .group:before, .group:after {
     content: "";
@@ -208,6 +191,17 @@ html,body {
 
 .icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold; text-transform: uppercase}
 .icon-text:hover {display: inline-block;color: #000;transition: color .3s;}
+.icon-style {
+    color: white;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+
+    -webkit-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+    -moz-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+    box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+}
 
 /*--responsive effect--*/
 .link {display: inline-block}
@@ -237,7 +231,7 @@ html,body {
 .panel-blend {
     background-image: 
     /* put in '../ignasi.png' i dare you */
-    url('../debut_light.png');
+    url('../ignasi.png');
     background-blend-mode: multiply;
 }
 
@@ -379,12 +373,12 @@ html,body {
     font-size: 22px;
     cursor: pointer
 }
-
+/* menu options */
 .pk-option,.pk-option-group {
     cursor: pointer;
     padding: 14px 10px;
-    margin-left: -3%;
-    width: calc(96%);
+    margin-left: -4.7%;
+    width: calc(100%);
     border-bottom: 1px solid #efefef;
     position: inherit
 }

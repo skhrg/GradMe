@@ -33,18 +33,6 @@ html,body {
     background:black;
     height: 100%;
 }
-/* styling for buttons */
-.cpl {
-    color: white;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom: 4px solid rgba(0,0,0,0.21);
-    border-radius: 4px;
-    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
-
-    -webkit-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
-    -moz-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
-    box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
-}
 
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
@@ -62,15 +50,47 @@ html,body {
 .navi {
     position: fixed;
     display: flex;
+
+    padding: 0;
+    background-color: #dedede;
+    border-bottom: 1px solid;
+    border-color: #000;
+    /*border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    if width 95%
+    transform: translateX(2.5%);*/
     width: 100%;
     height: 50px;
-    background-color: #dedede;
     top: 0;
     z-index: 100 !important;
+    justify-content: space-between;
 
-    -webkit-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.8);
-    -moz-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.8);
-    box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.8);
+    -webkit-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+    -moz-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+    box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+}
+
+.item {
+    position: relative;
+    width: auto;
+    height: 100%;
+    margin: 0 1.5vw 0 1.5vw;
+    padding: 0 7px 0 7px;
+    display: inline;
+    background-color: #666666;
+    font-family: GentonaLight;
+    font-size: 3vw;
+    font-stretch: expanded;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+#grad {
+    background: -webkit-linear-gradient(#dedede, #b7b7b7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#dedede, #b7b7b7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#dedede, #b7b7b7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#dedede, #8C8C8C); /* Standard syntax */
 }
 
 .submit {
@@ -132,8 +152,10 @@ html,body {
 <body>
     <!-- Header -->
     <nav>
-        <ul class="navi">
-
+        <ul id="grad" class="navi">
+            <li class="item">stuff</li>
+            <li class="item">ಠ_ಠ</li>
+            <li class="item">huuya</li>
         </ul>
     </nav>
     <!-- Return to Top -->
@@ -156,9 +178,9 @@ html,body {
 
         <form><div class="section-menu group hideme">
 
-          <div id="iconA" class="menuCol span_1_of_3 icon-text text-center underline cpl">
+          <div id="iconA" class="menuCol span_1_of_3 icon-text text-center icon-style">
             <!-- Option group -->
-            <div class="form-group beneath link link2">
+            <div class="beneath link">
                 <select name="skills[]" id="skills" multiple class="skills " placeholder="Select Your Majors">
                     <option value=""></option> <!-- If the check is not required, submit a default value empty -->
                     <option value="Applied Math">Applied Math</option>
@@ -178,9 +200,9 @@ html,body {
           </div>
 
 
-          <div id="iconB" class="menuCol span_1_of_3 icon-text text-center underline cpl">
+          <div id="iconB" class="menuCol span_1_of_3 icon-text text-center icon-style">
             <!-- Option group -->
-            <div class="form-group beneath link">
+            <div class="beneath link">
                 <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Minors">
                     <option value=""></option> <!-- If the check is not required, submit a default value empty -->
                     <option value="Physics">Physics</option>
@@ -199,9 +221,9 @@ html,body {
             </div>
           </div>
 
-          <div id="iconC" class="menuCol span_1_of_3 icon-text text-center underline cpl">
+          <div id="iconC" class="menuCol span_1_of_3 icon-text text-center icon-style">
             <!-- Option group -->
-            <div class="form-group beneath link">
+            <div class="beneath link">
                 <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Pre-Prof Track">
                     <option value=""></option> <!-- If the check is not required, submit a default value empty -->
                     <option value="Physics">Physics</option>
