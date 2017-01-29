@@ -23,6 +23,7 @@ In this program, every course required for a major will be stored in the form of
 First, gather all the relevant university information - the distributions and the credit multiplier. So for Johns Hopkins University, these values would be:
 
 Distributions: 1:Writing Intensive 2:Humanities 3:Natural Sciences 4:Social and Behavioral Sciences 5:Quantitative and Mathematical Sciences 6:Engineering
+
 Credit multiplier: 2
 
 The distribution values represent which distribution digit in the course ID cooresponds to that distribution requirement. On the other hand, the credit multiplier represents the number that you will multiply all course credits by, before putting that number in the course ID.
