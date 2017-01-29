@@ -166,6 +166,8 @@ Organize the rows so that everything is in order (the 0 id row should be followe
 
 There is no need for empty rows, so don't skip rows between types of requirements.
 
+If you need more rows or columns, right click the a column or row, and then add another column or row.
+
 MAKE SURE to check that you have created individual majors requirements for the B.A. and B.S. version of majors. They have different requirements so they will be handled as seperate majors for all intent and purposes by the program.
 
 DO NOT include general distribution requirements required by all majors under Arts and Sciences or Engineering - they will be placed in a seperate class handled by me.
