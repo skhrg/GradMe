@@ -118,7 +118,7 @@ At this point, the spreadsheet should look like this:
 Now, in the following rows we will be entering all course requirements. The first column is always used for requirement ID (0 for Required Courses, 1 for Choice Courses, 2 for Shiz, 3 for Option).
 Note: When there is a range of possible required credits (i.e. 7-8) select the lowest possible number.
 
-Required Courses: In row 3, enter 0 in cell A3 (this is the ID). Then, enter the course ID every required course in every subsequent adjacent column.
+Required Courses: In row 3, enter 0 in cell A3 (this is the ID). Then, enter the course ID every required course in every subsequent adjacent column. Create this row even if there are no required courses (does not apply to the rest of the requirements).
 
 I will be using X for the row number as the row number may vary from this point on.
 
