@@ -22,6 +22,7 @@
     <script src="assets/js/main.js"></script>
 
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -150,14 +151,21 @@ html,body {
 </style>
 
 <body>
-    <!-- Header -->
-    <nav>
-        <ul id="grad" class="navi">
-            <li class="item">stuff</li>
-            <li class="item">ಠ_ಠ</li>
-            <li class="item">huuya</li>
-        </ul>
-    </nav>
+  <div id="top"></div>
+  <!-- Menu -->
+  <nav class="menu fadeIn">
+      <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+      <label class="menu-open-button" for="menu-open">
+      <span class="hamburger hamburger-1"></span>
+      <span class="hamburger hamburger-2"></span>
+      <span class="hamburger hamburger-3"></span>
+    </label>
+
+      <a href="#top" class="menu-item"> <i class="fa fa-home"></i> </a>
+      <a href="#iconA" class="menu-item"> <i class="fa fa-calculator"></i> </a>
+
+
+  </nav>
     <!-- Return to Top -->
     <a href="javascript:" id="return-to-top" class="circle">
       <span id="arrow-high" class="glyphicon glyphicon-menu-up"></span>
