@@ -3,6 +3,7 @@
 This is a guide to inputting major and course data in a format that the Curriculum Calculator program can process. 
 In this guide, I will go over the formatting for the course ID format, the shiz ID format, and the major requirements format.
 As an example, I will be inputting the data from the Johns Hopkins University Applied Mathematics and Statistics major, which can be found here: http://e-catalog.jhu.edu/departments-program-requirements-and-courses/engineering/applied-mathematics-statistics/#undergraduatetext.
+
 If you have any questions regarding this guide, email me at bbao2@jhu.edu or message me on Discord.
 
 ##Course ID Formatting
@@ -26,10 +27,10 @@ Credit multiplier: 2
 
 The distribution values represent which distribution digit in the course ID cooresponds to that distribution requirement. On the other hand, the credit multiplier represents the number that you will multiply all course credits by, before putting that number in the course ID.
 
+![Alt text](https://i.snag.gy/m7fhek.jpg)
+Let's move on to an example
 
-Let's move on to an example:
 
-https://i.snag.gy/m7fhek.jpg
 
 This is the first course required on the Applied Mathematics and Statistics Major that was linked earlier. From the text box, we can see that the department number is 110 and the course number is 106. The credits of the course is 4, so when multiplied by the credit multiplier (4 * 2) the credits in the value will be 8. Also, since the focus area is Quantitative and Mathematical Sciences, the value for distribution 5 will be 1 (while the rest will be 0).
 
@@ -37,9 +38,9 @@ Thus, the course ID for this course will be: 1100010608100001000.
 
 
 
-One more example:
+![Alt text](https://i.snag.gy/O0tzHV.jpg)
+One more example
 
-https://i.snag.gy/O0tzHV.jpg
 
 The department is 500, the course number is 200, the credit number is (4 * 2) = 8, and the focus areas are Engineering and Quantitative and Mathematical Sciences so the values for distribution 5 and 6 will be 1 (and the rest will be 0).
 
@@ -58,10 +59,11 @@ Shiz is a type of major requirement format (as will further be explained in the 
 * Department: The department of the course, IF required. Otherwise, enter 000.
 * Distributions: 1 for accepted for the requirement, 0 for not. The list of what the distributions stand for can be found at /UniversityData/CreditMultiplierMap.h
 
-Here is an example:
+![Alt text](https://i.snag.gy/C4R0Yz.jpg)
+
+Here is an example
 
 
-https://i.snag.gy/C4R0Yz.jpg
 
 There are two seperate requirements here: one for the upper-level courses only, and 
 
@@ -73,12 +75,12 @@ Second requirement: There is no department requirement (so 000) or minimum credi
 
 The shiz ID will be: 000000000000001000.
 
+![Alt text](https://i.snag.gy/NiOEvG.jpg)
+
+Here is another example (not from this major)
 
 
-Here is another example (not from this major):
 
-
-https://i.snag.gy/NiOEvG.jpg
 
 There are no distribution requirements, so all distribution values will be 0. The minimum credit is 4 (so 4 * 2 = 08), the department requirement is 110 (which was found on the relevant requirements page), and the minimum level requirement is 300 (so 00300).
 
@@ -109,8 +111,9 @@ In cell C2, enter the Degree Type ID.
 In cell D2, enter the Required Credits (DON'T forget to multiply this number by the credit multiplier)
 In cell E2, enter 0.
 
+![Alt text](https://i.snag.gy/mXghrj.jpg)
 At this point, the spreadsheet should look like this:
-https://i.snag.gy/mXghrj.jpg
+
 
 Now, in the following rows we will be entering all course requirements. The first column is always used for requirement ID (0 for Required Courses, 1 for Choice Courses, 2 for Shiz, 3 for Option).
 Note: When there is a range of possible required credits (i.e. 7-8) select the lowest possible number.
@@ -122,9 +125,11 @@ I will be using X for the row number as the row number may vary from this point 
 * Choice Courses: 
 In row X, enter 1 in cell AX. Then, in cell BX enter the number of credits required for this choice (DON'T forget to multiply this number by the credit multiplier). Finally, enter the course ID for every possible course in this choice.
 
-Example: https://i.snag.gy/3STYLF.jpg
+![Alt text](https://i.snag.gy/3STYLF.jpg)
+Example
 
-Should look like this: https://i.snag.gy/z0hHKn.jpg
+![Alt text](https://i.snag.gy/z0hHKn.jpg)
+Should look like this
 
 
 
@@ -132,11 +137,13 @@ Should look like this: https://i.snag.gy/z0hHKn.jpg
 * Shiz: 
 In row X, enter 2 in cell AX. Then, in cell BX enter the number of credits required for this shiz (DON'T forget to multiply this number by the credit multiplier). Finally, enter the shiz ID for every shiz in this choice. While these will generally only have 1 ID, it may be possible that there are more than one (i.e. take 8 credits of 300 level or higher math or physics classes would require 2 shiz ID entries, but still on the same row).
 
-Example: https://i.snag.gy/C4R0Yz.jpg
+![Alt text](https://i.snag.gy/C4R0Yz.jpg)
+Example
 
 This one is a bit tricky because this is actually 2 requirements disguised as one. The requirements, distinctly, are 18 credits of 300 level Quantitative Studies credits, and 40 credits of Quantitative Studies credits.
 
-Should look like this: https://i.snag.gy/14Kged.jpg
+![Alt text](https://i.snag.gy/14Kged.jpg)
+Should look like this
 
 
 
@@ -144,9 +151,11 @@ Should look like this: https://i.snag.gy/14Kged.jpg
 * Options:
 In row X, enter 3 in cell AX. Now, subsequently entries in row X will be for the ending row of every option (more than 2 are possible) relative to the original row. For example, if the option has 3 options, and option A ends 3 rows after the 'option' row (with ID of 3), option B ends 6 rows after the 'option' row, and option C ends 7 rows after the 'option' row, then the row with the ID of 3 will look like {0, 3, 6, 7}. In subsequent rows, enter Required Courses, Choice Courses, and Shiz how you normally would except instead of using IDs 0, 1, 2 you will use IDs 30, 31, and 32.
 
-Example: https://i.snag.gy/2JFruK.jpg
+![Alt text](https://i.snag.gy/2JFruK.jpg)
+Example 
 
-Should look like this: https://i.snag.gy/WH2KoG.jpg
+![Alt text](https://i.snag.gy/WH2KoG.jpg)
+Should look like this
 
 
 
