@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html >
 <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="./assets/style.min.css">
 
@@ -17,19 +16,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
     <script src="assets/js/main.js"></script>
-
-    <link rel="stylesheet" href="assets/css/main.css" />
-
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl-style.css">
-
+        <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- owl links -->
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/owl-style.css">
+  <!-- end owl links -->
+  
 </head>
 
-
-<!--Body & Formatting CSS-->
 <style type="text/css">
 html,body {
     padding:0;
@@ -39,7 +39,6 @@ html,body {
 }
 
 .parallax {
-    /* background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg"); */
     background: none;
     background-color: transparent;
     height: 100vh;
@@ -87,60 +86,38 @@ html,body {
 </style>
 
 <body>
-  <div id="top"></div>
-  <!-- Menu -->
-  <nav class="menu fadeIn">
-      <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
-      <label class="menu-open-button" for="menu-open">
-      <span class="hamburger hamburger-1"></span>
-      <span class="hamburger hamburger-2"></span>
-      <span class="hamburger hamburger-3"></span>
-    </label>
+  
+<div class="slider-container">
+  <ul class="site-slider">
+    <li>
+      <div class="slider-img"><img src="https://hd.unsplash.com/photo-1414476367528-f23f72691de0" alt="Sldie 1"/></div>
+      <div class="slider-text">
+        <h3>Slide One</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </li>
+    <li>
+      <div class="slider-img"><img src="https://hd.unsplash.com/photo-1415356838286-df6fd593e8b3" alt="Sldie 2"/></div>
+      <div class="slider-text">
+        <h3>Slide Two</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </li>
+    <li>
+      <div class="slider-img"><img src="https://hd.unsplash.com/photo-1462007361476-49e695345154" alt="Sldie 3"/></div>
+      <div class="slider-text">
+        <h3>Slide Three</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+  <script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.js'></script> <!--has plaintext backup in js folder-->
+  <script src="assets/js/index.js"></script>
 
-      <a href="#top" class="menu-item"> <i class="fa fa-home"></i> </a>
-      <a href="#iconA" class="menu-item"> <i class="fa fa-calculator"></i> </a>
 
-
-  </nav>
-    <!-- Return to Top -->
-    <a href="javascript:" id="return-to-top" class="circle">
-      <span id="arrow-high" class="glyphicon glyphicon-menu-up"></span>
-      <span id="arrow-low" class="glyphicon glyphicon-menu-up"></span>
-    </a>
-
-    <!--Carousel-->
-    <div class="parallax">
-        <div class="slider-container" style="position: relative; display: inline-block; max-width: 100%; max-height: 100%;">
-        <ul class="site-slider">
-            <li>
-                <div class="slider-img"><img src="https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg" alt="Slide 1"/></div>
-                <div class="slider-text">
-                    <h3 class="header-text">Welcome to GradMe.</h3>
-                    <p>Your one-stop shop for graduation planning.</p>
-                </div>
-            </li>
-
-            <li>
-                <div class="slider-img"><img src="https://hd.unsplash.com/photo-1415356838286-df6fd593e8b3" alt="Sldie 2"/></div>
-                <div class="slider-text">
-                    <h3>Slide Two</h3>
-                    <p>gibberish lorem ipsum gaius cornelius hey hey</p>
-                </div>
-            </li>
-
-            <li>
-                <div class="slider-img"><img src="https://hd.unsplash.com/photo-1462007361476-49e695345154" alt="Sldie 3"/></div>
-                <div class="slider-text">
-                    <h3>Slide Three</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </li>
-        </ul>
-        </div>
-    </div>
-    <!-- end carousel -->
-
-    <div class="panel panel-blend" style="border-radius: 0">
+      <div class="panel panel-blend" style="border-radius: 0">
         <a href='#iconA'>
         <div class="circle-center circle fadeIn">
             <span id="arrow-high" class="glyphicon glyphicon-menu-down"></span>
@@ -224,11 +201,6 @@ html,body {
 
 
         <script src="assets/js/main.js"></script>
-        <!-- carousel script -->
-        <script src='https://code.jquery.com/jquery-2.2.4.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.js'></script> <!--has plaintext backup in js folder-->
-        <script src="assets/js/index.js"></script>
 
 </body>
-
 </html>
