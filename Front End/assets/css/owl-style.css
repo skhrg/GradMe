@@ -28,7 +28,8 @@
     cursor: default; }
 
 .owl-theme .owl-nav.disabled + .owl-dots {
-  margin-top: 10px; }
+  margin-top: 10px; 
+  }
 
 
 /* style */
@@ -92,6 +93,7 @@ body, html {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  z-index: 5;
 }
 .owl-dots .owl-dot {
   width: 10px;
@@ -100,6 +102,7 @@ body, html {
   display: block;
   margin: 10px 0;
   border-radius: 50%;
+  z-index: 5;
 }
 .owl-dots .owl-dot.active {
   background: #e05038;

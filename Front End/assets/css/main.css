@@ -214,6 +214,9 @@ html,body {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
     height: 100vh;
     background-attachment: fixed;
+    /*position: fixed; 
+    top: 0%; 
+    z-index: -100; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -221,6 +224,7 @@ html,body {
 
 .panel {
     height: auto;
+    margin: 0;
     background-color: #1693A5;
     <!-- mint #049372-->
     <!-- blue #1693A5-->
@@ -230,9 +234,22 @@ html,body {
 
 .panel-blend {
     background-image:
-    /* put in '../ignasi.png' i dare you */
-    url('../ignasi.png');
+    /* put in '../ignasi.png'*/
+    url('../debut_light.png');
     background-blend-mode: multiply;
+}
+
+.prompt {
+    font-family: "GentonaLight";
+    font-size: 4vw;
+    font-stretch: expanded;
+    color: white;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    transform: translateY(-5vh);
+    padding: 0;
 }
 
 .submit {
@@ -381,7 +398,6 @@ html,body {
     .pk-modal>.main {
         max-height:70vh;
         width: auto;
-        margin-left: -4%;
     }
 }
 
@@ -431,7 +447,7 @@ html,body {
 .pk-option,.pk-option-group {
     cursor: pointer;
     padding: 14px 10px;
-    margin-left: -4.7%;
+    margin: 0%;
     width: calc(100%);
     border-bottom: 1px solid #efefef;
     position: inherit
@@ -519,6 +535,7 @@ html,body {
 
 .pk-tag>.txt {
     float: left;
+    min-width: 5vw;
     padding: 3px 3px 3px;
     border-radius: 6px;
     position: relative
@@ -538,7 +555,7 @@ html,body {
     position: relative;
     top: 1px;
     font: 700 10px;
-    padding: 0 5px;
+    padding: 0 -3px;
     border-radius: 50%
 }
 
@@ -765,7 +782,7 @@ html,body {
 }
 
   .menu {
-    z-index: 100000;
+    z-index: 10000;
     -webkit-filter: url("#shadowed-goo");
             filter: url("#shadowed-goo");
   }
@@ -793,11 +810,9 @@ html,body {
   }
   .menu-open-button {
     background: black;
-    z-index: 100;
   }
   .menu-open-button:hover {
     background: #F60;
-    z-index: 100;
   }
 
   .menu-open {
