@@ -69,20 +69,16 @@ public class AverageRatingCalculator {
       return result;
    }
    
-/***********************************************************************
- * main - start of execution. Reads/stores the data of each course in the 
+ /***********************************************************************
+ * generateCourseMatrix - Reads/stores the data of each course in the 
  * courses array, with each column denoting one specific class, and the 
  * row denoting the specific description (row 0 = course code, row 1 = 
- * course name, row 2 = course instructor, row 3 = course rating). main 
- * will also tell you the average course rating for that course in that
- * year. EN
+ * course name, row 2 = course instructor, row 3 = course rating).
  *
- * @param args - not used
- * @throws IOException - import file exceptions 
+ * @return - the matrix of info about courses
  ***********************************************************************/
 
-   public static void main(String[] args) throws IOException {  
-   
+   public static String[][] generateCourseMatrix() throws IOException {
       Scanner userRead = new Scanner(System.in);
       
       FileReader inputReader = new FileReader("PastRatings.txt");
@@ -149,6 +145,20 @@ public class AverageRatingCalculator {
             } 
          }
       }
+      
+      return courses;
+   }
+   
+/***********************************************************************
+ * main - start of execution. tell you the average course rating of 
+ * courses (teacher-specific functionality)
+ *
+ * @param args - not used
+ * @throws IOException - import file exceptions 
+ ***********************************************************************/
+
+   public static void main(String[] args) throws IOException {  
+      courses = generateCourseMatrix();
       int count = 0;
       double sum = 0; 
       double avg = 0;
