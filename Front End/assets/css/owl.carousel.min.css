@@ -17,6 +17,17 @@
     width: 100%;
     z-index: 1;
 }
+/* @media (648px){
+    .owl-carousel {
+        height: 50vh;
+    }
+    .owl-stage {
+        height: 50vh;
+    }
+    .owl-item {
+        height: 50vh;
+    }
+} */
 
 
 

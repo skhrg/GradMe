@@ -1,0 +1,195 @@
+@font-face {
+    font-family: "Quadon";
+    src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot");
+    src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.svg#QuadonW00-Regular") format("svg");
+}
+
+@font-face {
+    font-family: "Gentona-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.eot");
+    src: url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/a28854e1db150c80e69c915280190573.svg#GentonaW00-SemiBold") format("svg");
+}
+
+@font-face {
+    font-family: "GentonaLight";
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot");
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.svg#GentonaW00-Light") format("svg");
+}
+
+html,body {
+    padding: 0;
+    margin: 0;
+}
+
+.navi {
+    position: fixed;
+    display: flex;
+
+    padding: 0;
+    background-color: #dedede;
+    border-bottom: 1px solid;
+    border-color: #000;
+    /*border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    if width 95%
+    transform: translateX(2.5%);*/
+    width: 100%;
+    height: 50px;
+    top: 0;
+    z-index: 100 !important;
+    justify-content: space-between;
+
+    -webkit-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+    -moz-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+    box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
+}
+
+.header-text {
+    font-family: GentonaLight;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 5vh 0 5vh 0;
+    color: #000;
+    font-size: 350%;
+    text-align: center;
+    word-wrap: normal;
+    text-shadow: 0 5px 0 rgba(0,0,0,0.15);
+}
+
+.fadeIn {
+    animation: fadein 3.5s;
+    -moz-animation: fadein 3.5s;
+    /* Firefox */
+    -webkit-animation: fadein 3.5s;
+    /* Safari and Chrome */
+    -o-animation: fadein 3.5s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Firefox */
+@-moz-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Opera */
+@-o-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+.section-menu {
+    clear: both;
+    padding: 3vw;
+    margin: 0px;
+}
+
+.cardholder {	
+	padding: 0 5% 5% 5%;
+  	margin: 0;
+  
+  	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  
+  	-webkit-flex-flow: row wrap;
+  	justify-content: space-between;
+
+}
+
+.card {
+    background: tomato;
+  	width: 24vw;
+  	height: 50vh;
+  
+  	line-height: 150px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 3em;
+  	text-align: center;
+}
+#lastCard {
+}
+
+
+@media only screen and (max-width: 648px) {
+
+    .card-text {
+        font-size: 200% !important;
+    }
+
+    .panel {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+}
+
+
+.card-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold; text-transform: uppercase}
+.card-text:hover {display: inline-block;color: #000;transition: color .3s;}
+.card-style {
+    color: white;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+
+    -webkit-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+    -moz-box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+    box-shadow: 0px 15px 29px 2px rgba(21,21,21,0.4);
+}
+
+/*--responsive effect--*/
+
+.parallax {
+    background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
+    height: auto;
+    background-attachment: fixed;
+    /*position: fixed; 
+    top: 0%; */
+    z-index: -100; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    padding-top: 15%;
+}
+
+.panel {
+    height: 90vh;
+    margin: 0 3vw 0 3vw;
+    background-color: #ddd;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.panel-blend {
+    background-image:
+    /* put in '../ignasi.png'*/
+    url('../ignasi.png');
+    background-blend-mode: multiply;
+}
+
+.prompt {
+    font-family: "GentonaLight";
+    font-size: 4vw;
+    font-stretch: expanded;
+    color: #000;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    transform: translateY(-5vh);
+    padding: 0;
+}

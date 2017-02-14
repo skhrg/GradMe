@@ -57,6 +57,12 @@ $(document).ready(function() {
     });
 
 });
+
+setInterval(function(){
+var owldata = $(".owl-carousel").data('owlCarousel');
+owldata.updateVars();
+},1500);
+
 /* for carousel */
 $(document).ready(function() {
  

@@ -62,11 +62,16 @@ body, html {
 .site-slider li {
   line-height: 0;
   list-style: none;
+  justify-content: center;
 }
 
 .slider-img {
-  width: 100%;
-  height: 100%;
+  height: 100vh; 
+  /* padding-bottom: 56.25%; */
+}
+
+.slider-img2 {
+
 }
 
 .slider-text {
@@ -88,6 +93,19 @@ body, html {
   opacity: 0;
 }
 
+/* @media (648px){
+    .slider-img {
+        height: 50vh;
+    }
+    .site-slider {
+        height: 50vh;
+    }
+    .slider-container {
+        height: 50vh;
+    }
+} */
+
+
 .owl-dots {
   position: absolute;
   top: 50%;
@@ -96,8 +114,8 @@ body, html {
   z-index: 5;
 }
 .owl-dots .owl-dot {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background: #fff;
   display: block;
   margin: 10px 0;
