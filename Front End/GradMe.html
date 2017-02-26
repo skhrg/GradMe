@@ -88,7 +88,7 @@ html,body {
 
 <body>
   <div id="top"></div>
-  <!-- Menu -->
+  <!-- 
   <nav class="menu fadeIn">
       <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
       <label class="menu-open-button" for="menu-open">
@@ -101,7 +101,7 @@ html,body {
       <a href="#iconA" class="menu-item"> <i class="fa fa-calculator"></i> </a>
 
 
-  </nav>
+  </nav> -->
     <!-- Return to Top -->
     <a href="javascript:" id="return-to-top" class="circle">
       <span id="arrow-high" class="glyphicon glyphicon-menu-up"></span>
@@ -123,16 +123,16 @@ html,body {
             <li>
                 <div class="slider-img"><img class="slider-img2" src="https://hd.unsplash.com/photo-1415356838286-df6fd593e8b3" alt="Slide 2"/></div>
                 <div class="slider-text">
-                    <h3>Slide Two</h3>
-                    <p>gibberish lorem ipsum gaius cornelius hey hey</p>
+                    <h3 class="header-text">Look Ahead.</h3>
+                    <p>We put graduation requirements right at your fingertips.</p>
                 </div>
             </li>
 
             <li>
                 <div class="slider-img"><img class="slider-img2" src="http://cdn.skim.gs/images/v1/msi/xai5qutwokyvalpytzch/photo-of-breastfeeding-at-graduation" alt="Slide 3"/></div>
                 <div class="slider-text">
-                    <h3>Slide Three</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h3 class="header-text">Make your plan today.</h3>
+                    <p></p>
                 </div>
             </li>
         </ul>
@@ -156,53 +156,8 @@ html,body {
         <form><div class="section-menu group hideme">
 
           <div id="iconA" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
             <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills " placeholder="Select Your Majors">
-                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
-                    <option value="Applied Math">Applied Mathematics</option>
-                    <option value="CS">Computer Science</option>
-                    <option value="BME">Biomedical Engineering</option>
-                    <option value="ChemBe">ChemBE</option>
-                    <option value="Java">Neuroscience</option>
-                    <option value="Cobol">Writing Seminars</option>
-                    <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">Farming</option>
-                    <option value="Ionic">Ionic</option>
-                    <option value="VueJS">VueJS</option>
-                    <option value="ReactJS">ReactJS</option>
-                    <option value="React Native">React Native</option>
-                </select>
-            </div>
-          </div>
-
-
-          <div id="iconB" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
-            <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Minors">
-                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
-                    <option value="Physics">Physics</option>
-                    <option value="AMS">Applied Mathematics</option>
-                    <option value="C++">Computer Science</option>
-                    <option value="Python">Biomedical Engineering</option>
-                    <option value="Java">Neuroscience</option>
-                    <option value="Cobol">Writing Seminars</option>
-                    <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">Mechanical Engineering</option>
-                    <option value="Ionic">Art History</option>
-                    <option value="VueJS">Media &  Film Studies</option>
-                    <option value="ReactJS">ReactJS</option>
-                    <option value="React Native">React Native</option>
-                </select>
-            </div>
-          </div>
-
-
-          <div id="iconC" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
-            <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Pre-Prof Track">
+                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Major">
                     <option value=""></option> <!-- If the check is not required, submit a default value empty -->
                     <option value="Physics">Physics</option>
                     <option value="AMS">Applied Mathematics & Statistics</option>
@@ -211,11 +166,53 @@ html,body {
                     <option value="Java">Neuroscience</option>
                     <option value="Cobol">Writing Seminars</option>
                     <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">AngularJS</option>
-                    <option value="Ionic">Ionic</option>
-                    <option value="VueJS">VueJS</option>
+                    <option value="AngularJS">Farming</option>
+                    <option value="Ionic">Placeholder</option>
+                    <option value="VueJS">Filler</option>
                     <option value="ReactJS">hmmm</option>
-                    <option value="React Native">React Native</option>
+                    <option value="React Native">Stuff</option>
+                </select>
+            </div>
+          </div>
+
+
+          <div id="iconB" class="menuCol span_1_of_3 icon-text text-center icon-style">
+            <div class="beneath link">
+                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Minor">
+                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
+                    <option value="Physics">Physics</option>
+                    <option value="AMS">Applied Mathematics & Statistics</option>
+                    <option value="C++">Computer Science</option>
+                    <option value="Python">Biomedical Engineering</option>
+                    <option value="Java">Neuroscience</option>
+                    <option value="Cobol">Writing Seminars</option>
+                    <option value="Javascript">International Studies</option>
+                    <option value="AngularJS">Farming</option>
+                    <option value="Ionic">Placeholder</option>
+                    <option value="VueJS">Filler</option>
+                    <option value="ReactJS">hmmm</option>
+                    <option value="React Native">Stuff</option>
+                </select>
+            </div>
+          </div>
+
+
+          <div id="iconC" class="menuCol span_1_of_3 icon-text text-center icon-style">
+            <div class="beneath link">
+                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Track">
+                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
+                    <option value="Physics">Physics</option>
+                    <option value="AMS">Applied Mathematics & Statistics</option>
+                    <option value="C++">Computer Science</option>
+                    <option value="Python">Biomedical Engineering</option>
+                    <option value="Java">Neuroscience</option>
+                    <option value="Cobol">Writing Seminars</option>
+                    <option value="Javascript">International Studies</option>
+                    <option value="AngularJS">Farming</option>
+                    <option value="Ionic">Placeholder</option>
+                    <option value="VueJS">Filler</option>
+                    <option value="ReactJS">hmmm</option>
+                    <option value="React Native">Stuff</option>
                 </select>
             </div>
           </div>

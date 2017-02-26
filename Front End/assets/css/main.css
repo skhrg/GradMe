@@ -31,11 +31,11 @@ html,body {
     font-family: Quadon;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #fff;
+    color: #9bddff;
     font-size: 350%;
-    text-align: center;
+    text-align: left;
     word-wrap: normal;
-    text-shadow: 0 5px 0 rgba(0,0,0,0.15);
+    text-shadow: 0 3px 0 rgba(0,0,0,0.15);
 }
 
 .fadeIn {
@@ -178,7 +178,7 @@ html,body {
     }
 
     .icon-text {
-        font-size: 200% !important;
+        font-size: 180% !important;
     }
 
     .section-menu {
@@ -230,7 +230,7 @@ html,body {
 }
 
 .panel-blend {
-    background-image: url('../ignasi.png');
+    background-image: url('../debut_light.png');
     background-blend-mode: multiply;
 }
 
@@ -252,7 +252,7 @@ html,body {
     font-family: Gentona-SemiBold;
     font-size: 4vw;
     min-width: 40%;
-    color: inherit;
+    color: black;
     background: none;
     padding: 25px 0 25px 0;
     margin: 0vw 0% 5% 30vw;
@@ -283,8 +283,8 @@ html,body {
 
 /* Button 1 */
 .submit-1 {
-    border: 2px solid #fff;
-    color: #fff;
+    border: 2px solid #094074;
+    color: #094074;
 }
 
 /* Button 1c */
@@ -293,12 +293,12 @@ html,body {
     height: 0%;
     bottom: 0;
     left: 0;
-    background: #fff;
+    background: #9bddff;
 }
 
 .submit-1c:hover,
 .submit-1c:active {
-    color: #0e83cd;
+    color: #094074;
 }
 
 .submit-1c:hover:after,
@@ -450,7 +450,8 @@ html,body {
     margin: 0%;
     width: calc(100%);
     border-bottom: 1px solid #efefef;
-    position: inherit
+    position: inherit;
+    z-index: 100;
 }
 
 .pk-option:last-child {
