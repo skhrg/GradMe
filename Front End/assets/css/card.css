@@ -43,6 +43,7 @@ body {
   overflow: hidden;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  overflow: visible; /* so dropdown not clipped */
 }
 
 .product {

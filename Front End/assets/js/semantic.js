@@ -71,7 +71,7 @@ $(document).ready(function() {
 
   $(".search").on("click", function() {
     $(".products").css({
-      "height": getProductHeight + 60 + "px",
+      "height": getProductHeight + 48 + "px",
     });
   });
   
@@ -91,19 +91,11 @@ $('.dropdown').dropdown({
   label: {
     duration: 0,
   },
+  direction: 'upward',
   debug: true,
   performance: true,
 });
 
-$('.ui.checkbox')
-  .checkbox({
-    onChecked() {
-      const options = $('#members_dropdown > option').toArray().map(
-        (obj) => obj.value
-      );
-      $('#members_dropdown').dropdown('set exactly', options);
-    },
-    onUnchecked() {
-      $('#members_dropdown').dropdown('clear');
-    },
+$('.ui.dropdown').dropdown({
+    maxSelections: 3
   });
