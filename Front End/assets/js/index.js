@@ -42,4 +42,26 @@ $(window).on('load', function(){
   $slidePara.addClass('animate-in-slow').on('animationend', function(){
     $slidePara.removeClass('animate-in-slow').addClass('opacFull');
   });
+}); 
+
+//Semantic UI
+$('.dropdown').dropdown({
+  label: {
+    duration: 0,
+  },
+  debug: true,
+  performance: true,
 });
+
+$('.ui.checkbox')
+  .checkbox({
+    onChecked() {
+      const options = $('#members_dropdown > option').toArray().map(
+        (obj) => obj.value
+      );
+      $('#members_dropdown').dropdown('set exactly', options);
+    },
+    onUnchecked() {
+      $('#members_dropdown').dropdown('clear');
+    },
+  });

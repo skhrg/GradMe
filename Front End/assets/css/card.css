@@ -1,0 +1,117 @@
+/* $base-background: #00CC99; */
+body {
+  background: #ED8D1F;
+  margin: 0; padding: 0;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.btn {
+  border-radius: 2px;
+  padding: 8px 48px 8px 48px;
+  margin-bottom: -20px;
+  color: #D18B49;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  z-index: 100 !important;
+}
+
+.card {
+  background: #fff;
+  max-width: 400px;
+  margin: 100px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  padding: 48px 0 48px 0;
+  text-align: center;
+  border-top: 25px solid #9bddff;
+}
+
+.products {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+.product.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.thumbnail {
+  margin: 0 0 24px;
+}
+
+.title {
+  margin: 0 0 0px;
+  color: #D18B49;
+  font-size: 24px;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.description {
+  margin: 0 0 0; /* changed bottom value from 48px*/ 
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 -12px -12px;
+}
+
+/* search function */
+@font-face {
+    font-family: "GentonaLight";
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot");
+    src: url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/f61ec6cb5c1ec2023339ba43ea971e0d.svg#GentonaW00-Light") format("svg");
+}
+
+/*-- Semantic restyling */
+.search {
+  margin: 12px 0px 12px 16px;
+  max-width: 368px;
+}
+
+.active {
+    z-index: 1001 !important;
+}
+
+/* activated major tags */
+a.label {
+    min-width: 42%;
+    font-size: 2vh !important;
+}
+
+.label {
+    text-align: center;
+}

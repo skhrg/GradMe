@@ -33,7 +33,7 @@ html,body {
     letter-spacing: 2px;
     color: #9bddff;
     font-size: 350%;
-    text-align: left;
+    text-align: center;
     word-wrap: normal;
     text-shadow: 0 3px 0 rgba(0,0,0,0.15);
 }
@@ -144,8 +144,8 @@ html,body {
     padding: 1em;
     text-align: center;
     display: inline-block;
-    float: left;
-    margin: 1.5% 0 5% 2%;}
+    /* float: left;
+    margin: 1.5% 0 5% 2%; */} 
 .menuCol:first-child {margin-left: 0%}
 
 #iconA:hover {background-color: #fbb917;border-color: #fbb917;border-radius:3px;transition-delay: 0.2s;}
@@ -164,18 +164,16 @@ html,body {
 .group {
     zoom:1;}
 
-.span_1_of_3 {
+.card-size{
     width: 31.2%;
+    min-height: 100px;
 }
 
 @media only screen and (max-width: 648px) {
-    .menuCol {
+    /*.menuCol {
         margin: 1% 0 1% 0%;
-    }
+    } */
 
-    .span_1_of_3 {
-        width: 100%;
-    }
 
     .icon-text {
         font-size: 180% !important;
@@ -189,7 +187,7 @@ html,body {
 
 .center {width: 100vh;height: 40%;}
 
-.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold; text-transform: uppercase}
+.icon-text {font-size: 3vw;color: #ECF0F1;font-family: Arial; text-transform: uppercase}
 .icon-text:hover {display: inline-block;color: #000;transition: color .3s;}
 .icon-style {
     color: white;
@@ -204,11 +202,11 @@ html,body {
 }
 
 /*--responsive effect--*/
-.link {display: inline-block}
-.link::after {
+.underline {display: inline-block}
+.underline::after {
     content: '';position: absolute;display: inline-block;width: 0;height: 4px;background: #000;
     transition: width .3s;top: 100%;left: auto;margin: auto;transform: translate(-100%,0) }
-.link:hover::after {width: 100%; transition: width .3s;}
+.underline:hover::after {width: 100%; transition: width .3s;}
 
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");

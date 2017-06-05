@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html >
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>test</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>GradMe</title>
     <meta name="keywords" content="graduate, major requirements, easy, web design">
     <meta http-equiv="cleartype" content="on">
 
@@ -16,247 +15,47 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main_backup.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css'>
 </head>
 
-
-<!--Body & Formatting CSS-->
-<style type="text/css">
-html,body {
-    padding:0;
-    margin:0;
-    background:black;
-    height: 100%;
-}
-
-.parallax {
-    background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
-    height: 100vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/*don't move from HTML*/
-.beneath{z-index: 1; background: transparent; width:100%; position:relative; top: 0; transform: translate(-0%, 0%);}
-    @media (max-width: 648px){.beneath{top: 0vw}}
-
-.navi {
-    position: fixed;
-    display: flex;
-
-    padding: 0;
-    background-color: #dedede;
-    border-bottom: 1px solid;
-    border-color: #000;
-    /*border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    if width 95%
-    transform: translateX(2.5%);*/
-    width: 100%;
-    height: 50px;
-    top: 0;
-    z-index: 100 !important;
-    justify-content: space-between;
-
-    -webkit-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
-    -moz-box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
-    box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
-}
-
-.item {
-    position: relative;
-    width: auto;
-    height: 100%;
-    margin: 0 1.5vw 0 1.5vw;
-    padding: 0 7px 0 7px;
-    display: inline;
-    background-color: #666666;
-    font-family: GentonaLight;
-    font-size: 3vw;
-    font-stretch: expanded;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
-}
-
-#grad {
-    background: -webkit-linear-gradient(#dedede, #b7b7b7); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#dedede, #b7b7b7); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#dedede, #b7b7b7); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#dedede, #8C8C8C); /* Standard syntax */
-}
-
-.submit {
-    border: none;
-    font-family: Gentona-SemiBold;
-    font-size: 4vw;
-    min-width: 40%;
-    color: inherit;
-    background: none;
-    cursor: pointer;
-    padding: 25px 80px;
-    margin: 0% 0% 5% 30vw;
-    transform: translateX(0);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    outline: none;
-    position: relative;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.submit:after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-/* Button 1 */
-.submit-1 {
-    border: 2px solid #fff;
-    color: #fff;
-}
-
-/* Button 1c */
-.submit-1c:after {
-    width: 100%;
-    height: 0%;
-    bottom: 0;
-    left: 0;
-    background: #fff;
-}
-
-.submit-1c:hover,
-.submit-1c:active {
-    color: #0e83cd;
-}
-
-.submit-1c:hover:after,
-.submit-1c:active:after {
-    height: 100%;
-}
-
-</style>
-
 <body>
-  <div id="top"></div>
-  <!-- Menu -->
-  <nav class="menu fadeIn">
-      <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
-      <label class="menu-open-button" for="menu-open">
-      <span class="hamburger hamburger-1"></span>
-      <span class="hamburger hamburger-2"></span>
-      <span class="hamburger hamburger-3"></span>
-    </label>
-
-      <a href="#top" class="menu-item"> <i class="fa fa-home"></i> </a>
-      <a href="#iconA" class="menu-item"> <i class="fa fa-calculator"></i> </a>
-
-
-  </nav>
-    <!-- Return to Top -->
-    <a href="javascript:" id="return-to-top" class="circle">
-      <span id="arrow-high" class="glyphicon glyphicon-menu-up"></span>
-      <span id="arrow-low" class="glyphicon glyphicon-menu-up"></span>
-    </a>
-
-    <div class="parallax">
-        <div class="header-text center fadeIn">Welcome to GradMe.</div>
-    </div>
-
-    <div class="panel panel-blend" style="border-radius: 0">
-        <a href='#iconA'>
-        <div class="circle-center circle fadeIn">
-            <span id="arrow-high" class="glyphicon glyphicon-menu-down"></span>
-            <span id="arrow-low" class="glyphicon glyphicon-menu-down"></span>
-        </div>
-        </a>
-
-        <form><div class="section-menu group hideme">
-
-          <div id="iconA" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
-            <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills " placeholder="Select Your Majors">
-                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
-                    <option value="Applied Math">Applied Math</option>
-                    <option value="CS">CS</option>
-                    <option value="BME">BME</option>
-                    <option value="ChemBe">ChemBE</option>
-                    <option value="Java">Neuroscience</option>
-                    <option value="Cobol">Writing Seminars</option>
-                    <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">Farming</option>
-                    <option value="Ionic">Ionic</option>
-                    <option value="VueJS">VueJS</option>
-                    <option value="ReactJS">ReactJS</option>
-                    <option value="React Native">React Native</option>
-                </select>
-            </div>
+    <div class="panel2 panel-blend" style="border-radius: 0">
+        <div class="section-menu group">
+          <!-- UI search -->
+          <div class="ui stackable grid container">
+              <div class="wide column">
+              <form class="ui form" method="post">
+                  <div class="field search-title">
+                  <label class="" for="id_members">Selection<br><br><br></label>
+                  <select multiple="multiple" class="ui fluid search dropdown input-field" id="members_dropdown" multiple="" name="members">
+                      <option value="">Search</option>
+                      <option value="1">Biomedical Engineering</option>
+                      <option value="2">Applied Mathematics & Statistics</option>
+                      <option value="3">Robotics</option>
+                      <option value="4">Entrepreneurship & Management</option>
+                      <option value="5">Computer Science</option>
+                  </select>
+              </div>
+              </form>
+              </div>
           </div>
+          <!-- end UI search -->
+    </div></div> 
 
 
-          <div id="iconB" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
-            <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Minors">
-                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
-                    <option value="Physics">Physics</option>
-                    <option value="AMS">Applied Mathematics & Statistics</option>
-                    <option value="C++">Computer Science</option>
-                    <option value="Python">Biomedical Engineering</option>
-                    <option value="Java">Neuroscience</option>
-                    <option value="Cobol">Writing Seminars</option>
-                    <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">AngularJS</option>
-                    <option value="Ionic">Ionic</option>
-                    <option value="VueJS">Milk</option>
-                    <option value="ReactJS">ReactJS</option>
-                    <option value="React Native">React Native</option>
-                </select>
-            </div>
-          </div>
-
-          <div id="iconC" class="menuCol span_1_of_3 icon-text text-center icon-style">
-            <!-- Option group -->
-            <div class="beneath link">
-                <select name="skills[]" id="skills" multiple class="skills" placeholder="Select Your Pre-Prof Track">
-                    <option value=""></option> <!-- If the check is not required, submit a default value empty -->
-                    <option value="Physics">Physics</option>
-                    <option value="AMS">Applied Mathematics & Statistics</option>
-                    <option value="C++">Computer Science</option>
-                    <option value="Python">Biomedical Engineering</option>
-                    <option value="Java">Neuroscience</option>
-                    <option value="Cobol">Writing Seminaras</option>
-                    <option value="Javascript">International Studies</option>
-                    <option value="AngularJS">AngularJS</option>
-                    <option value="Ionic">Ionic</option>
-                    <option value="VueJS">VueJS</option>
-                    <option value="ReactJS">hmmm</option>
-                    <option value="React Native">React Native</option>
-                </select>
-            </div>
-          </div>
-
-        </div></form>
 
 
-        <button class="submit submit-1 submit-1c">
-            Submit
-        </button>
 
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js'></script>
 
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/semantic.js"></script>
+        <script src="assets/js/main2.js"></script>
 
 </body>
-
 </html>

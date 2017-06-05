@@ -35,8 +35,8 @@ html,body {
     display: flex;
   
     -webkit-flex-flow: row wrap;
-  align-items: space-between;
-  justify-content: center;
+    align-items: space-between;
+    justify-content: center;
 
     padding: 0;
     background-color: #dedede;
@@ -52,69 +52,68 @@ html,body {
     box-shadow: 0px 10px 20px 5px rgba(21,21,21,0.3);
 }
 
-.parent2 {
+.parent {
   top:-25px;
   position: relative;
   /*margin-left: -30px;*/
-display:inline-block;
+    display:flex;
+    align-items: center;
   width:130px; /* make sure same dimension as mark */
   height:100px;
   background-color:transparent;
   border-radius:10px;
   z-index:20;
 }
+.test {
+    border: ridge 2px;
+    border-color: white;
+    border-radius:20%;
+    margin-left: 4px;
+    transition: all 250ms cubic-bezier(0.9, -0.550, 0.265, 1.550) .3s; 
+}
 .test1 {
   width:70px;
   height:70px;
-  background-color: tomato;
-  border-radius:20%;
+  background-color: maroon;
   position:absolute;
   color:white;
   text-align:center;
   line-height:70px;
   top: 5%;
   left:20%;
-  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    position:absolute;
 }
 .test2 {
   width:70px;
   height:70px;
-  background-color: tomato;
-  border-radius:20%;
+  background-color: maroon;
   position:absolute;
   color:white;
   text-align:center;
   line-height:70px;
   top: 5%;
   left:20%;
-  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .2s;
 }
 .test3 {
   width:70px;
   height:70px;
-  background-color: tomato;
-  border-radius:20%;
+  background-color: maroon;
   position:absolute;
   color:white;
   text-align:center;
   line-height:70px;
   top: 5%;
-  left:20%;
-  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .4s;  
+  left:20%; 
 }
   .test4 {
   width:70px;
   height:70px;
-  background-color: tomato;
-  border-radius:20%;
+  background-color: maroon;
   position:absolute;
   color:white;
   text-align:center;
   line-height:70px;
   top: 5%;
-  left:20%;
-  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .6s;  
+  left:20%; 
 }
 .mask2 {
   top:-10px;
@@ -122,9 +121,9 @@ display:inline-block;
   display:block;
   width:130px;
   height:80px;
-  background:lightGray;
+  background:silver;
   border-radius:10px;
-  border: 1px double;
+  border: 3px solid;
   border-color: white;
   position:absolute;
   padding-top: -5px;
@@ -134,6 +133,10 @@ display:inline-block;
   line-height:120px;
   cursor:pointer;
   position:fixed;
+}
+.mask2:hover {
+    background: black;
+    color: white;
 }
 /* end navi */
 
@@ -245,12 +248,12 @@ display:inline-block;
 }
 
 .card {
-    background: tomato;
+    background: white;
     width: 24vw;
     height: 50vh;
   
     line-height: 150px;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 3em;
     text-align: center;
@@ -275,7 +278,7 @@ display:inline-block;
 .card-text {font-size: 3vw;color: #ECF0F1;font-family: Gentona-SemiBold; text-transform: uppercase}
 .card-text:hover {display: inline-block;color: #000;transition: color .3s;}
 .card-style {
-    color: white;
+    color: black;
     border: 1px solid rgba(0,0,0,0.21);
     border-bottom: 4px solid rgba(0,0,0,0.21);
     border-radius: 4px;

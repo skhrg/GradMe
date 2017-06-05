@@ -1,5 +1,3 @@
-
-
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -52,32 +50,3 @@ $(document).ready(function() {
     });
 
 });
-
-
-/* for navi */
-$(document).ready(function() {
-
-  var active1 = false;
-  var active2 = false;
-  var active3 = false;
-  var active4 = false;
-
-    $('.parent').on('mousedown touchstart', function() {
-    
-     if (!active1) $(this).find('.test1').css({'transform': 'translate(-125px,70px)'});
-    else $(this).find('.test1').css({'transform': 'none'}); 
-     if (!active2) $(this).find('.test2').css({'transform': 'translate(-42px,100px)'});
-    else $(this).find('.test2').css({'transform': 'none'});
-      if (!active3) $(this).find('.test3').css({'transform': 'translate(42px,100px)'});
-    else $(this).find('.test3').css({'transform': 'none'});
-      if (!active4) $(this).find('.test4').css({'transform': 'translate(125px,70px)'});
-    else $(this).find('.test4').css({'transform': 'none'});
-    active1 = !active1;
-    active2 = !active2;
-    active3 = !active3;
-    active4 = !active4;
-      
-    });
-});
-
-
