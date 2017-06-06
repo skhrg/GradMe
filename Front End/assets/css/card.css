@@ -29,13 +29,12 @@ body {
 .card {
   background: #fff;
   max-width: 400px;
-  margin: 100px auto;
+  margin: 50px auto;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
   padding: 48px 0 48px 0;
   text-align: center;
-  border-top: 25px solid #9bddff;
 }
 
 .products {
@@ -100,7 +99,7 @@ body {
 /*-- Semantic restyling */
 .search {
   margin: 12px 0px 12px 16px;
-  max-width: 368px;
+  max-width: 368px; 
 }
 
 .active {
@@ -109,10 +108,8 @@ body {
 
 /* activated major tags */
 a.label {
-    min-width: 42%;
+    min-width: 51%;
     font-size: 2vh !important;
-}
-
-.label {
     text-align: center;
+
 }

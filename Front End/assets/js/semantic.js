@@ -13,8 +13,6 @@ $(document).ready(function() {
     });
   }
 
-
-
   function animateContentColor() {
     var getProductColor = $(".product.active").attr("product-color");
 
@@ -42,7 +40,12 @@ $(document).ready(function() {
  /* next method finds next match for selector defined in productCurrentItem variable */  
     productCurrentItem.removeClass("active");
 
-    if (nextItem.length) {
+    if (nextItem.is(productItem.last())) { 
+      productCurrentItem = nextItem.addClass("active");
+      $(".card").css( {
+        "background": "#ddd",
+      });
+    } else if (nextItem.length) {
       productCurrentItem = nextItem.addClass("active");
     } else {
       productCurrentItem = productItem.first().addClass("active");
@@ -70,19 +73,12 @@ $(document).ready(function() {
   });
 
   $(".search").on("click", function() {
+    var selected = $(".active .label").length;
+    var currentHeight = getProductHeight;
     $(".products").css({
-      "height": getProductHeight + 48 + "px",
+      "height": currentHeight + 13*selected + "px",
     });
   });
-  
-/*
-  $(".item").click(function() {
-
-    $(".products").css({
-      "height": getProductHeight + 24 + "px",
-    });
-  });
-*/
 
 });
 
@@ -91,11 +87,7 @@ $('.dropdown').dropdown({
   label: {
     duration: 0,
   },
-  direction: 'upward',
+  maxSelections: 3,
   debug: true,
   performance: true,
 });
-
-$('.ui.dropdown').dropdown({
-    maxSelections: 3
-  });
