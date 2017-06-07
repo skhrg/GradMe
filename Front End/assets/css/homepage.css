@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "Quadon";
+    src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot");
+    src: url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/3df69735a1d2eed66c960a5536487362.svg#QuadonW00-Regular") format("svg");
+}
+
+.parallax {
+    background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel{height:100%; background-color:#049372; z-index: -10;}
+.panel-blend {
+    background-image: url('../images/debut_light.png');
+    background-blend-mode: multiply;
+}
+
+.beneath{z-index: 1; background: transparent; width:100%; position:relative; top: 0; transform: translate(-0%, 0%);}
+    @media (max-width: 648px){.beneath{top: 0vw}}
+
+.header-text {
+    font-family: Quadon;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #9bddff;
+    font-size: 350%;
+    text-align: center;
+    word-wrap: normal;
+    text-shadow: 0 3px 0 rgba(0,0,0,0.15);
+}
+
+.center {width:100%; position: absolute; top: 42%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)}
+.greeting-pos{
+    background:none; position: absolute; top: 62%; left:50%; margin-left: -135px; height:50px; width:270px; z-index: 99;}
+.greeting:hover {background: #Fff; color: #000;}
+.greeting {border-color: #fff; border: 1%; border-style: solid; padding: 12px; color: #fff;
+    text-align: center; font-size: 25px; font-weight: bold; letter-spacing: 3px; font-family: "quadon";}
+
+.info {
+  position: absolute; width: 500px; height: 500px; transform-origin: 50%; background-color: #9bddff;
+}
+.info:hover {background-color: #000; border-color: #fbb917; border-radius: 0%; transition-delay: 0.2s;}
+
+
+
+
+.fadeIn {
+    animation: fadein 3.5s;
+    -moz-animation: fadein 3.5s;
+    -webkit-animation: fadein 3.5s;
+    -o-animation: fadein 3.5s;
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Firefox */
+@-moz-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Opera */
+@-o-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+h2 > a {
+  position: relative;
+  text-decoration: none;
+  color: #9bddff;
+}
+
+h2 > a:hover {
+    color: #9bff99;
+}
+
+h2 > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+h2 > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
