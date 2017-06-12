@@ -35,16 +35,7 @@
 			"file": "homepage.html",
 			"settings":
 			{
-				"buffer_size": 1361,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "assets/js/homepage.js",
-			"settings":
-			{
-				"buffer_size": 66,
+				"buffer_size": 1404,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -53,7 +44,16 @@
 			"file": "assets/css/homepage.css",
 			"settings":
 			{
-				"buffer_size": 2457,
+				"buffer_size": 3318,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/homepage.js",
+			"settings":
+			{
+				"buffer_size": 38,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -199,6 +199,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Quadon",
+			"bold",
+			"> a",
 			"fadein",
 			"greeting",
 			"shadow",
@@ -338,7 +341,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -347,15 +350,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1361,
+						"buffer_size": 1404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								997,
-								997
+								237,
+								237
 							]
 						],
 						"settings":
@@ -365,7 +368,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -373,19 +376,49 @@
 				},
 				{
 					"buffer": 1,
-					"file": "assets/js/homepage.js",
+					"file": "assets/css/homepage.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 66,
+						"buffer_size": 3318,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								66,
-								0
+								851,
+								851
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 438.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/js/homepage.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33,
+								33
 							]
 						],
 						"settings":
@@ -399,36 +432,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "assets/css/homepage.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2457,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1587,
-								1583
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 329.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
