@@ -11,6 +11,12 @@ body {
   transition: 0.5s ease;
 }
 
+.container {
+  position: fixed;
+  top: 0;
+  padding: 5px 10px 0 10px;
+}
+
 .btn {
   border-radius: 2px;
   padding: 8px 48px 8px 48px;

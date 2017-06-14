@@ -11,4 +11,17 @@ $(document).ready(function() {
     }
   });
 
+  $('.type.example form')
+  .form({
+    on: 'blur',
+  		email: {
+        identifier  : 'email',
+        rules: [
+          {
+            type   : 'email',
+            prompt : 'Please enter a valid e-mail'
+          }
+        ]
+      	},
+    	});
 });

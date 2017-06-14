@@ -1,0 +1,126 @@
+$(document).ready(function() {
+  var getProductHeight = $(".product.active").height();
+
+  $(".products").css({
+    height: getProductHeight
+  });
+
+  function calcProductHeight() {
+    getProductHeight = $(".product.active").height();
+
+    $(".products").css({
+      height: getProductHeight
+    });
+  }
+
+  function animateContentColor() {
+    var getProductColor = $(".product.active").attr("product-color");
+
+    $("body").css({
+      background: getProductColor
+    });
+
+    $(".title").css({
+      color: getProductColor
+    });
+
+    $(".btn").css({
+      color: getProductColor
+    });
+
+    $(".label").css({
+      "background-color": getProductColor + "!important"
+    });
+  }
+
+  var productItem = $(".product"),
+    productCurrentItem = productItem.filter(".active");
+
+  /* variable w/ global scope.
+      button that is removed by $("#next") 
+      and added back by $("#prev")
+      functions.    ***/
+  var addButton;
+  var prevButton = $('<a class="btn" id="prev" href="#">Prev</a>');
+
+  $("#next").on("click", function(e) {
+    e.preventDefault();
+
+    var nextItem = productCurrentItem.next();
+ 
+    productCurrentItem.removeClass("active");
+
+    if ( nextItem.is(productItem.last()) ) { 
+      
+      productCurrentItem = nextItem.addClass("active");
+
+      /* detaches the selected jQuery object and stores in the global */
+      addButton = $("#next").detach(); 
+
+      var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button btn submit");
+      $(".cardFooter").append(submitButton);
+
+    } else if ( productCurrentItem.is(productItem.first()) ){
+      productCurrentItem = nextItem.addClass("active");
+
+      $(".cardFooter").push(prevButton);
+
+    } else if (nextItem.length) {
+      productCurrentItem = nextItem.addClass("active");
+    } else {
+      productCurrentItem = productItem.first().addClass("active");
+    }
+
+    calcProductHeight();
+    animateContentColor();
+
+  });
+
+  $("#prev").on("click", function(e) {
+    e.preventDefault();
+
+    var prevItem = productCurrentItem.prev();
+
+    productCurrentItem.removeClass("active");
+
+    if ( prevItem.is(productItem.last().prev() ) ) { 
+      
+      productCurrentItem = prevItem.addClass("active");
+
+      $(".submit").remove();
+
+      $(".cardFooter").append(addButton);
+
+    } else if ( prevItem.is(productItem.first()) ) {
+
+      productCurrentItem = prevItem.addClass("active");
+
+      prevButton = $("#prev").detach(); 
+
+    } else (prevItem.length) {
+      productCurrentItem = prevItem.addClass("active");
+    }
+
+    calcProductHeight();
+    animateContentColor();
+  });
+
+  $(".search").on("click", function() {
+    var selected = $(".active .label").length;
+    var currentHeight = getProductHeight;
+    $(".products").css({
+      "height": currentHeight + 18*selected + "px",
+    });
+  });
+
+});
+
+/* search function */
+$('.dropdown').dropdown({
+  label: {
+    duration: 0,
+  },
+  maxSelections: 3,
+  debug: true,
+  performance: true,
+});
