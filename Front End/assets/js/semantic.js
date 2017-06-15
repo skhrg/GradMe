@@ -1,4 +1,19 @@
 $(document).ready(function() {
+
+  $("body").css('background', '#e4e4e4');
+
+  var height = $(".navbar").height();
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() > (height)){
+       $(".navbar").css('background', 'rgba(20,20,20,0.95)');
+       $(".secondary .item").css('color','#ddd');
+    } else{
+       $(".navbar").css('background','none');
+       $(".item").css('color','black');
+    }
+  });
+
   var getProductHeight = $(".product.active").height();
 
   $(".products").css({
@@ -99,7 +114,7 @@ $(document).ready(function() {
     var selected = $(".active .label").length;
     var currentHeight = getProductHeight;
     $(".products").css({
-      "height": currentHeight + 18*selected + "px",
+      "height": currentHeight + 17*selected + "px",
     });
   });
 

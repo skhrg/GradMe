@@ -10,6 +10,7 @@
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css'>
 
   <link rel="stylesheet" href="assets/css/homepage.css">
+  <link rel="stylesheet" href="assets/css/sitewide.css">
 
     <meta name="keywords" content="graduate, major requirements, easy, web design">
 
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-    <div class="ui container navbar">
+    <div class="ui navbar">
     <div class="ui secondary menu">
       <a class="active item">
         <i class="home icon"></i> Home
@@ -28,18 +29,20 @@
       <a class="item">
         <i class="student icon"></i> Course Planner
       </a>
-      <a class="item">
-        <i class="user icon"></i> Account
-      </a>
+      
       <div class="right menu">
+          <a class="item">
+            <i class="user icon"></i> Account
+          </a>
+
           <a class="ui item">Logout</a>
       </div>
     </div>
-  </div>
+    </div>
 
     <div id="background" class="parallax"></div>
 
-    <h2 class="title center fadeIn"><a>Welcome to GradMe.</a></h2>
+    <h2 class="title title-center fadeIn"><a>Welcome to GradMe.</a></h2>
     <h class="subtitle subcenter fadeInSlow"><br>Your one-stop shop for course planning.</h>
     <a href="#first">
       <div class="prompt prompt-pos fadeInSlow">LEARN MORE</div>
@@ -47,33 +50,57 @@
 
 
     <div id="first" class="panel">
+
         <div class="panel-col">
-          <img src="./assets/images/capDip.png">
+          <img src="./assets/images/notebook.jpg">
         </div>
 
-        <div class="panel-col info">
-          <h class="caption">Easy-to-use.<hr></h>
-          <p class="description">Select any combination of majors, minors, and pre-professional tracks in our convenient course planner.</p>
+        <div class="panel-col">
+          <h class="caption">Control your curriculum.<hr></h>
+          <p class="description">GradMe shows you all the courses you need to graduate — for any combination of majors, minors, and pre-professional tracks.</p>
         </div>
+
     </div>
 
     <div id="second" class="panel">
+
         <div class="panel-col">
           <h class="caption">Information at the tip of your fingertips.<hr></h>
-          <p class="description">We show you every course you need to graduate. And save you time by recommending courses that satisfy multiple requirements.</p>
+          <p class="description">Find out how many credits to take.  We save you time by recommending courses that satisfy multiple requirements.</p>
         </div>
         <div class="panel-col">
-          <img src="./assets/images/peabody.jpg">
+          <img src="./assets/images/shriver.jpg">
         </div>
+
     </div>
 
     <div id="third" class="panel">
+
         <div class="panel-col">
+          <img src="./assets/images/graduation.jpg">
         </div>
-        <div id="decision" class="panel-col">
-          <h class="caption">Get started.<hr></h>
-          <p class="description">Follow the link to our course planner.</p>
+
+        <div class="panel-col">
+          <h class="caption">Easy-peasy.<hr></h>
+          <p class="description">Simply enter your majors and requirements into our course planner — we'll do the rest.</p>
         </div>
+
+    </div>
+
+    <div id="last" class="panel">
+      <div class="panel-col text-center">
+          
+        <div class="clickme">
+
+          <div class="logo outline"><i class="student icon"></i>GradMe</div>
+
+          <a href="./card.html">
+            <h class="caption final">GET STARTED</h> 
+          </a>
+
+        </div>
+
+      </div>
     </div>
 
     <div id="footer" class="footer-panel">
@@ -93,11 +120,15 @@
           <h class="footer-caption">Signup</h> 
           <form class="ui form"><div class="field">
             <input name="email" type="text" value="Email address...">
+            <input type="submit" class="ui orange compact button"></input>
           </div></form>
+          <p class="copyright">Already have an account? <a href="#" class="teal">Login</a> here.</p>
         </div>
 
         <div class="footer-item">
           <h class="footer-caption">Navigate</h> 
+
+          <a href="./homepage.html" class="in-site">Home</a>
           <a href="#" class="in-site">Course Planner</a>
           <a href="#" class="in-site">Contact</a>
           <a href="#" class="in-site">About</a>
@@ -105,7 +136,7 @@
       </div> <!-- end first footer section -->
 
       <div class="footer-last">
-        <h class="dum">Copyright © GradMe, Inc. 2017</h>
+        <h class="copyright copyright-pos">Copyright © GradMe, Inc. 2017</h>
       </div>
     </div>
 

@@ -6,29 +6,32 @@
   
   
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/card.css">
+  <link rel="stylesheet" href="assets/css/sitewide.css">
 
-  <!-- for search function -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css'> 
 
   
 </head>
 
 <body>
-  <div class="ui container">
-    <div class="ui secondary  menu">
-      <a class="active item">
+  <div class="ui navbar">
+    <div class="ui secondary menu">
+      <a class="item">
         <i class="home icon"></i> Home
       </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
+      <a class="active item">
+        <i class="student icon"></i> Course Planner
       </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
+      
       <div class="right menu">
+          <a class="item">
+            <i class="user icon"></i> Account
+          </a>
+
           <a class="ui item">Logout</a>
       </div>
     </div>
@@ -174,8 +177,46 @@
     </div>   
 
   </div>
-  <div class="cardFooter"><a class="btn" id="prev" href="#">Prev</a><a class="btn" id="next" href="#">Next</a></div>
+    <div class="cardFooter"><a class="btn" id="prev" href="#">Prev</a><a class="btn" id="next" href="#">Next</a></div>
   </div>
+
+  <!-- Footer -->
+   <div id="footer" class="footer-panel">
+
+      <div class="footer-section">
+        <div class="footer-item">
+          <h class="footer-caption">Follow</h> 
+          <div class="icons">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-reddit"></a>
+          </div></div>
+
+        <div class="footer-item">
+          <h class="footer-caption">Signup</h> 
+          <form class="ui form"><div class="field">
+            <input name="email" type="text" value="Email address...">
+            <input type="submit" class="ui orange compact button"></input>
+          </div></form>
+          <p class="copyright">Already have an account? <a href="#" class="teal">Login</a> here.</p>
+        </div>
+
+        <div class="footer-item">
+          <h class="footer-caption">Navigate</h> 
+
+          <a href="./homepage.html" class="in-site">Home</a>
+          <a href="#" class="in-site">Course Planner</a>
+          <a href="#" class="in-site">Contact</a>
+          <a href="#" class="in-site">About</a>
+        </div>
+      </div> <!-- end first footer section -->
+
+      <div class="footer-last">
+        <h class="copyright copyright-pos">Copyright © GradMe, Inc. 2017</h>
+      </div>
+    </div>
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.js'></script>

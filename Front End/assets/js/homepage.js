@@ -11,6 +11,16 @@ $(document).ready(function() {
     }
   });
 
+  var height = $(".parallax").height();
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() > (height)){
+       $(".navbar").css('background', 'rgba(20,20,20,0.95)');
+    } else{
+       $(".navbar").css('background','none');
+    }
+  });
+
   $('.type.example form')
   .form({
     on: 'blur',
@@ -21,7 +31,7 @@ $(document).ready(function() {
             type   : 'email',
             prompt : 'Please enter a valid e-mail'
           }
-        ]
-      	},
-    	});
+        ]},
+  });
+
 });
