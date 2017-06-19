@@ -69,40 +69,36 @@ body {
 
 .panel{
     min-height: 400px; 
-    z-index: -10;
-    display: flex;
-    justify-content: center;
-    -webkit-transition: -webkit-transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out;
+    display: flex; justify-content: center;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out; transition: transform 0.6s ease-in-out;
+    border-bottom: 1px solid black;
 }
 
 .panel-col {
     width: 40vw;
+    max-height: 300px;
+    overflow-y: hidden;
+    border-radius: 15px;
     margin: 20px 15px 20px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex; flex-direction: column; justify-content: center;
 }
 
 #first {
     background-color: #f4f4f4;
     flex-flow: row wrap-reverse;
-    background-image: url('../images/debut_light.png');
-    background-blend-mode: multiply;
+    background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
 
 #second {
     background-color: #f2eee2;
     flex-flow: row wrap;
-    background-image: url('../images/paper.png');
-    background-blend-mode: multiply;
+    background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
 
 #third {
     background-color: #f4f4f4;
-    flex-flow: row wrap;
-    background-image: url('../images/paper.png');
-    background-blend-mode: multiply;
+    flex-flow: row wrap-reverse;
+    background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
 
 #last {
@@ -127,12 +123,13 @@ img {
   letter-spacing: 1px;
   width: 100%;
   line-height: 36px;
+  text-align: center;
 }
 
 .description {
   font-family: "Open Sans";
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* style for last panel */
@@ -162,7 +159,11 @@ img {
 
 hr {
   border: 0;
-  border-top: 3px double #8c8c8c;
+  height: 3px; 
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), #000, rgba(0,0,0,0));
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0), #000, rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0), #000, rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0), #000, rgba(0,0,0,0)); 
 }
 
 img {
@@ -216,36 +217,4 @@ img {
 @-o-keyframes fadein {
     from {opacity: 0;}
     to {opacity: 1;}
-}
-
-/* underline effect */
-h2 > a {
-  position: relative;
-  text-decoration: none;
-  color: #9bddff;
-}
-
-h2 > a:hover {
-    color: #9cfdff;
-}
-
-h2 > a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-h2 > a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
 }

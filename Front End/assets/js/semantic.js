@@ -51,22 +51,23 @@ $(document).ready(function() {
   var productItem = $(".product"),
     productCurrentItem = productItem.filter(".active");
 
-  /* variable w/ global scope.
-      button that is removed by $("#next") 
-      and added back by $("#prev")
-      functions.    ***/
-  var addButton;
+  var segItem = $(".segment"),
+    segCurrentItem = segItem.filter(".active");
 
   $("#next").on("click", function(e) {
     e.preventDefault();
 
     var nextItem = productCurrentItem.next();
+    var nxtSegItem = segCurrentItem.next();
  
     productCurrentItem.removeClass("active");
+    segCurrentItem.removeClass("active");
+
 
     if ( nextItem.is(productItem.last()) ) { 
       
       productCurrentItem = nextItem.addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
 
       /* detaches the selected jQuery object and stores in the global */
       addButton = $("#next").detach(); 
@@ -76,8 +77,10 @@ $(document).ready(function() {
 
     } else if (nextItem.length) {
       productCurrentItem = nextItem.addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
     } else {
       productCurrentItem = productItem.first().addClass("active");
+      segCurrentItem = nxtSegItem.first().addClass("active");
     }
 
     calcProductHeight();
@@ -89,12 +92,15 @@ $(document).ready(function() {
     e.preventDefault();
 
     var prevItem = productCurrentItem.prev();
+    var prvSegItem = segCurrentItem.prev();
 
     productCurrentItem.removeClass("active");
+    segCurrentItem.removeClass("active");
 
     if ( prevItem.is(productItem.last().prev() ) ) { 
       
       productCurrentItem = prevItem.addClass("active");
+      segCurrentItem = prvSegItem.addClass("active");
 
       $(".submit").remove();
 
@@ -102,8 +108,10 @@ $(document).ready(function() {
 
     } else if (prevItem.length) {
       productCurrentItem = prevItem.addClass("active");
+      segCurrentItem = prvSegItem.addClass("active");
     } else {
       productCurrentItem = productItem.last().addClass("active");
+      segCurrentItem = prvSegItem.last().addClass("active");
     }
 
     calcProductHeight();

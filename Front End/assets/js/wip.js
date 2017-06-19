@@ -1,4 +1,19 @@
 $(document).ready(function() {
+
+  $("body").css('background', '#e4e4e4');
+
+  var height = $(".navbar").height();
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() > (height)){
+       $(".navbar").css('background', 'rgba(20,20,20,0.95)');
+       $(".secondary .item").css('color','#ddd');
+    } else{
+       $(".navbar").css('background','none');
+       $(".item").css('color','black');
+    }
+  });
+
   var getProductHeight = $(".product.active").height();
 
   $(".products").css({
@@ -40,7 +55,6 @@ $(document).ready(function() {
       button that is removed by $("#next") 
       and added back by $("#prev")
       functions.    ***/
-  var addButton;
   var prevButton = $('<a class="btn" id="prev" href="#">Prev</a>');
 
   $("#next").on("click", function(e) {
@@ -50,7 +64,13 @@ $(document).ready(function() {
  
     productCurrentItem.removeClass("active");
 
-    if ( nextItem.is(productItem.last()) ) { 
+    if ( nextItem.is(productItem.first().next()) ) { 
+      
+      productCurrentItem = nextItem.addClass("active");
+
+      $(".cardFooter").prepend(prevButton);
+
+    } else if ( nextItem.is(productItem.last()) ) { 
       
       productCurrentItem = nextItem.addClass("active");
 
@@ -59,11 +79,6 @@ $(document).ready(function() {
 
       var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button btn submit");
       $(".cardFooter").append(submitButton);
-
-    } else if ( productCurrentItem.is(productItem.first()) ){
-      productCurrentItem = nextItem.addClass("active");
-
-      $(".cardFooter").push(prevButton);
 
     } else if (nextItem.length) {
       productCurrentItem = nextItem.addClass("active");
@@ -76,14 +91,20 @@ $(document).ready(function() {
 
   });
 
-  $("#prev").on("click", function(e) {
+  $(prevButton).on("click", function(e) {
     e.preventDefault();
 
     var prevItem = productCurrentItem.prev();
 
     productCurrentItem.removeClass("active");
 
-    if ( prevItem.is(productItem.last().prev() ) ) { 
+    if ( productCurrentItem.is(productItem.first()) ) {
+
+      productCurrentItem = prevItem.addClass("active");
+      
+      $(".cardFooter").detach(prevButton);
+
+    } else if ( prevItem.is(productItem.last().prev() ) ) { 
       
       productCurrentItem = prevItem.addClass("active");
 
@@ -91,14 +112,10 @@ $(document).ready(function() {
 
       $(".cardFooter").append(addButton);
 
-    } else if ( prevItem.is(productItem.first()) ) {
-
+    } else if (prevItem.length) {
       productCurrentItem = prevItem.addClass("active");
-
-      prevButton = $("#prev").detach(); 
-
-    } else (prevItem.length) {
-      productCurrentItem = prevItem.addClass("active");
+    } else {
+      productCurrentItem = productItem.last().addClass("active");
     }
 
     calcProductHeight();
@@ -109,7 +126,7 @@ $(document).ready(function() {
     var selected = $(".active .label").length;
     var currentHeight = getProductHeight;
     $(".products").css({
-      "height": currentHeight + 18*selected + "px",
+      "height": currentHeight + 17*selected + "px",
     });
   });
 

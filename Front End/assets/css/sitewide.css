@@ -2,6 +2,16 @@
     Generic styles, classes, and animations.
 ****************/
 
+body {
+  background: #ED8D1F;
+  margin: 0; padding: 0;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
 /* apply this class to a div containing icon and text GradMe */
 .logo {
   text-align: center;
@@ -17,6 +27,15 @@
     1px -1px #222,
     -1px 1px #222,
     1px 1px #222;  
+}
+
+.tab {
+  display: inline-block;
+  width: 10px;
+}
+.bigtab {
+  display: inline-block;
+  width: 25px;
 }
 
 /* Top navigation bar style */
@@ -40,6 +59,7 @@
 .footer-panel {
   min-height: 250px;
   position: relative;
+  border-top: 1px solid black;
 }
 
 .footer-section {
@@ -49,8 +69,8 @@
 }
 
 .footer-item {
-  width: 31vw;
-  margin: 20px 5px 20px 20px;
+  width: 28vw;
+  margin: 25px 5px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -102,7 +122,7 @@ input {
 }
 
 .in-site {
-  color: teal;
+  color: #9bddff;
   font-family: "open sans";
   font-size: 18px;
   line-height: 24px;

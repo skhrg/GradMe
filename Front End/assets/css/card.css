@@ -1,17 +1,28 @@
-body {
-  background: #ED8D1F;
-  margin: 0; padding: 0;
-  line-height: 1.6em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
+.cardContainer {
+  position: absolute;
+  top: 0; left: 0;
+  display: flex; flex-flow: row wrap; justify-content: center; align-items: center;
 }
 
-.container {
-  position: fixed;
-  top: 0;
-  padding: 5px 10px 0 10px;
+.guide {
+  top: 75px;
+  left: 30px;
+  min-width: 300px;
+}
+
+.guideTitle {
+  font-weight: bold;
+  font-size: 0px !important;
+  text-align: center; 
+}
+
+.segment {
+  font-size: 16px !important;
+}
+
+.guide .active {
+  font-weight: bold;
+  color: teal;
 }
 
 .btn {
@@ -41,10 +52,10 @@ body {
 }
 
 .card {
-  background: #eee;
-  max-width: 400px;
+  background: #fff;
+  max-width: 500px;
   margin: 50px auto;
-  border-radius: 12px;
+  border-radius: 7px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
   padding: 48px 0 48px 0;
@@ -56,7 +67,7 @@ body {
   overflow: hidden;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
-  overflow: visible; /* so dropdown not clipped */
+  overflow: visible;
 }
 
 .product {
@@ -81,14 +92,13 @@ body {
   margin: 0 0 0px;
   color: #D18B49;
   font-family: "Roboto Slab";
-  font-weight: normal;
-  font-size: 24px;
+  font-size: 30px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
 
 .description {
-  margin: 7px;
+  margin: 0 15px;
   font-family: "Open Sans";
 }
 
@@ -109,7 +119,7 @@ body {
 /*-- Semantic restyling */
 .search {
   margin: 12px 0px 12px 16px;
-  max-width: 368px; 
+  max-width: 468px; 
 }
 
 /* activated major tags */
