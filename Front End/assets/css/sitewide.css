@@ -46,28 +46,23 @@ body {
   padding: 5px 5vw 5px 5vw;
   z-index: 10;
 }
-
-.item:hover {
+.secondary .item:hover {
   background-color: rgba(100,100,100,0.70) !important;
 }
-
 /* Footer */
 #footer {
   background-color: #373737;
 }
-
 .footer-panel {
   min-height: 250px;
   position: relative;
   border-top: 1px solid black;
 }
-
 .footer-section {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-
 .footer-item {
   width: 28vw;
   margin: 25px 5px 20px 20px;
@@ -76,7 +71,6 @@ body {
   justify-content: space-between;
   font-weight: 300 !important;
 }
-
 .footer-caption {
   font-family: Arial;
   text-transform: uppercase;
@@ -87,7 +81,6 @@ body {
   width: 100%;
   line-height: 36px;
 }
-
 .footer-last {
   position: absolute;
   bottom: 10px;

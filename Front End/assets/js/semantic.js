@@ -50,37 +50,41 @@ $(document).ready(function() {
 
   var productItem = $(".product"),
     productCurrentItem = productItem.filter(".active");
-
   var segItem = $(".segment"),
     segCurrentItem = segItem.filter(".active");
+  /* variable removed by prev and added by next */
+  var prevButton = $('<a class="btn" id="prev" href="#">Prev</a>');
 
   $("#next").on("click", function(e) {
     e.preventDefault();
 
-    var nextItem = productCurrentItem.next();
+    var nxtItem = productCurrentItem.next();
     var nxtSegItem = segCurrentItem.next();
- 
     productCurrentItem.removeClass("active");
     segCurrentItem.removeClass("active");
 
-
-    if ( nextItem.is(productItem.last()) ) { 
+    if ( nxtItem.is(productItem.first().next()) ) { 
       
-      productCurrentItem = nextItem.addClass("active");
+      productCurrentItem = nxtItem.addClass("active");
       segCurrentItem = nxtSegItem.addClass("active");
+      $(".cardFooter").prepend(prevButton);
 
-      /* detaches the selected jQuery object and stores in the global */
+    } else if ( nxtItem.is(productItem.last()) ) { 
+      
+      productCurrentItem = nxtItem.addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
+      /* addButton detached and reattached in $(#prev) function */
       addButton = $("#next").detach(); 
 
-      var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button btn submit");
+      var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button submit");
       $(".cardFooter").append(submitButton);
 
-    } else if (nextItem.length) {
-      productCurrentItem = nextItem.addClass("active");
+    } else if (nxtItem.length) {
+      productCurrentItem = nxtItem.addClass("active");
       segCurrentItem = nxtSegItem.addClass("active");
     } else {
       productCurrentItem = productItem.first().addClass("active");
-      segCurrentItem = nxtSegItem.first().addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
     }
 
     calcProductHeight();
@@ -88,30 +92,29 @@ $(document).ready(function() {
 
   });
 
-  $("#prev").on("click", function(e) {
+  $(prevButton).on("click", function(e) {
     e.preventDefault();
 
-    var prevItem = productCurrentItem.prev();
+    var prvItem = productCurrentItem.prev();
     var prvSegItem = segCurrentItem.prev();
-
     productCurrentItem.removeClass("active");
     segCurrentItem.removeClass("active");
 
-    if ( prevItem.is(productItem.last().prev() ) ) { 
+    if ( productCurrentItem.is(productItem.first().next()) ) {
+
+      productCurrentItem = prvItem.addClass("active");
+      prevButton = $(prevButton).detach();
+
+    } else if ( prvItem.is(productItem.last().prev() ) ) { 
       
-      productCurrentItem = prevItem.addClass("active");
+      productCurrentItem = prvItem.addClass("active");
       segCurrentItem = prvSegItem.addClass("active");
-
       $(".submit").remove();
-
       $(".cardFooter").append(addButton);
 
-    } else if (prevItem.length) {
-      productCurrentItem = prevItem.addClass("active");
-      segCurrentItem = prvSegItem.addClass("active");
     } else {
-      productCurrentItem = productItem.last().addClass("active");
-      segCurrentItem = prvSegItem.last().addClass("active");
+      productCurrentItem = prvItem.addClass("active");
+      segCurrentItem = prvSegItem.addClass("active");
     }
 
     calcProductHeight();
@@ -122,7 +125,7 @@ $(document).ready(function() {
     var selected = $(".active .label").length;
     var currentHeight = getProductHeight;
     $(".products").css({
-      "height": currentHeight + 17*selected + "px",
+      "height": currentHeight + 23*selected + "px",
     });
   });
 

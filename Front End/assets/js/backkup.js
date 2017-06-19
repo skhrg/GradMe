@@ -50,36 +50,41 @@ $(document).ready(function() {
 
   var productItem = $(".product"),
     productCurrentItem = productItem.filter(".active");
-
-  /* variable removed by prev and added by next */
+  var segItem = $(".segment"),
+    segCurrentItem = segItem.filter(".active");
   var prevButton = $('<a class="btn" id="prev" href="#">Prev</a>');
 
   $("#next").on("click", function(e) {
     e.preventDefault();
 
-    var nextItem = productCurrentItem.next();
+    var nxtItem = productCurrentItem.next();
+    var nxtSegItem = segCurrentItem.next();
  
     productCurrentItem.removeClass("active");
+    segCurrentItem.removeClass("active");
 
-    if ( nextItem.is(productItem.first().next()) ) { 
+
+    if ( nxtItem.is(productItem.first().next()) ) { 
       
       productCurrentItem = nextItem.addClass("active");
-
+      segCurrentItem = nxtSegItem.addClass("active");
       $(".cardFooter").prepend(prevButton);
 
-    } else if ( nextItem.is(productItem.last()) ) { 
+    } else if ( nxtItem.is(productItem.last()) ) { 
       
-      productCurrentItem = nextItem.addClass("active");
-      /* addButton detached and reattached in $(#prev) function */
+      productCurrentItem = nxtItem.addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
       addButton = $("#next").detach(); 
 
       var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button btn submit");
       $(".cardFooter").append(submitButton);
 
-    } else if (nextItem.length) {
-      productCurrentItem = nextItem.addClass("active");
+    } else if (nxtItem.length) {
+      productCurrentItem = nxtItem.addClass("active");
+      segCurrentItem = nxtSegItem.addClass("active");
     } else {
       productCurrentItem = productItem.first().addClass("active");
+      segCurrentItem = nxtSegItem.first().addClass("active");
     }
 
     calcProductHeight();
@@ -87,12 +92,14 @@ $(document).ready(function() {
 
   });
 
-  $(prevButton).on("click", function(e) {
+  $("#prev").on("click", function(e) {
     e.preventDefault();
 
-    var prevItem = productCurrentItem.prev();
+    var prvItem = productCurrentItem.prev();
+    var prvSegItem = segCurrentItem.prev();
 
     productCurrentItem.removeClass("active");
+    segCurrentItem.removeClass("active");
 
     if ( productCurrentItem.is(productItem.first().next()) ) {
 
@@ -100,18 +107,17 @@ $(document).ready(function() {
       
       prevButton = $(prevButton).detach();
 
-    } else if ( prevItem.is(productItem.last().prev() ) ) { 
+    } else if ( prvItem.is(productItem.last().prev() ) ) { 
       
-      productCurrentItem = prevItem.addClass("active");
+      productCurrentItem = prvItem.addClass("active");
+      segCurrentItem = prvSegItem.addClass("active");
 
       $(".submit").remove();
-
       $(".cardFooter").append(addButton);
 
-    } else if (prevItem.length) {
-      productCurrentItem = prevItem.addClass("active");
     } else {
-      productCurrentItem = productItem.last().addClass("active");
+      productCurrentItem = prvItem.addClass("active");
+      segCurrentItem = prvSegItem.addClass("active");
     }
 
     calcProductHeight();

@@ -84,19 +84,19 @@ body {
 }
 
 #first {
-    background-color: #f4f4f4;
+    background-color: #fff;
     flex-flow: row wrap-reverse;
     background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
 
 #second {
-    background-color: #f2eee2;
+    background-color: #e1eef9;
     flex-flow: row wrap;
     background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
 
 #third {
-    background-color: #f4f4f4;
+    background-color: #fff;
     flex-flow: row wrap-reverse;
     background-image: url('../images/school.png'); background-blend-mode: multiply;
 }
