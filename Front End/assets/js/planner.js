@@ -7,9 +7,13 @@ $(document).ready(function() {
     if($(window).scrollTop() > (height)){
        $(".navbar").css('background', 'rgba(20,20,20,0.95)');
        $(".navbar .item").css('color','#ddd');
+       $(".secondary-logo").css('color','#ddd')
+       $(".right.menu").css('visibility','hidden');
     } else{
-       $(".navbar").css('background','none');
-       $(".item").css('color','black');
+       $(".navbar").css('background','rgba(250,250,250,0.9)');
+       $(".navbar .item").css('color','#000');
+       $(".secondary-logo").css('color','#000')
+       $(".right.menu").css('visibility','visible');
     }
   });
 
@@ -26,6 +30,7 @@ $(document).ready(function() {
 
   function animateContentColor() {
     var getProductColor = $(".product.active").attr("product-color");
+
     $("body").css({
       background: getProductColor
     });
@@ -37,11 +42,12 @@ $(document).ready(function() {
     });
   }
 
+
   var productItem = $(".product"),
     productCurrentItem = productItem.filter(".active");
   var guideItem = $(".pointing .item"),
     guideCurrentItem = guideItem.filter(".active");
-  var prevButton = $('<a class="btn" id="prev" href="#">Prev</a>');
+  var prevButton;
 
   $(guideItem).on("click", function(e){
     e.preventDefault();
@@ -54,9 +60,47 @@ $(document).ready(function() {
       $(".products").css({height: prodHeight});
 
       $(this).addClass("active");
-    productCurrentItem = productItem.filter(".active");
-    guideCurrentItem = guideItem.filter(".active");
+      productCurrentItem = productItem.filter(".active");
+      guideCurrentItem = guideItem.filter(".active");
+      animateContentColor();
+      cardButtons();
   });
+
+  cardButtons(); 
+  /* places correct buttons in card footer */
+  function cardButtons() {
+    if (productCurrentItem.is(productItem.first())) {
+
+      prevButton = $("#prev").detach();
+      $(".cardFooter").css('justify-content','center');
+      
+      if ($("button.submit").exists()) {
+        submitButton = $(".submit").detach();
+        $(".cardFooter").append(addButton);
+        animateContentColor();
+      }
+
+    } else if ( productCurrentItem.is(productItem.last()) ) {
+
+      addButton = $("#next").detach(); 
+
+      if ($("#prev").length == 0) { $(".cardFooter").prepend(prevButton); }
+
+      var submitButton = $('<button></button>').text("SUBMIT").addClass("ui secondary basic button submit");
+      $(".cardFooter").append(submitButton);
+
+    } else if (!$("#prev").exists()) {
+
+      $(".cardFooter").prepend(prevButton);
+      $(".cardFooter").css('justify-content','space-between');
+
+    } else if (!$("#next").exists()) {
+      submitButton = $(".submit").detach();
+      $(".cardFooter").append(addButton);
+      animateContentColor();
+    }
+    calcProductHeight();
+  }
 
   $("#next").on("click", function(e) {
     e.preventDefault();
@@ -65,29 +109,12 @@ $(document).ready(function() {
     var nxtGuideItem = guideCurrentItem.next();
     productCurrentItem.removeClass("active");
     guideCurrentItem.removeClass("active");
-
-    if ( nxtItem.is(productItem.first().next()) ) { 
       
-      productCurrentItem = nxtItem.addClass("active");
-      guideCurrentItem = nxtGuideItem.addClass("active");
-      $(".cardFooter").prepend(prevButton);
-
-    } else if ( nxtItem.is(productItem.last()) ) { 
-      
-      productCurrentItem = nxtItem.addClass("active");
-      guideCurrentItem = nxtGuideItem.addClass("active");
-      /* addButton detached and reattached in $(#prev) function */
-      addButton = $("#next").detach(); 
-
-      var submitButton = $('<input type="submit"></input').text("SUBMIT").addClass("ui button submit");
-      $(".cardFooter").append(submitButton);
-
-    } else {
-      productCurrentItem = nxtItem.addClass("active");
-      guideCurrentItem = nxtGuideItem.addClass("active");
-    }
-    calcProductHeight();
+    productCurrentItem = nxtItem.addClass("active");
+    guideCurrentItem = nxtGuideItem.addClass("active");
     animateContentColor();
+    cardButtons();
+    calcProductHeight();
   });
 
   $(prevButton).on("click", function(e) {
@@ -98,25 +125,11 @@ $(document).ready(function() {
     productCurrentItem.removeClass("active");
     guideCurrentItem.removeClass("active");
 
-    if ( productCurrentItem.is(productItem.first().next()) ) {
-
-      productCurrentItem = prvItem.addClass("active");
-      guideCurrentItem= prvGuideItem.addClass("active");
-      prevButton = $(prevButton).detach();
-
-    } else if ( prvItem.is(productItem.last().prev() ) ) { 
-      
-      productCurrentItem = prvItem.addClass("active");
-      guideCurrentItem = prvGuideItem.addClass("active");
-      $(".submit").remove();
-      $(".cardFooter").append(addButton);
-
-    } else {
-      productCurrentItem = prvItem.addClass("active");
-      guideCurrentItem = prvGuideItem.addClass("active");
-    }
-    calcProductHeight();
+    productCurrentItem = prvItem.addClass("active");
+    guideCurrentItem = prvGuideItem.addClass("active");
     animateContentColor();
+    cardButtons();
+    calcProductHeight();
   });
 
   $(".search").on("click", function() {
@@ -128,6 +141,10 @@ $(document).ready(function() {
   });
 
 });
+
+$.fn.exists = function () {
+    return this.length !== 0;
+}
 
 /* search function */
 $('.dropdown').dropdown({

@@ -10,7 +10,7 @@
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css'>
 
   <link rel="stylesheet" href="assets/css/homepage.css">
-  <link rel="stylesheet" href="assets/css/sitewide.css">
+  <link rel="stylesheet" href="assets/css/globals/sitewide.css">
 
     <meta name="keywords" content="graduate, major requirements, easy, web design">
 
@@ -21,29 +21,26 @@
 </head>
 
 <body>
-    <div class="ui navbar">
+    <div class="navbar">
     <div class="ui secondary menu">
+      <div class="logo secondary-logo"> <i class="student icon"></i>GradMe</div>
+    <div class="right menu">
       <a class="active item">
-        <i class="home icon"></i> Home
+        <i class="home icon" href="./homepage.html"></i> Home
       </a>
+      <a class="item" href="./card.html">
+        <i class="book icon"></i> Course Planner
+      </a> 
       <a class="item">
-        <i class="student icon"></i> Course Planner
+        <i class="user icon"></i> Account
       </a>
-      
-      <div class="right menu">
-          <a class="item">
-            <i class="user icon"></i> Account
-          </a>
 
-          <a class="ui item">Logout</a>
-      </div>
-    </div>
+    </div></div>
     </div>
 
     <div id="background" class="parallax"></div>
-
-    <h2 class="title title-center fadeIn">Welcome to GradMe.</h2>
-    <h class="subtitle subcenter fadeInSlow"><br>Your one-stop shop for course planning.</h>
+    <h2 class="title title-center fadeIn">Control your curriculum.</h2>
+    <h3 class="subtitle subcenter fadeInSlow">GradMe is you all-in-one guide to graduating on time.</h3>
     <a href="#first">
       <div class="prompt prompt-pos fadeInSlow">LEARN MORE</div>
     </a>
@@ -92,7 +89,7 @@
           
         <div class="clickme">
 
-          <div class="logo outline"><i class="student icon"></i>GradMe</div>
+          <div class="logo sizecolor outline"><i class="student icon"></i>GradMe</div>
 
           <a href="./card.html">
             <h class="caption final">GET STARTED</h> 
@@ -118,10 +115,10 @@
 
         <div class="footer-item">
           <h class="footer-caption">Signup</h> 
-          <form class="ui form"><div class="field">
-            <input name="email" type="text" value="Email address...">
-            <input type="submit" class="ui orange compact button"></input>
-          </div></form>
+          <div class="ui action input">
+            <input type="text" placeholder="Email address...">
+            <button class="ui orange button">Submit</button>
+          </div>
           <p class="copyright">Already have an account? <a href="#" class="teal">Login</a> here.</p>
         </div>
 
