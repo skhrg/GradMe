@@ -11,22 +11,6 @@ $(document).ready(function() {
     }
   });
 
-  var height = $(".parallax").height();
-
-  $(window).scroll(function(){
-    if($(window).scrollTop() > (height)){
-       $(".navbar").css('background', 'rgba(20,20,20,0.95)');
-       $(".item").css('color','#ddd');
-       $(".secondary-logo").css('color','#ddd')
-       $(".right.menu").css('visibility','hidden');
-    } else{
-       $(".navbar").css('background','rgba(250,250,250,0.9)');
-       $(".item").css('color','#000');
-       $(".secondary-logo").css('color','#000')
-       $(".right.menu").css('visibility','visible');
-    }
-  });
-
   $('.type.example form')
   .form({
     on: 'blur',

@@ -2,21 +2,6 @@ $(document).ready(function() {
 
   $("body").css('background', '#e4e4e4');
 
-  var height = $(".navbar").height();
-  $(window).scroll(function(){
-    if($(window).scrollTop() > (height)){
-       $(".navbar").css('background', 'rgba(20,20,20,0.95)');
-       $(".navbar .item").css('color','#ddd');
-       $(".secondary-logo").css('color','#ddd')
-       $(".right.menu").css('visibility','hidden');
-    } else{
-       $(".navbar").css('background','rgba(250,250,250,0.9)');
-       $(".navbar .item").css('color','#000');
-       $(".secondary-logo").css('color','#000')
-       $(".right.menu").css('visibility','visible');
-    }
-  });
-
   var prodHeight = $(".product.active").height();
   $(".products").css({
     height: prodHeight

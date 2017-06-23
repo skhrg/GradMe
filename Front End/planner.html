@@ -18,23 +18,23 @@
 </head>
 
 <body>
-  <div class="navbar">
+  <div id="navbar" class="ui center aligned container scrollpoint">
     <div class="ui secondary menu">
-      <div class="logo secondary-logo"> <i class="student icon"></i>GradMe</div>
-    <div class="right menu">
-      <a class="item">
-        <i class="home icon" href="./homepage.html"></i> Home</a>
-      <a class="active item" href="./planner.html">
+      <div class="item logo secondary-logo"> <i class="student icon"></i>GradMe</div>
+      <div class="right menu">
+      <a id="hide" class="item" href="./homepage.html">
+        <i class="home icon"></i> Home</a>
+      <a id="hide" class="active item" href="./planner.html">
         <i class="book icon"></i> Course Planner</a> 
-      <a class="item">
+      <a id="hide" class="item">
         <i class="user icon"></i> Account</a>
     </div></div>
   </div>
-
+  <div class="scrollpoint hundred"></div>
   <div class="ui stackable grid container"><div class="two column row">
 
-  <div class="four wide left floated middle aligned column">
-    <h4 class="ui huge header">Course Planner</h4>
+  <div id="#guide" class="four wide left floated middle aligned column">
+    <h4 class="ui middle aligned huge header">Course Planner</h4>
     <div class="ui secondary vertical fluid text pointing big menu">
       <a class="item active transition visible" href="intro">Find your requirements</a>
       <a class="item transition visible" href="major">Pick a Major</a>
@@ -45,16 +45,16 @@
 
   <div class="ten wide middle aligned column"><div class="card"><div class="products">
 
-    <div class="product active" id="intro" product-color="#ED8D1F">
+    <div class="product active" id="intro" product-color="#9bddff">
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Fox.svg"/></div>
       <h1 class="title">Find your requirements.</h1>
-      <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p class="description">Use this planner to select your majors, minors, and/or pre-professional tracks. Then hit submit on the last page!</p>
     </div>
 
-    <div class="product" id="major" product-color="#ED8D1F">
+    <div class="product" id="major" product-color="orange">
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Fox.svg"/></div>
       <h1 class="title">Majors</h1>
-      <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p class="description">Choose one of 51 majors - from Africana Studies to Biomedical Engineering to Physics.</p>
       <select class="ui fluid big search dropdown" multiple="">
         <option value="">Search majors...</option>
         <option value="1">Africana Studies</option>
@@ -111,12 +111,13 @@
       </select>
     </div>
 
-    <div class="product" id="minor" product-color="#88B04B">
+    <div class="product" id="minor" product-color="#f18973">
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Stag.svg"/></div>
       <h1 class="title">Minors</h1>
-      <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p class="description">Want to add a concentration to your major? Try one of these 44 minors.</p>
       <select class="ui fluid big search dropdown" multiple="">
         <option value="">Search minors...</option>
+        <option value="0">None</option>
         <option value="1">Africana Studies</option>
         <option value="AK">Anthropology</option>
         <option value="AZ">Applied Mathematics & Statistics</option>
@@ -171,7 +172,7 @@
       </select>
     </div>
 
-    <div class="product" id="track" product-color="#542F13">
+    <div class="product" id="track" product-color="#DEB887">
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Bear.svg"/></div>
       <h1 class="title">Pre-Professional Tracks</h1>
       <p class="description">If you're pre-med, you might just have to take Orgo during the summer. </p>
@@ -223,7 +224,7 @@
         </div>
       </div> <!-- end first footer section -->
 
-      <div class="footer-last">
+      <div class="subnote">
         <h class="copyright copyright-pos">Copyright © GradMe, Inc. 2017</h>
       </div>
     </div>
@@ -231,6 +232,7 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.js'></script>
   <script src="assets/js/planner.js"></script>
+  <script src="assets/js/sitewide.js"></script>
 
 </body>
 </html>
