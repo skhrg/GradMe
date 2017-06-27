@@ -1,0 +1,18 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.label {
+  line-height: 1.5;
+  vertical-align: @verticalAlign;
+
+  background-color: #9bddff;
+  color: #000;
+
+  font-size: 14px;
+  font-family: 'Roboto Slab';
+  font-weight: 600;
+}
+a.ui.labels .label:hover,
+a.ui.label:hover {
+  background-color: #fff;
+}

@@ -1,0 +1,115 @@
+.row {
+  min-height: 110vh
+}
+.pointing {
+  top: 75px;
+  left: 30px;
+  min-width: 300px;
+}
+.pointing .active {
+  font-weight: bold;
+  color: teal;
+}
+
+.btn {
+  border-radius: 2px;
+  padding: 8px 72px 8px 72px;
+  margin-bottom: -20px;
+  color: #D18B49;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.submit {
+  margin-right: 30px !important;
+  font-family: "Open Sans" !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+  background: none;
+  color: teal !important;
+  margin-bottom: -10px !important;
+}
+
+.card {
+  background: #f9f9f9;
+  max-width: 500px;
+  margin: 50px auto;
+  border-radius: 7px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  padding: 48px 12px;
+  text-align: center;
+}
+
+.products {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  overflow: visible;
+}
+.product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.product.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image {
+  margin: 0 0 24px;
+}
+
+.title {
+  margin: 0 0 0px;
+  color: #D18B49;
+  font-family: "Roboto Slab";
+  font-size: 30px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.description {
+  margin: 15px 40px; font-family: "Open Sans"; font-weight: 300; font-size: 16px;
+}
+
+.cardFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+          justify-content: center;
+  margin: 12px 0 -12px 0;
+}
+/*-- Semantic restyling */
+
+/* activated major tags */
+a.label {
+    min-width: 88% !important;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .four.column {
+    display: none !important;
+  }
+  .row {
+    min-height: 100vh;
+  }
+}
