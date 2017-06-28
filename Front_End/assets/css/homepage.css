@@ -55,7 +55,7 @@
 
 /* MAIN PAGE CONTENT */
 .panel {
-  min-height: 400px;
+  height: 400px;
   background: white;
   display: -webkit-box;
   display: -moz-box;
@@ -75,7 +75,6 @@
 #first {
     background-color: #fff;
     flex-flow: row wrap;
-    background-image: url('../images/paper.png'); background-blend-mode: multiply;
 }
 
 #second {
@@ -97,13 +96,18 @@
   text-align: center;
 }
 
-#image {
-  background-image: url(https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg);
+#image-first {
+  background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/06/emotionarch.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+#image-second {
+  background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/06/volkswagen-microbus-concept-7.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /* triangle classes. Equilateral => width=0.866*height. The positioning & negative margins are based on width of visible border to center the triangle between the two columns and not disrupt the flex-flow.  */
 .triangle-right {
   position: relative;
@@ -111,8 +115,10 @@
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-left: 46px solid #fff;
-  left: 50vw;
-  margin-top: -46px; margin-bottom: -46px;
+  top: 50%;
+  left: 46px;
+  margin-top: -40px;
+  margin-left: -46px;
 }
 
 .triangle-left {
@@ -185,23 +191,19 @@ hr {
 
 /*media queries for info panels and footer */
 @media (max-width: 767px) {
-    img {
-      max-width: 100vw;
-      border-radius: 0;
-    }
-    .panel-col {
-      margin: 10px;
-      border-radius: 0;
-    }
 }
 
 @media (max-width: 648px) {
   .panel-item {
     width: 100vw;
   }
-  .triangle-left, .triangle-right {
+  .panel {
+    height: 300px;
+  }
+  #image, .triangle-left, .triangle-right {
     display: none;
   }
+
 }
 
 

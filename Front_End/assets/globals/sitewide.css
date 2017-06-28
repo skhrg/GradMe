@@ -32,6 +32,9 @@ body {
 
 .tab {width: 10px;}
 .bigtab {width: 25px;}
+.paper {
+  background-image: url('../images/paper.png'); background-blend-mode: multiply;
+}
 
 #navbar {
   position: fixed;
