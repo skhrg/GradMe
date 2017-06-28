@@ -1,3 +1,4 @@
+/* parallax */
 .parallax {
     background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg"), linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));
     height: 100vh;
@@ -13,12 +14,6 @@
     padding: 0 10vw;
 }
 
-.beneath{z-index: 1; background: transparent; width:100%; position:relative; top: 0; transform: translate(-0%, 0%);}
-
-/* page content */
-.logo-center {
-  position: absolute; top: 25%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)
-}
 .title-center {width:100%;}
 .title {
     font-family: "Roboto Slab";
@@ -35,7 +30,6 @@
 .subcenter {
     width:100%;
 }
-
 .subtitle {
     font-family: "Open Sans";
     letter-spacing: 1px;
@@ -49,51 +43,105 @@
 
 .prompt {border-color: #fff; border: 1%; border-style: solid; padding: 10px; color: #fff;
     text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";}
-
-/* without Semantic stylsheet, use margin-left: -115px; width: 200px; height:25px; */
 .prompt-pos{
     background:none; position: absolute; bottom: 10%; left:50%; margin-left: -125px; width: 250px; height:45px; z-index: 1;}
-
 .prompt:hover {
     background: #Fff; 
     color: #000;
     -webkit-transition: all 0.2s ease-in-out 0s;
     transition: all 0.2s ease-in-out 0s;
 }
+/* end parallax */
 
-.panel{
-    min-height: 400px; 
-    display: flex; justify-content: space-around;
-    -webkit-transition: -webkit-transform 0.6s ease-in-out; transition: transform 0.6s ease-in-out;
-    border-bottom: 1px solid #aaa;
+/* MAIN PAGE CONTENT */
+.panel {
+  min-height: 400px;
+  background: white;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out; transition: transform 0.6s ease-in-out;
 }
-.panel-col {
-    width: 40vw;
-    max-height: 300px;
-    overflow-y: hidden;
-    border-radius: 15px;
-    margin: 55px 10px;
-    display: flex; flex-direction: column; justify-content: center;
+
+#intro {
+  background: #fff;
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
 }
 
 #first {
     background-color: #fff;
-    flex-flow: row wrap-reverse;
-    background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
-}
-
-#second {
-    background-color: #e1eef9;
     flex-flow: row wrap;
     background-image: url('../images/paper.png'); background-blend-mode: multiply;
 }
 
-#third {
-    background-color: #fff;
-    flex-flow: row wrap-reverse;
-    background-image: url('../images/paper.png'); background-blend-mode: multiply;
+#second {
+  flex-flow: row wrap-reverse;
 }
 
+.panel-item {
+  width: 50vw;
+}
+
+#text {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#image {
+  background-image: url(https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* triangle classes. Equilateral => width=0.866*height. The positioning & negative margins are based on width of visible border to center the triangle between the two columns and not disrupt the flex-flow.  */
+.triangle-right {
+  position: relative;
+  width: 0; height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 46px solid #fff;
+  left: 50vw;
+  margin-top: -46px; margin-bottom: -46px;
+}
+
+.triangle-left {
+  position: relative;
+  width: 0; height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 46px solid #fff;
+  right: 46px;
+  margin-top: -46px; margin-bottom: -46px;
+}
+
+.caption {
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  padding: 0 10%;
+  margin-bottom: 15px;
+}
+.description {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5em;
+  padding: 0 10%;
+}
+
+/* style for last panel */
 #last {
   background-image: url('../images/peabody.jpg'), linear-gradient(15deg, #fff, #aaa);
   background-position: center;
@@ -104,42 +152,18 @@
   color: white;
 }
 
-img {
-  max-width: 40vw;
-}
-
-.caption {
-  font-family: "Open Sans";
-  font-size: 30px;
-  font-weight: 700;
-  width: 100%;
-  line-height: 36px;
-}
-
-.description {
-  font-family: "Open Sans";
-  font-size: 20px;
-  font-weight: 400;
-  text-align: justify;
-}
-
-/* style for last panel */
-.text-center {
-  text-align: center;
-}
-
-.clickme {
-  height: 33%;
+.coupled {
+  height: 69vh;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
 }
 
 .final {border-color: #9bddff; border: 1%; border-style: solid; padding: 10px; color: #9bddff;
     text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";
     background: rgba(50,50,50,0.5);
 }
-
 .final:hover {
     background: #9bddff; 
     color: #000;
@@ -149,21 +173,37 @@ img {
 }
 
 hr {
-  border: 0;
-  height: 3px; 
-  background: #000;
+  width: 20vw;
+  height: 0;
+  border: solid 2px #f90;
 }
 
-img {
-  border-radius: 15px;
+#intro hr {
+  width: 30vw;
+  border: double 1px #000;
 }
 
 /*media queries for info panels and footer */
-@media (max-width: 648px) {
+@media (max-width: 767px) {
     img {
       max-width: 100vw;
+      border-radius: 0;
+    }
+    .panel-col {
+      margin: 10px;
+      border-radius: 0;
     }
 }
+
+@media (max-width: 648px) {
+  .panel-item {
+    width: 100vw;
+  }
+  .triangle-left, .triangle-right {
+    display: none;
+  }
+}
+
 
 /* animations */
 .fadeIn {

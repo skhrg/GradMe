@@ -29,14 +29,10 @@ body {
     -1px 1px #222,
     1px 1px #222;  
 }
-.tab {
-  display: inline-block;
-  width: 10px;
-}
-.bigtab {
-  display: inline-block;
-  width: 25px;
-}
+
+.tab {width: 10px;}
+.bigtab {width: 25px;}
+
 #navbar {
   position: fixed;
   width: 100vw;
@@ -51,8 +47,9 @@ body {
 a#hide {
   display: block;
 }
-/* scrollpoint */
-.hundred {position: absolute; top: 0; height: 100px}
+/* combine with scrollpoint class*/
+.hundredpx {position: absolute; top: 0; height: 100px}
+
 /* Footer */
 #footer {
   background-color: #000d1a;
@@ -90,12 +87,6 @@ a#hide {
   bottom: 10px;
   left: 50%;
 }
-
-.field {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
 input {
   border-radius: 2px !important;
 }
@@ -114,13 +105,14 @@ input {
   position: relative; 
   left: -50%;
 }
-
 .in-site {
   color: #9bddff;
   font-family: "open sans";
   font-size: 18px;
   line-height: 24px;
 }
+
+
 /* tablet breakpoint */
 @media (max-width: 767px) {
   .right.menu {
@@ -131,10 +123,12 @@ input {
 @media only screen (max-device-width: 767px) {
   #navbar {
     padding: 15px 0 5px 0;
+    margin: 0;
     border-radius: 10px;
+    max-width: 96vw !important;
+    width: 96vw !important;
   }
 }
-
 @media (max-width: 648px) {
     .footer-item {
       width: 90vw !important;
