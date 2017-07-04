@@ -1,17 +1,8 @@
 /*******************************
      User Global Variables
 *******************************/
-@headerFont        : 'Roboto Slab', 'Open Sans', Arial, Helvetica, sans-serif;
+@fontFamily		   : "Open Sans";
 @pageFont          : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
-@importGoogleFonts : true;
-@googleFontName    : 'Roboto Slab';
-@googleFontSizes   : '400,500';
-@googleFontFamily  : '@{Roboto+Slab}:@{400,500}';
-
-@googleFontName    : 'Open Sans';
-@googleFontSizes   : '400,600';
-@googleFontFamily  : '@{Open+Sans}:@{400,600}';
 
 /*-------------------
       Page

@@ -1308,13 +1308,13 @@ a.ui.basic.label:hover {
 .ui.label {
   line-height: 1.5;
   vertical-align: baseline;
-  background-color: #9bddff;
+  background-color: #CDE7F0;
   color: #000;
   font-size: 14px;
-  font-family: 'Roboto Slab';
-  font-weight: 600;
+  font-family: "Open Sans";
+  font-weight: 400;
 }
 a.ui.labels .label:hover,
 a.ui.label:hover {
-  background-color: #fff;
+  background-color: #9bddff;
 }

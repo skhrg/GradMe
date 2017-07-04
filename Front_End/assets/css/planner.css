@@ -41,7 +41,7 @@
   max-width: 500px;
   margin: 50px auto;
   border-radius: 7px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   box-sizing: border-box;
   padding: 48px 12px;
   text-align: center;
@@ -100,8 +100,7 @@
 
 /* activated major tags */
 a.label {
-    min-width: 88% !important;
-    letter-spacing: 1px;
+    min-width: 89% !important;
     text-align: center;
 }
 

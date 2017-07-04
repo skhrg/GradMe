@@ -1,6 +1,3 @@
 /*******************************
          Site Overrides
 *******************************/
-
-@labelSize		   : '14px';
-@labelHoverBackgroundColor: #000;

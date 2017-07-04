@@ -1,18 +1,14 @@
 $(document).ready(function() {
 
-  var prodHeight = $(".product.active").height();
-  $(".products").css({
-    height: prodHeight
-  });
   function calcProductHeight() {
-    prodHeight = $(".product.active").height();
+    var prodHeight = $(".product.active").height();
     $(".products").css({
       height: prodHeight
     });
   }
 
   function animateContentColor() {
-    var getProductColor = $(".product.active").attr("product-color");
+    var getProductColor = $(".product.active").attr("href");
 
     $("body").css({
       background: getProductColor
@@ -110,10 +106,9 @@ $(document).ready(function() {
   });
 
   $(".search").on("click", function() {
-    var selected = $(".active .label").length;
-    var currentHeight = prodHeight;
+    var prodHeight = $(".product.active").height();
     $(".products").css({
-      "height": currentHeight + 30*selected + "px",
+      "height": prodHeight + "px",
     });
   });
 
@@ -124,11 +119,28 @@ $.fn.exists = function () {
 }
 
 /* search function */
-$('.dropdown').dropdown({
+$('.ui.dropdown').dropdown({
   label: {
     duration: 0,
   },
   maxSelections: 3,
+  performance: true,
+});
+
+$('#minor .ui.dropdown').dropdown({
+  label: {
+    duration: 0,
+  },
+  maxSelections: 2,
+  debug: true,
+  performance: true,
+});
+
+$('#track .ui.dropdown').dropdown({
+  label: {
+    duration: 0,
+  },
+  maxSelections: 2,
   debug: true,
   performance: true,
 });

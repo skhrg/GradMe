@@ -4,7 +4,7 @@
 .ui.header {
   margin: @margin;
   font-family: @fontFamily;
-  letter-spacing: 1px;
-  font-weight: @fontWeight;
+  letter-spacing: 0px;
+  font-weight: 700px;
   line-height: @lineHeight;
 }
