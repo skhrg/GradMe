@@ -16,10 +16,8 @@
 
 .title-center {width:100%;}
 .title {
-    font-family: "Roboto Slab";
-    font-weight: normal;
-    letter-spacing: 2px;
-    line-height: 25px;
+    font-family: "Open Sans";
+    letter-spacing: 1px;
     text-align: center;
     color: #fff;
     font-size: 333%;
@@ -33,10 +31,9 @@
 .subtitle {
     font-family: "Open Sans";
     letter-spacing: 1px;
-    line-height: 15px;
     text-align: center;
     color: #fff;
-    font-size: 160%;
+    font-size: 180%;
     font-weight: 300;
     word-wrap: normal;
     text-shadow: 1px 1px rgba(0,0,0,0.50);
@@ -57,6 +54,7 @@
 /* MAIN PAGE CONTENT */
 .panel {
   height: 400px;
+  padding: 0;
   background: white;
   display: -webkit-box;
   display: -moz-box;
@@ -73,7 +71,7 @@
   background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
 }
 #intro #text {
-  padding: 0 20%;
+  padding: 0 15%;
 }
 
 #first {
@@ -86,7 +84,7 @@
 }
 
 .panel-item {
-  width: 50vw;
+  width: 49.5vw;
 }
 
 #text {
@@ -98,7 +96,7 @@
   flex-flow: column;
   justify-content: center;
   text-align: center;
-  padding: 0 10%;
+  padding: 0 5%;
 }
 
 #image-first {
@@ -153,13 +151,14 @@
 
 /* style for last panel */
 #last {
-  background-image: url('../images/peabody.jpg'), linear-gradient(15deg, #fff, #aaa);
+  background-image: url('../images/peabody.jpg'), linear-gradient(35deg, #fff, orange);
   background-position: center;
   background-blend-mode: multiply;
   background-attachment: fixed/*,scroll*/;
   background-repeat: no-repeat, repeat;
   background-size: cover, auto;
   color: white;
+  height: 80vh;
 }
 
 .coupled {
@@ -202,12 +201,12 @@ hr {
     width: 100vw;
   }
   .panel {
-    height: 300px;
+    height: auto;
+    padding: 10% 0;
   }
-  #image, .triangle-left, .triangle-right {
+  .mobile-hide {
     display: none;
   }
-
 }
 
 

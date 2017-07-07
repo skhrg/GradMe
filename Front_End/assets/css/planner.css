@@ -50,22 +50,18 @@
 .products {
   position: relative;
   overflow: hidden;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s cubic-bezier(.26,.26,.72,.90);
   overflow: visible;
 }
 .product {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
+  display: none;
 }
 .product.active {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .image {
@@ -77,8 +73,7 @@
   color: #D18B49;
   font-family: "Roboto Slab";
   font-size: 30px;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
+  font-weight: 600;
 }
 
 .description {
