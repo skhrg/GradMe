@@ -68,18 +68,21 @@ a#hide {
   justify-content: center;
 }
 .footer-item {
-  width: 28vw;
+  width: 24vw;
   margin: 25px 5px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-weight: 300 !important;
 }
+  .footer-item a {
+    font-size: 16px;
+  }
 .footer-caption {
   font-family: Arial;
   text-transform: uppercase;
   color: white;
-  font-size: 25px !important;
+  font-size: 16px !important;
   font-weight: bold !important;
   letter-spacing: 2px;
   width: 100%;

@@ -67,15 +67,15 @@
 }
 
 #intro {
-  background: #fff;
+  background: #ebe9e7;
   background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
 }
 #intro #text {
-  padding: 0 15%;
+  padding: 0 25%;
 }
 
 #first {
-    background-color: #fff;
+    background-color: #
     flex-flow: row wrap;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .panel-item {
-  width: 49.5vw;
+  width: 50vw;
 }
 
 #text {
@@ -106,7 +106,7 @@
   background-size: cover;
 }
 #image-second {
-  background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/06/volkswagen-microbus-concept-7.jpg);
+  background-image: url(http://visitasbabylontours.es/londres/wp-content/uploads/2013/06/feature_bw11.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -115,24 +115,24 @@
 .triangle-right {
   position: relative;
   width: 0; height: 0;
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-left: 46px solid #fff;
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+  border-left: 36px solid #fff;
   top: 50%;
-  left: 46px;
-  margin-top: -40px;
-  margin-left: -46px;
+  left: 36px;
+  margin-top: -31px;
+  margin-left: -36px;
 }
 
 .triangle-left {
   position: relative;
   width: 0; height: 0;
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-right: 46px solid #fff;
-  top: -154px;
-  right: 46px;
-  margin-right: -46px;
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+  border-right: 36px solid #fff;
+  top: -164px;
+  right: 36px;
+  margin-right: -36px;
 }
 
 .caption {
@@ -145,7 +145,7 @@
 .description {
   font-family: "Open Sans";
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.7em;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .coupled {
-  height: 69vh;
+  height: 100%;
   display: flex;
   flex-flow: column;
   justify-content: center;
