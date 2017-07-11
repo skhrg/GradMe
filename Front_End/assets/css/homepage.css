@@ -37,13 +37,14 @@
     font-weight: 300;
     word-wrap: normal;
     text-shadow: 1px 1px rgba(0,0,0,0.50);
+    margin: 0 12%;
 }
 
-.prompt {border-color: #fff; border: 1%; border-style: solid; padding: 10px; color: #fff;
+.further {border-color: #fff; border: 1%; border-style: solid; margin: 0 10px; padding: 10px; width: 250px; color: #fff;
     text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";}
-.prompt-pos{
-    background:none; position: absolute; bottom: 10%; left:50%; margin-left: -125px; width: 250px; height:45px; z-index: 1;}
-.prompt:hover {
+.prompt{
+    background: none; position: absolute; left: 0%; bottom: 10%; width: 100vw; display: flex; flex-direction: row; justify-content: center;}
+.further:hover {
     background: #Fff; 
     color: #000;
     -webkit-transition: all 0.2s ease-in-out 0s;
@@ -53,7 +54,7 @@
 
 /* MAIN PAGE CONTENT */
 .panel {
-  height: 400px;
+  height: 350px;
   padding: 0;
   background: white;
   display: -webkit-box;
@@ -67,24 +68,33 @@
 }
 
 #intro {
-  background: #ebe9e7;
+  background: #fff;
   background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
 }
 #intro #text {
   padding: 0 25%;
 }
-
 #first {
-    background-color: #
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
     flex-flow: row wrap;
 }
-
 #second {
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
   flex-flow: row wrap-reverse;
 }
+#close {
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  height: 200px;
+}
+#close #text {
+  padding: 0 25%;
+}
 
-.panel-item {
-  width: 50vw;
+.panel-txt {
+  width: 42vw;
+}
+.panel-img {
+  width: 42vw;
 }
 
 #text {
@@ -117,7 +127,7 @@
   width: 0; height: 0;
   border-top: 31px solid transparent;
   border-bottom: 31px solid transparent;
-  border-left: 36px solid #fff;
+  border-left: 36px solid #f4f4f4;
   top: 50%;
   left: 36px;
   margin-top: -31px;
@@ -129,7 +139,7 @@
   width: 0; height: 0;
   border-top: 31px solid transparent;
   border-bottom: 31px solid transparent;
-  border-right: 36px solid #fff;
+  border-right: 36px solid #f4f4f4;
   top: -164px;
   right: 36px;
   margin-right: -36px;
@@ -182,12 +192,12 @@
 }
 
 hr {
-  width: 20vw;
+  width: 15vw;
   height: 0;
-  border: solid 2px #f90;
+  border: solid 1px #f90;
 }
 
-#intro hr {
+#intro hr, #close hr {
   width: 30vw;
   border: double 1px #000;
 }

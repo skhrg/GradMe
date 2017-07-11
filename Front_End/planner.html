@@ -47,6 +47,7 @@
   </div>
 
   <div class="ten wide middle aligned column"><div class="card"><div class="products">
+  <form onsubmit="validate()">
 
     <div class="product active" id="intro">
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Fox.svg"/></div>
@@ -58,7 +59,7 @@
       <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Fox.svg"/></div>
       <h1 class="title">Majors</h1>
       <p class="description">Choose among 51 majors, spanning from Africana Studies to Biomedical Engineering to Computer Science to Physics.</p>
-      <select class="ui fluid big search dropdown poo" multiple="" action="" method="post">
+      <select id="major" class="ui fluid big search dropdown poo" multiple="" method="post">
         <option value="">Search majors...</option>
         <option value="1">Africana Studies</option>
         <option value="AK">Anthropology</option>
@@ -191,7 +192,9 @@
     <div class="cardFooter">
     <a class="btn" id="prev" href="#">Prev</a>
     <a class="btn" id="next" href="#">Next</a></div>
-    <button type="input" id="submit" class="ui secondary basic button submit">Submit</button>
+    <input type="submit" id="submit" class="ui secondary basic button submit"></input>
+
+  </form>
   </div></div> <!-- column -->
 
 </div></div><!-- row, container-->
@@ -211,7 +214,7 @@
 
         <div class="footer-item">
           <h class="footer-caption">Signup</h> 
-          <div class="ui action input">
+          <div class="ui fluid action input">
             <input type="text" placeholder="Email address...">
             <button class="ui orange button">Submit</button>
           </div>
