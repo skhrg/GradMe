@@ -1,0 +1,263 @@
+/* parallax */
+.parallax {
+    background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg"), linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));
+    height: 100vh;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10vw;
+}
+
+.title-center {width:100%;}
+.title {
+    font-family: "Open Sans";
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+    font-size: 333%;
+    word-wrap: normal;
+    text-shadow: 0 3px 3px rgba(0,0,0,0.50);
+}
+
+.subcenter {
+    width:100%;
+}
+.subtitle {
+    font-family: "Open Sans";
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+    font-size: 180%;
+    font-weight: 300;
+    word-wrap: normal;
+    text-shadow: 1px 1px rgba(0,0,0,0.50);
+    margin: 0 12%;
+}
+
+.further {border-color: #fff; border: 1%; border-style: solid; margin: 0 10px; padding: 10px; width: 250px; color: #fff;
+    text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";}
+.prompt{
+    background: none; position: absolute; left: 0%; bottom: 10%; width: 100vw; display: flex; flex-direction: row; justify-content: center;}
+.further:hover {
+    background: #Fff; 
+    color: #000;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+/* end parallax */
+
+/* MAIN PAGE CONTENT */
+.panel {
+  height: 350px;
+  padding: 0;
+  background: white;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out; transition: transform 0.6s ease-in-out;
+}
+
+#intro {
+  background: #fff;
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+}
+#intro #text {
+  padding: 0 25%;
+}
+#first {
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+    flex-flow: row wrap;
+}
+#second {
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  flex-flow: row wrap-reverse;
+}
+#close {
+  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  height: 200px;
+}
+#close #text {
+  padding: 0 25%;
+}
+
+.panel-txt {
+  width: 42vw;
+}
+.panel-img {
+  width: 42vw;
+}
+
+#text {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+}
+
+#image-first {
+  background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/06/emotionarch.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#image-second {
+  background-image: url(http://visitasbabylontours.es/londres/wp-content/uploads/2013/06/feature_bw11.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* triangle classes. Equilateral => width=0.866*height. The positioning & negative margins are based on width of visible border to center the triangle between the two columns and not disrupt the flex-flow.  */
+.triangle-right {
+  position: relative;
+  width: 0; height: 0;
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+  border-left: 36px solid #f4f4f4;
+  top: 50%;
+  left: 36px;
+  margin-top: -31px;
+  margin-left: -36px;
+}
+
+.triangle-left {
+  position: relative;
+  width: 0; height: 0;
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+  border-right: 36px solid #f4f4f4;
+  top: -164px;
+  right: 36px;
+  margin-right: -36px;
+}
+
+.caption {
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 15px;
+}
+.description {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.7em;
+}
+
+/* style for last panel */
+#last {
+  background-image: url('../images/peabody.jpg'), linear-gradient(35deg, #fff, orange);
+  background-position: center;
+  background-blend-mode: multiply;
+  background-attachment: fixed/*,scroll*/;
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
+  color: white;
+  height: 80vh;
+}
+
+.coupled {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.final {border-color: #9bddff; border: 1%; border-style: solid; padding: 10px; color: #9bddff;
+    text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";
+    background: rgba(50,50,50,0.5);
+}
+.final:hover {
+    background: #9bddff; 
+    color: #000;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+    text-shadow: none;
+}
+
+hr {
+  width: 15vw;
+  height: 0;
+  border: solid 1px #f90;
+}
+
+#intro hr, #close hr {
+  width: 30vw;
+  border: double 1px #000;
+}
+
+/*media queries for info panels and footer */
+@media (max-width: 767px) {
+}
+
+@media (max-width: 648px) {
+  .panel-item {
+    width: 100vw;
+  }
+  .panel {
+    height: auto;
+    padding: 10% 0;
+  }
+  .mobile-hide {
+    display: none;
+  }
+}
+
+
+/* animations */
+.fadeIn {
+    animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s;
+    -webkit-animation: fadein 2.5s;
+    -o-animation: fadein 2.5s;
+}
+
+.fadeInFast {
+    animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+}
+
+.fadeInSlow {
+    animation: fadein 3.5s;
+    -moz-animation: fadein 3.5s;
+    -webkit-animation: fadein 3.5s;
+    -o-animation: fadein 3.5s;
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Firefox */
+@-moz-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    /* Opera */
+@-o-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

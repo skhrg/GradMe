@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,6 +32,30 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+
+  <div id="navbar" class="ui center aligned container scrollpoint">
+    <div class="ui secondary menu">
+      <div class="item logo secondary-logo"> <i class="student icon"></i>GradMe</div>
+      <div class="right menu">
+      <a id="hide" class="item" href="./homepage.html">
+        <i class="home icon"></i> Home</a>
+      <a id="hide" class="active item" href="./planner.html">
+        <i class="book icon"></i> Course Planner</a> 
+      <a id="hide" class="item">
+        <i class="user icon"></i> Account</a>
+      </div>
+    </div>
+  </div>
+
+<!-- REPLACING WITH COMPONENTS -->
+    <div class="cardFooter">
+    <a class="btn" id="prev" href="#">Prev</a>
+    <a class="btn" id="next" href="#">Next</a></div>
+    <input type="submit" id="submit" class="ui secondary basic button submit"></input>
+
+<!-- row, container-->
+
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -34,7 +65,7 @@
       The build step will place the bundled scripts into the <body> tag.
 
       To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+      To create a slideion bundle, use `npm run build` or `yarn build`.
     -->
   </body>
 </html>
