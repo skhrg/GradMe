@@ -11,8 +11,11 @@ class SlideMenu extends React.Component {
   }
 
   handleItemClick(e, {name}) {
+  	//call method to set state of parent component
+    this.props.handler(e, {name});
+    //also set state of this component for Menu Item children
     this.setState({
-        activeItem: name
+        	activeItem: name
     });
   }
 

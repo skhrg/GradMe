@@ -14,6 +14,8 @@ class PageContainer extends React.Component {
     	this.setState({
         	activeItem: name
     	});
+    	//for debugging
+		//{alert(this.state.activeItem)}
   	}
 
 	render() {
