@@ -4,10 +4,9 @@ import 'semantic-ui-css/components/menu.min.css'
 
 class SlideMenu extends React.Component {
 
-  constructor() {
+  constructor(props) {
   	super();
-  	this.state = {activeItem: 'Find your requirements'};
-
+  	this.state = {activeItem: props.options.opt1};
   	this.handleItemClick = this.handleItemClick.bind(this);
   }
 
@@ -20,20 +19,14 @@ class SlideMenu extends React.Component {
   render() {
     const { activeItem } = this.state
 
-   //  const itemNames = {
-  	// 	n1: "Find your requirements",
-  	// 	n2: "Pick a major",
-  	// 	n3: "Choose a minor",
-  	// 	n4: "Select a Pre-Professional Track"
-  	// }
   	// WOULD LIKE TO CONVERT STATE ACTIVEITEM TO BOOLEAN - PAGECONTAINER STATE HAS BOOLEAN AND STRING STATE
 
     return (
       <Menu text pointing secondary vertical className="ui huge left floated menu">
-        <Menu.Item name='Find your requirements' active={activeItem === 'Find your requirements'} onClick={this.handleItemClick} />
-        <Menu.Item name='Choose your major' active={activeItem === 'Choose your major'} onClick={this.handleItemClick} />
-        <Menu.Item name='Pick your minor' active={activeItem === 'Pick your minor'} onClick={this.handleItemClick} />
-        <Menu.Item name='Select a Pre-Professional Track' active={activeItem === 'Select a Pre-Professional Track'} onClick={this.handleItemClick} />
+        <Menu.Item name={this.props.options.opt1} active={activeItem === this.props.options.opt1} onClick={this.handleItemClick} />
+        <Menu.Item name={this.props.options.opt2} active={activeItem === this.props.options.opt2} onClick={this.handleItemClick} />
+        <Menu.Item name={this.props.options.opt3} active={activeItem === this.props.options.opt3} onClick={this.handleItemClick} />
+        <Menu.Item name={this.props.options.opt4} active={activeItem === this.props.options.opt4} onClick={this.handleItemClick} />
       </Menu>
     )
   }
