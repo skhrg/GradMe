@@ -24,8 +24,6 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
 }
 
 .submit {
@@ -84,14 +82,9 @@
 }
 
 .cardFooter {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   margin: 12px 0 -12px 0;
 }
 /*-- Semantic restyling */

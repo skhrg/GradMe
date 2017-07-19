@@ -10,13 +10,12 @@ class PageContainer extends React.Component {
   		this.optionHandler = this.optionHandler.bind(this);
 	}
 
-	/** this method is called by the SlideMenu child component on click*/
+	/** called by SlideMenu child component **/
 	optionHandler({name}) {
     	this.setState({
         	activeItem: name
     	});
-    	//for debugging
-		//{alert(this.state.activeItem)}
+    	// {alert(this.state.activeItem)}
   	}
 
 	render() {
@@ -26,11 +25,11 @@ class PageContainer extends React.Component {
 
 				<div className="four wide left floated middle aligned column">
 					<h4 className="ui huge header left">Course Planner</h4>
-					<SlideMenu options={options} handler={this.optionHandler}/>
+					<SlideMenu options={options} active={this.state.activeItem} handler={this.optionHandler}/>
 				</div>
 
 				<div className="ten wide middle aligned column">
-					<SlideContainer options={options} active={this.state.activeItem}/>
+					<SlideContainer options={options} active={this.state.activeItem} handler={this.optionHandler.bind(this)}/>
 				</div>
 
 			</div></div>
@@ -38,12 +37,11 @@ class PageContainer extends React.Component {
 	}
 }
 
-/** list of options used for state in PageContainer, SlideMenu, and SlideWrapper */
 const options = {
-  			opt1: "Find your requirements",
-  			opt2: "Pick a major",
-  			opt3: "Choose a minor",
-  			opt4: "Select a Pre-Professional Track"
+  	opt1: "Find your requirements",
+  	opt2: "Pick a major",
+  	opt3: "Choose a minor",
+  	opt4: "Select a Pre-Professional Track"
 }
 
 export default PageContainer;
