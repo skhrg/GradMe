@@ -9,7 +9,7 @@ class SlideFooter extends React.Component {
     }
 
     handleClick(e, {name}) {
-        // const options = this.props.options;
+        var name = e.target.id
     	this.props.handler({name})
     }
 
@@ -17,9 +17,8 @@ class SlideFooter extends React.Component {
     render() {
         return (
             <div className="cardFooter">
-                <Menu.Item name={this.props.options.opt1} onClick={this.handleClick} />
-            	<div className="btn" id="-1" name={this.props.options.opt1} onClick={this.handleClick}>Prev</div>
-                <div className="btn" onClick={this.handleClick.bind(this)}>Next</div>
+            	<div className="btn" id={this.props.options.opt1} onClick={this.handleClick}>Prev</div>
+                <div className="btn" id={this.props.options.opt4} onClick={this.handleClick}>Next</div>
     		</div>
         );
     }

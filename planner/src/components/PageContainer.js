@@ -8,10 +8,15 @@ class PageContainer extends React.Component {
 		super()
 		this.state = {activeItem: options.opt1}
   		this.optionHandler = this.optionHandler.bind(this);
+  		{console.log(options.opt1.constructor === String)}
 	}
 
 	/** called by SlideMenu child component **/
 	optionHandler({name}) {
+		if (name === this.state.activeItem) {
+			return;
+		}
+		
     	this.setState({
         	activeItem: name
     	});
