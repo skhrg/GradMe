@@ -1,5 +1,10 @@
+#planner-container {
+  padding-top: 10vh;
+}
+
 .row {
-  min-height: 110vh
+  min-height: 100vh;
+  margin-top: -20vh;
 }
 .pointing {
   top: 75px;
@@ -100,6 +105,6 @@ a.label {
     display: none !important;
   }
   .row {
-    min-height: 100vh;
+    min-height: 42vh;
   }
 }

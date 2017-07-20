@@ -1,4 +1,5 @@
 import React from 'react';
+import PageTitle from './PageTitle.js'
 import SlideMenu from './SlideMenu.js'
 import SlideContainer from './SlideContainer.js';
 
@@ -6,19 +7,20 @@ class PageContainer extends React.Component {
 	
 	constructor() {
 		super()
-		this.state = {activeItem: options.opt1}
+		this.state = {activeItem: options[0]}
   		this.optionHandler = this.optionHandler.bind(this);
-  		{console.log(options.opt1.constructor === String)}
+  		{console.log(options[0].constructor === String)}
 	}
 
-	/** called by SlideMenu child component **/
-	optionHandler({name}) {
-		if (name === this.state.activeItem) {
+	/** called by SlideMenu and SlideFooter components
+		@param newActive	string in options array **/
+	optionHandler(newActive) {
+		if (newActive === this.state.activeItem) {
 			return;
 		}
 		
     	this.setState({
-        	activeItem: name
+        	activeItem: newActive
     	});
     	// {alert(this.state.activeItem)}
   	}
@@ -26,10 +28,12 @@ class PageContainer extends React.Component {
 	render() {
 
 		return (
-			<div className="ui stackable grid container"><div className="two column row">
-
+			<div id="planner-container" className="ui stackable grid container">
+				<PageTitle title="Course Planner"/>
+			<div className="two column row">
+				
 				<div className="four wide left floated middle aligned column">
-					<h4 className="ui huge header left">Course Planner</h4>
+					<h4 className="ui huge header left">Guide</h4>
 					<SlideMenu options={options} active={this.state.activeItem} handler={this.optionHandler}/>
 				</div>
 
@@ -42,11 +46,11 @@ class PageContainer extends React.Component {
 	}
 }
 
-const options = {
-  	opt1: "Find your requirements",
-  	opt2: "Pick a major",
-  	opt3: "Choose a minor",
-  	opt4: "Select a Pre-Professional Track"
-}
+const options = [
+  	"Find your requirements",
+  	"Pick a major",
+  	"Choose a minor",
+  	"Select a Pre-Professional Track"
+]
 
 export default PageContainer;

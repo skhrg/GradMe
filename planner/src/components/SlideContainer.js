@@ -10,11 +10,10 @@ class SlideContainer extends React.Component {
 		return (
 			<div className="card"><div className="slides">
 				<form>
-					<Slide name={options.opt1} title="Introduction" description={descriptions.desc1} active={this.props.active}/>
-					<Slide name={options.opt2} title="Majors" description={descriptions.desc2} active={this.props.active}/>
-					<Slide name={options.opt3} title="Minors" description={descriptions.desc3} active={this.props.active}/>
-					<Slide name={options.opt4} title="Pre-Professional Tracks" description={descriptions.desc4} active={this.props.active}/>
-
+					<Slide name={options[0]} title="Introduction" description={descriptions.desc1} active={this.props.active}/>
+					<Slide name={options[1]} title="Majors" description={descriptions.desc2} active={this.props.active}/>
+					<Slide name={options[2]} title="Minors" description={descriptions.desc3} active={this.props.active}/>
+					<Slide name={options[3]} title="Pre-Professional Tracks" description={descriptions.desc4} active={this.props.active}/>
 					<SlideFooter options={options} active={this.props.active} handler={this.props.handler}/>
 				</form>
 			</div></div>
