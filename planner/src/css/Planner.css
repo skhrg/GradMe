@@ -44,10 +44,10 @@
   background: #f9f9f9;
   max-width: 500px;
   border-radius: 7px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   box-sizing: border-box;
-  padding: 48px 12px;
-  text-align: center;
+  padding: 36px 12px 12px 12px;
+  text-align: left;
   height: auto;
 }
 
@@ -68,15 +68,16 @@
 }
 
 .title {
-  margin: 0 0 0px;
-  color: #218;
+  margin: 0;
+  text-align: center;
+  color: #333;
   font-family: "Roboto Slab";
   font-size: 30px;
   font-weight: 600;
 }
 
 .description {
-  margin: 15px 40px; font-family: "Open Sans"; font-weight: 300; font-size: 16px;
+  margin: 15px 40px 24px 40px; font-family: "Open Sans"; font-weight: 300; font-size: 16px;
 }
 
 .cardFooter {
@@ -85,7 +86,7 @@
   /* due to residual hover effect, button rendered in reverse order
   and reversed by flex so hover remains with linear progression (next > next) */
   justify-content: space-around;
-  margin: 12px 0 -36px 0;
+  margin: 12px 0 0 0;
 }
 
 /*-- Semantic restyling */

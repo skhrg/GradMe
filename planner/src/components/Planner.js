@@ -29,16 +29,17 @@ class Planner extends React.Component {
         var color;
         switch(active) {
             case options[1]:
-                color = '#9cdecb';
+                color = '#B2EBF2';
                 break;
             case options[2]:
-                color = '#83ccd2';
+                color = '#FFECB3';
                 break;
-            case options[2]:
-                color = '#FF8F1C';
+            case options[3]:
+                color = '#FFEBEE';
                 break;
             default:
-                color = '#DEB887';
+            	color = '#C8E6C9'
+                // color = '#DEB887';
         }
 
 		return (
