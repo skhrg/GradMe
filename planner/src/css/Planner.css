@@ -1,7 +1,19 @@
-#planner-container {
-  padding-top: 10vh;
+.planner-title {
+	width: 300px !important;
+	text-align: left;
 }
 
+#planner-container {
+  padding-top: 10vh;
+  margin: 0;
+}
+.ui.grid.container {
+  width: 100vw !important;
+  padding: 0 0 0 5%;
+}
+.ui.massive {
+  font-size: 2.7em !important;
+}
 .row {
   min-height: 100vh;
   margin-top: -20vh;
@@ -15,37 +27,22 @@
   font-weight: bold;
 }
 
-.left {
-  text-align: left;
-}
-
-.btn {
-  border-radius: 2px;
-  padding: 8px 72px 8px 72px;
-  margin-bottom: -20px;
-  color: #D18B49;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 .submit {
   margin-right: 30px !important;
-  font-family: "Open Sans" !important;
+  font-family: "Open Sans";
   font-weight: bold !important;
   text-transform: uppercase !important;
   letter-spacing: 1px;
-  background: none;
-  color: teal !important;
+  background: #000;
   margin-bottom: -10px !important;
 }
+.submit:hover {
+	background: white;
+}
 
-.card {
+.slideContainer {
   background: #f9f9f9;
   max-width: 500px;
-  margin: 50px auto;
   border-radius: 7px;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   box-sizing: border-box;
@@ -70,13 +67,9 @@
   display: block;
 }
 
-.image {
-  margin: 0 0 24px;
-}
-
 .title {
   margin: 0 0 0px;
-  color: #D18B49;
+  color: #218;
   font-family: "Roboto Slab";
   font-size: 30px;
   font-weight: 600;
@@ -88,16 +81,20 @@
 
 .cardFooter {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 12px 0 -12px 0;
+  flex-direction: row-reverse; 
+  /* due to residual hover effect, button rendered in reverse order
+  and reversed by flex so hover remains with linear progression (next > next) */
+  justify-content: space-around;
+  margin: 12px 0 -36px 0;
 }
+
 /*-- Semantic restyling */
 
 /* activated major tags */
 a.label {
     min-width: 89% !important;
     text-align: center;
+    border-radius: 10px !important;
 }
 
 @media (max-width: 768px) {
@@ -107,4 +104,14 @@ a.label {
   .row {
     min-height: 42vh;
   }
+  .ui.grid.container {
+    padding: 0;
+  }
+
+  .slideContainer {
+  	margin: 10px auto;
+  }
 }
+
+/* Material UI restyling */
+.mui-btn.mui-btn--flat{}

@@ -63,11 +63,13 @@ a#hide {
   }
 }
 
-
 .tab {width: 10px;}
 .bigtab {width: 25px;}
 /* combine with scrollpoint class*/
 .hundredpx {position: absolute; top: 0; height: 100px}
+.left-text {
+  text-align: left;
+}
 
 /* Footer */
 #footer {

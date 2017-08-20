@@ -1,3 +1,6 @@
+/***************
+    Generic styles, classes, and animations.
+****************/
 body {
   margin: 0; padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -27,9 +30,6 @@ body {
     1px 1px #222;  
 }
 
-.tab {width: 10px;}
-.bigtab {width: 25px;}
-
 #navbar {
   position: fixed;
   width: 100vw;
@@ -44,12 +44,35 @@ body {
 a#hide {
   display: block;
 }
+
+.pagetitle {
+  position: relative;
+  width: 100%;
+  padding: 80px;
+  height: 120px;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 4em;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .pagetitle {
+    height: 10vh;
+    padding: 5vh;
+  }
+}
+
+.tab {width: 10px;}
+.bigtab {width: 25px;}
 /* combine with scrollpoint class*/
 .hundredpx {position: absolute; top: 0; height: 100px}
+.left-text {
+  text-align: left;
+}
 
 /* Footer */
 #footer {
-  background-color: #222;
+  background-color: #222222;
 }
 .footer-panel {
   min-height: 250px;

@@ -26,7 +26,7 @@ class SlideMenu extends React.Component {
     const { activeItem } = this.state
 
     return (
-      <Menu text pointing secondary vertical className="ui huge left floated menu">
+      <Menu text pointing secondary vertical className="ui huge left-text floated menu">
         <Menu.Item name={this.props.options[0]} active={activeItem === this.props.options[0]} onClick={this.handleClick} />
         <Menu.Item name={this.props.options[1]} active={activeItem === this.props.options[1]} onClick={this.handleClick} />
         <Menu.Item name={this.props.options[2]} active={activeItem === this.props.options[2]} onClick={this.handleClick} />

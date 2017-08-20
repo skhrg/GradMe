@@ -8,7 +8,7 @@ class SlideContainer extends React.Component {
 	render() {
 		const { options } = this.props;
 		return (
-			<div className="card"><div className="slides">
+			<div className="slideContainer"><div className="slides">
 				<form>
 					<Slide name={options[0]} title="Introduction" description={descriptions.desc1} active={this.props.active}/>
 					<Slide name={options[1]} title="Majors" description={descriptions.desc2} active={this.props.active}/>

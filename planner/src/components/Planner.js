@@ -1,15 +1,15 @@
 import React from 'react';
-import PageTitle from './PageTitle.js'
+// import PageTitle from './PageTitle.js'
 import SlideMenu from './SlideMenu.js'
 import SlideContainer from './SlideContainer.js';
 
-class PageContainer extends React.Component {
+class Planner extends React.Component {
 	
 	constructor() {
 		super()
 		this.state = {activeItem: options[0]}
   		this.optionHandler = this.optionHandler.bind(this);
-  		{console.log(options[0].constructor === String)}
+  		// {console.log(options[0].constructor === String)}
 	}
 
 	/** called by SlideMenu and SlideFooter components
@@ -22,18 +22,31 @@ class PageContainer extends React.Component {
     	this.setState({
         	activeItem: newActive
     	});
-    	// {alert(this.state.activeItem)}
   	}
 
 	render() {
+        const active = this.state.activeItem;
+        var color;
+        switch(active) {
+            case options[1]:
+                color = '#9cdecb';
+                break;
+            case options[2]:
+                color = '#83ccd2';
+                break;
+            case options[2]:
+                color = '#FF8F1C';
+                break;
+            default:
+                color = '#DEB887';
+        }
 
 		return (
-			<div id="planner-container" className="ui stackable grid container">
-				<PageTitle title="Course Planner"/>
+			<div id="planner-container" className="ui stackable grid container" style={{background: color}}>
 			<div className="two column row">
 				
 				<div className="four wide left floated middle aligned column">
-					<h4 className="ui huge header left">Guide</h4>
+					<h4 className="ui massive header planner-title">Course Planner</h4>
 					<SlideMenu options={options} active={this.state.activeItem} handler={this.optionHandler}/>
 				</div>
 
@@ -47,10 +60,10 @@ class PageContainer extends React.Component {
 }
 
 const options = [
-  	"Find your requirements",
-  	"Pick a major",
-  	"Choose a minor",
-  	"Select a Pre-Professional Track"
+  	"Find Requirements",
+  	"Pick Majors",
+  	"Choose Minors",
+  	"Select Professional Tracks"
 ]
 
-export default PageContainer;
+export default Planner;
