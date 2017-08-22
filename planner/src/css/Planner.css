@@ -92,11 +92,19 @@
 /*-- Semantic restyling */
 
 /* activated major tags */
-a.label {
-    min-width: 89% !important;
+.ui.multiple.dropdown>.label {
     text-align: center;
-    border-radius: 10px !important;
+    border-radius: 10px;
+    line-height: 1.4em;
 }
+.ui.multiple.search.dropdown>input.search {
+	line-height: 1.4em;
+	width: 1px;
+}
+.ui.multiple.dropdown {
+	padding-right: 0.5em;
+}
+
 
 @media (max-width: 768px) {
   .four.column {

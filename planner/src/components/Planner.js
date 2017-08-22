@@ -28,18 +28,17 @@ class Planner extends React.Component {
         const active = this.state.activeItem;
         var color;
         switch(active) {
+        	case options[0]:
+        		color = '#E3F7FA';
+        		break;
             case options[1]:
-                color = '#B2EBF2';
+                color = '#fffedd';
                 break;
             case options[2]:
-                color = '#FFECB3';
-                break;
-            case options[3]:
-                color = '#FFEBEE';
+                color = '#FFE9Ea';
                 break;
             default:
-            	color = '#C8E6C9'
-                // color = '#DEB887';
+                color = 'linear-gradient(to right, #dae2f8, #d6a4a4)';
         }
 
 		return (
