@@ -2,21 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
-  background: #1e5799;
-  background: -moz-linear-gradient(top, #207cca, #7db9e8 );
-  background: -webkit-linear-gradient(top, #207cca, #7db9e8);
-  background: linear-gradient(to bottom, #207cca, #7db9e8);
+  align-items: center;
+  background: #9bddff;
+  height: 200px;
 }
 .overview > .title {
   width: 100%;
-  height: 100px;
   text-align: center;
   font-family: 'Cabin';
   font-size: 3.3rem;
-  font-weight: 400;
+  font-weight: 600;
+  letter-spacing: 2px;
   line-height: 2em;
-  margin: 40px 0;
   box-sizing: border-box;
 }
 /* doubles as sidebar */
@@ -70,11 +67,9 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.label {
-  height: 50px;
+.courseLabel {
+  height: 45px;
   width: 100%;
-  margin: 0;
-  padding-right: 5px;
   box-sizing: border-box;
   font-weight: 300;
   border-bottom: solid 1px #ddd;
@@ -83,11 +78,11 @@
   flex-flow: column;
   justify-content: center;
 }
-.label:last-child {
+.courseLabel:last-child {
   border-bottom: none;
 }
 
-.label-id {
+.courseLabel-id {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -97,12 +92,12 @@
   color: #ff8547;
 }
 
-.label > .course-number {
+.courseLabel > .course-number {
   height: 40%;
   font-weight: 400;
   font-style: normal;
 }
-.label > .course-title {
+.courseLabel > .course-title {
   height: 60%;
   width: 100%;
   padding: 3px 13px 1px 13px;
@@ -111,7 +106,7 @@
   font-size: 1.15rem;
 }
 
-.label-id > .course-credit {
+.courseLabel-id > .course-credit {
   font-style: italic;
 }
 
