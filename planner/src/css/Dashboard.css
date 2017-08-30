@@ -1,0 +1,152 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+  background: #1e5799;
+  background: -moz-linear-gradient(top, #207cca, #7db9e8 );
+  background: -webkit-linear-gradient(top, #207cca, #7db9e8);
+  background: linear-gradient(to bottom, #207cca, #7db9e8);
+}
+.overview > .title {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-family: 'Cabin';
+  font-size: 3.3rem;
+  font-weight: 400;
+  line-height: 2em;
+  margin: 40px 0;
+  box-sizing: border-box;
+}
+/* doubles as sidebar */
+.info-bar {
+  height: 60px;
+  padding: 12px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.info-bar > .item {
+  font-size: 1.6rem;
+}
+
+.section-wrapper {
+  background: #eee;
+  padding: 30px 20px 0 20px;
+}
+
+.section-title {
+  font-size: 1.5em;
+  padding: 10px 0 50px 0;
+  padding-left: 5vw;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.module-title {
+  z-index: 2;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: hidden;
+  font-size: 1.2rem;
+  
+  background: #9bddff;
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.module {
+  z-index: 1;
+  background: white;
+  height: 300px;
+  color: #000;
+  border-top: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.label {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding-right: 5px;
+  box-sizing: border-box;
+  font-weight: 300;
+  border-bottom: solid 1px #ddd;
+  
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.label:last-child {
+  border-bottom: none;
+}
+
+.label-id {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 0 13px;
+  padding-bottom: 0px;
+  color: #ff8547;
+}
+
+.label > .course-number {
+  height: 40%;
+  font-weight: 400;
+  font-style: normal;
+}
+.label > .course-title {
+  height: 60%;
+  width: 100%;
+  padding: 3px 13px 1px 13px;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.label-id > .course-credit {
+  font-style: italic;
+}
+
+.scroll-text {
+  -webkit-transition: 2.5s;
+  -moz-transition: 2.5s;
+  transition: 2.5s;     
+  
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+.scroll-text:hover {
+  margin-left: -200px;
+}
+
+/* .show {display: visible}
+ */
+.sidebar {
+  height: 100vh;
+  padding: 12px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+@media(max-width: 990px) {
+  .section-title {
+    padding-left: 0;
+  }
+}
+/* semantic restyling */
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+  padding: 0;
+}
+.ui.grid {
+  margin-top: 0 !important;
+}
