@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import logo from '../logo.svg';
 
 export default class Footer extends React.Component {
 	
@@ -7,38 +9,27 @@ export default class Footer extends React.Component {
 
 			<div id="footer" className="footer-panel">
 
-     		<div className="footer-section">
-        		<div className="footer-item">
-         			<h className="footer-caption">Follow</h> 
-          			<div className="icons">
-            			<a href="#" className="fa fa-facebook"></a>
-            			<a href="#" className="fa fa-twitter"></a>
-            			<a href="#" className="fa fa-google"></a>
-            			<a href="#" className="fa fa-linkedin"></a>
-            			<a href="#" className="fa fa-reddit"></a>
-          			</div></div>
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
 
-        		<div className="footer-item">
-          			<h className="footer-caption">Signup</h> 
-          			<div className="ui fluid action input">
-            			<input type="text" placeholder="Email address..." />
-            			<button className="ui orange button">Submit</button>
-          			</div>
-          			<p className="copyright">Already have an account? <a href="#" className="teal">Login</a> here.</p>
-        		</div>
+        <div className='footer-section links'>
+          	<a href="../../Front-End/homepage.html" className="link">Home</a>
+          	<h className="link"><Link to='/' style={{color: '#9bddff'}}>Planner</Link></h>
+            <h className="link"><Link to='/dashboard' style={{color: '#9bddff'}}>Dashboard</Link></h>
+          	<a href="tcolabs.org" className="link">Contact</a>
+          	<a href="tcolabs.org" className="link">About</a>
+      	</div>
 
-        		<div className="footer-item">
-          			<h className="footer-caption">Navigate</h> 
-          			<a href="../../Front-End/homepage.html" className="in-site">Home</a>
-          			<a href="#" className="in-site">Course Planner</a>
-          			<a href="#" className="in-site">Contact</a>
-          			<a href="#" className="in-site">About</a>
-        		</div>
-      		</div>
+        <div className="footer-section icons">
+            <a href="facebook.com"><div className="fa fa-facebook"></div></a>
+            <a href="twitter.com"><div className="fa fa-twitter"></div></a>
+            <a href="plus.google.com"><div className="fa fa-google"></div></a>
+            <a href="linkedin.com"><div className="fa fa-linkedin"></div></a>
+            <a href="reddit.com"><div className="fa fa-reddit"></div></a>
+        </div>
 
-      		<div className="subnote">
-        		<h className="copyright copyright-pos">Copyright © Lyle Paskowitz 2017</h>
-      		</div>
+        <h className="copyright">Copyright © Lyle Paskowitz 2017</h>
    			</div>
 		)
 	}

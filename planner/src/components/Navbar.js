@@ -19,15 +19,10 @@ class Navbar extends React.Component {
 //             </div>
 //           </div>
 //       </div>
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
         	<div>
-          </div>
+        	</div>
         );
     }
 }

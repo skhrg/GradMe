@@ -4,7 +4,6 @@ import SlideFooter from './SlideFooter.js'
 
 class SlideContainer extends React.Component {
 
-
 	render() {
 		const { options } = this.props;
 		return (
@@ -23,9 +22,9 @@ class SlideContainer extends React.Component {
 
 const descriptions = {
   desc1: 'Use this planner to select majors, minors, and/or pre-professional tracks.',
-  desc2: 'Choose among 51 majors, spanning from Africana Studies to Biomedical Engineering to Computer Science to Physics.',
-  desc3: 'Add depth and breath to your curriculum with one of 44 minors.',
-  desc4: 'Orgo'
+  desc2: 'Spanning Archaeology to Biomedical Engineering, Computer Science to Writing Seminars - choose your major(s) from over 50 options.',
+  desc3: 'Extend your curriculum with choices of 44 minors.',
+  desc4: 'Once you see how many courses you have to take to be pre-med, you might reconsider!'
 }
 
 export default SlideContainer;

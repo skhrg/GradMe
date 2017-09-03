@@ -1,45 +1,32 @@
+.planner-container {
+  height: 100vh;
+}
 .planner-title {
 	width: 300px !important;
+  font-family: ;
 	text-align: left;
-}
-
-#planner-container {
-  padding-top: 10vh;
-  margin: 0;
-}
-.ui.grid.container {
-  width: 100vw !important;
-  padding: 0 0 0 5%;
 }
 .ui.massive {
   font-size: 2.7em !important;
-}
-.row {
-  min-height: 100vh;
-  margin-top: -20vh;
 }
 .pointing {
   top: 75px;
   left: 30px;
   min-width: 300px;
 }
-.pointing .active {
+.pointing.active {
   font-weight: bold;
 }
-
 .submit {
-  margin-right: 30px !important;
-  font-family: "Open Sans";
-  font-weight: bold !important;
-  text-transform: uppercase !important;
+  margin-right: 30px;
+  font-weight: bold;
   letter-spacing: 1px;
   background: #000;
-  margin-bottom: -10px !important;
+  margin-bottom: -10px;
 }
 .submit:hover {
 	background: white;
 }
-
 .slideContainer {
   background: #f9f9f9;
   max-width: 500px;
@@ -50,7 +37,6 @@
   text-align: left;
   height: auto;
 }
-
 .slides {
   position: relative;
   -webkit-transition: 0.3s ease;
@@ -66,7 +52,6 @@
 .slide.active {
   display: block;
 }
-
 .title {
   margin: 0;
   text-align: center;
@@ -75,37 +60,36 @@
   font-size: 30px;
   font-weight: 600;
 }
-
 .description {
   margin: 15px 40px 24px 40px; font-family: "Open Sans"; font-weight: 300; font-size: 16px;
 }
-
 .cardFooter {
   display: flex;
   flex-direction: row-reverse; 
   /* due to residual hover effect, button rendered in reverse order
-  and reversed by flex so hover remains with linear progression (next > next) */
+  and reversed by flex, causing activated hover effect to remain
+  with linear progression (next > next) */
   justify-content: space-around;
   margin: 12px 0 0 0;
 }
 
 /*-- Semantic restyling */
-
-/* activated major tags */
+.ui.grid.container {
+  width: 100vw !important;
+  padding: 10vw 0;
+  min-height: 100vh;
+}
 .ui.multiple.dropdown>.label {
     text-align: center;
     border-radius: 10px;
     line-height: 1.4em;
 }
 .ui.multiple.search.dropdown>input.search {
-	line-height: 1.4em;
-	width: 1px;
+	line-height: 1.4em !important;
 }
 .ui.multiple.dropdown {
 	padding-right: 0.5em;
 }
-
-
 @media (max-width: 768px) {
   .four.column {
     display: none !important;
@@ -116,7 +100,6 @@
   .ui.grid.container {
     padding: 0;
   }
-
   .slideContainer {
   	margin: 10px auto;
   }

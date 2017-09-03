@@ -12,8 +12,7 @@ class SlideFooter extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        const button = e.target
-        const increment = button.id
+        const increment = e.target.id
         const currentIndex = this.props.options.indexOf(this.props.active);
         let newIndex = currentIndex + + increment
         const newActive = this.props.options[newIndex]

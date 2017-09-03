@@ -8,8 +8,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #1d1114;
+  height: 120px;
   padding: 20px;
   color: white;
 }
@@ -18,3 +18,208 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@import url(https://fonts.googleapis.com/css?family=Cabin);
+
+/***************
+    Generic styles, classes, and animations.
+    React version.
+****************/
+body {
+  margin: 0; padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+#page-container {
+  margin: 0;
+  width: 100vw;
+  padding: 0;
+  font-family: 'Open Sans';
+}
+/* apply this class to a div containing icon and text GradMe */
+.logo {
+  text-align: center;
+  color: #9bddff;
+  font-family: "open sans";
+  font-size: 42px;
+  font-weight: 600 !important;
+}
+.secondary-logo {
+  color: black;
+  font-size: 30px;
+  margin: 5px 0 -5px 0;
+  padding: 5px !important;
+}
+.outline {
+  text-shadow:
+    -1px -1px #222,
+    1px -1px #222,
+    -1px 1px #222,
+    1px 1px #222;  
+}
+
+#navbar {
+  position: fixed;
+  width: 100vw;
+  top: -10px;
+  z-index: 100;
+  background: rgba(250,250,250,0.9);
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  padding: 20px 5px 10px 5px;
+  border-bottom: solid 1px #ababab;
+}
+a#hide {
+  display: block;
+}
+
+.pagetitle {
+  position: relative;
+  width: 100%;
+  padding: 80px;
+  height: 120px;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 5em;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .pagetitle {
+    height: 10vh;
+    padding: 5vh;
+  }
+}
+
+.tab {width: 10px;}
+.bigtab {width: 25px;}
+/* combine with scrollpoint class*/
+.hundredpx {position: absolute; top: 0; height: 100px}
+.left-text {
+  text-align: left;
+}
+
+/* Footer */
+#footer {
+  background-color: #1d1114;
+  min-height: 60vh;
+}
+.footer-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.footer-section.icons {
+  min-width: 30vw;
+}
+.footer-section.links {
+  width: 550px;
+}
+.footer-section >  .link {
+  margin: 20px 10px;
+  font-size: 1.1em;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9bddff;
+}
+.footer-section >  .link:hover{
+  color: #fff;
+}
+.footer-caption {
+  font-family: Arial;
+  text-transform: uppercase;
+  color: white;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  letter-spacing: 2px;
+  width: 100%;
+  line-height: 36px;
+}
+.copyright {
+  position: absolute;
+  bottom: 0;
+  height: 15px;
+  margin: 20px 0;
+  color: #aaa;
+  font-family: "open sans";
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* tablet breakpoint */
+@media (max-width: 767px) {
+  .right.menu {
+    visibility: hidden;
+  }
+}
+@media only screen (max-device-width: 767px) {
+  #navbar {
+    padding: 15px 0 5px 0;
+    margin: 0;
+    border-radius: 10px;
+    max-width: 96vw !important;
+    width: 96vw !important;
+  }
+}
+@media (max-width: 648px) {
+    .footer-item {
+      width: 90vw !important;
+    }
+    .panel-col {
+      width: 100vw;
+      padding-bottom: 0;
+    }
+    .footer-section.links {
+      flex-direction: column;
+      width: 80vw;
+    }
+}
+/* icons */
+.fa {
+  padding: 13px;
+  font-size: 16px !important;
+  width: 45px;
+  background: none;
+  border: solid 1px #ddd;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin: 15px 12px;
+  border-radius: 50%;
+}
+.fa:hover {
+    background: white;
+    color: black;
+    transition: 0.2s;
+}
+/*.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}*/
