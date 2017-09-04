@@ -22,11 +22,11 @@ export default class Footer extends React.Component {
       	</div>
 
         <div className="footer-section icons">
-            <a href="facebook.com"><div className="fa fa-facebook"></div></a>
-            <a href="twitter.com"><div className="fa fa-twitter"></div></a>
-            <a href="plus.google.com"><div className="fa fa-google"></div></a>
-            <a href="linkedin.com"><div className="fa fa-linkedin"></div></a>
-            <a href="reddit.com"><div className="fa fa-reddit"></div></a>
+            <a href="https://facebook.com"><div className="fa fa-facebook"></div></a>
+            <a href="https://twitter.com"><div className="fa fa-twitter"></div></a>
+            <a href="https://plus.google.com"><div className="fa fa-google"></div></a>
+            <a href="https://linkedin.com"><div className="fa fa-linkedin"></div></a>
+            <a href="https://reddit.com"><div className="fa fa-reddit"></div></a>
         </div>
 
         <h className="copyright">Copyright © Lyle Paskowitz 2017</h>

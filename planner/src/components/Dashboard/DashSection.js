@@ -5,7 +5,7 @@ class DashSection extends React.Component {
 
     constructor(props) {
         super(props);
-        const categories = this.props.majors;
+        const categories = this.props.categories;
         const names = this.props.names;
 
         /** Generate description for DashSection stating all 
@@ -14,31 +14,34 @@ class DashSection extends React.Component {
         for (let i=0;i<names.length;i++) {
             if (i==names.length - 1) {
                 description += names[i] + '.'
+            } else if (i==(names.length - 2)) {
+                description += names[i] + ', and '
             } else {
-                description += names[i] + " & "
+                description += names[i] + ", "
             }
         }
 
         this.state = {
             description,
+            names,
             categories
         }
     }
     /* receives array of requirement categories as props from Dashboard.js 
     	and conditionally renders */
     render() {
-        const categories = this.state.categories;
+        const names = this.state.names;
         return (
             <div className="section-wrapper">
-                    <h className="ui huge header">Your description</h>
-                    <p className="subtitle">Requirements calculated for {this.state.description}</p>
+                    <h className="ui huge header">Your curriculum</h>
+                    <p className="subtitle">Requirements & courses calculated for {this.state.description}</p>
                     <div className="ui centered grid">
                     <div className="ui doubling stackable sixteen wide row">
                     
-                    {categories.map(function(category,index) {
+                    {names.map(function(name,index) {
                         return (
                             <div className="seven wide column">
-                                <CardFold title={category} credits='53'/>
+                                <CardFold title={name} credits='53'/>
                             </div>
                         )
                     })}

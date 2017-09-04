@@ -15,8 +15,11 @@ class Dashboard extends React.Component {
             Currently hard-coded example.
         */
         const categories = [
-            69002,
-            69013
+            3435501711000010, //discrete course id
+            69013,
+            4632464565834527,
+            1235134636247245,
+            3463464257277576
         ]
 
         /* Parse categories to generate name string. 
@@ -46,7 +49,7 @@ class Dashboard extends React.Component {
                     <div className="title"><p className="ui huge">Course Dashboard</p></div>
                 </div>
 
-                <DashSection majors={this.state.categories} names={this.state.names}/>
+                <DashSection categories={this.state.categories} names={this.state.names}/>
             </div>
         );
     }
