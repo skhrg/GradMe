@@ -10,12 +10,20 @@ import Footer from './components/Footer.js';
 
 //experimental modular import. will later move to own component hierarchy for Dashboard.
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
+
   render() {
+    const muiTheme = getMuiTheme({
+      palette: {
+        primary1Color: '#e0f7fa',
+        alternateTextColor: '#000',
+        accent1Color: '#f90'
+      }
+    })
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
       <div className="App">
         <Navbar/>
         <div className="navbar">

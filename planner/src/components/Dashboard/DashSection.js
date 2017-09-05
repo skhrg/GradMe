@@ -6,15 +6,20 @@ class DashSection extends React.Component {
     constructor(props) {
         super(props);
         const categories = this.props.categories;
+        /** The names prop is rendered as module titles.
+            Need 1) data to be outputted in logical format,
+                 2) a parser in Dashboard.js to turn data into
+                    valid string.
+         **/
         const names = this.props.names;
 
         /** Generate description for DashSection stating all 
             chosen majors, minors, and tracks. */
         let description = '';
         for (let i=0;i<names.length;i++) {
-            if (i==names.length - 1) {
+            if (i===names.length - 1) {
                 description += names[i] + '.'
-            } else if (i==(names.length - 2)) {
+            } else if (i===(names.length - 2)) {
                 description += names[i] + ', and '
             } else {
                 description += names[i] + ", "
@@ -32,9 +37,12 @@ class DashSection extends React.Component {
     render() {
         const names = this.state.names;
         return (
-            <div className="section-wrapper">
+            <div>
+            <div className="section">
+                <div className="sectionCaption">
                     <h className="ui huge header">Your curriculum</h>
                     <p className="subtitle">Requirements & courses calculated for {this.state.description}</p>
+                </div>
                     <div className="ui centered grid">
                     <div className="ui doubling stackable sixteen wide row">
                     
@@ -49,6 +57,7 @@ class DashSection extends React.Component {
                     </div>
               
                     </div>
+            </div>
             </div>
         );
     }

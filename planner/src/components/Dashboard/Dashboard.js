@@ -1,15 +1,11 @@
 import React from 'react';
 import '../../css/Dashboard.css';
-import DashSection from './DashSection.js';
+import DashTabs from './DashTabs.js';
 
 class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        /* state corresponds # of sections as determined by planner + back-end.  
-        E.g. a minor entered into the planner will have add a new section in addition to the major 
-        and distribution requirements.  Subsections (additional majors, mionrs, are added and passed 
-        to this component.*/
 
         /* categories are 12-digit numbers received from back-end. 
             Currently hard-coded example.
@@ -22,10 +18,19 @@ class Dashboard extends React.Component {
             3463464257277576
         ]
 
-        /* Parse categories to generate name string. 
+        const names = this.nameCategories(categories)
+
+        this.state = {
+            categories,
+            names
+        }
+    }
+
+    /* Parse categories to generate name string. 
             Search json data using major, minor, and pre-prof ids.
             Generate description of requirements for multi-option paths.
          */ 
+    nameCategories(categories) {
         const jsonmajors = require('../Guide/majors.json');
         const majorMap = jsonmajors.majors;
 
@@ -35,11 +40,7 @@ class Dashboard extends React.Component {
         const names = categories.map(function(major,i) {
             return majorMap[i]["text"]
         })
-        /* Set state to pass onto DashSection and DashOverview children. */
-        this.state = {
-            categories,
-            names
-        }
+        return names
     }
 
     render() {
@@ -49,7 +50,7 @@ class Dashboard extends React.Component {
                     <div className="title"><p className="ui huge">Course Dashboard</p></div>
                 </div>
 
-                <DashSection categories={this.state.categories} names={this.state.names}/>
+                <DashTabs categories={this.state.categories} names={this.state.names}/>
             </div>
         );
     }
