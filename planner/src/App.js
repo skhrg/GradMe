@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
 
 import './App.css';
-
-import Planner from './components/Guide/Planner.js';
-import Dashboard from './components/Dashboard/Dashboard.js';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 
@@ -17,21 +13,15 @@ class App extends Component {
   render() {
     const muiTheme = getMuiTheme({
       palette: {
-        primary1Color: '#e0f7fa',
+        primary1Color: '#e1f5fe',
         alternateTextColor: '#000',
-        accent1Color: '#f90'
+        accent1Color: '#e64a19'
       }
     })
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <div className="App">
         <Navbar/>
-        <div className="navbar">
-          <Switch>
-            <Route exact path='/' component={Planner}/>
-            <Route exact path='/dashboard' component={Dashboard}/>
-          </Switch>
-        </div> 
 
         <Footer />
       </div>

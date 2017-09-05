@@ -40,7 +40,7 @@ class DashSection extends React.Component {
             <div>
             <div className="section">
                 <div className="sectionCaption">
-                    <h className="ui huge header">Your curriculum</h>
+                    <h className="sectionTitle">Your curriculum</h>
                     <p className="subtitle">Requirements & courses calculated for {this.state.description}</p>
                 </div>
                     <div className="ui centered grid">
