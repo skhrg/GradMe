@@ -48,7 +48,7 @@ class DashSection extends React.Component {
                     
                     {names.map(function(name,index) {
                         return (
-                            <div className="seven wide column">
+                            <div className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
                                 <CardFold title={name} credits='53'/>
                             </div>
                         )

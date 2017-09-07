@@ -15,9 +15,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-/* other fonts imported via semantic and material-ui 
-@import url(https://fonts.googleapis.com/css?family=Cabin);
-*/
+/* other fonts imported via semantic and material-ui */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
 /***************
     Generic styles, classes, and animations.
     React version.
@@ -34,7 +34,9 @@ body {
   margin: 0;
   width: 100vw;
   padding: 0;
-  font-family: 'Open Sans';
+  font-family: 'Roboto Slab';
+  font-weight: 300;
+  color: #424242;
 }
 /* apply this class to a div containing icon and text GradMe */
 .logo {

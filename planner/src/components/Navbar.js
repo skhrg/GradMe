@@ -5,26 +5,25 @@ import Dashboard from './Dashboard/Dashboard.js';
 import '../css/Navbar.css'
 
 class Navbar extends React.Component {
-
+				// <div className="ui large menu">
+    //       			<div className="ui container">
+    //         			<a className="active item">Home</a>
+    //         			<a className="item">Planner</a>
+    //         			<a className="item">Dashboard</a>
+    //         			<div className="right menu">
+    //             			<div className="item">
+    //               				<a className="ui button">Log in</a>
+    //             			</div>
+    //             			<div className="item">
+    //               				<a className="ui primary button">Sign Up</a>
+    //             			</div>
+    //         			</div>
+    //       			</div>
+    //   			</div>
     render() {
         return (
         	<div>
-        		<div className="ui large top fixed visible pointing secondary menu">
-          			<div className="ui container">
-            			<a className="active item">Home</a>
-            			<a className="item">Work</a>
-            			<a className="item">Company</a>
-            			<a className="item">Careers</a>
-            			<div className="right menu">
-                			<div className="item">
-                  				<a className="ui button">Log in</a>
-                			</div>
-                			<div className="item">
-                  				<a className="ui primary button">Sign Up</a>
-                			</div>
-            			</div>
-          			</div>
-      			</div>
+        		
         		<Switch>
             		<Route exact path='/' component={Planner}/>
             		<Route exact path='/dashboard' component={Dashboard}/>

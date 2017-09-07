@@ -17,8 +17,8 @@ export default class Footer extends React.Component {
           	<a href="../../Front-End/homepage.html" className="link">Home</a>
           	<h className="link"><Link to='/' style={{color: '#9bddff'}}>Planner</Link></h>
             <h className="link"><Link to='/dashboard' style={{color: '#9bddff'}}>Dashboard</Link></h>
-          	<a href="tcolabs.org" className="link">Contact</a>
-          	<a href="tcolabs.org" className="link">About</a>
+          	<a href="https://tcolabs.org" className="link">Contact</a>
+          	<a href="https://tcolabs.org" className="link">About</a>
       	</div>
 
         <div className="footer-section icons">

@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     const muiTheme = getMuiTheme({
       palette: {
-        primary1Color: '#e1f5fe',
+        primary1Color: '#b3e5fc',
         alternateTextColor: '#000',
         accent1Color: '#e64a19'
       }

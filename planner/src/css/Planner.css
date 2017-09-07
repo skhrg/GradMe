@@ -3,7 +3,7 @@
 }
 .planner-title {
 	width: 300px !important;
-  font-family: ;
+  font-family: 'Roboto';
 	text-align: left;
 }
 .ui.massive {
@@ -83,9 +83,14 @@
     text-align: center;
     border-radius: 10px;
     line-height: 1.4em;
+    font-family: 'Roboto Slab';
+    color: #424242;
 }
 .ui.multiple.search.dropdown>input.search {
 	line-height: 1.4em !important;
+}
+.ui.multiple.search.dropdown>.text {
+  line-height: 1.4em !important;
 }
 .ui.multiple.dropdown {
 	padding-right: 0.5em;

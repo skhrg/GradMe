@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: linear-gradient(0, #e1f5fe, #80d8ff 60%);
+  background: linear-gradient(0deg, #9bddff, #b3e5fc);
   height: 150px;
 }
 .overview > .title {
@@ -12,9 +12,8 @@
   color: #260e04;
   font-size: 3.2rem;
   font-weight: 600;
-  letter-spacing: 1.3px;
+  letter-spacing: 0.5px;
   line-height: 2em;
-  padding: 60px 0 0 0;
 }
 .tabshadow {
   position: relative;
@@ -24,18 +23,20 @@
   box-shadow: 0px 10px 20px 4px rgba(51,51,51,1);
 }
 .section {
-  background: #f3f3f3;
+  background: #fafafa;
   padding: 30px 20px 20px 20px;
 }
 .sectionCaption {
   padding: 10px 0 0 1.5vw;
 }
-.sectionTitle {font-size: 1.8em; letter-spacing: 0.5px; font-weight: 600}
+.sectionTitle {font-size: 1.8em; letter-spacing: 0.5px; font-weight: 400}
 .subtitle {
-  font-size: 1.2em;
+  font-family: 'Open Sans';
+  font-size: 1.2em; font-weight: 300;
   padding: 10px 0;
   text-align: left;
 }
+.hover:hover {transition: all .2s ease-in-out;transform: scale(1.01)}
 .module {
   z-index: 1;
   background: white;
@@ -51,7 +52,7 @@
   height: 45px;
   width: 100%;
   box-sizing: border-box;
-  font-weight: 300;
+  font-family: 'Open Sans' !important;
   border-bottom: solid 1px #ddd;
   
   display: flex;
@@ -74,7 +75,7 @@
 
 .courseLabel > .course-number {
   height: 40%;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 .courseLabel > .course-title {
@@ -102,24 +103,15 @@
 .scroll-text:hover {
   margin-left: -200px;
 }
-
-/* .show {display: visible}
- */
-.sidebar {
-  height: 100vh;
-  padding: 12px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
 @media(max-width: 990px) {
   .section-title {
     padding-left: 0;
   }
 }
 /* semantic restyling */
-.ui.grid>.column:not(.row), .ui.grid>.row>.column {
-  padding: 0;
+.ui.grid>.doubling.row>.column {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
 }
 .ui.grid {
   margin-top: 0 !important;

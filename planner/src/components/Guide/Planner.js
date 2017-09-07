@@ -13,6 +13,8 @@ class Planner extends React.Component {
   		// {console.log(options[0].constructor === String)}
 	}
 
+	componentDidMount() {document.title = "Course Planner"}
+
 	/** called by SlideMenu and SlideFooter child components
 		@param newActive	a string in options array **/
 	optionHandler(newActive) {

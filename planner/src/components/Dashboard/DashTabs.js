@@ -29,7 +29,10 @@ class DashTabs extends React.Component {
         <Tab label="Overview" value="1">
           <DashSection categories={this.state.names} names={this.state.categories}/>
         </Tab>
-        <Tab label="Details" value="2">
+        <Tab label="Requirements" value="2">
+          <DashSection categories={this.state.categories} names={this.state.names}/>
+        </Tab>
+        <Tab label="Courses" value="3">
           <DashSection categories={this.state.categories} names={this.state.names}/>
         </Tab>
       </Tabs>
