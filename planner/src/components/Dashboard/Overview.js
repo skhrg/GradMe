@@ -1,11 +1,14 @@
 import React from 'react';
+import '../../css/Overview.css';
 
 class Overview extends React.Component {
 
 
     render() {
         return (
-            <div style={{'height': '500px', 'width': '100px', 'background':'#f90'}}> </div>
+            <div className = "HHS"> 
+
+            </div>
         );
     }
 }
