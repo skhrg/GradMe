@@ -25,6 +25,10 @@ class Dashboard extends React.Component {
             names
         }
     }
+
+    componentDidMount() {
+        document.title="Course Dashboard";
+    }
     /* Parse categories to generate name string. 
             Search json data using major, minor, and pre-prof ids.
             Generate description of requirements for multi-option paths.
