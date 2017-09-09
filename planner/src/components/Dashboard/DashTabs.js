@@ -1,6 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import DashSection from './DashSection.js';
+import Overview from './Overview.js';
 
 class DashTabs extends React.Component {
 
@@ -27,7 +28,7 @@ class DashTabs extends React.Component {
         onChange={this.handleChange.bind(this)}
       >
         <Tab label="Overview" value="1">
-          <DashSection categories={this.state.names} names={this.state.categories}/>
+          <Overview/>
         </Tab>
         <Tab label="Requirements" value="2">
           <DashSection categories={this.state.categories} names={this.state.names}/>
