@@ -8,7 +8,7 @@ class BarChart extends Component{
 			chartData:{
 				labels: ["Major", "Minor #1", "Minor #2", "Track"],
    				datasets: [{
-        			label: 'credits completed',
+        			label: 'Credits completed',
 			        data: [62, 16, 24, 40],
 			        backgroundColor: [
 			          'rgba(255, 99, 132, 0.2)',
@@ -25,7 +25,7 @@ class BarChart extends Component{
 			        borderWidth: 2
 			      },
 			      {
-			        label: 'credits left',
+			        label: 'Credits left',
 			        data: [40, 23, 4, 28],
 			        backgroundColor: [
 			          'rgba(255, 159, 64, 0.2)',
@@ -68,7 +68,7 @@ class BarChart extends Component{
 			<div className = "BarChart">
 				<Bar
 					data={this.state.chartData}
-					width={400}
+					width={200}
 					height={400}
 					options={
 						this.state.chartOptions
