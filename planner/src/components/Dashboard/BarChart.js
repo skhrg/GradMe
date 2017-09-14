@@ -11,35 +11,35 @@ class BarChart extends Component{
         			label: 'Credits completed',
 			        data: [62, 16, 24, 40],
 			        backgroundColor: [
-			          'rgba(255, 99, 132, 0.2)',
-			          'rgba(255, 99, 132, 0.2)',
-			          'rgba(255, 99, 132, 0.2)',
-			          'rgba(255, 99, 132, 0.2)'
+			          '#1e88e5',
+			          '#d81b60',
+			          '#f4511e',
+			          '#fdd835'
 			        ],
 			        borderColor: [
-			          'rgba(255,99,132,1)',
-			          'rgba(255,99,132,1)',
-			          'rgba(255,99,132,1)',
-			          'rgba(255,99,132,1)'
+			          'black',
+			          'black',
+			          'black',
+			          'black'
 			        ],
-			        borderWidth: 2
+			        borderWidth: 1
 			      },
 			      {
 			        label: 'Credits left',
 			        data: [40, 23, 4, 28],
 			        backgroundColor: [
-			          'rgba(255, 159, 64, 0.2)',
-			          'rgba(255, 159, 64, 0.2)',
-			          'rgba(255, 159, 64, 0.2)',
-			          'rgba(255, 159, 64, 0.2)'
+			          '#90caf9',
+			          '#f48fb1',
+			          '#ffab91',
+			          '#fff59d'
 			        ],
 			        borderColor: [
-			          'rgba(255, 159, 64, 1)',
-			          'rgba(255, 159, 64, 1)',
-			          'rgba(255, 159, 64, 1)',
-			          'rgba(255, 159, 64, 1)'
+			          'black',
+			          'black',
+			          'black',
+			          'black'
 			        ],
-			        borderWidth: 2
+			        borderWidth: 1
 			      }
 			    ]
 			},

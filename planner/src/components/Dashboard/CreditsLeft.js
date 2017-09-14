@@ -7,12 +7,11 @@ class CreditsLeft extends React.Component {
         return (
             <div>
                 <h1>You need...</h1>
-                    <br></br>
-                    <h3><span style="color: #90caf9">40</span> more credits to complete your major</h3>
-                    <h3><em>23</em> more credits to complete your first minor</h3>
-                    <h3><em>4</em> more credits to complete your second minor</h3>
-                    <h3><em>28</em> more credits to complete your track</h3>
-                </div>
+                    <h2><span style = {{color: "#1e88e5"}}> 40 </span> more credits to complete your major</h2>
+                    <h2><span style = {{color: "#d81b60"}}> 23 </span> more credits to complete your first minor</h2>
+                    <h2><span style = {{color: "#f4511e"}}> 4 </span> more credits to complete your second minor</h2>
+                    <h2><span style = {{color: "#fdd835"}}> 28 </span> more credits to complete your track</h2>
+            </div>
         );
     }
 }
