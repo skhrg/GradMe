@@ -46,6 +46,10 @@ class BarChart extends Component{
 			chartOptions: {
 				scales: {
 			      	yAxes: [{
+			      	scaleLabel: {
+			      		display: true,
+			      		labelString: "Credits"
+			      	},
 			      	stacked: true,
 			        ticks: {
 			          beginAtZero: true

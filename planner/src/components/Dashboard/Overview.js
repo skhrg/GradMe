@@ -9,8 +9,12 @@ class Overview extends React.Component {
 
     render() {
         return (
-            <div className = "HHS"> 
+            <div className = "section insetShadow"> 
 			    <div className = "ui container">
+			    <div className="sectionCaption">
+                    <h className="sectionTitle">Your overview</h>
+                    <p className="subtitle">A general look at your progress towards your graduation requirements.</p>
+                </div>
 			    	<div className = "ui stackable grid">
 			    		<div className = "row">
 			    			<div className = "nine wide column">
