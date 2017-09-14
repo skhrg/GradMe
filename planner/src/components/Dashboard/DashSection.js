@@ -37,8 +37,7 @@ class DashSection extends React.Component {
     render() {
         const names = this.state.names;
         return (
-            <div>
-            <div className="section">
+            <div className="section insetShadow">
                 <div className="sectionCaption">
                     <h className="sectionTitle">Your curriculum</h>
                     <p className="subtitle">Requirements & courses calculated for {this.state.description}</p>
@@ -57,7 +56,6 @@ class DashSection extends React.Component {
                     </div>
               
                     </div>
-            </div>
             </div>
         );
     }
