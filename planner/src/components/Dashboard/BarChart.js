@@ -46,20 +46,23 @@ class BarChart extends Component{
 			chartOptions: {
 				scales: {
 			      	yAxes: [{
-			      	scaleLabel: {
-			      		display: true,
-			      		labelString: "Credits"
-			      	},
-			      	stacked: true,
-			        ticks: {
-			          beginAtZero: true
-			        }
+				      	scaleLabel: {
+				      		display: true,
+				      		labelString: "Credits"
+				      	},
+				      	stacked: true,
+				        ticks: {
+				          beginAtZero: true
+				        }
       				}],
       				xAxes: [{
         				stacked: true,
         				ticks: {
          					beginAtZero: true
-       					}
+       					},
+				        gridLines: {
+				        	display: false
+				        }
       				}]
     			},
     			maintainAspectRatio: false
