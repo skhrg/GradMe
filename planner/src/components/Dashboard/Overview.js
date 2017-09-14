@@ -12,10 +12,10 @@ class Overview extends React.Component {
 			    <div className = "ui container">
 			    	<div className = "ui stackable grid">
 			    		<div className = "row">
-			    			<div className = "seven wide column">
+			    			<div className = "nine wide column">
 			    				<BarChart />
 			    			</div>
-			    			<div className = "nine wide left aligned column">
+			    			<div className = "seven wide left aligned column">
 			                	<div>
 					                 <h1>You need...</h1>
 					                 <br></br>
