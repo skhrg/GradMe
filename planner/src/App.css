@@ -17,6 +17,7 @@
 }
 /* other fonts imported via semantic and material-ui */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 /***************
     Generic styles, classes, and animations.

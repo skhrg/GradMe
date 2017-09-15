@@ -6,7 +6,7 @@ class Slide extends React.Component {
 
 	// /** check if activeItem is identical to name */
 	isActive(name) {
-		var active = this.props.active === name ? 'slide active' : 'slide';
+		const active = this.props.active === name ? 'slide active' : 'slide';
 		return active;
 	}
 

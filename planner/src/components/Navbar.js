@@ -1,33 +1,38 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
-import Planner from './Guide/Planner.js';
-import Dashboard from './Dashboard/Dashboard.js';
+import { Switch, Route, NavLink } from 'react-router-dom'
 import '../css/Navbar.css'
 
 class Navbar extends React.Component {
-				// <div className="ui large menu">
-    //       			<div className="ui container">
-    //         			<a className="active item">Home</a>
-    //         			<a className="item">Planner</a>
-    //         			<a className="item">Dashboard</a>
-    //         			<div className="right menu">
-    //             			<div className="item">
-    //               				<a className="ui button">Log in</a>
-    //             			</div>
-    //             			<div className="item">
-    //               				<a className="ui primary button">Sign Up</a>
-    //             			</div>
-    //         			</div>
-    //       			</div>
-    //   			</div>
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
         	<div>
-        		
-        		<Switch>
-            		<Route exact path='/' component={Planner}/>
-            		<Route exact path='/dashboard' component={Dashboard}/>
-          		</Switch>
+                <nav className="mobileHide"><div className="liner">
+                    <li className="large logo"><div class="secondary-logo"> <i class="fa fa-student"></i>GradMe</div></li>
+     
+                    <div className="right-menu">
+                        <li>
+                            <a>Home</a></li>
+                        <li>
+                            <NavLink to='/planner' activeClassName="active" style={{'textDecoration':'none'}}>Planner</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/dashboard' activeClassName="active" style={{textDecoration:'none'}}>Dashboard</NavLink>
+                        </li>
+                        <li className=""><a href="#">About</a></li>
+                        <li className=""><a href="#">Account</a></li>
+                    </div>
+                </div></nav>
+  
+                <nav className="mobile"><div className="liner">
+                    <div className="badge">
+                        Logo
+                    </div>
+                </div></nav>
+                
         	</div>
         );
     }

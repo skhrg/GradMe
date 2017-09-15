@@ -34,10 +34,10 @@ class Planner extends React.Component {
         		color = '#E3F7FA';
         		break;
             case options[1]:
-                color = '#fffedd';
+            	color = '#e8f5e9';
                 break;
             case options[2]:
-                color = '#FFE9Ea';
+                color = '#fffde7';
                 break;
             default:
                 color = 'linear-gradient(to right, #dae2f8, #d6a4a4)';
