@@ -15,7 +15,8 @@ class Navbar extends React.Component {
      
                     <div className="right-menu">
                         <li>
-                            <a>Home</a></li>
+                            <NavLink to='/home' activeClassName="active" style={{'textDecoration':'none'}}>Home</NavLink>
+                        </li>
                         <li>
                             <NavLink to='/planner' activeClassName="active" style={{'textDecoration':'none'}}>Planner</NavLink>
                         </li>

@@ -1,13 +1,13 @@
 .overview {
   display: flex;
-  flex-direction: row;
+  flex-flow: row nowrap;
   justify-content: space-around;
   background: linear-gradient(0deg,#e3f2fd,#9bddff);
   height: 170px;
 }
 .overview > .title {
   height: 80px;
-  margin: 80px 0 0 80px;
+  margin-top: 70px;
   text-align: center;
   font-family: 'Open Sans';
   color: #260e04;

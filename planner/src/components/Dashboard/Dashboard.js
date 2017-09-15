@@ -153,7 +153,7 @@ class Dashboard extends React.Component {
         return (
             <div id="page-container">
                 <div className="overview">
-                    <div className="title"><p className="ui huge">Course Dashboard</p></div>
+                    <div className="title"><h className="huge">Course Dashboard</h></div>
                 </div>
 
                 <DashTabs categories={this.state.categories} names={this.state.names}/>

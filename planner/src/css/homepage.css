@@ -8,14 +8,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     padding: 0 10vw;
 }
 
 .title-center {width:100%;}
-.title {
+.parallax > .title {
     font-family: "Open Sans";
     letter-spacing: 1px;
     text-align: center;
@@ -28,7 +28,7 @@
 .subcenter {
     width:100%;
 }
-.subtitle {
+.parallax > .subtitle {
     font-family: "Open Sans";
     letter-spacing: 1px;
     text-align: center;
@@ -37,7 +37,7 @@
     font-weight: 300;
     word-wrap: normal;
     text-shadow: 1px 1px rgba(0,0,0,0.50);
-    margin: 0 12%;
+    margin: 0 20px;
 }
 
 .further {border-color: #fff; border: 1%; border-style: solid; margin: 0 10px; padding: 10px; width: 250px; color: #fff;
@@ -69,21 +69,21 @@
 
 #intro {
   background: #fff;
-  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
 }
 #intro #text {
   padding: 0 25%;
 }
 #first {
-  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
     flex-flow: row wrap;
 }
 #second {
-  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
   flex-flow: row wrap-reverse;
 }
 #close {
-  background-image: url('../images/debut_light.png'); background-blend-mode: multiply;
+  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
   height: 200px;
 }
 #close #text {
@@ -161,7 +161,7 @@
 
 /* style for last panel */
 #last {
-  background-image: url('../images/peabody.jpg'), linear-gradient(35deg, #fff, orange);
+  background-image: url('../resources/peabody.jpg'), linear-gradient(35deg, #fff, orange);
   background-position: center;
   background-blend-mode: multiply;
   background-attachment: fixed/*,scroll*/;
