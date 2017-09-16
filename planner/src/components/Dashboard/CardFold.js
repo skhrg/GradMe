@@ -11,7 +11,7 @@ class CardFold extends React.Component {
       const subtitle = creditsComplete + '/' + this.props.credits
         + ' credits'
         return (
-            <Card style={{margin: '15px 0', 'border-radius': '4px'}}>
+            <Card style={{margin: '15px 0', 'borderRadius': '4px'}}>
                 <CardHeader
                     title={this.props.title}
                     subtitle={subtitle}
