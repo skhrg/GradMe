@@ -2,6 +2,7 @@
 	Taken from 2D arraylist outputted by backend.
  */
 {
+	"credits": #, //simple integer field showing how many credits are required for majors + minors + tracks
 	"categories": [
 
 		/** First category is course requirements. Exactly one generated.
@@ -10,9 +11,9 @@
 		{
 			"type": "Required courses", 
 			"courses": [
-			/** array of courses. Each course contains a name, course number,
-				and course level. Example below:
-				{"name": "Special Relativity and Waves", "id":"AS.171.201", "credits": 4}
+			/** array of courses. Each course contains a title, course number,
+				and credit level. Example below:
+				{"id":"AS.171.201", "title": "Special Relativity and Waves", "credits": 4}
 			 **/
 			]
 		},
@@ -38,19 +39,24 @@
 		 */
 		{ 
 			"type": "Distribution Requirement",
-			"label": "'<x> credits of <areas> courses at <x>00-level' XOR '<x> credits of <areas>'",			
+			"label": "'Minimum <x> credits of ><x>-credit <area/dept> courses at <x>00-level or above' XOR '<x> credits of <area/dept>'"
+			/** Note that it's possible to have a distribution across multiple departments.
+				For example, Arts & Sciences students must take 9 credits of Natural,
+				Quantitative, or Engineering Sciences.  In this case, write
+				"Minimum 9 credits of Natural, Quantitative, or Engineering Sciences".
+			 */
+
 		},
 
-		/** Third category type is the option. Labelled "Choose one of <x> options." 
-			Contains subchildren that are tracks, each of which contain of of the three
-			prior types.
+		/** Fourth category type is the option. Labelled "Choose one of <x> options." 
+			Contains category subchildren that are one of the three prior types.
 			Identified by 3 in first index.
 		 */
 		{
 			"type": "Option",
 			"label": "Choose one of <x> options",
 			"tracks": [
-				/** Array of tracks.  Each track contains one of the prior three categories. 
+				/** Array of subcategries.  Each track contains one of the prior three categories. 
 					30,31, or 32 in first index.
 			 	 */
 			]

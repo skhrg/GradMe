@@ -1,0 +1,120 @@
+/** Dummy data to be put into course dashboard. Categories generated for physics and stronomy majors. */
+{
+	"credits": 73, //need to take 73 Physics-specific credits
+	"categories": [
+
+		/** First category is course requirements. Exactly one generated.
+			Identified by a 0 in the first index of a row in Ben's arraylist.
+		 */
+		{
+			"type": "Required courses", 
+			"courses": [
+			// array of courses
+			 	{"id": "AS.171.201", "title": "Special Relativity and Waves", "credits": 4},
+			 	{"id": "AS.110.108", "title": "Calculus I",	"credits": 4},
+				{"id": "AS.110.109", "title": "Calculus II (For Physical Sciences and Engineering)", "credits": 4},
+				{"id": "AS.110.202", "title": "Calculus III", "credits": 4},
+				{"id": "AS.110.302", "title": "Differential Equations and Applications", "credits": 4},
+				{"id": "AS.110.201", "title": "Linear Algebra",	"credits": 4},
+				{"id":"AS.171.105",	"title":"Classical Mechanics I","credits": 4},
+				{"id":"AS.173.115",	"title":"Classical Mechanics Laboratory","credits": 1},
+				{"id":"AS.171.106",	"title":"Electricity and Magnetism I","credits": 4},
+				{"id":"AS.173.116",	"title":"Electricity and Magnetism Laboratory",	"credits": 1},
+				{"id":"AS.172.203",	"title":"Contemporary Physics Seminar",	"credits": 1},
+				{"id":"AS.171.204",	"title":"Classical Mechanics II", "credits": 4},
+				{"id":"AS.171.301",	"title":"Electromagnetic Theory II", "credits": 4},
+				{"id":"AS.171.303",	"title":"Quantum Mechanics I", "credits": 4},
+				{"id":"AS.173.308",	"title":"Advanced Physics Laboratory", "credits": 3}
+			]
+		},
+		//no second category type for this major
+
+		/** Third category type: distribution requirements.
+		 */
+		{ 
+			"type": "Distribution Requirement",
+			"label": "Minimum 9 credits of Humanities"			
+		},
+		{ 
+			"type": "Distribution Requirement",
+			"label": "Minimum 9 credits of Social Sciences"			
+		},
+		{ 
+			"type": "Distribution Requirement",
+			"label": "Minimum 9 credits of Natural, Quantitative, or Engineering Sciences"			
+		}
+
+		/** Options.
+		 */
+		{
+			"type": "Option",
+			"label": "Fulfill one of seven options",
+			"subcategories": [
+				// first subcategory is of distribution requirement type
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Biology courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Biophysics courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Chemistry courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Cognitive Science courses at the 200 level or above"			
+				},
+				{
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Earth and Planetary Science courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Mathematics courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 12 credits of >3-credit Physics courses at the 200 level or above"			
+				}
+			]
+		},
+		{
+			"type": "Option",
+			"label": "Fulfill one of nine options",
+			"subcategories": [
+				// first subcategory is of distribution requirement type
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Biology courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Biophysics courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Chemistry courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Cognitive Science courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Earth and Planetary Science courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Mathematics courses at the 200 level or above"			
+				},
+				{ 
+					"type": "Distribution Requirement",
+					"label": "Minimum 3 credits of >3-credit Physics courses at the 200 level or above"			
+				}
+			]
+		}
+	] //end categories
+}
