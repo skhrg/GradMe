@@ -11,31 +11,34 @@ class DashSection extends React.Component {
                  2) a parser in Dashboard.js to turn data into
                     valid string.
          **/
-        const names = this.props.names;
+        // const names = this.props.names;
 
-        /** Generate description for DashSection stating all 
-            chosen majors, minors, and tracks. */
-        let description = '';
-        for (let i=0;i<names.length;i++) {
-            if (i===names.length - 1) {
-                description += names[i] + '.'
-            } else if (i===(names.length - 2)) {
-                description += names[i] + ', and '
-            } else {
-                description += names[i] + ", "
-            }
-        }
+        // /** Generate description for DashSection stating all 
+        //     chosen majors, minors, and tracks. */
+        // let description = '';
+        // for (let i=0;i<names.length;i++) {
+        //     if (i===names.length - 1) {
+        //         description += names[i] + '.'
+        //     } else if (i===(names.length - 2)) {
+        //         description += names[i] + ', and '
+        //     } else {
+        //         description += names[i] + ", "
+        //     }
+        // }
 
+        // this.state = {
+        //     description,
+        //     names,
+        //     categories
+        // }
         this.state = {
-            description,
-            names,
-            categories
+            data: categories
         }
     }
     /* receives array of requirement categories as props from Dashboard.js 
     	and conditionally renders */
     render() {
-        const names = this.state.names;
+        const categories = this.state.data;
         return (
             <div className="section insetShadow">
                 <div className="sectionCaption">
@@ -45,13 +48,7 @@ class DashSection extends React.Component {
                     <div className="ui centered grid">
                     <div className="ui doubling stackable sixteen wide row">
                     
-                    {names.map(function(name,index) {
-                        return (
-                            <div className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
-                                <CardFold title={name} credits='53'/>
-                            </div>
-                        )
-                    })}
+                    
      
                     </div>
               
@@ -59,6 +56,13 @@ class DashSection extends React.Component {
             </div>
         );
     }
+                    // {categories.categories.map(function(category,i) {
+                    //     return (
+                    //         <div className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                    //             <CardFold title={category[i].type} credits='53'/>
+                    //         </div>
+                    //     )
+                    // })}
 }
 
 export default DashSection;

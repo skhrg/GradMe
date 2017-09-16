@@ -1,10 +1,15 @@
-{
-	"curriculum": "Physics",
-	"credits": 73,
+{ /** Dummy data to be put into course dashboard. Categories generated for physics and astronomy majors. */
+	"curriculum": "Physics", //title of major-minor-track combination
+	"credits": 73, //need to take 73 Physics-specific credits
 	"categories": [
+
+		/** First category is course requirements. Exactly one generated.
+			Identified by a 0 in the first index of a row in Ben's arraylist.
+		 */
 		{
 			"type": "Required courses", 
 			"courses": [
+			// array of courses
 			 	{"id": "AS.171.201", "title": "Special Relativity and Waves", "credits": 4},
 			 	{"id": "AS.110.108", "title": "Calculus I",	"credits": 4},
 				{"id": "AS.110.109", "title": "Calculus II (For Physical Sciences and Engineering)", "credits": 4},
@@ -22,6 +27,10 @@
 				{"id":"AS.173.308",	"title":"Advanced Physics Laboratory", "credits": 3}
 			]
 		},
+		//no second category type for this major
+
+		/** Third category type: distribution requirements.
+		 */
 		{ 
 			"type": "Distribution Requirement",
 			"label": "Minimum 9 credits of Humanities"			
@@ -35,10 +44,13 @@
 			"label": "Minimum 9 credits of Natural, Quantitative, or Engineering Sciences"			
 		},
 
+		/** Options.
+		 */
 		{
 			"type": "Option",
 			"label": "Fulfill one of seven options",
 			"subcategories": [
+				// first subcategory is of distribution requirement type
 				{ 
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Biology courses at the 200 level or above"			
@@ -73,6 +85,7 @@
 			"type": "Option",
 			"label": "Fulfill one of nine options",
 			"subcategories": [
+				// first subcategory is of distribution requirement type
 				{ 
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Biology courses at the 200 level or above"			
@@ -103,5 +116,5 @@
 				}
 			]
 		}
-	]
+	] //end categories
 }

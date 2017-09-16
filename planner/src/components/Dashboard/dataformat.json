@@ -2,6 +2,7 @@
 	Taken from 2D arraylist outputted by backend.
  */
 {
+	"curriculum": "<name>", //title of major-minor-track combination
 	"credits": #, //simple integer field showing how many credits are required for majors + minors + tracks
 	"categories": [
 
