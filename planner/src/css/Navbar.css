@@ -72,6 +72,14 @@ nav.mobile {
   top: 0;
   width: 100vw;
 }
+nav .logo .fa {
+  border: none;
+  color: #000;
+  margin: 0;
+}
+nav .logo .fa:hover {
+  background: none;
+}
 nav.mobile > .logo {
   justify-content: center;
 }

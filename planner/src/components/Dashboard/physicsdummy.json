@@ -3,7 +3,9 @@
 	"credits": 73,
 	"categories": [
 		{
-			"type": "Required courses", 
+			"key": 0,
+			"type": "Required",
+			"label": "Required Courses",
 			"courses": [
 			 	{"id": "AS.171.201", "title": "Special Relativity and Waves", "credits": 4},
 			 	{"id": "AS.110.108", "title": "Calculus I",	"credits": 4},
@@ -22,82 +24,101 @@
 				{"id":"AS.173.308",	"title":"Advanced Physics Laboratory", "credits": 3}
 			]
 		},
-		{ 
+		{
+			"key": 1,
 			"type": "Distribution Requirement",
 			"label": "Minimum 9 credits of Humanities"			
 		},
-		{ 
+		{
+			"key": 2,
 			"type": "Distribution Requirement",
 			"label": "Minimum 9 credits of Social Sciences"			
 		},
-		{ 
+		{
+			"key": 3,
 			"type": "Distribution Requirement",
 			"label": "Minimum 9 credits of Natural, Quantitative, or Engineering Sciences"			
 		},
 
 		{
+			"key": 4,
 			"type": "Option",
 			"label": "Fulfill one of seven options",
 			"subcategories": [
-				{ 
+				{
+					"key": 1000,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Biology courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 1001,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Biophysics courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 1002,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Chemistry courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 1003,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Cognitive Science courses at the 200 level or above"			
 				},
 				{
+					"key": 1004,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Earth and Planetary Science courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 1005,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Mathematics courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 1006,
 					"type": "Distribution Requirement",
 					"label": "Minimum 12 credits of >3-credit Physics courses at the 200 level or above"			
 				}
 			]
 		},
 		{
+			"key": 5,
 			"type": "Option",
 			"label": "Fulfill one of nine options",
 			"subcategories": [
-				{ 
+				{
+					"key": 2000,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Biology courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2001,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Biophysics courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2002,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Chemistry courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2003,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Cognitive Science courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2004,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Earth and Planetary Science courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2005,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Mathematics courses at the 200 level or above"			
 				},
-				{ 
+				{
+					"key": 2006,
 					"type": "Distribution Requirement",
 					"label": "Minimum 3 credits of >3-credit Physics courses at the 200 level or above"			
 				}

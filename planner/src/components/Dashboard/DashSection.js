@@ -5,7 +5,6 @@ class DashSection extends React.Component {
 
     constructor(props) {
         super(props);
-        const categories = this.props.categories;
         /** The names prop is rendered as module titles.
             Need 1) data to be outputted in logical format,
                  2) a parser in Dashboard.js to turn data into
@@ -32,37 +31,36 @@ class DashSection extends React.Component {
         //     categories
         // }
         this.state = {
-            data: categories
+            data: props.categories,
         }
     }
     /* receives array of requirement categories as props from Dashboard.js 
     	and conditionally renders */
     render() {
-        const categories = this.state.data;
+        const cats = this.state.data;
         return (
             <div className="section insetShadow">
                 <div className="sectionCaption">
                     <h className="sectionTitle">Your curriculum</h>
-                    <p className="subtitle">Requirements & courses calculated for {this.state.description}</p>
+                    <p className="subtitle">Requirements and courses calculated for a major in {cats.curriculum}.</p>
                 </div>
                     <div className="ui centered grid">
                     <div className="ui doubling stackable sixteen wide row">
-                    
-                    
+
+                    {cats.categories.map(function(cat,i) {
+                        return (
+                            <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                                <CardFold title={cat.label} credits='53'/>
+                            </div>
+                        )
+                    })}
      
                     </div>
               
                     </div>
             </div>
         );
-    }
-                    // {categories.categories.map(function(category,i) {
-                    //     return (
-                    //         <div className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
-                    //             <CardFold title={category[i].type} credits='53'/>
-                    //         </div>
-                    //     )
-                    // })}
+    }    
 }
 
 export default DashSection;
