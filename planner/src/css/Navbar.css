@@ -2,12 +2,9 @@ nav {
   position: absolute;
   width: 100%;
   top: 0;
-  background: rgba(150,150,150,0.2);
-  /*background: none;*/
   height: 50px;
-  z-index: 1000;
-/*  border-bottom: solid 1px #ddd;
-*/}
+  z-index: 800;
+}
 nav .liner {
   display: flex !important;
   flex-direction: row;

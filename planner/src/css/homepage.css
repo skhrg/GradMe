@@ -24,7 +24,9 @@
     word-wrap: normal;
     text-shadow: 0 3px 3px rgba(0,0,0,0.50);
 }
-
+#content {
+  height: 0; margin: 0;
+}
 .subcenter {
     width:100%;
 }

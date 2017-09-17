@@ -1,13 +1,23 @@
-import React from 'react';
+import React from 'react'
 import { NavLink } from 'react-router-dom'
+import createHistory from 'history/createBrowserHistory'
 import '../css/Navbar.css'
 
 class Navbar extends React.Component {
 
     render() {
+        const history = createHistory();
+        const location = history.location;
+        let navback
+        if (location.pathname == "/home") {
+            navback = '#fff' 
+        } else {
+            navback = 'rgba(255,255,255,0.5)'
+        }
         return (
         	<div>
-                <nav className="mobileHide"><div className="liner">
+
+                <nav className="mobileHide" style={{background: navback}}><div className="liner">
                     <li className="large logo"><i className="fa fa-graduation-cap"/>GradMe</li>
      
                     <div className="right-menu">
