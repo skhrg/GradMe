@@ -1,9 +1,6 @@
 import React from 'react';
 
-class Label extends Component {
-    static propTypes = {
-        className: PropTypes.string,
-    };
+class Label extends React.Component {
 
     constructor(props) {
         super(props);

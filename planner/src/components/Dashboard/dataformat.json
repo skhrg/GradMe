@@ -12,6 +12,7 @@
 		{
 			"type": "Required", 
 			"label": "Required courses",
+			"credits": //integer sum of credits for alll courses
 			"courses": [
 			/** array of courses. Each course contains a title, course number,
 				and credit level. Example below:
@@ -58,7 +59,7 @@
 			"type": "Option",
 			"label": "Choose one of <x> options",
 			"tracks": [
-				/** Array of subcategries.  Each track contains one of the prior three categories. 
+				/** Array of subcategories.  Each track contains one of the prior three categories. 
 					30,31, or 32 in first index.
 					UPDATE: Subcategories need to have unique keys as well. Start with 1000
 					and increment by 1 or something.

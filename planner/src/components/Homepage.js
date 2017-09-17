@@ -47,6 +47,7 @@ class Homepage extends React.Component {
 		        	<h className="caption">Get ahead today.</h>
 		        	<p className="description"></p>
 		    	</div>
+		    	<hr/>
 		    </div>
 
 		    <div id="last" className="panel">         

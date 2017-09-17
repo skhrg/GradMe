@@ -10,8 +10,7 @@ class DashTabs extends React.Component {
     // State passed into DashSection and DashOverview children.
     this.state = {
       activetab: '1',
-      categories: this.props.categories,
-      names: this.props.names
+      categories: this.props.categories
     };
   }
 
@@ -31,10 +30,10 @@ class DashTabs extends React.Component {
           <Overview/>
         </Tab>
         <Tab label="Requirements" value="2">
-          <DashSection categories={this.state.categories} names={this.state.names}/>
+          <DashSection categories={this.state.categories}/>
         </Tab>
         <Tab label="Courses" value="3">
-          <DashSection categories={this.state.categories} names={this.state.names}/>
+          <DashSection categories={this.state.categories}/>
         </Tab>
       </Tabs>
     );

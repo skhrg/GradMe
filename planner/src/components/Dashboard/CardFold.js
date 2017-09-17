@@ -2,11 +2,17 @@ import React from 'react';
 import {Card, CardHeader} from 'material-ui/Card';
 // import FlatButton from 'material-ui/FlatButton';
 import InfoModule from './InfoModule.js';
+import Label from './Label.js';
 
 //test component for material-ui
 class CardFold extends React.Component {
-
+    // {props.options.map(function(course,i) {
+    //                     return (
+    //                         <Label course={course} title={course.title} credits={course.credits}/>
+    //                     )
+    //                 })}
     render() {
+        {console.log(this.props.options)}
       const creditsComplete = 'xx'
       const subtitle = creditsComplete + '/' + this.props.credits
         + ' credits'
@@ -19,14 +25,13 @@ class CardFold extends React.Component {
                     showExpandableButton={true}
                 />
                 <InfoModule expandable={true}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </InfoModule>
+
+                    
             </Card>
         );
     }
 }
+                    
 
 export default CardFold;
