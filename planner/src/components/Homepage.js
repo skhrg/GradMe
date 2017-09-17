@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import '../css/homepage.css';
 
 class Homepage extends React.Component {
+	componentDidMount() {
+        document.title="Course Dashboard";
+    }
     render() {
         return (
        	<div>

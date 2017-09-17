@@ -8,11 +8,8 @@ class Dashboard extends React.Component {
         super(props);
 
         /* categories are 12-digit numbers received from back-end. 
-            Dummy data fitting dataformat.json specification.
-        */
+            Dummy data using dataformat.json specification. */
         const categories = require('./physicsdummy.json');
-
-        // const names = this.nameCategories(categories)
 
         this.state = {
             data: categories
