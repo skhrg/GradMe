@@ -12,7 +12,7 @@
 		{
 			"type": "Required", 
 			"label": "Required courses",
-			"credits": //integer sum of credits for alll courses
+			"credits": //integer sum of credits for all courses,
 			"courses": [
 			/** array of courses. Each course contains a title, course number,
 				and credit level. Example below:
@@ -29,6 +29,7 @@
 		 {
 			"type": "Selected courses",
 			"label": "<x> credits of following courses",
+			"credits": x,
 		 	"courses": [
 		 		//array of courses
 			]
@@ -42,7 +43,8 @@
 		 */
 		{
 			"type": "Distribution Requirement",
-			"label": "'Minimum <x> credits of ><x>-credit <area/dept> courses at <x>00-level or above' XOR '<x> credits of <area/dept>'"
+			"label": "'Minimum <x> credits of ><x>-credit <area/dept> courses at <x>00-level or above' XOR '<x> credits of <area/dept>'",
+			"credits": x,
 			/** Note that it's possible to have a distribution across multiple departments.
 				For example, Arts & Sciences students must take 9 credits of Natural,
 				Quantitative, or Engineering Sciences.  In this case, write
@@ -60,9 +62,7 @@
 			"label": "Choose one of <x> options",
 			"tracks": [
 				/** Array of subcategories.  Each track contains one of the prior three categories. 
-					30,31, or 32 in first index.
-					UPDATE: Subcategories need to have unique keys as well. Start with 1000
-					and increment by 1 or something.
+					30,31, or 32 in first index. Credit count calculated the same.
 			 	 */
 			]
 		}
