@@ -13,7 +13,6 @@
     text-align: center;
     padding: 0 10vw;
 }
-
 .title-center {width:100%;}
 .parallax > .title {
     font-family: "Open Sans";
@@ -41,7 +40,6 @@
     text-shadow: 1px 1px rgba(0,0,0,0.50);
     margin: 0 20px;
 }
-
 .further {border-color: #fff; border: 1%; border-style: solid; margin: 0 10px; padding: 10px; width: 250px; color: #fff;
     text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";}
 .prompt{
@@ -57,49 +55,33 @@
 /* MAIN PAGE CONTENT */
 .panel {
   height: 350px;
+  width: 100vw;
   padding: 0;
   background: white;
-  display: -webkit-box;
-  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  -webkit-transition: -webkit-transform 0.6s ease-in-out; transition: transform 0.6s ease-in-out;
-}
-
-#intro {
-  background: #fff;
   background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
 }
-#intro #text {
+
+#intro .txt, #last .txt {
   padding: 0 25%;
 }
 #first {
-  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
-    flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 #second {
-  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
   flex-flow: row wrap-reverse;
 }
-#close {
-  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
+#last {
   height: 200px;
 }
-#close #text {
-  padding: 0 25%;
-}
-
-.panel-txt {
+.panel-item {
   width: 42vw;
 }
-.panel-img {
-  width: 42vw;
-}
-
-#text {
+.txt {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -110,7 +92,6 @@
   text-align: center;
   padding: 0 5%;
 }
-
 #image-first {
   background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/06/emotionarch.jpg);
   background-position: center;
@@ -135,7 +116,6 @@
   margin-top: -31px;
   margin-left: -36px;
 }
-
 .triangle-left {
   position: relative;
   width: 0; height: 0;
@@ -146,23 +126,21 @@
   right: 36px;
   margin-right: -36px;
 }
-
-.caption {
+.capt {
   font-family: "Open Sans";
   font-size: 30px;
   font-weight: 700;
   line-height: 36px;
   margin-bottom: 15px;
 }
-.description {
+.panel .description {
+  margin: 0;
   font-family: "Open Sans";
   font-size: 20px;
   font-weight: 300;
   line-height: 1.7em;
 }
-
-/* style for last panel */
-#last {
+#backdrop {
   background-image: url('../resources/peabody.jpg'), linear-gradient(35deg, #fff, orange);
   background-position: center;
   background-blend-mode: multiply;
@@ -196,10 +174,10 @@
 hr {
   width: 15vw;
   height: 0;
-  border: solid 1px #f90;
+  border: solid 10px #f90;
 }
 
-#intro hr, #close hr {
+#intro hr, #last hr {
   width: 30vw;
   border: double 1px #000;
 }

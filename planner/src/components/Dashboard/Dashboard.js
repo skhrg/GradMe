@@ -4,22 +4,16 @@ import DashTabs from './DashTabs.js';
 
 class Dashboard extends React.Component {
 
-    constructor(props) {
-        super(props);
-
+    constructor() {
+        super();
         /* categories are 12-digit numbers received from back-end. 
             Dummy data using dataformat.json specification. */
         const categories = require('./physicsdummy.json');
 
-        this.state = {
-            data: categories
-        }
+        this.state = {data: categories}
     }
 
-    componentDidMount() {
-        document.title="Course Dashboard";
-    }
-    
+    componentDidMount() {document.title="Course Dashboard"}
 
     render() {
         return (

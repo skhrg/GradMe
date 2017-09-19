@@ -58,10 +58,6 @@ nav li.logo:hover {
   background: none;
 }
 
-.right-menu {
-  z-index: 50;
-}
-
 /* mobile av  */
 nav.mobile {
   display: none;

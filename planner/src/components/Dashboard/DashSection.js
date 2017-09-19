@@ -4,7 +4,7 @@ import CardFold from './CardFold.js';
 class DashSection extends React.Component {
 
     constructor(props) {
-        super(props);
+        super();
         /** The names prop is rendered as module titles.
             Need 1) data to be outputted in logical format,
                  2) a parser in Dashboard.js to turn data into

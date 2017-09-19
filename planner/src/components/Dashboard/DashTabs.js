@@ -6,11 +6,11 @@ import Overview from './Overview.js';
 class DashTabs extends React.Component {
 
   constructor(props) {
-    super(props);
+    super();
     // State passed into DashSection and DashOverview children.
     this.state = {
       activetab: '1',
-      categories: this.props.categories
+      categories: props.categories
     };
   }
 
