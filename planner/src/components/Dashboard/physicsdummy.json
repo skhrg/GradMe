@@ -5,6 +5,7 @@
 		{
 			"type": "Required",
 			"label": "Required Courses",
+			"credits": 14,
 			"courses": [
 			 	{"id": "AS.171.201", "title": "Special Relativity and Waves", "credits": 4},
 			 	{"id": "AS.110.108", "title": "Calculus I",	"credits": 4},

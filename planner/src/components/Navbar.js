@@ -7,7 +7,7 @@ const Navbar = () => {
     const history = createHistory();
     const location = history.location;
     let navback
-    if (location.pathname == "/home") {
+    if (location.pathname === "/home") {
         navback = '#fff' 
     } else {
         navback = 'rgba(255,255,255,0.5)'

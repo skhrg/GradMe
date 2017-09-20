@@ -12,7 +12,11 @@ class CardFold extends React.Component {
     //                     )
     //                 })}
     render() {
-        {console.log(this.props.options)}
+      const credits = this.props.credits
+      const courses = this.props.courses
+      const options = this.props.options
+      // {console.log(courses)}
+      // {console.log(options)}
       const creditsComplete = 'xx'
       const subtitle = creditsComplete + '/' + this.props.credits
         + ' credits'
@@ -24,7 +28,7 @@ class CardFold extends React.Component {
                     actAsExpander={true}
                     showExpandableButton={true}
                 />
-                <InfoModule expandable={true}>
+                <InfoModule expandable={true} credits={credits} options={options} courses={courses}>
                 </InfoModule>
 
                     

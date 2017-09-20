@@ -50,7 +50,7 @@ class DashSection extends React.Component {
                     {cats.categories.map(function(cat,i) {
                         return (
                             <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
-                                <CardFold title={cat.label} courses={cats.courses} options={cats.tracks} credits='53'/>
+                                <CardFold title={cat.label} courses={cat.courses} options={cat.subcategories} credits={cat.credits}/>
                             </div>
                         )
                     })}
