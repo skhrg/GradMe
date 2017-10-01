@@ -85,3 +85,10 @@ nav.mobile > .logo {
     display: block;
   }
 }
+/* Modal CSS */
+.backdrop {
+  width: 100%;
+  height: 100%;
+  z-index: 750;
+  background: #f00;
+}

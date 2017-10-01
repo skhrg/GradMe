@@ -2,19 +2,34 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 import '../css/Navbar.css'
+import LoginModal from './Account/LoginModal.js'
 
-const Navbar = () => {
-    const history = createHistory();
-    const location = history.location;
-    let navback
-    if (location.pathname === "/home") {
-        navback = '#fff' 
-    } else {
-        navback = 'rgba(255,255,255,0.5)'
+class Navbar extends React.Component {
+    constructor() {
+        super()
+        this.state = {login: false}
+        this.openModal = this.openModal.bind(this)
     }
-    return (
-        <div>
 
+    openModal(e) {
+        e.preventDefault()
+        this.setState({
+            login: true
+        })
+        {alert(this.state.login)}
+    }
+    
+    render() {
+        const history = createHistory();
+        const location = history.location;
+        let navback
+        if (location.pathname === "/home") {
+            navback = '#fff' 
+        } else {
+            navback = 'rgba(255,255,255,0.5)'
+        }
+        return (
+        <div>
             <nav className="mobileHide" style={{background: navback}}><div className="liner">
                 <li className="large logo"><i className="fa fa-graduation-cap"/>GradMe</li>
      
@@ -28,8 +43,8 @@ const Navbar = () => {
                     <li>
                         <NavLink to='/dashboard' activeClassName="active" style={{textDecoration:'none'}}>Dashboard</NavLink>
                     </li>
-                    <li className=""><a>About</a></li>
-                    <li className=""><a>Account</a></li>
+                    <li ><a>About</a></li>
+                    <li onClick={this.openModal}><a>Account</a></li>
                 </div>
             </div></nav>
   
@@ -37,10 +52,11 @@ const Navbar = () => {
                 <div className="badge">
                     Logo
                 </div>
-            </div></nav>
-                
+            </div></nav>   
+
+            <LoginModal visible={this.state.login}/> 
         </div>
-    );
+    )};
 }
 
 export default Navbar;

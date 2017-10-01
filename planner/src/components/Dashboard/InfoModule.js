@@ -37,7 +37,7 @@ class InfoModule extends React.Component {
                     <div key={i} className="courseLabel">
                       <div className="course-title">{option.label}</div>
                       <div className="courseLabel-id">
-                        <p className="course-number">{options.type}</p>
+                        <p className="course-number">{option.type}</p>
                         <p className="course-credit">{option.credits + " credits"}</p>
                       </div>
                     </div>
