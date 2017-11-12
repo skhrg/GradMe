@@ -1,7 +1,7 @@
 import React from 'react';
 import CardFold from './CardFold.js';
 
-class DashSection extends React.Component {
+class Requirements extends React.Component {
 
     constructor(props) {
         super();
@@ -12,7 +12,7 @@ class DashSection extends React.Component {
          **/
         // const names = this.props.names;
 
-        // /** Generate description for DashSection stating all 
+        // /** Generate description for Requirements stating all 
         //     chosen majors, minors, and tracks. */
         // let description = '';
         // for (let i=0;i<names.length;i++) {
@@ -63,4 +63,4 @@ class DashSection extends React.Component {
     }    
 }
 
-export default DashSection;
+export default Requirements;

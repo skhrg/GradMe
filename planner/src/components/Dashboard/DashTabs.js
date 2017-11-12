@@ -1,6 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import DashSection from './DashSection.js';
+import Requirements from './Requirements.js';
+import Courses from './Courses.js';
 import Overview from './Overview.js';
 
 class DashTabs extends React.Component {
@@ -30,10 +31,10 @@ class DashTabs extends React.Component {
           <Overview/>
         </Tab>
         <Tab label="Requirements" value="2">
-          <DashSection categories={this.state.categories}/>
+          <Requirements categories={this.state.categories}/>
         </Tab>
         <Tab label="Courses" value="3">
-          <DashSection categories={this.state.categories}/>
+          <Courses categories={this.state.categories}/>
         </Tab>
       </Tabs>
     );
