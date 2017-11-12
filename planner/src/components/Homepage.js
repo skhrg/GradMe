@@ -54,7 +54,7 @@ class Homepage extends React.Component {
 		          <div className="logo sizecolor outline"><i className="student icon"></i>GradMe</div>
 		          <p><br/></p>
 		          <a href="./planner.html">
-		            <h className="capt final">GET STARTED</h> 
+		            <h className="capt final"><Link to='/planner' style={{'color': '#9bddff'}}>GET STARTED</Link></h> 
 		          </a>
 		        </div>
 		    </div>

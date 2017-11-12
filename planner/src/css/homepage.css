@@ -99,7 +99,7 @@
   background-size: cover;
 }
 #image-second {
-  background-image: url(http://visitasbabylontours.es/londres/wp-content/uploads/2013/06/feature_bw11.jpg);
+  background-image: url('../resources/galleria_vittorio.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -164,7 +164,7 @@
     background: rgba(50,50,50,0.5);
 }
 .final:hover {
-    background: #9bddff; 
+    background: rgba(120,100,100,0.7);
     color: #000;
     -webkit-transition: all 0.2s ease-in-out 0s;
     transition: all 0.2s ease-in-out 0s;
