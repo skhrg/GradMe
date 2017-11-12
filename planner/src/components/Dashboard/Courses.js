@@ -1,11 +1,11 @@
-import React from 'react';
-import CardFold from './CardFold.js';
+import React from 'react'
+import CardFold from './CardFold.js'
+import CardHead from './CardHead.js'
 
 class Courses extends React.Component {
-    //Adds search bar through comprehensive list of courses. Users can view courses available and select ones they have taken.
+    //search bar, course scraping
     constructor(props) {
-        super();
-        this.state = {
+        super();this.state = {
             data: props.categories,
         }
     }
@@ -16,18 +16,26 @@ class Courses extends React.Component {
         return (
             <div className="section insetShadow">
                 <div className="sectionCaption">
-                    <h className="sectionTitle">Your curriculum</h>
+                    <h className="sectionTitle">Your Courses</h>
                     <p className="subtitle">Requirements and courses calculated for a major in {cats.curriculum}.</p>
                 </div>
                     <div className="ui centered grid">
                     <div className="ui doubling stackable sixteen wide row">
 
                     {cats.categories.map(function(cat,i) {
-                        return (
-                            <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
-                                <CardFold title={cat.label} courses={cat.courses} options={cat.subcategories} credits={cat.credits}/>
-                            </div>
-                        )
+                        if (cat.courses == null && cat.subcategories == null) {
+                            return (
+                                <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                                    <CardHead title={cat.label} credits={cat.credits}/>
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                                    <CardFold title={cat.label} courses={cat.courses} options={cat.subcategories} credits={cat.credits}/>
+                                </div>
+                            )
+                        }
                     })}
      
                     </div>

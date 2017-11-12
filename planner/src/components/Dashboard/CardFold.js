@@ -30,8 +30,6 @@ class CardFold extends React.Component {
                 />
                 <InfoModule expandable={true} credits={credits} options={options} courses={courses}>
                 </InfoModule>
-
-                    
             </Card>
         );
     }

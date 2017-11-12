@@ -13,70 +13,71 @@
 				{"id": "AS.110.202", "title": "Calculus III", "credits": 4},
 				{"id": "AS.110.302", "title": "Differential Equations and Applications", "credits": 4},
 				{"id": "AS.110.201", "title": "Linear Algebra",	"credits": 4},
-				{"id":"AS.171.105",	"title":"Classical Mechanics I","credits": 4},
-				{"id":"AS.173.115",	"title":"Classical Mechanics Laboratory","credits": 1},
-				{"id":"AS.171.106",	"title":"Electricity and Magnetism I","credits": 4},
-				{"id":"AS.173.116",	"title":"Electricity and Magnetism Laboratory",	"credits": 1},
-				{"id":"AS.172.203",	"title":"Contemporary Physics Seminar",	"credits": 1},
-				{"id":"AS.171.204",	"title":"Classical Mechanics II", "credits": 4},
-				{"id":"AS.171.301",	"title":"Electromagnetic Theory II", "credits": 4},
-				{"id":"AS.171.303",	"title":"Quantum Mechanics I", "credits": 4},
-				{"id":"AS.173.308",	"title":"Advanced Physics Laboratory", "credits": 3}
+				{"id": "AS.171.105", "title": "Classical Mechanics I","credits": 4},
+				{"id": "AS.173.115", "title": "Classical Mechanics Laboratory","credits": 1},
+				{"id": "AS.171.106", "title": "Electricity and Magnetism I","credits": 4},
+				{"id": "AS.173.116", "title": "Electricity and Magnetism Laboratory",	"credits": 1},
+				{"id": "AS.172.203", "title": "Contemporary Physics Seminar",	"credits": 1},
+				{"id": "AS.171.204", "title": "Classical Mechanics II", "credits": 4},
+				{"id": "AS.171.301", "title": "Electromagnetic Theory II", "credits": 4},
+				{"id": "AS.171.303", "title": "Quantum Mechanics I", "credits": 4},
+				{"id": "AS.173.308", "title": "Advanced Physics Laboratory", "credits": 3}
 			]
 		},
 		{
 			"type": "Distribution Requirement",
-			"label": "Minimum 9 credits of Humanities",
+			"label": "9 credits of Humanities",
 			"credits": 9	
 		},
 		{
 			"type": "Distribution Requirement",
-			"label": "Minimum 9 credits of Social Sciences",
+			"label": "9 credits of Social Sciences",
 			"credits": 9
 		},
 		{
 			"type": "Distribution Requirement",
-			"label": "Minimum 9 credits of Natural, Quantitative, or Engineering Sciences",
+			"label": "9 credits of Natural, Quantitative, or Engineering Sciences",
 			"credits": 9			
 		},
 
 		{
 			"type": "Option",
 			"label": "Fulfill one of seven options",
+			"credits": 12,
 			"subcategories": [
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Biology courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Biology courses at the 200+ level",
 					"credits": 12			
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Biophysics courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Biophysics courses at the 200+ level",
 					"credits": 12	
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Chemistry courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Chemistry courses at the 200+ level",
 					"credits": 12		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Cognitive Science courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Cognitive Science courses at the 200+ level",
 					"credits": 12		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Earth and Planetary Science courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Earth and Planetary Science courses at the 200+ level",
 					"credits": 12			
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Mathematics courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Mathematics courses at the 200+ level",
 					"credits": 12		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 12 credits of >3-credit Physics courses at the 200 level or above",
+					"label": "12 credits of 3+ credit Physics courses at the 200+ level",
 					"credits": 12			
 				}
 			]
@@ -84,40 +85,41 @@
 		{
 			"type": "Option",
 			"label": "Fulfill one of nine options",
+			"credits": 3,
 			"subcategories": [
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Biology courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Biology courses at the 200+ level",
 					"credits": 3		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Biophysics courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Biophysics courses at the 200+ level",
 					"credits": 3	
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Chemistry courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Chemistry courses at the 200+ level",
 					"credits": 3		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Cognitive Science courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Cognitive Science courses at the 200+ level",
 					"credits": 3		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Earth and Planetary Science courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Earth and Planetary Science courses at the 200+ level",
 					"credits": 3		
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Mathematics courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Mathematics courses at the 200+ level",
 					"credits": 3
 				},
 				{
 					"type": "Distribution Requirement",
-					"label": "Minimum 3 credits of >3-credit Physics courses at the 200 level or above",
+					"label": "3 credits of 3+ credit Physics courses at the 200+ level",
 					"credits": 3
 				}
 			]

@@ -1,5 +1,6 @@
-import React from 'react';
-import CardFold from './CardFold.js';
+import React from 'react'
+import CardFold from './CardFold.js'
+import CardHead from './CardHead.js'
 
 class Requirements extends React.Component {
 
@@ -48,11 +49,19 @@ class Requirements extends React.Component {
                     <div className="ui doubling stackable sixteen wide row">
 
                     {cats.categories.map(function(cat,i) {
-                        return (
-                            <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
-                                <CardFold title={cat.label} courses={cat.courses} options={cat.subcategories} credits={cat.credits}/>
-                            </div>
-                        )
+                        if (cat.courses == null && cat.subcategories == null) {
+                            return (
+                                <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                                    <CardHead title={cat.label} credits={cat.credits}/>
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div key={i} className="seven wide column hover" style={{'padding': '0', 'margin': '0 10px'}}>
+                                    <CardFold title={cat.label} courses={cat.courses} options={cat.subcategories} credits={cat.credits}/>
+                                </div>
+                            )
+                        }
                     })}
      
                     </div>
