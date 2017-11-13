@@ -7,24 +7,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    width: 101vw;
+    left: -0.5vw;
     position: relative;
     z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 0 10vw;
-}
-.filter {
-    margin: 0;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    /*background: linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));*/
 }
 .plxtitle {
     position: relative;
@@ -146,14 +136,16 @@
   font-weight: 300;
   line-height: 1.7em;
 }
-.last {
+.final {
   background-image: url('../resources/peabody.jpg'), linear-gradient(35deg, #fff, orange);
   background-position: center;
   background-blend-mode: multiply;
   background-attachment: fixed/*,scroll*/;
   background-repeat: no-repeat;
   background-size: cover;
+  left: -0.5vw;
   height: 80vh;
+  width: 101vw;
   position: relative;
   z-index: 1;
 }
@@ -165,12 +157,12 @@
   text-align: center;
 }
 
-.final {border-color: #9bddff; border: 1%; border-style: solid; padding: 10px; color: #9bddff;
+.prod {border-color: #9bddff; border: 1%; border-style: solid; padding: 10px; color: #9bddff;
     text-align: center; font-size: 20px; letter-spacing: 3px; font-family: "Roboto Slab";
     background: rgba(50,50,50,0.5);
 }
-.final:hover {
-    background: rgba(120,100,100,0.7);
+.prod:hover {
+    background: #9bddff;
     color: #000;
     -webkit-transition: all 0.2s ease-in-out 0s;
     transition: all 0.2s ease-in-out 0s;
