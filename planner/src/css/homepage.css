@@ -1,20 +1,35 @@
 /* parallax */
 .parallax {
-    background-image: url("https://www.jhu.edu/theme/images/divisions-section-background-desk-9f3b03d3b9.jpg"), linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));
-    height: 100vh;
+    background-image: url('../resources/gilmanbaubles.jpg'), linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));
+    background-position: center;
     background-blend-mode: overlay;
     background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     padding: 0 10vw;
 }
-.title-center {width:100%;}
-.parallax > .title {
+.filter {
+    margin: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    /*background: linear-gradient(to left, rgba(0, 70, 127, 0.59), rgba(165, 204, 130, 0.15));*/
+}
+.plxtitle {
+    position: relative;
+    z-index: 5;
+    width:100%;
     font-family: "Open Sans";
     letter-spacing: 1px;
     text-align: center;
@@ -23,20 +38,9 @@
     word-wrap: normal;
     text-shadow: 0 3px 3px rgba(0,0,0,0.50);
 }
-#content {
-  height: 0; margin: 0;
-}
-.subcenter {
-    width:100%;
-}
-.parallax > .subtitle {
-    font-family: "Open Sans";
-    letter-spacing: 1px;
-    text-align: center;
-    color: #fff;
+.plxsubtitle {
     font-size: 180%;
     font-weight: 300;
-    word-wrap: normal;
     text-shadow: 1px 1px rgba(0,0,0,0.50);
     margin: 0 20px;
 }
@@ -54,6 +58,8 @@
 
 /* MAIN PAGE CONTENT */
 .panel {
+  position: relative;
+  z-index: 5;
   height: 350px;
   width: 100vw;
   padding: 0;
@@ -63,7 +69,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  background-image: url('../resources/debut_light.png'); background-blend-mode: multiply;
+  background-image: url('../resources/debut_light.png');
 }
 
 #intro .txt, #last .txt {
@@ -140,17 +146,17 @@
   font-weight: 300;
   line-height: 1.7em;
 }
-#backdrop {
+.last {
   background-image: url('../resources/peabody.jpg'), linear-gradient(35deg, #fff, orange);
   background-position: center;
   background-blend-mode: multiply;
   background-attachment: fixed/*,scroll*/;
-  background-repeat: no-repeat, repeat;
-  background-size: cover, auto;
-  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 80vh;
+  position: relative;
+  z-index: 1;
 }
-
 .coupled {
   height: 100%;
   display: flex;
@@ -184,6 +190,12 @@ hr {
 
 /*media queries for info panels and footer */
 @media (max-width: 767px) {
+  .panel .description {
+    font-size: 15px;
+  }
+  .capt {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 648px) {
@@ -198,7 +210,6 @@ hr {
     display: none;
   }
 }
-
 /* animations */
 .fadeIn {
     animation: fadein 2.5s;
@@ -212,13 +223,6 @@ hr {
     -moz-animation: fadein 1s;
     -webkit-animation: fadein 1s;
     -o-animation: fadein 1s;
-}
-
-.fadeInSlow {
-    animation: fadein 3.5s;
-    -moz-animation: fadein 3.5s;
-    -webkit-animation: fadein 3.5s;
-    -o-animation: fadein 3.5s;
 }
 
 @keyframes fadein {

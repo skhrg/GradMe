@@ -9,16 +9,17 @@ class Homepage extends React.Component {
     render() {
         return (
        	<div>
+       		<div className="filter"></div>
 		  	<div className="parallax scrollpoint">
-		    	<h2 className="title title-center fadeIn">Graduate on time. Or earlier.</h2>
-		    	<h3 className="subtitle fadeInSlow">GradMe is an all-in-one guide to course planning.</h3>
+		    	<h2 className="plxtitle fadeIn">Graduate on time. Or earlier.</h2>
+		    	<h3 className="plxtitle plxsubtitle fadeIn">GradMe is the all-in-one guide to course planning.</h3>
 		    	<div className="prompt">
-		      		<a href="#content" className="further fadeInSlow">LEARN MORE</a>
-		      		<Link to="/planner" className="further fadeInSlow">START PLANNING</Link>
+		      		<a href="#content" className="further fadeIn">LEARN MORE</a>
+		      		<Link to="/planner" className="further fadeIn">START PLANNING</Link>
 		    	</div>
-		  	</div>
+		    </div>
 
-		  	<div id="content"></div>
+		  	<div ></div>
 		    <div id="intro" className="panel">
 		      	<div className="txt">
 		        	<h className="capt">We'll help you graduate.<hr/></h>
@@ -43,13 +44,13 @@ class Homepage extends React.Component {
 		    </div>
 
 		    
-		    <div id="last" className="panel">
+		    <div className="panel">
 		      	<div className="txt">
 		        	<h className="capt">Get ahead today.<hr/></h>
 		      	</div>
 		    </div>
 
-		    <div id="backdrop" className="panel">         
+		    <div className="panel last">         
 		        <div className="coupled">
 		          <div className="logo sizecolor outline"><i className="student icon"></i>GradMe</div>
 		          <p><br/></p>

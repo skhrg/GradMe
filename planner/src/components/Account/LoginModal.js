@@ -4,11 +4,15 @@ export default class LoginModal extends React.Component {
 	constructor() {
 		super()
 	}
+	//removes modal if click x
+	clickOut(e) {
+
+	}
 
 	render() {
 		if (this.props.visible){
 			return (
-				<div className="backdrop" style={{'border': 'solid 30px #f90'}}></div>
+				<div className="backdrop"></div>
 			);
 		}
 		return null;

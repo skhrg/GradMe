@@ -24,7 +24,6 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <div className="App">
-
         <Navbar/>
         <Switch>
           <Route exact path='/home' component={Homepage}/>
@@ -37,7 +36,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;

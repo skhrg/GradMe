@@ -14,7 +14,7 @@ class Navbar extends React.Component {
     openModal(e) {
         e.preventDefault()
         this.setState({
-            login: true
+            login: !this.state.login
         })
         {alert(this.state.login)}
     }

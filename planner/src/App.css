@@ -6,7 +6,7 @@
   height: 80px;
 }
 .App-header {
-  background-color: #1d1114;
+  background-color: none;
   height: 120px;
   padding: 20px;
   color: white;
@@ -29,6 +29,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
 
 #page-container {
@@ -103,11 +104,12 @@ a#hide {
 
 /* Footer */
 #footer {
-  background-color: #1d1114;
+  background: #1d1114;
   min-height: 60vh;
 }
 .footer-panel {
   position: relative;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,7 +193,7 @@ a#hide {
   font-size: 16px !important;
   width: 45px;
   background: none;
-  border: solid 1px #ddd;
+  border: solid 1px #000;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -203,7 +205,7 @@ a#hide {
     color: black;
     transition: 0.2s;
 }
-/*.fa-facebook {
+.fa-facebook {
   background: #3B5998;
   color: white;
 }
@@ -222,4 +224,4 @@ a#hide {
 .fa-reddit {
   background: #ff5700;
   color: white;
-}*/
+}
