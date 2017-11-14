@@ -1,7 +1,19 @@
+
 .HHS {
-	/**
+	/*
 	width: 100vw;
 	height: 1000px;
-	*/
+	
 	background-color: #FAFAFA;
+	*/
+}
+
+.progression > h1  {
+	font-family: 'Open Sans';
+	font-weight: 500;
+}
+
+.progression > h2  {
+	font-family: 'Open Sans';
+	font-weight: 300;
 }
