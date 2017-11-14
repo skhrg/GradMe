@@ -20,7 +20,7 @@ class Overview extends React.Component {
 			    			<div className = "nine wide column">
 			    				<BarChart />
 			    			</div>
-			    			<div className = "seven wide left aligned column">
+			    			<div className = "seven wide left aligned column" style={{"font-family" : "Open Sans"}}>
 			                	<CreditsLeft />
             				</div>
 			    		</div>

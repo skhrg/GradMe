@@ -6,7 +6,7 @@ class BarChart extends Component{
 		super(props);
 		this.state = {
 			chartData:{
-				labels: ["Major", "Minor #1", "Minor #2", "Track"],
+				labels: ["Physics", "Bioethics (Minor)", "Economics (Minor)", "Pre-Medical Track"],
    				datasets: [{
         			label: 'Credits completed',
 			        data: [62, 16, 24, 40],
