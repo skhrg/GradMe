@@ -10,7 +10,9 @@
 
 .progression > h1  {
 	font-family: 'Open Sans';
-	font-weight: 500;
+	font-size: 1.8em;
+    letter-spacing: 0.5px;
+    font-weight:400;
 }
 
 .progression > h2  {
