@@ -16,7 +16,7 @@ class Courses extends React.Component {
         return (
             <div className="section insetShadow">
                 <div className="sectionCaption">
-                    <h className="sectionTitle">Your Courses</h>
+                    <h className="sectionTitle">Your courses</h>
                     <p className="subtitle">Requirements and courses calculated for a major in {cats.curriculum}.</p>
                 </div>
                     <div className="ui centered grid">

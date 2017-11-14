@@ -9,13 +9,14 @@
 }
 
 .progression > h1  {
-	font-family: 'Open Sans';
+	font-family: 'Roboto Slab';
 	font-size: 1.8em;
     letter-spacing: 0.5px;
-    font-weight:400;
+    font-weight:600;
 }
 
 .progression > h2  {
 	font-family: 'Open Sans';
+	font-size: 1.5em;
 	font-weight: 300;
 }
