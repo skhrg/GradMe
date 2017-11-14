@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 /* Modular import */
 import Button from 'muicss/lib/react/button';
 import 'muicss/dist/css/mui.min.css';
@@ -34,7 +35,7 @@ class SlideFooter extends React.Component {
             case options[3]:
                 return (
                     <div className="cardFooter">
-                        <Button color="primary" id="submit">Submit</Button>
+                        <Button color="primary" id="submit"><Link to='/dashboard' style={{color: '#fff'}}>Submit</Link></Button>
                         <span class="bigtab"></span>
                         <Button variant="flat" id="-1" onClick={this.handleClick}>Prev</Button>
                     </div>

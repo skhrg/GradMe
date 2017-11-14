@@ -1,7 +1,7 @@
-import React from 'react';
-import '../../css/Planner.css';
+import React from 'react'
+import '../../css/Planner.css'
 import SlideMenu from './SlideMenu.js'
-import SlideContainer from './SlideContainer.js';
+import SlideContainer from './SlideContainer.js'
 
 class Planner extends React.Component {
 	
