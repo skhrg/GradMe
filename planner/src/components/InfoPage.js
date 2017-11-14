@@ -1,15 +1,19 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
+import '../css/infopage.css'
 
 class InfoPage extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
+        window.scrollTo(0,0)
     }
 
     render() {
         return (
-            
+            <div className='flexstd'>
+            	
+            </div>
         );
     }
 }

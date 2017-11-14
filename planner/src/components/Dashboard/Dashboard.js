@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
         this.state = {data: categories}
     }
 
-    componentDidMount() {document.title="Course Dashboard"}
+    componentDidMount() {document.title="Course Dashboard"; window.scrollTo(0,0)}
 
     render() {
         return (
