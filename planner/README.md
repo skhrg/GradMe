@@ -1,5 +1,19 @@
 We use [Create React App](https://github.com/facebookincubator/create-react-app) for this project.
 
+The ./requirements/ folder configures the Django project settings. Base.txt contains universally used applications. We use the applications specified in local.txt, product.txt, and test.txt depending on the current environment (local development, production, testing).
+
+The ./config/settings/ folder is a parallel setup for Django settings in different environments.
+Within ./config/settings/base.py, we import and use django-environ, an application that simplifies environment variable and file path usage. 
+
+The ROOT_DIR + APPS_DIR environ variables define the path at the project's top level.
+We also import environment variables from a .env file using the environ.Env() function (that finds the specific .env root file) and read_env() to use them.
+
+In ./config/settings/production.py, ALLOWED_HOSTS is the list of sites that Django will accept to make connection and requests. For local development when DEBUG is True, we can have this be empty, however, when in production it must be set to a specific domain such as .example.com.
+
+The DATABASES settings connect to a PostgreSQL database.
+
+STATIC and MEDIA settings determine the directories where static and media files will be gathered from (and served during local development) and placed into for production.
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
