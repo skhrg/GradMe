@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom'
 
-import 'semantic-ui-css/semanticOverride.css';
+import 'semantic-ui-css/semantic.min.css';
 import 'semantic-ui-css/semantic.min.js';
 
 injectTapEventPlugin();
