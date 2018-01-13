@@ -1,9 +1,0 @@
-/*******************************
-         Site Overrides
-*******************************/
-.ui.menu .item > .label {
-  background: @labelBackground;
-  color: @labelTextColor;
-  margin-left: @labelTextMargin;
-  padding: @labelVerticalPadding @labelHorizontalPadding;
-}
