@@ -1,6 +1,14 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+class Requirement(model.Model)
+    specific_requirements = ArrayField(
+        models.ForeignKey(SpecificRequirement, on_delete=models.CASCADE),
+    )
+    generic_requirements = ArrayField(
+        models.ForeignKey(GenericRequirement, on_delete=models.CASCADE),
+    )
+
 class SpecificRequirement(models.Model):
     total_credits = models.IntegerField()
     required_credits = models.IntegerField()
