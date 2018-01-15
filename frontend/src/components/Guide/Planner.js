@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../css/Planner.css'
 import SlideMenu from './SlideMenu.js'
-import SlideContainer from './SlideContainer.js'
+import Slides from './SlideContainer.js'
 
 class Planner extends React.Component {
 	
@@ -54,7 +54,7 @@ class Planner extends React.Component {
 				</div>
 
 				<div className="nine wide middle aligned column">
-					<SlideContainer options={options} active={this.state.activeItem} handler={this.optionHandler.bind(this)}/>
+					<Slides options={options} active={this.state.activeItem} handler={this.optionHandler.bind(this)}/>
 				</div>
 
 			</div></div></div>

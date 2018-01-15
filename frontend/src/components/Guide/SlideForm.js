@@ -2,7 +2,7 @@ import React from 'react';
 import DropdownMulti from './Dropdown.js'
 
 /* component that simply contains a header, paragraph, and dropdown */
-class Slide extends React.Component {
+class SlideForm extends React.Component {
 
 	// /** check if activeItem is identical to name */
 	isActive(name) {
@@ -31,4 +31,4 @@ class Slide extends React.Component {
 	}
 }
 
-export default Slide;
+export default SlideForm;
