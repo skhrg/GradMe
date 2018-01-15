@@ -4,7 +4,6 @@ import {Card, CardHeader} from 'material-ui/Card';
 //test component for material-ui
 class CardHead extends React.Component {
     render() {
-      const credits = this.props.credits
       const courses = this.props.courses
       const options = this.props.options
       const creditsComplete = 'xx'

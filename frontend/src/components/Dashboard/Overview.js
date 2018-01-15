@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import BarChart from './BarChart.js';
 import CreditsLeft from './CreditsLeft.js';
 import '../../css/Overview.css';
 import '../../css/Dashboard.css';
 
 class Overview extends React.Component {
-
 
     render() {
         return (

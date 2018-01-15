@@ -2,7 +2,6 @@ import React from 'react';
 import {Card, CardHeader} from 'material-ui/Card';
 // import FlatButton from 'material-ui/FlatButton';
 import InfoModule from './InfoModule.js';
-import Label from './Label.js';
 
 //test component for material-ui
 class CardFold extends React.Component {
