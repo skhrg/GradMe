@@ -23,6 +23,7 @@ var package = require('./package.json');
 
 var srcDir = './src/';
 var outDir = './dist/';
+var testDir = './test/';
 
 var header = "/*!\n" +
   " * Chart.js\n" +
@@ -127,9 +128,8 @@ function packageTask() {
 
 function lintTask() {
   var files = [
-    'samples/**/*.js',
-    'src/**/*.js',
-    'test/**/*.js'
+    srcDir + '**/*.js',
+    testDir + '**/*.js'
   ];
 
   // NOTE(SB) codeclimate has 'complexity' and 'max-statements' eslint rules way too strict
@@ -137,9 +137,25 @@ function lintTask() {
   // to fix, let's turn them as warnings and rewrite code later progressively.
   var options = {
     rules: {
-      'complexity': [1, 10],
+      'complexity': [1, 6],
       'max-statements': [1, 30]
-    }
+    },
+    globals: [
+      'Chart',
+      'acquireChart',
+      'afterAll',
+      'afterEach',
+      'beforeAll',
+      'beforeEach',
+      'describe',
+      'expect',
+      'fail',
+      'it',
+      'jasmine',
+      'moment',
+      'spyOn',
+      'xit'
+    ]
   };
 
   return gulp.src(files)
@@ -174,8 +190,8 @@ function startTest() {
     './test/jasmine.index.js',
     './src/**/*.js',
   ].concat(
-    argv.inputs ?
-      argv.inputs.split(';') :
+    argv.inputs?
+      argv.inputs.split(';'):
       ['./test/specs/**/*.js']
   );
 }
@@ -188,12 +204,7 @@ function unittestTask(done) {
     args: {
       coverage: !!argv.coverage
     }
-  },
-  // https://github.com/karma-runner/gulp-karma/issues/18
-  function(error) {
-    error = error ? new Error('Karma returned with the error code: ' + error) : undefined;
-    done(error);
-  }).start();
+  }, done).start();
 }
 
 function librarySizeTask() {
@@ -205,7 +216,9 @@ function librarySizeTask() {
 
 function moduleSizesTask() {
   return gulp.src(srcDir + '**/*.js')
-    .pipe(uglify())
+    .pipe(uglify({
+      preserveComments: 'some'
+    }))
     .pipe(size({
       showFiles: true,
       gzip: true
