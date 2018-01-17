@@ -65,12 +65,11 @@
 }
 .cardFooter {
   display: flex;
-  flex-direction: row-reverse; 
-  /* due to residual hover effect, button rendered in reverse order
-  and reversed by flex, causing activated hover effect to remain
-  with linear progression (next > next) */
+  justify-content: space-between;
+  margin: 16px 0 8px 0;
+}
+.cardFooter.first {
   justify-content: space-around;
-  margin: 12px 0 0 0;
 }
 
 /*-- Semantic restyling */

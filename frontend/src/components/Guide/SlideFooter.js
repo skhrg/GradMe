@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-/* Modular import */
-import Button from 'muicss/lib/react/button';
-import 'muicss/dist/css/mui.min.css';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SlideFooter extends React.Component {
 
     constructor() {
         super();
-        this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick(e, {id}) {
+    handleClick(id, e) {
         e.preventDefault();
     	this.props.selectSlide(id);
     }
@@ -21,24 +19,26 @@ class SlideFooter extends React.Component {
         switch(active) {
             case 0:
                 return (
-                    <div className="cardFooter">
-                        <Button variant="flat" id="{active+1}" onClick={this.handleClick}>Next</Button>
+                    <div className="cardFooter first">
+                        <FlatButton label="Next" id={active+1} onClick={this.handleClick.bind(this, active+1)}/>
                     </div>
                 )
             case 3:
                 return (
                     <div className="cardFooter">
-                        <Button color="primary" id="submit"><Link to='/dashboard' style={{color: '#fff'}}>Submit</Link></Button>
+                        <FlatButton label="Prev" id={active+1} onClick={this.handleClick.bind(this, active-1)}/>
                         <span className="bigtab"></span>
-                        <Button variant="flat" id="{active-1}" onClick={this.handleClick}>Prev</Button>
+                        <RaisedButton label="submit" labelColor="#fff" backgroundColor={"#03A9F4"}>
+                            <Link to='/dashboard' style={{color: '#fff'}}></Link>
+                        </RaisedButton>
                     </div>
                 )
             default:
                 return (
                     <div className="cardFooter">
-                        <Button variant="flat" id="{active+1}" onClick={this.handleClick}>Next</Button>
+                        <FlatButton label="Prev" id={active+1} onClick={this.handleClick.bind(this, active-1)}/>
                         <span className="bigtab"></span>
-                        <Button variant="flat" id="{active-1}" onClick={this.handleClick}>Prev</Button>
+                        <FlatButton label="Next" id={active+1} onClick={this.handleClick.bind(this, active+1)}/>
                     </div>
                 );
         }

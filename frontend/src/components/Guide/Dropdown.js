@@ -6,8 +6,8 @@ class DropdownMulti extends React.Component {
 	/* receives title of category (major, minor, pre-pro. tracks as props) */
 	render() {
 		const name = this.props.name
-		let options = name
-		switch(options) {
+		let options = []
+		switch(name) {
 			case 'Majors': 
 				options = majors;
 				break;
@@ -28,10 +28,10 @@ class DropdownMulti extends React.Component {
 }
 
 const jsonmajors = require('./majors.json');
-const majors = jsonmajors.majors;
+const majors = Array.from(jsonmajors.majors);
 
 const jsonminors = require('./minors.json');
-const minors = jsonminors.minors;
+const minors = Array.from(jsonminors.minors);
 
 const tracks = [
 	{key: 'T1', value: 'Pre-Medical', text: 'Pre-Medical'},
