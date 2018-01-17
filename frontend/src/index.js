@@ -14,9 +14,9 @@ registerServiceWorker();
 
 let store = createStore(plannerApp)
 console.log(store.getState())
-const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
+// const unsubscribe = store.subscribe(() =>
+//   console.log(store.getState())
+// )
 
 render(
   <Root store={store} />,

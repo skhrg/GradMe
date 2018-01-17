@@ -1,30 +1,39 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { changeSlide } from '../../actions/ui.js'
 import '../../css/Planner.css'
 import SlideMenu from './SlideMenu.js'
 import Slides from './SlideContainer.js'
 
+const mapStateToProps = (state) => {
+    return { activeSlide: state.ui.activeSlide }
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		selectSlide: id => {
+			dispatch(changeSlide(id))
+		}
+	}
+}
+
+const options = [
+  	"Find Requirements",
+  	"Pick Majors",
+  	"Choose Minors",
+  	"Select Professional Tracks"
+]
+
 class Planner extends React.Component {
-	
-	constructor() {
+	constructor(props) {
 		super()
 		/* options is pre-set constant at bottom of this file */
 		this.state = {activeItem: options[0]}
-  		this.optionHandler = this.optionHandler.bind(this);
-  		// {console.log(options[0].constructor === String)}
+  		// {console.log(props.activeSlide)}
+  		// {console.log(props.selectSlide)}
 	}
 
 	componentDidMount() {document.title = "Course Planner"; window.scrollTo(0,0)}
-
-	/** called by SlideMenu and SlideFooter child components
-		@param newActive	a string in options array **/
-	optionHandler(newActive) {
-		if (newActive === this.state.activeItem) {
-			return;
-		}
-    	this.setState({
-        	activeItem: newActive
-    	});
-  	}
 
 	render() {
         const active = this.state.activeItem;
@@ -50,11 +59,11 @@ class Planner extends React.Component {
 				
 				<div className="four wide left floated middle aligned column">
 					<h4 className="ui massive header planner-title">Course Planner</h4>
-					<SlideMenu options={options} active={this.state.activeItem} handler={this.optionHandler}/>
+					<SlideMenu options={options} activeSlide={this.props.activeSlide} selectSlide={this.props.selectSlide}/>
 				</div>
 
 				<div className="nine wide middle aligned column">
-					<Slides options={options} active={this.state.activeItem} handler={this.optionHandler.bind(this)}/>
+					<Slides options={options} active={this.state.activeItem} selectSlide={this.props.selectSlide}/>
 				</div>
 
 			</div></div></div>
@@ -62,11 +71,4 @@ class Planner extends React.Component {
 	}
 }
 
-const options = [
-  	"Find Requirements",
-  	"Pick Majors",
-  	"Choose Minors",
-  	"Select Professional Tracks"
-]
-
-export default Planner;
+export default connect(mapStateToProps, mapDispatchToProps)(Planner);

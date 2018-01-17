@@ -16,7 +16,7 @@ class Navbar extends React.Component {
         this.setState({
             login: !this.state.login
         })
-        {alert(this.state.login)}
+        alert(this.state.login)
     }
     
     render() {
