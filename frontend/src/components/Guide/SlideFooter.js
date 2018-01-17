@@ -6,46 +6,39 @@ import 'muicss/dist/css/mui.min.css';
 
 class SlideFooter extends React.Component {
 
-    constructor(props) {
+    constructor() {
         super();
         this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick(e) {
+    handleClick(e, {id}) {
         e.preventDefault();
-        const increment = e.target.id
-        const currentIndex = this.props.options.indexOf(this.props.active);
-        let newIndex = currentIndex + + increment
-        const newActive = this.props.options[newIndex]
-        // {console.log(newActive)
-        //     console.log(newActive.constructor === String)}
-    	this.props.handler(newActive)
+    	this.props.selectSlide(id);
     }
 
     render() {
-        const options = this.props.options
         const active = this.props.active
         switch(active) {
-            case options[0]:
+            case 0:
                 return (
                     <div className="cardFooter">
-                        <Button variant="flat" id="+1" onClick={this.handleClick}>Next</Button>
+                        <Button variant="flat" id="{active+1}" onClick={this.handleClick}>Next</Button>
                     </div>
                 )
-            case options[3]:
+            case 3:
                 return (
                     <div className="cardFooter">
                         <Button color="primary" id="submit"><Link to='/dashboard' style={{color: '#fff'}}>Submit</Link></Button>
-                        <span class="bigtab"></span>
-                        <Button variant="flat" id="-1" onClick={this.handleClick}>Prev</Button>
+                        <span className="bigtab"></span>
+                        <Button variant="flat" id="{active-1}" onClick={this.handleClick}>Prev</Button>
                     </div>
                 )
             default:
                 return (
                     <div className="cardFooter">
-                        <Button variant="flat" id="+1" onClick={this.handleClick}>Next</Button>
-                        <span class="bigtab"></span>
-                        <Button variant="flat" id="-1" onClick={this.handleClick}>Prev</Button>
+                        <Button variant="flat" id="{active+1}" onClick={this.handleClick}>Next</Button>
+                        <span className="bigtab"></span>
+                        <Button variant="flat" id="{active-1}" onClick={this.handleClick}>Prev</Button>
                     </div>
                 );
         }

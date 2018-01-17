@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { changeSlide } from '../../actions/ui.js'
 import '../../css/Planner.css'
 import SlideMenu from './SlideMenu.js'
-import Slides from './SlideContainer.js'
+import Slides from './Slides.js'
 
 const mapStateToProps = (state) => {
     return { activeSlide: state.ui.activeSlide }
@@ -25,32 +25,30 @@ const options = [
 ]
 
 class Planner extends React.Component {
-	constructor(props) {
-		super()
-		/* options is pre-set constant at bottom of this file */
-		this.state = {activeItem: options[0]}
-  		// {console.log(props.activeSlide)}
-  		// {console.log(props.selectSlide)}
-	}
 
 	componentDidMount() {document.title = "Course Planner"; window.scrollTo(0,0)}
 
-	render() {
-        const active = this.state.activeItem;
-        var color;
+	changeBackground() {
+		const active = this.props.activeSlide;
+        let color;
         switch(active) {
-        	case options[0]:
+        	case 0:
         		color = '#E3F7FA';
         		break;
-            case options[1]:
+            case 1:
             	color = '#e8f5e9';
                 break;
-            case options[2]:
+            case 2:
                 color = '#fffde7';
                 break;
             default:
                 color = 'linear-gradient(to right, #dae2f8, #d6a4a4)';
         }
+        return color;
+	}
+
+	render() {
+        const color = this.changeBackground();
 
 		return (
 			<div id="page-container" className="planner-container" style={{background: color}}>
@@ -63,7 +61,7 @@ class Planner extends React.Component {
 				</div>
 
 				<div className="nine wide middle aligned column">
-					<Slides options={options} active={this.state.activeItem} selectSlide={this.props.selectSlide}/>
+					<Slides options={options} activeSlide={this.props.activeSlide} selectSlide={this.props.selectSlide}/>
 				</div>
 
 			</div></div></div>

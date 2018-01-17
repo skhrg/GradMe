@@ -1,10 +1,10 @@
-import { CHANGE_SLIDE, changeSlide } from '../actions/ui.js'
+import { CHANGE_SLIDE } from '../actions/ui.js'
 
 const initialState = {
   tracks: [],
   courses: [],
   ui: {
-  	activeSlide: 0,
+    activeSlide: 0,
   }
 }
 
