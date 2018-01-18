@@ -5,10 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 class SlideFooter extends React.Component {
 
-    constructor() {
-        super();
-    }
-
     handleClick(id, e) {
         e.preventDefault();
     	this.props.selectSlide(id);

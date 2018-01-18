@@ -1,7 +1,25 @@
 import React from 'react';
 import {Card, CardHeader} from 'material-ui/Card';
-// import FlatButton from 'material-ui/FlatButton';
 import InfoModule from './InfoModule.js';
+
+const styles = {
+  card: {
+    margin: '15px 0',
+    borderRadius: '4px',
+    background: 'none',
+  },
+  header: {
+    background: '#fff',
+    padding: '4px',
+    fontSize: '20px'
+  }
+}
+
+const colors = {
+  goodGreen: '#2E7D32',
+  mellYello: '#FFD600',
+  badOrange: '#E65100'
+}
 
 //test component for material-ui
 class CardFold extends React.Component {
@@ -20,10 +38,12 @@ class CardFold extends React.Component {
       const subtitle = creditsComplete + '/' + this.props.credits
         + ' credits'
         return (
-            <Card style={{margin: '15px 0', 'borderRadius': '4px'}}>
+            <Card style={styles.card}>
                 <CardHeader
                     title={this.props.title}
+                    titleColor='#000'
                     subtitle={subtitle}
+                    subtitleColor={colors.goodGreen}
                     actAsExpander={true}
                     showExpandableButton={true}
                 />

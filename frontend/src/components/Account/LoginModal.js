@@ -1,9 +1,7 @@
 import React from 'react';
 //ask saianeesh to make correct api calls. will add state here.
 export default class LoginModal extends React.Component {
-	constructor() {
-		super()
-	}
+
 	//removes modal if click x
 	clickOut(e) {
 

@@ -1,5 +1,5 @@
-import React from 'react'; 
-import Label from './Label';
+import React from 'react';
+import Checkbox from 'material-ui/Checkbox';
 
 class InfoModule extends React.Component {
 
@@ -19,7 +19,7 @@ class InfoModule extends React.Component {
               {courses.map(function(course, i) {
                 return (
                     <div key={i} className="courseLabel">
-                      <div className="course-title">{course.title}</div>
+                      <Checkbox className="course-title" label={course.title}/>
                       <div className="courseLabel-id">
                         <p className="course-number">{course.id}</p>
                         <p className="course-credit">{course.credits + " credits"}</p>

@@ -33,25 +33,24 @@
 .hover:hover {transition: all .2s ease;transform: scale(1.01)}
 .module {
   z-index: 1;
-  background: white;
+  background: none;
   height: 300px;
+  padding: 4px;
   color: #000;
-  border-top: none;
+  border-top: solid 1px #aaa;
   overflow-y: scroll;
   overflow-x: hidden;
-
-  box-shadow:inset 0 15px 5px -14px #aaa;
+  /*box-shadow:inset 0 15px 5px -14px #aaa;*/
 }
 .insetShadow {
   box-shadow:inset 0 15px 5px -12px #aaa;
 }
 .courseLabel {
-  height: 45px;
-  width: 100%;
+  height: 55px;
   box-sizing: border-box;
   font-family: 'Open Sans' !important;
   border-bottom: solid 1px #ddd;
-  
+  box-sizing: border-box;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -62,12 +61,14 @@
 
 .courseLabel-id {
   display: flex;
+  padding-left: 60px;
   flex-flow: row;
   justify-content: space-between;
   font-size: 1rem;
-  padding: 0 13px;
-  padding-bottom: 0px;
-  color: #bf360c;
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  padding: 0 13px 0 54px;
+  color: #607D8B;
 }
 
 .courseLabel > .course-number {
@@ -85,7 +86,7 @@
 }
 
 .courseLabel-id > .course-credit {
-  font-style: italic;
+  font-style: bold;
 }
 
 .scroll-text {

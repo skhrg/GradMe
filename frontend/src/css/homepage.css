@@ -172,12 +172,12 @@
 hr {
   width: 15vw;
   height: 0;
-  border: solid 10px #f90;
+  border: double 1px #000;
+  /*border-bottom: solid 5px #f90;*/
 }
 
 #intro hr, #last hr {
   width: 30vw;
-  border: double 1px #000;
 }
 
 /*media queries for info panels and footer */

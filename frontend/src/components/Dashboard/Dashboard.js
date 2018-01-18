@@ -1,19 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { changeTab } from '../../actions/ui.js';
 import '../../css/Dashboard.css';
 import DashTabs from './DashTabs.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {
         tracks: state.tracks,
+        activeTab: state.ui.activeTab
     }
 }
 const mapDispatchToProps = dispatch => {
-  return {
-    // onTodoClick: id => {
-    //   dispatch(toggleTodo(id))
-    // }
-  }
+    return {
+        selectTab: value => {
+            dispatch(changeTab(value))
+        }
+    }
 }
 
 class Dashboard extends React.Component {
@@ -37,7 +39,7 @@ class Dashboard extends React.Component {
                     <div className="title"><h className="huge">Course Dashboard</h></div>
                 </div>
 
-                <DashTabs categories={this.state.data}/>
+                <DashTabs active={this.props.activeTab} selectTab={this.props.selectTab} categories={this.state.data}/>
             </div>
             
         );

@@ -4,41 +4,34 @@ import Requirements from './Requirements.js';
 import Courses from './Courses.js';
 import Overview from './Overview.js';
 
+const styles = {
+    fontSize: 18,
+};
+
 class DashTabs extends React.Component {
 
-  constructor(props) {
-    super();
-    // State passed into DashSection and DashOverview children.
-    this.state = {
-      activetab: '1',
-      categories: props.categories
+    handleChange(value) {
+        this.props.selectTab(value);
     };
-  }
 
-  handleChange(value) {
-    this.setState({
-      activetab: value,
-    });
-  };
+    render() {
+        const active = this.props.active;
+        console.log(this.props.active)
 
-  render() {
-    return (
-      <Tabs
-        value={this.state.value}
-        onChange={this.handleChange.bind(this)}
-      >
-        <Tab label="Overview" value="1">
-          <Overview/>
-        </Tab>
-        <Tab label="Requirements" value="2">
-          <Requirements categories={this.state.categories}/>
-        </Tab>
-        <Tab label="Courses" value="3">
-          <Courses categories={this.state.categories}/>
-        </Tab>
-      </Tabs>
-    );
-  }
+        return (
+            <Tabs value={active} onChange={this.handleChange.bind(this)}>
+                <Tab style={styles} label="Overview" value={1}>
+                    <Overview/>
+                </Tab>
+                <Tab style={styles} label="Requirements" value={2}>
+                    <Requirements categories={this.props.categories}/>
+                </Tab>
+                <Tab style={styles} label="Courses" value={3}>
+                    <Courses categories={this.props.categories}/>
+                </Tab>
+            </Tabs>
+        );
+    }
 }
 
 export default DashTabs;

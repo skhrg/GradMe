@@ -6,31 +6,6 @@ class Requirements extends React.Component {
 
     constructor(props) {
         super();
-        /** The names prop is rendered as module titles.
-            Need 1) data to be outputted in logical format,
-                 2) a parser in Dashboard.js to turn data into
-                    valid string.
-         **/
-        // const names = this.props.names;
-
-        // /** Generate description for Requirements stating all 
-        //     chosen majors, minors, and tracks. */
-        // let description = '';
-        // for (let i=0;i<names.length;i++) {
-        //     if (i===names.length - 1) {
-        //         description += names[i] + '.'
-        //     } else if (i===(names.length - 2)) {
-        //         description += names[i] + ', and '
-        //     } else {
-        //         description += names[i] + ", "
-        //     }
-        // }
-
-        // this.state = {
-        //     description,
-        //     names,
-        //     categories
-        // }
         this.state = {
             data: props.categories,
         }
