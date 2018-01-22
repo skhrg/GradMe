@@ -1,0 +1,56 @@
+import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
+
+// API calls here
+const jsonmajors = require('./majors.json');
+const majors = jsonmajors.majors;
+
+const jsonminors = require('./minors.json');
+const minors = jsonminors.minors;
+
+const tracks = [
+	{key: 'T1', value: 'Pre-Medical', text: 'Pre-Medical'},
+	{key: 'T2', value: 'Pre-Law', text: 'Pre-Law'},
+	{key: 'T3', value: 'Pre-Dental', text: 'Pre-Dental'},
+	{key: 'T4', value: 'Pre-Veterinary', text: 'Pre-Veterinary'},
+	{key: 'T5', value: 'Pre-Education', text: 'Pre-Education'},
+	{key: 'T6', value: 'Pre-Pharmacy', text: 'Pre-Pharmacy'}
+]
+
+class CourseDropdown extends React.Component {
+
+	constructor(props) {
+		super();
+		this.state = { options: [] };
+		// const name = this.props.name;
+		//let options = null
+		const name = props.name;
+		switch(name) {
+			case 'Majors': 
+				this.state.options = majors;
+				break;
+			case 'Minors':
+				this.state.options = minors;
+				break;
+			case 'Pre-Professional Tracks':
+				this.state.options = tracks;
+				break;
+			default:
+				this.state.options = 'Select';
+		}
+	}
+
+	// Backpropagates selected values to local state of SlideContainer parent.
+	selectTracks(e, dropdown) {
+		this.props.setLocalState(this.props.id, dropdown.value)
+	}
+	/* Receives title of category (major, minor, pre-pro. tracks as props) */
+	render() {
+		return (
+			<Dropdown fluid multiple search selection className="ui big" 
+				placeholder={this.props.name} options={this.state.options} onChange={this.selectTracks.bind(this)}/>
+		)
+	}
+}
+
+export default CourseDropdown;

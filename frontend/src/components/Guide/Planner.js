@@ -1,18 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { changeSlide } from '../../actions/ui.js'
+import { selectTracks } from '../../actions/degreeData.js'
 import '../../css/Planner.css'
 import SlideMenu from './SlideMenu.js'
-import Slides from './Slides.js'
+import SlideContainer from './SlideContainer.js'
 
 const mapStateToProps = (state) => {
-    return { activeSlide: state.ui.activeSlide }
+    return { activeSlide: state.ui.activeSlide, currclm: state.curriculum }
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
 		selectSlide: id => {
 			dispatch(changeSlide(id))
+		},
+		selectTracks: tracks => {
+			dispatch(selectTracks(tracks))
 		}
 	}
 }
@@ -57,11 +61,20 @@ class Planner extends React.Component {
 				
 				<div className="four wide left floated middle aligned column">
 					<h4 className="ui massive header planner-title">Course Planner</h4>
-					<SlideMenu options={options} activeSlide={this.props.activeSlide} selectSlide={this.props.selectSlide}/>
+					<SlideMenu
+						options={options}
+						activeSlide={this.props.activeSlide}
+						selectSlide={this.props.selectSlide} />
 				</div>
 
 				<div className="nine wide middle aligned column">
-					<Slides options={options} activeSlide={this.props.activeSlide} selectSlide={this.props.selectSlide}/>
+					<SlideContainer
+						options={options}
+						activeSlide={this.props.activeSlide}
+						selectSlide={this.props.selectSlide}
+						currclm={this.props.currclm}
+						selectTracks={this.props.selectTracks}
+					/>
 				</div>
 
 			</div></div></div>
