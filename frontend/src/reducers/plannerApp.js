@@ -1,7 +1,12 @@
 import { CHANGE_SLIDE, CHANGE_TAB } from '../actions/ui.js'
+import { SELECT_TRACKS } from '../actions/degreeData.js'
 
 const initialState = {
-  tracks: [],
+  curriculum: {
+    majors: [],
+    minors: [],
+    proffs: []
+  },
   courses: [],
   ui: {
     activeSlide: 0,
@@ -9,24 +14,45 @@ const initialState = {
   }
 }
 
-function plannerApp(state = initialState, action) {
+function setUX(state = {}, action) {
   switch (action.type) {
     case CHANGE_SLIDE:
       return Object.assign({}, state, {
-        ui: {
-          ...state.ui,
-          activeSlide: action.index,
-        }
+        ...state,
+        activeSlide: action.index
       })
     case CHANGE_TAB:
       return Object.assign({}, state, {
-        ui: {
-          ...state.ui,
-          activeTab: action.value,
-        }
+        ...state,
+        activeTab: action.value
       })
     default:
       return state
+  }
+}
+
+function selectTracks(state = {}, action) {
+  switch (action.type) {
+    case SELECT_TRACKS:
+      return Object.assign({}, state, {
+        ...state,
+        curriculum: action.curriculum,
+      })
+    default:
+      return state
+  }
+}
+
+function selectCourses(state = {}, action) {
+  return state;
+}
+
+// The main reducer. Composed of other reducers.
+function plannerApp(state = initialState, action) {
+  return {
+    ui: setUX(state.ui, action),
+    curriculum: selectTracks(state.curriculum, action),
+    courses: selectCourses(state.courses, action)
   }
 }
 

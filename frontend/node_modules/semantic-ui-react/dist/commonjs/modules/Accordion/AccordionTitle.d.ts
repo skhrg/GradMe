@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { SemanticShorthandContent } from '../..';
 
 export interface AccordionTitleProps {
   [key: string]: any;
@@ -16,7 +17,10 @@ export interface AccordionTitleProps {
   className?: string;
 
   /** Shorthand for primary content. */
-  content?: any;
+  content?: SemanticShorthandContent;
+
+  /** AccordionTitle index inside Accordion. */
+  index?: number | string;
 
   /**
    * Called on click.

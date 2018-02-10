@@ -15,7 +15,7 @@
     "react-tap-event-plugin": "^3.0.2",
     "redux": "^3.7.2",
     "semantic-ui-css": "^2.2.11",
-    "semantic-ui-react": "^0.71.0"
+    "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
     "start": "react-scripts start",

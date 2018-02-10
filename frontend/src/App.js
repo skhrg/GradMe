@@ -13,10 +13,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 const muiTheme = getMuiTheme({
   fontFamily: "Roboto Slab",
   palette: {
-    primary1Color: '#e3f2fd',
+    primary1Color: '#e0f7fa',
     alternateTextColor: '#000',
     accent1Color: '#e64a19'
-  }
+  },
+  checkbox: { checkedColor: '#e64a19'},
 })
 
 const App = ({ match: { params } }) => {

@@ -3,7 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { childrenUtils, customPropTypes, getElementType, getUnhandledProps, META, useKeyOnly, createShorthandFactory } from '../../lib';
+import { childrenUtils, createShorthandFactory, customPropTypes, getElementType, getUnhandledProps, META, useKeyOnly } from '../../lib';
 
 /**
  * A content sub-component for Accordion component.
@@ -26,7 +26,7 @@ function AccordionContent(props) {
 }
 
 AccordionContent.handledProps = ['active', 'as', 'children', 'className', 'content'];
-process.env.NODE_ENV !== "production" ? AccordionContent.propTypes = {
+AccordionContent.propTypes = process.env.NODE_ENV !== "production" ? {
   /** An element type to render as (string or function). */
   as: customPropTypes.as,
 
@@ -41,7 +41,7 @@ process.env.NODE_ENV !== "production" ? AccordionContent.propTypes = {
 
   /** Shorthand for primary content. */
   content: customPropTypes.contentShorthand
-} : void 0;
+} : {};
 
 AccordionContent._meta = {
   name: 'AccordionContent',

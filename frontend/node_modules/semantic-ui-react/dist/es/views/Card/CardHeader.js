@@ -1,9 +1,11 @@
 import _extends from 'babel-runtime/helpers/extends';
+import _without from 'lodash/without';
 import cx from 'classnames';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { childrenUtils, customPropTypes, getElementType, getUnhandledProps, META } from '../../lib';
+import { childrenUtils, customPropTypes, getElementType, getUnhandledProps, META, SUI, useTextAlignProp } from '../../lib';
 
 /**
  * A card can contain a header.
@@ -11,9 +13,10 @@ import { childrenUtils, customPropTypes, getElementType, getUnhandledProps, META
 function CardHeader(props) {
   var children = props.children,
       className = props.className,
-      content = props.content;
+      content = props.content,
+      textAlign = props.textAlign;
 
-  var classes = cx(className, 'header');
+  var classes = cx(useTextAlignProp(textAlign), 'header', className);
   var rest = getUnhandledProps(CardHeader, props);
   var ElementType = getElementType(CardHeader, props);
 
@@ -24,14 +27,14 @@ function CardHeader(props) {
   );
 }
 
-CardHeader.handledProps = ['as', 'children', 'className', 'content'];
+CardHeader.handledProps = ['as', 'children', 'className', 'content', 'textAlign'];
 CardHeader._meta = {
   name: 'CardHeader',
   parent: 'Card',
   type: META.TYPES.VIEW
 };
 
-process.env.NODE_ENV !== "production" ? CardHeader.propTypes = {
+CardHeader.propTypes = process.env.NODE_ENV !== "production" ? {
   /** An element type to render as (string or function). */
   as: customPropTypes.as,
 
@@ -42,7 +45,10 @@ process.env.NODE_ENV !== "production" ? CardHeader.propTypes = {
   className: PropTypes.string,
 
   /** Shorthand for primary content. */
-  content: customPropTypes.contentShorthand
-} : void 0;
+  content: customPropTypes.contentShorthand,
+
+  /** A card header can adjust its text alignment. */
+  textAlign: PropTypes.oneOf(_without(SUI.TEXT_ALIGNMENTS, 'justified'))
+} : {};
 
 export default CardHeader;

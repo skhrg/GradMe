@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  background: linear-gradient(0deg,#e3f2fd,#9bddff);
+  background: linear-gradient(0deg,#e0f7fa, #81d4fa);
   height: 170px;
 }
 .overview > .title {
@@ -15,6 +15,9 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 2em;
+}
+.insetShadow {
+  box-shadow:inset 0 15px 5px -12px #aaa;
 }
 .section {
   background: #fafafa;
@@ -42,13 +45,13 @@
   overflow-x: hidden;
   /*box-shadow:inset 0 15px 5px -14px #aaa;*/
 }
-.insetShadow {
-  box-shadow:inset 0 15px 5px -12px #aaa;
+.body ::-webkit-scrollbar-track {
+  background: transparent;
+  width: 5px;
 }
 .courseLabel {
   height: 55px;
   box-sizing: border-box;
-  font-family: 'Open Sans' !important;
   border-bottom: solid 1px #ddd;
   box-sizing: border-box;
   display: flex;

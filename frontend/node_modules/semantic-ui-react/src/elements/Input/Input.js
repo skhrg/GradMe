@@ -11,7 +11,7 @@ import {
   getElementType,
   getUnhandledProps,
   META,
-  partitionHTMLInputProps,
+  partitionHTMLProps,
   SUI,
   useKeyOnly,
   useValueAndKey,
@@ -53,7 +53,7 @@ class Input extends Component {
     /** An Input field can show the data contains errors. */
     error: PropTypes.bool,
 
-    /** Take on the size of it's container. */
+    /** Take on the size of its container. */
     fluid: PropTypes.bool,
 
     /** An Input field can show a user is currently interacting with it. */
@@ -133,16 +133,15 @@ class Input extends Component {
   focus = () => (this.inputRef.focus())
 
   handleChange = (e) => {
-    const { onChange } = this.props
     const value = _.get(e, 'target.value')
 
-    onChange(e, { ...this.props, value })
+    _.invoke(this.props, 'onChange', e, { ...this.props, value })
   }
 
   handleChildOverrides = (child, defaultProps) => ({
     ...defaultProps,
     ...child.props,
-    ref: c => {
+    ref: (c) => {
       _.invoke(child, 'ref', c)
       this.handleInputRef(c)
     },
@@ -151,20 +150,20 @@ class Input extends Component {
   handleInputRef = c => (this.inputRef = c)
 
   partitionProps = () => {
-    const { disabled, onChange, type } = this.props
+    const { disabled, type } = this.props
 
     const tabIndex = this.computeTabIndex()
     const unhandled = getUnhandledProps(Input, this.props)
-    const [htmlInputProps, rest] = partitionHTMLInputProps(unhandled)
+    const [htmlInputProps, rest] = partitionHTMLProps(unhandled)
 
-    htmlInputProps.ref = this.handleInputRef
-    htmlInputProps.type = type
-
-    if (disabled) htmlInputProps.disabled = disabled
-    if (onChange) htmlInputProps.onChange = this.handleChange
-    if (tabIndex) htmlInputProps.tabIndex = tabIndex
-
-    return [htmlInputProps, rest]
+    return [{
+      ...htmlInputProps,
+      disabled,
+      type,
+      tabIndex,
+      onChange: this.handleChange,
+      ref: this.handleInputRef,
+    }, rest]
   }
 
   render() {
@@ -223,7 +222,6 @@ class Input extends Component {
     // Render Shorthand
     // ----------------------------------------
     const actionElement = Button.create(action)
-    const iconElement = Icon.create(this.computeIcon())
     const labelElement = Label.create(label, {
       defaultProps: {
         className: cx(
@@ -237,11 +235,10 @@ class Input extends Component {
     return (
       <ElementType {...rest} className={classes}>
         {actionPosition === 'left' && actionElement}
-        {iconPosition === 'left' && iconElement}
         {labelPosition !== 'right' && labelElement}
         {createHTMLInput(input || type, { defaultProps: htmlInputProps })}
         {actionPosition !== 'left' && actionElement}
-        {iconPosition !== 'left' && iconElement}
+        {Icon.create(this.computeIcon())}
         {labelPosition === 'right' && labelElement}
       </ElementType>
     )

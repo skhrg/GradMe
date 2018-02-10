@@ -35,7 +35,7 @@ class InfoModule extends React.Component {
               {options.map(function(option, i) {
                 return (
                     <div key={i} className="courseLabel">
-                      <div className="course-title">{option.label}</div>
+                      <Checkbox className="course-title" label={option.label}/>
                       <div className="courseLabel-id">
                         <p className="course-number">{option.type}</p>
                         <p className="course-credit">{option.credits + " credits"}</p>
