@@ -27,16 +27,16 @@ class CourseDropdown extends React.Component {
 		const name = props.name;
 		switch(name) {
 			case 'Majors': 
-				this.state.options = majors;
+				this.setState({ options: majors });
 				break;
 			case 'Minors':
-				this.state.options = minors;
+				this.setState({ options: minors });
 				break;
 			case 'Pre-Professional Tracks':
-				this.state.options = tracks;
+				this.setState({ options: tracks });
 				break;
 			default:
-				this.state.options = 'Select';
+				this.setState({ options: 'Select' });
 		}
 	}
 

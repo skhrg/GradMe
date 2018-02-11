@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.12
+ * # Semantic UI - 2.2.11
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.12 - Site
+ * # Semantic UI 2.2.11 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Form Validation
+ * # Semantic UI 2.2.11 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2204,7 +2204,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Accordion
+ * # Semantic UI 2.2.11 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2815,7 +2815,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.2.12 - Checkbox
+ * # Semantic UI 2.2.11 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3647,7 +3647,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Dimmer
+ * # Semantic UI 2.2.11 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4356,7 +4356,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Dropdown
+ * # Semantic UI 2.2.11 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4454,13 +4454,7 @@ $.fn.dropdown = function(parameters) {
             module.setup.reference();
           }
           else {
-
             module.setup.layout();
-
-            if(settings.values) {
-              module.change.values(settings.values);
-            }
-
             module.refreshData();
 
             module.save.defaults();
@@ -4525,7 +4519,7 @@ $.fn.dropdown = function(parameters) {
         observe: {
           select: function() {
             if(module.has.input()) {
-              selectObserver.observe($module[0], {
+              selectObserver.observe($input[0], {
                 childList : true,
                 subtree   : true
               });
@@ -4746,16 +4740,19 @@ $.fn.dropdown = function(parameters) {
           reference: function() {
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module  = $module.parent(selector.dropdown);
-            instance = $module.data(moduleNamespace);
-            element  = $module.get(0);
+            $module = $module.parent(selector.dropdown);
             module.refresh();
             module.setup.returnedObject();
+            // invoke method in context of current instance
+            if(methodInvoked) {
+              instance = module;
+              module.invoke(query);
+            }
           },
           returnedObject: function() {
             var
               $firstModules = $allModules.slice(0, elementIndex),
-              $lastModules  = $allModules.slice(elementIndex + 1)
+              $lastModules = $allModules.slice(elementIndex + 1)
             ;
             // adjust all modules to use correct reference
             $allModules = $firstModules.add($module).add($lastModules);
@@ -5273,23 +5270,6 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        change: {
-          values: function(values) {
-            if(!settings.allowAdditions) {
-              module.clear();
-            }
-            module.debug('Creating dropdown with specified values', values);
-            module.setup.menu({values: values});
-            $.each(values, function(index, item) {
-              if(item.selected == true) {
-                module.debug('Setting initial selection to', item.value);
-                module.set.selected(item.value);
-                return true;
-              }
-            });
-          }
-        },
-
         event: {
           change: function() {
             if(!internalChange) {
@@ -5458,22 +5438,7 @@ $.fn.dropdown = function(parameters) {
           select: {
             mutation: function(mutations) {
               module.debug('<select> modified, recreating menu');
-              var
-                isSelectMutation = false
-              ;
-              $.each(mutations, function(index, mutation) {
-                if($(mutation.target).is('select') || $(mutation.addedNodes).is('select')) {
-                  isSelectMutation = true;
-                  return true;
-                }
-              });
-              if(isSelectMutation) {
-                module.disconnect.selectObserver();
-                module.refresh();
-                module.setup.select();
-                module.set.selected();
-                module.observe.select();
-              }
+              module.setup.select();
             }
           },
           menu: {
@@ -6011,9 +5976,6 @@ $.fn.dropdown = function(parameters) {
             return $module.data(metadata.defaultValue);
           },
           placeholderText: function() {
-            if(settings.placeholder != 'auto' && typeof settings.placeholder == 'string') {
-              return settings.placeholder;
-            }
             return $module.data(metadata.placeholderText) || '';
           },
           text: function() {
@@ -7439,7 +7401,7 @@ $.fn.dropdown = function(parameters) {
             return $(event.target).closest($icon).length > 0;
           },
           alreadySetup: function() {
-            return ($module.is('select') && $module.parent(selector.dropdown).data(moduleNamespace) !== undefined && $module.prev().length === 0);
+            return ($module.is('select') && $module.parent(selector.dropdown).length > 0  && $module.prev().length === 0);
           },
           animating: function($subMenu) {
             return ($subMenu)
@@ -7989,7 +7951,6 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
-  values                 : false,      // specify values to use for dropdown
 
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
@@ -8236,7 +8197,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Embed
+ * # Semantic UI 2.2.11 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8933,7 +8894,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Modal
+ * # Semantic UI 2.2.11 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9263,9 +9224,6 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
-              if(settings.allowMultiple && settings.detachable) {
-                $module.detach().appendTo($dimmer);
-              }
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
@@ -9469,41 +9427,24 @@ $.fn.modal = function(parameters) {
         },
 
         cacheSizes: function() {
-          $module.addClass(className.loading);
           var
-            scrollHeight = $module.prop('scrollHeight'),
-            modalHeight  = $module.outerHeight()
+            modalHeight = $module.outerHeight()
           ;
           if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
               height        : modalHeight + settings.offset,
-              scrollHeight  : scrollHeight + settings.offset,
               contextHeight : (settings.context == 'body')
                 ? $(window).height()
-                : $dimmable.height(),
+                : $dimmable.height()
             };
-            module.cache.topOffset = -(module.cache.height / 2);
           }
-          $module.removeClass(className.loading);
           module.debug('Caching modal and container sizes', module.cache);
         },
 
         can: {
           fit: function() {
-            var
-              contextHeight  = module.cache.contextHeight,
-              verticalCenter = module.cache.contextHeight / 2,
-              topOffset      = module.cache.topOffset,
-              scrollHeight   = module.cache.scrollHeight,
-              height         = module.cache.height,
-              paddingHeight  = settings.padding,
-              startPosition  = (verticalCenter + topOffset)
-            ;
-            return (scrollHeight > height)
-              ? (startPosition + scrollHeight + paddingHeight < contextHeight)
-              : (height + (paddingHeight * 2) < contextHeight)
-            ;
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
           }
         },
 
@@ -9618,7 +9559,7 @@ $.fn.modal = function(parameters) {
               $module
                 .css({
                   top: '',
-                  marginTop: module.cache.topOffset
+                  marginTop: -(module.cache.height / 2)
                 })
               ;
             }
@@ -9891,7 +9832,6 @@ $.fn.modal.settings = {
     animating  : 'animating',
     blurring   : 'blurring',
     inverted   : 'inverted',
-    loading    : 'loading',
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }
@@ -9901,7 +9841,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Nag
+ * # Semantic UI 2.2.11 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10409,7 +10349,7 @@ $.extend( $.easing, {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Popup
+ * # Semantic UI 2.2.11 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10535,7 +10475,7 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = module.get.offsetParent();
+            $offsetParent = module.get.offsetParent($target);
             $popup.removeClass(className.loading);
             if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as target');
@@ -10549,7 +10489,7 @@ $.fn.popup = function(parameters) {
             $offsetParent = (settings.inline)
               ? module.get.offsetParent($target)
               : module.has.popup()
-                ? module.get.offsetParent($popup)
+                ? module.get.offsetParent($target)
                 : $body
             ;
           }
@@ -11896,7 +11836,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Progress
+ * # Semantic UI 2.2.11 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12828,7 +12768,7 @@ $.fn.progress.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Rating
+ * # Semantic UI 2.2.11 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13337,7 +13277,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Search
+ * # Semantic UI 2.2.11 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14789,7 +14729,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Shape
+ * # Semantic UI 2.2.11 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15711,7 +15651,7 @@ $.fn.shape.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Sidebar
+ * # Semantic UI 2.2.11 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16745,7 +16685,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Sticky
+ * # Semantic UI 2.2.11 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17705,7 +17645,7 @@ $.fn.sticky.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Tab
+ * # Semantic UI 2.2.11 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18658,7 +18598,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Transition
+ * # Semantic UI 2.2.11 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19754,7 +19694,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - API
+ * # Semantic UI 2.2.11 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20922,7 +20862,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - State
+ * # Semantic UI 2.2.11 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21631,7 +21571,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.12 - Visibility
+ * # Semantic UI 2.2.11 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
