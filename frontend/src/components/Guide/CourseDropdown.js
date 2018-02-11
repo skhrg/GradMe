@@ -21,23 +21,19 @@ class CourseDropdown extends React.Component {
 
 	constructor(props) {
 		super();
-		this.state = { options: [] };
-		// const name = this.props.name;
-		//let options = null
-		const name = props.name;
-		switch(name) {
-			case 'Majors': 
-				this.setState({ options: majors });
-				break;
+		let curriculum = majors;
+		switch(props.name) {
 			case 'Minors':
-				this.setState({ options: minors });
+				curriculum = minors;
 				break;
 			case 'Pre-Professional Tracks':
-				this.setState({ options: tracks });
+				curriculum = tracks;
 				break;
 			default:
-				this.setState({ options: 'Select' });
+				curriculum = majors;
 		}
+		this.state = { options: curriculum };
+		
 	}
 
 	// Backpropagates selected values to local state of SlideContainer parent.
