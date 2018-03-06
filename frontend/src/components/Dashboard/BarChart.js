@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 class BarChart extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
+			
 			chartData:{
 				labels: ["Physics", "Bioethics (Minor)", "Economics (Minor)", "Pre-Medical Track"],
    				datasets: [{
@@ -46,16 +47,16 @@ class BarChart extends Component{
 			chartOptions: {
 				scales: {
 			      	yAxes: [{
-				      	scaleLabel: {
-				      		display: true,
-				      		labelString: "Credits"
-				      	},
 				      	stacked: true,
 				        ticks: {
 				          beginAtZero: true
 				        }
       				}],
       				xAxes: [{
+      					scaleLabel: {
+				      		display: true,
+				      		labelString: "Credits"
+				      	},
         				stacked: true,
         				ticks: {
          					beginAtZero: true
@@ -73,7 +74,7 @@ class BarChart extends Component{
 	render() {
 		return (
 			<div className = "BarChart">
-				<Bar
+				<HorizontalBar
 					data={this.state.chartData}
 					width={200}
 					height={400}
