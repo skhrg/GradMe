@@ -43,6 +43,9 @@ class Navbar extends React.Component {
                     <li>
                         <NavLink to='/dashboard' activeClassName="active" style={{textDecoration:'none'}}>Dashboard</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/admin' activeClassName="active" style={{textDecoration:'none'}}>Admin</NavLink>
+                    </li>
                     <li ><a>About</a></li>
                     <li onClick={this.openModal}><a>Account</a></li>
                 </div>

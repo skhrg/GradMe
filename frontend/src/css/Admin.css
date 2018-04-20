@@ -1,0 +1,119 @@
+.overview {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  background: linear-gradient(0deg,#e0f7fa, #81d4fa);
+  height: 170px;
+}
+.overview > .title {
+  height: 80px;
+  margin-top: 70px;
+  text-align: center;
+  font-family: 'Open Sans';
+  color: #260e04;
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 2em;
+}
+.insetShadow {
+  box-shadow:inset 0 15px 5px -12px #aaa;
+}
+.section {
+  background: #fafafa;
+  padding: 30px 20px 20px 20px;
+}
+.sectionCaption {
+  padding: 10px 0 0 4vw;
+}
+.sectionTitle {font-size: 1.8em; letter-spacing: 0.5px; font-weight: 600}
+.subtitle {
+  font-family: 'Open Sans';
+  font-size: 1.2em; font-weight: 300;
+  padding: 10px 0;
+  text-align: left;
+}
+.hover:hover {transition: all .2s ease;transform: scale(1.01)}
+.module {
+  z-index: 1;
+  background: none;
+  height: 300px;
+  padding: 4px;
+  color: #000;
+  border-top: solid 1px #aaa;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /*box-shadow:inset 0 15px 5px -14px #aaa;*/
+}
+.body ::-webkit-scrollbar-track {
+  background: transparent;
+  width: 5px;
+}
+.courseLabel {
+  height: 55px;
+  box-sizing: border-box;
+  border-bottom: solid 1px #ddd;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.courseLabel:last-child {
+  border-bottom: none;
+}
+
+.courseLabel-id {
+  display: flex;
+  padding-left: 60px;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  padding: 0 13px 0 54px;
+  color: #607D8B;
+}
+
+.courseLabel > .course-number {
+  height: 40%;
+  font-weight: 300;
+  font-style: normal;
+}
+.courseLabel > .course-title {
+  height: 60%;
+  width: 100%;
+  padding: 3px 13px 1px 13px;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.courseLabel-id > .course-credit {
+  font-style: bold;
+}
+
+.scroll-text {
+  -webkit-transition: 2.5s;
+  -moz-transition: 2.5s;
+  transition: 2.5s;     
+  
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+.scroll-text:hover {
+  margin-left: -200px;
+}
+@media(max-width: 990px) {
+  .section-title {
+    padding-left: 0;
+  }
+}
+/* semantic restyling */
+.ui.grid>.doubling.row>.column {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+.ui.grid {
+  margin-top: 0 !important;
+}

@@ -4,6 +4,7 @@ import './App.css';
 import Homepage from './components/Homepage.js'
 import Planner from './components/Guide/Planner.js'
 import Dashboard from './components/Dashboard/Dashboard.js'
+import Admin from './components/Admin/Admin.js'
 import Navbar from './components/Navbar.js'
 import Footer from './components/Footer.js'
 
@@ -29,6 +30,7 @@ const App = ({ match: { params } }) => {
         <Route exact path='/home' component={Homepage}/>
         <Route exact path='/planner' component={Planner}/>
         <Route exact path='/dashboard' component={Dashboard}/>
+        <Route exact path="/admin" component={Admin}/>
       </Switch>
       </MuiThemeProvider>
       <Footer/>
