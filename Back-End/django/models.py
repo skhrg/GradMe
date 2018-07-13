@@ -2,19 +2,13 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 class Requirement(model.Model):
-    specific_requirements = ArrayField(
-        models.ForeignKey(SpecificRequirement, on_delete=models.CASCADE),
-    )
-    generic_requirements = ArrayField(
-        models.ForeignKey(GenericRequirement, on_delete=models.CASCADE),
-    )
+    specific_requirements = models.ManyToManyField(SpecificRequirement)
+    generic_requirements = models.ManyToManyField(GenericRequirement)
 
 class SpecificRequirement(models.Model):
     total_credits = models.IntegerField()
     required_credits = models.IntegerField()
-    courses = ArrayField(
-        models.ForeignKey(, on_delete=models.CASCADE),
-    )
+    courses = models.ManyToManyField(Course)
 
 class GenericRequirement(model.Model):
 	//Total number of credits required for this requirement
@@ -30,3 +24,5 @@ class GenericRequirement(model.Model):
     level = models.IntegerField()
 	//Minumum number of credits that a course must be
     min_course_credits = models.IntegerField()
+	def check_req(ArrayField(models.ForeignKey(, on_delete=models.CASCADE)) courselist):
+		for c in
