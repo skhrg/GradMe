@@ -10,6 +10,17 @@ class SpecificRequirement(models.Model):
     required_credits = models.IntegerField()
     courses = models.ManyToManyField(Course)
 
+	#Check if requirement is met
+	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
+		int creds = 0 #Credits met
+		for c in courselist.all(): #Iterate over courselist
+			if c in self.courses.all(): #If course meets requirement
+				creds += c.credits #Count the credits
+		if creds >= self.total_credits: #Requirement met
+			return true
+		else:
+			return false
+
 class GenericRequirement(model.Model):
 	#Total number of credits required for this requirement
     total_credits = models.IntegerField()
@@ -27,7 +38,7 @@ class GenericRequirement(model.Model):
 
 	#Check if requirment is met
 	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
-		int creds = 0; #Credits met
+		int creds = 0 #Credits met
 		for c in courselist.all(): #Iterate over courselist
 			if (~(self.distribution_requirements)) | c.distribution_requirements == 2**c.dist_bits: #Check distribution requirements
 				if GenericRequirement.objects.filter(department__contains=[c.department]).exists(): #Check department
