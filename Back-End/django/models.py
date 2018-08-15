@@ -5,6 +5,19 @@ class Requirement(model.Model):
     specific_requirements = models.ManyToManyField(SpecificRequirement)
     generic_requirements = models.ManyToManyField(GenericRequirement)
 
+	#Check if requirement is met
+	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
+		bool met = false
+		for sr in self.specific_requirements.all(): #Iterate over specific requirements
+			met = sr.check_req(courselist)
+			if met: #As soon as we meet one of the possible ways to fullfill the req we exit
+				return true
+		for gr in self.generic_requirements.all(): #Iterate over generic requirements
+			met = gr.check_req(courselist)
+			if met: #Same deal as above
+				return true
+		return false
+
 class SpecificRequirement(models.Model):
     total_credits = models.IntegerField()
     required_credits = models.IntegerField()
