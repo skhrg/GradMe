@@ -53,14 +53,17 @@ class SpecificRequirement(models.Model):
 
 	#Check if requirement is met
 	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
-		int creds = 0 #Credits met
+		prog = Progression.objects.create()
+		prog.sreq = self
+		prog.reqtype = true
+		prog.creds = 0
 		for c in courselist.all(): #Iterate over courselist
 			if c in self.courses.all(): #If course meets requirement
-				creds += c.credits #Count the credits
-		if creds >= self.total_credits: #Requirement met
-			return true
-		else:
-			return false
+				prog.creds += c.credits #Count the credits
+				prog.courses.add(c)
+		if prog.creds >= self.total_credits: #Requirement met
+			prog.met = true
+		return prog
 
 class GenericRequirement(model.Model):
 	#Total number of credits required for this requirement
@@ -79,14 +82,17 @@ class GenericRequirement(model.Model):
 
 	#Check if requirment is met
 	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
-		int creds = 0 #Credits met
+		prog = Progression.objects.create()
+                prog.greq = self
+                prog.reqtype = false
+                prog.creds = 0
 		for c in courselist.all(): #Iterate over courselist
 			if (~(self.distribution_requirements)) | c.distribution_requirements == 2**c.dist_bits: #Check distribution requirements
 				if GenericRequirement.objects.filter(department__contains=[c.department]).exists(): #Check department
 					if self.level <= c.level: #Check level
 						if self.min_course_credits <= c.credits: #Check credits
-							creds += c.credits #If all conditions are met, add to running total of credits met
+							prog.creds += c.credits #If all conditions are met, add to running total of credits met
+							prog.courses.add(c)
 		if creds >= self.total_credits: #If required number of credits are taken
-			return true
-		else:
-			return false
+			prog.met = true
+		return prog
