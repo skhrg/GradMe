@@ -38,17 +38,21 @@ class Requirement(model.Model):
 	generic_requirements = models.ManyToManyField(GenericRequirement)
 
 	#Check if requirement is met
-	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
-		bool met = False
+	def check_req(models.ManyToManyField courselist):
+		reqprog = ReqProg.objects.create()
 		for sr in self.specific_requirements.all(): #Iterate over specific requirements
-			met = sr.check_req(courselist)
-			if met: #As soon as we meet one of the possible ways to fullfill the req we exit
-				return True
+			prog = sr.check_req(courselist)
+			reqprog.progress.add(prog)
+			if prog.met: #As soon as we meet one way of fulfilling requirement we exit
+				reqprog.met = True
+				return reqprog
 		for gr in self.generic_requirements.all(): #Iterate over generic requirements
-			met = gr.check_req(courselist)
-			if met: #Same deal as above
-				return True
-		return False
+			prog = gr.check_req(courselist)
+			reqprog.progress.add(prog)
+			if prog.met: #Same deal as above
+				reqprog.met = True
+				return reqprog
+		return reqprog
 
 class SpecificRequirement(models.Model):
 	total_credits = models.IntegerField()
