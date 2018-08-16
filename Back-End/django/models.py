@@ -24,7 +24,7 @@ class Major(model.Model): #Can also be a minor or track or some custom shit
 
 	#Check if major is done
 	def check_req(models.ManyToManyField courselist): #TODO return list of courses used to fullfull req and credit progression
-		bool met = false
+		bool met = False
 		for r in self.requirements.all():
 			met = met && r.check_req(courselist)
 		return met
@@ -35,16 +35,16 @@ class Requirement(model.Model):
 
 	#Check if requirement is met
 	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
-		bool met = false
+		bool met = False
 		for sr in self.specific_requirements.all(): #Iterate over specific requirements
 			met = sr.check_req(courselist)
 			if met: #As soon as we meet one of the possible ways to fullfill the req we exit
-				return true
+				return True
 		for gr in self.generic_requirements.all(): #Iterate over generic requirements
 			met = gr.check_req(courselist)
 			if met: #Same deal as above
-				return true
-		return false
+				return True
+		return False
 
 class SpecificRequirement(models.Model):
 	total_credits = models.IntegerField()
@@ -52,17 +52,17 @@ class SpecificRequirement(models.Model):
 	courses = models.ManyToManyField(Course)
 
 	#Check if requirement is met
-	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
+	def check_req(models.ManyToManyField courselist):
 		prog = Progression.objects.create()
 		prog.sreq = self
-		prog.reqtype = true
+		prog.reqtype = True
 		prog.creds = 0
 		for c in courselist.all(): #Iterate over courselist
 			if c in self.courses.all(): #If course meets requirement
 				prog.creds += c.credits #Count the credits
 				prog.courses.add(c)
 		if prog.creds >= self.total_credits: #Requirement met
-			prog.met = true
+			prog.met = True
 		return prog
 
 class GenericRequirement(model.Model):
@@ -81,10 +81,10 @@ class GenericRequirement(model.Model):
 	min_course_credits = models.IntegerField()
 
 	#Check if requirment is met
-	def check_req(models.ManyToManyField courselist): #TODO maybe return list of courses used to fullfill req and credit progression
+	def check_req(models.ManyToManyField courselist):
 		prog = Progression.objects.create()
                 prog.greq = self
-                prog.reqtype = false
+                prog.reqtype = False
                 prog.creds = 0
 		for c in courselist.all(): #Iterate over courselist
 			if (~(self.distribution_requirements)) | c.distribution_requirements == 2**c.dist_bits: #Check distribution requirements
@@ -94,5 +94,5 @@ class GenericRequirement(model.Model):
 							prog.creds += c.credits #If all conditions are met, add to running total of credits met
 							prog.courses.add(c)
 		if creds >= self.total_credits: #If required number of credits are taken
-			prog.met = true
+			prog.met = True
 		return prog
