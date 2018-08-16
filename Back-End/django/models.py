@@ -1,6 +1,16 @@
 from django.db import models
 from sympy import *
 
+class Major(model.Model): #Can also be a minor or track or some custom shit
+	requirements = models.ManyToManyField(Requirement)
+
+	#Check if major is done
+	def check_req(models.ManyToManyField courselist): #TODO return list of courses used to fullfull req and credit progression
+		bool met = false
+		for r in self.requirements.all():
+			met = met && r.check_req(courselist)
+		return met
+
 class Requirement(model.Model):
 	specific_requirements = models.ManyToManyField(SpecificRequirement)
 	generic_requirements = models.ManyToManyField(GenericRequirement)
