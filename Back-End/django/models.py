@@ -5,6 +5,19 @@ class Student(model.Model):
 	majors = models.ManyToManyField(Major)
 	courses = models.ManyToManyField(Course)
 
+class Progression(model.Model):
+	met = models.BooleanField(default=False)
+	creds = models.IntegerField
+	courses = models.ManyToManyField(Course)
+	reqtype = models.BooleanField #T=Specific, F=Generic
+	sreq = models.ForeignKey(SpecificRequirement, on_delete=models.CASCADE)
+	greq = models.ForiegnKey(GenericRequirement, on_delete=models.CASCADE)
+
+	def get_req():
+		if(req):
+			return sreq
+		else:
+			return greq
 
 class Major(model.Model): #Can also be a minor or track or some custom shit
 	requirements = models.ManyToManyField(Requirement)
