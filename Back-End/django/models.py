@@ -1,6 +1,11 @@
 from django.db import models
 from sympy import *
 
+class Student(model.Model):
+	majors = models.ManyToManyField(Major)
+	courses = models.ManyToManyField(Course)
+
+
 class Major(model.Model): #Can also be a minor or track or some custom shit
 	requirements = models.ManyToManyField(Requirement)
 
