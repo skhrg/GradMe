@@ -5,9 +5,13 @@ class Student(model.Model):
 	majors = models.ManyToManyField(Major)
 	courses = models.ManyToManyField(Course)
 
+class MajProg(model.Model):
+	met = models.BooleanField(default=False)
+	progress = models.ManyToManyField(ReqProg)
+
 class ReqProg(model.Model):
 	met = models.BooleanField(default=False)
-	progress = models.ManyToManyField(Requirement)
+	progress = models.ManyToManyField(Progression)
 
 class Progression(model.Model):
 	met = models.BooleanField(default=False)
