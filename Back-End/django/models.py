@@ -5,6 +5,10 @@ class Student(model.Model):
 	majors = models.ManyToManyField(Major)
 	courses = models.ManyToManyField(Course)
 
+class ReqProg(model.Model):
+	met = models.BooleanField(default=False)
+	progress = models.ManyToManyField(Requirement)
+
 class Progression(model.Model):
 	met = models.BooleanField(default=False)
 	creds = models.IntegerField
