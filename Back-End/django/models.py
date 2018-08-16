@@ -32,9 +32,11 @@ class Major(model.Model): #Can also be a minor or track or some custom shit
 
 	#Check if major is done
 	def check_req(models.ManyToManyField courselist): #TODO return list of courses used to fullfull req and credit progression
-		bool met = False
+		majprog - MajProg.objects.create()
 		for r in self.requirements.all():
-			met = met && r.check_req(courselist)
+			rp = r.check_req(courselist)
+			majprog.met = majprog.met && rp.met
+			majprog.progress.add(rp)
 		return met
 
 class Requirement(model.Model):
