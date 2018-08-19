@@ -2,11 +2,11 @@ from django.db import models
 from sympy import *
 
 class Student(model.Model):
-	majors = models.ManyToManyField(Major)
-	courses = models.ManyToManyField(Course)
-	progress = models.ManyToManyField(MajProg)
+	majors = models.ManyToManyField('Major')
+	courses = models.ManyToManyField('Course')
+	progress = models.ManyToManyField('MajProg')
 
-	def check_prog:
+	def check_prog():
 		#Delete current progress
 		for p in self.progress.all()
 			self.progress.remove(p)
@@ -16,19 +16,19 @@ class Student(model.Model):
 
 class MajProg(model.Model):
 	met = models.BooleanField(default=False)
-	progress = models.ManyToManyField(ReqProg)
+	progress = models.ManyToManyField('ReqProg')
 
 class ReqProg(model.Model):
 	met = models.BooleanField(default=False)
-	progress = models.ManyToManyField(Progression)
+	progress = models.ManyToManyField('Progression')
 
 class Progression(model.Model):
 	met = models.BooleanField(default=False)
 	creds = models.IntegerField
-	courses = models.ManyToManyField(Course)
+	courses = models.ManyToManyField('Course')
 	reqtype = models.BooleanField #T=Specific, F=Generic
-	sreq = models.ForeignKey(SpecificRequirement, on_delete=models.CASCADE)
-	greq = models.ForiegnKey(GenericRequirement, on_delete=models.CASCADE)
+	sreq = models.ForeignKey('SpecificRequirement', on_delete=models.CASCADE)
+	greq = models.ForiegnKey('GenericRequirement', on_delete=models.CASCADE)
 
 	def get_req():
 		if(req):
@@ -37,11 +37,11 @@ class Progression(model.Model):
 			return greq
 
 class Major(model.Model): #Can also be a minor or track or some custom shit
-	requirements = models.ManyToManyField(Requirement)
+	requirements = models.ManyToManyField('Requirement')
 
 	#Check if major is done
 	def check_req(models.ManyToManyField courselist):
-		majprog - MajProg.objects.create()
+		majprog = MajProg.objects.create()
 		for r in self.requirements.all():
 			rp = r.check_req(courselist)
 			majprog.met = majprog.met && rp.met
@@ -49,8 +49,8 @@ class Major(model.Model): #Can also be a minor or track or some custom shit
 		return met
 
 class Requirement(model.Model):
-	specific_requirements = models.ManyToManyField(SpecificRequirement)
-	generic_requirements = models.ManyToManyField(GenericRequirement)
+	specific_requirements = models.ManyToManyField('SpecificRequirement')
+	generic_requirements = models.ManyToManyField('GenericRequirement')
 
 	#Check if requirement is met
 	def check_req(models.ManyToManyField courselist):
@@ -72,7 +72,7 @@ class Requirement(model.Model):
 class SpecificRequirement(models.Model):
 	total_credits = models.IntegerField()
 	required_credits = models.IntegerField()
-	courses = models.ManyToManyField(Course)
+	courses = models.ManyToManyField('Course')
 
 	#Check if requirement is met
 	def check_req(models.ManyToManyField courselist):
