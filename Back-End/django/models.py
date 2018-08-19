@@ -1,27 +1,6 @@
 from django.db import models
 from sympy import *
 
-class Student(model.Model):
-	majors = models.ManyToManyField('Major')
-	courses = models.ManyToManyField('Course')
-	progress = models.ManyToManyField('MajProg')
-
-	def check_prog():
-		#Delete current progress
-		for p in self.progress.all()
-			self.progress.remove(p)
-		#Get new progress
-		for m in self.majors.all()
-			self.progress.add(m.check_req(self.courses))
-
-class MajProg(model.Model):
-	met = models.BooleanField(default=False)
-	progress = models.ManyToManyField('ReqProg')
-
-class ReqProg(model.Model):
-	met = models.BooleanField(default=False)
-	progress = models.ManyToManyField('Progression')
-
 class Progression(model.Model):
 	met = models.BooleanField(default=False)
 	creds = models.IntegerField
@@ -36,38 +15,13 @@ class Progression(model.Model):
 		else:
 			return greq
 
-class Major(model.Model): #Can also be a minor or track or some custom shit
-	requirements = models.ManyToManyField('Requirement')
+class ReqProg(model.Model):
+	met = models.BooleanField(default=False)
+	progress = models.ManyToManyField('Progression')
 
-	#Check if major is done
-	def check_req(models.ManyToManyField courselist):
-		majprog = MajProg.objects.create()
-		for r in self.requirements.all():
-			rp = r.check_req(courselist)
-			majprog.met = majprog.met && rp.met
-			majprog.progress.add(rp)
-		return met
-
-class Requirement(model.Model):
-	specific_requirements = models.ManyToManyField('SpecificRequirement')
-	generic_requirements = models.ManyToManyField('GenericRequirement')
-
-	#Check if requirement is met
-	def check_req(models.ManyToManyField courselist):
-		reqprog = ReqProg.objects.create()
-		for sr in self.specific_requirements.all(): #Iterate over specific requirements
-			prog = sr.check_req(courselist)
-			reqprog.progress.add(prog)
-			if prog.met: #As soon as we meet one way of fulfilling requirement we exit
-				reqprog.met = True
-				return reqprog
-		for gr in self.generic_requirements.all(): #Iterate over generic requirements
-			prog = gr.check_req(courselist)
-			reqprog.progress.add(prog)
-			if prog.met: #Same deal as above
-				reqprog.met = True
-				return reqprog
-		return reqprog
+class MajProg(model.Model):
+	met = models.BooleanField(default=False)
+	progress = models.ManyToManyField('ReqProg')
 
 class SpecificRequirement(models.Model):
 	total_credits = models.IntegerField()
@@ -119,3 +73,50 @@ class GenericRequirement(model.Model):
 		if creds >= self.total_credits: #If required number of credits are taken
 			prog.met = True
 		return prog
+
+class Requirement(model.Model):
+	specific_requirements = models.ManyToManyField('SpecificRequirement')
+	generic_requirements = models.ManyToManyField('GenericRequirement')
+
+	#Check if requirement is met
+	def check_req(models.ManyToManyField courselist):
+		reqprog = ReqProg.objects.create()
+		for sr in self.specific_requirements.all(): #Iterate over specific requirements
+			prog = sr.check_req(courselist)
+			reqprog.progress.add(prog)
+			if prog.met: #As soon as we meet one way of fulfilling requirement we exit
+				reqprog.met = True
+				return reqprog
+		for gr in self.generic_requirements.all(): #Iterate over generic requirements
+			prog = gr.check_req(courselist)
+			reqprog.progress.add(prog)
+			if prog.met: #Same deal as above
+				reqprog.met = True
+				return reqprog
+		return reqprog
+
+class Major(model.Model): #Can also be a minor or track or some custom shit
+	requirements = models.ManyToManyField('Requirement')
+
+	#Check if major is done
+	def check_req(models.ManyToManyField courselist):
+		majprog = MajProg.objects.create()
+		for r in self.requirements.all():
+			rp = r.check_req(courselist)
+			majprog.met = majprog.met && rp.met
+			majprog.progress.add(rp)
+		return met
+
+class Student(model.Model):
+	majors = models.ManyToManyField('Major')
+	courses = models.ManyToManyField('Course')
+	progress = models.ManyToManyField('MajProg')
+
+	def check_prog():
+		#Delete current progress
+		for p in self.progress.all()
+			self.progress.remove(p)
+		#Get new progress
+		for m in self.majors.all()
+			self.progress.add(m.check_req(self.courses))
+
