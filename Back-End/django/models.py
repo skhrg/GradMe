@@ -4,6 +4,15 @@ from sympy import *
 class Student(model.Model):
 	majors = models.ManyToManyField(Major)
 	courses = models.ManyToManyField(Course)
+	progress = models.ManyToManyField(MajProg)
+
+	def check_prog:
+		#Delete current progress
+		for p in self.progress.all()
+			self.progress.remove(p)
+		#Get new progress
+		for m in self.majors.all()
+			self.progress.add(m.check_req(self.courses))
 
 class MajProg(model.Model):
 	met = models.BooleanField(default=False)
@@ -31,7 +40,7 @@ class Major(model.Model): #Can also be a minor or track or some custom shit
 	requirements = models.ManyToManyField(Requirement)
 
 	#Check if major is done
-	def check_req(models.ManyToManyField courselist): #TODO return list of courses used to fullfull req and credit progression
+	def check_req(models.ManyToManyField courselist):
 		majprog - MajProg.objects.create()
 		for r in self.requirements.all():
 			rp = r.check_req(courselist)
